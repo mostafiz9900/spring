@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a1" class="com.beskilled.Address">
+        <constructor-arg value="Dhanmondi"></constructor-arg>
+        <constructor-arg value="Dhaka"></constructor-arg>
+        <constructor-arg value="Bangladesh"></constructor-arg>
+    </bean>
+    <bean id="dep" class="com.beskilled.Department">
+        <constructor-arg value="100"></constructor-arg>
+        <constructor-arg value="Marketion"></constructor-arg>
+
+    </bean>
+
+    <bean id="stu" class="com.beskilled.Student">
+    <constructor-arg value="001"></constructor-arg>
+    <constructor-arg value="Md Mostafizur Rahman"></constructor-arg>
+    <constructor-arg>
+        <ref bean="a1"></ref>
+    </constructor-arg>
+        <constructor-arg>
+            <ref bean="dep"></ref>
+        </constructor-arg>
+
+</bean>
+</beans>

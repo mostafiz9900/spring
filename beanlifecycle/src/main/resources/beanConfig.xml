@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sb1" class="com.beskilled.beanlifecycle.SimpleBean" init-method="init">
+        <property name="name" value="Mostafiz"/>
+        <property name="age" value="25"/>
+
+    </bean>
+    <bean id="sb2" class="com.beskilled.beanlifecycle.SimpleBean" init-method="init">
+
+        <property name="age" value="26"/>
+
+    </bean>
+</beans>
