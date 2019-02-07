@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+</head>
+<body>
+<h1>Hello World</h1>
+<span style="color: green; font-weight:900" th:text="${successMsg}"></span>
+<form th:object="${user}" th:action="@{/}" th:method="POST">
+    <!--Id: <input th:field="*{id}"/>-->
+    Name: <input th:field="*{name}"/>
+    UserName :<input th:field="*{userName}"/>
+    Pssword:<input th:field="*{password}"/>
+    <button type="submit" >Save</button>
+</form>
+</body>
+</html>
