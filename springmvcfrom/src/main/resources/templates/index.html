@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+</head>
+<body>
+<h2>Hello spring mv</h2>
+<span th:text="${successMsg}" style="color: chartreuse; font-family: 'Adobe Arabic'"></span>
+<form th:object="${usre}" th:action="@{/}" th:method="POST">
+    Name: <input th:field="*{name}"/>
+    Email:<input th:field="*{email}"/>
+    UserName: <input th:field="*{userName}"/>
+    Password:<input th:field="*{password}"/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
