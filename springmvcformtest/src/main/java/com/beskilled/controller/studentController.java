@@ -62,24 +62,41 @@ public class studentController {
 
     }
 
-    @GetMapping(value = "/del/{id}")
+   /* @GetMapping(value = "/del/{id}")
     public String delete(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             this.repo.deleteById(id);
+           model.addAttribute("delMsg", "Delet a Usre Successfully");
+        }
+
+        return "redirect:/";
+
+    }*/
+    @GetMapping("/edit/{id}")
+    public String viewEdit(Model model, @PathVariable("id") Long id){
+       model.addAttribute("student", this.repo.getOne(id));
+        return "edit";
+
+    }
+    @PostMapping("/edit/{id}")
+    public String edit(@Valid Student student, @PathVariable("id") Long id, Model model, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+           return "edit";
 //            model.addAttribute("delMsg", "Delet a Usre Successfully");
         }
+
+        this.repo.save(student);
+//        model.addAttribute("student", new Student());
 
         return "redirect:/";
 
     }
-    @GetMapping(value = "/edit/{id}")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        if (id != null) {
+
+    @GetMapping(value = "/del/{id}")
+    public String delete(@PathVariable("id") Long id){
+        if(id != null){
             this.repo.deleteById(id);
-//            model.addAttribute("delMsg", "Delet a Usre Successfully");
         }
-
         return "redirect:/";
-
     }
 }

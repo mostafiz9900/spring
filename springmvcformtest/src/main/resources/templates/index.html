@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-<a th:href="@{/index.html}">Add Student</a>
+<a th:href="@{/add}">Add Student</a>
 <table>
     <tr>
         <th>Id</th>
@@ -31,8 +31,8 @@
         <td th:text="${s.id}"></td>
         <td th:text="${s.name}"></td>
         <td th:text="${s.age}"></td>
-        <td><a th:href="@{'/edit'+${s.age}}">Edit</a></td>
-        <td><a th:href="@{'/del'+${s.age}}">Delete</a></td>
+        <td><a th:href="@{'/edit/' + ${s.id}}">Edit</a></td>
+        <td><a th:href="@{'/del/' + ${s.id}}">Delete</a></td>
 
     </tr>
 
