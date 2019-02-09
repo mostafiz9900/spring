@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        tr {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/index.html}">Add Student</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+    <tr th:each="s :${list}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.age}"></td>
+        <td><a th:href="@{'/edit'+${s.age}}">Edit</a></td>
+        <td><a th:href="@{'/del'+${s.age}}">Delete</a></td>
+
+    </tr>
+
+</table>
+</body>
+</html>
