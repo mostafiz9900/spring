@@ -17,7 +17,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     @Size(min = 3, max = 30)
     private String name;
     @NotBlank
@@ -30,22 +30,28 @@ public class Student {
     @LastModifiedDate
     private Date creteDate;
 
+
+    @NotEmpty
+    private String section;
+
     public Student() {
     }
 
-    public Student(String name, String email, String country, String sex, Date creteDate) {
+    public Student(@Size(min = 3, max = 30) String name, @NotBlank String email, @NotBlank String country, @NotEmpty String sex, Date creteDate, @NotEmpty String section) {
+
         this.name = name;
         this.email = email;
         this.country = country;
         this.sex = sex;
         this.creteDate = creteDate;
+        this.section = section;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -89,22 +95,11 @@ public class Student {
         this.creteDate = creteDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return id == student.id &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(email, student.email) &&
-                Objects.equals(country, student.country) &&
-                Objects.equals(sex, student.sex) &&
-                Objects.equals(creteDate, student.creteDate);
+    public String getSection() {
+        return section;
     }
 
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, email, country, sex, creteDate);
+    public void setSection(String section) {
+        this.section = section;
     }
 }

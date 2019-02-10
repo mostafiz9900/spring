@@ -1,9 +1,9 @@
-package com.beskilled.ropository;
+package com.beskilled.repository;
 
 import com.beskilled.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepo extends JpaRepository<User, Integer> {
+public interface UserRepo extends JpaRepository<User, Long> {
 }

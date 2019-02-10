@@ -1,7 +1,7 @@
 package com.beskilled.controller;
 
 import com.beskilled.entity.User;
-import com.beskilled.ropository.StudentRepo;
+import com.beskilled.ropository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +14,9 @@ import javax.validation.Valid;
 import java.util.Date;
 
 @Controller
-public class StudentController {
+public class UserController {
     @Autowired
-    private StudentRepo repo;
+    private UserRepo repo;
 
     @GetMapping(value = "/")
     public String index(Model model) {
@@ -44,14 +44,14 @@ public class StudentController {
     @GetMapping(value = "/edit/{id}")
     public String viewEdit(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("user", this.repo.getOne(id));
-        return "editPage";
+        return "edit-page";
 
     }
 
     @PostMapping(value = "/edit/{id}")
     public String edit(@Valid User user, @PathVariable("id") Integer id, Model model, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "editPage";
+            return "edit-page";
         }
         this.repo.save(user);
         return "redirect:/";
