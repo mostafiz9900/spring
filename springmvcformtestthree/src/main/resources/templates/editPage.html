@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+    <form th:action="@{/edit/} + {id}"  th:object="${user}"  method="post">
+    <table>
+        <input type="hidden" th:field="*{id}" th:value="${user}"/>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="number" th:field="*{age}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="number" th:field="*{phone}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</td>
+
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" th:field="*{email}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+
+        </tr>
+        <tr>
+            <td>Eound</td>
+            <td>
+                <select th:field="*{round}" th:value="${user}">
+                <option value="">Select A Round</option>
+                    <option th:value="Round-35">Round-35</option>
+                    <option th:value="Round-36">Round-36</option>
+                    <option th:value="Round-37">Round-37</option>
+
+
+            </select>
+
+            </td>
+            <th th:if="${#fields.hasErrors('round')}" th:errors="*{round}">Round Error</th>
+
+        </tr>
+        <tr>
+<td>Subject</td>
+            <td>
+                Java: <input type="checkbox" th:field="*{subject}" th:value="${user}"/>
+                Html: <input type="checkbox" th:field="*{subject}" th:value="${user}"/>
+                Spring: <input type="checkbox" th:field="*{subject}" th:value="${user}"/>
+            </td>
+            <th th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error</th>
+
+        </tr>
+        <td>Gender</td>
+        <td>
+            Mail:<input type="radio" th:field="*{gender}" th:value="${user}"/>
+            Femail:<input type="radio" th:field="*{gender}" th:value="${user}"/>
+        </td>
+        <th th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Subject Error</th>
+
+        <tr>
+            <td>RegDate</td>
+            <td><input type="date" th:field="*{regDate}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}">regDate Error</td>
+
+        </tr>
+       <!-- <tr>
+            <td>LastDate</td>
+            <td><input type="date" th:field="*{lastModifi}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('lastModifi')}" th:errors="*{lastModifi}">lastModifi Error</td>
+
+        </tr>-->
+        <tr>
+            <td>BirthDay</td>
+            <td><input type="date" th:field="*{birthday}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday Error</td>
+
+        </tr>
+
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" th:field="*{userName}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">userName Error</td>
+
+        </tr>
+        <tr>
+            <td>password </td>
+            <td><input type="password" th:field="*{password}" th:value="${user}"/></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
+
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+
+    </form>
+</div>
+</body>
+</html>
