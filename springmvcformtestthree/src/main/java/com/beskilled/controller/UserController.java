@@ -1,6 +1,7 @@
 package com.beskilled.controller;
 
 import com.beskilled.entity.User;
+import com.beskilled.imagoeptimizer.ImageOptimizer;
 import com.beskilled.ropository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,12 @@ import java.util.Date;
 
 @Controller
 public class UserController {
+   /* private static String UPLOADED_FOLDER = "D:/git/myGit/spring/springmvcformtestthree/src/main/redirect/static/images";
+
+
+    @Autowired
+    private ImageOptimizer imageOptimizer;
+*/
     @Autowired
     private UserRepo repo;
 
@@ -30,15 +37,18 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public String save(@Valid User user, Model model, BindingResult bindingResult) {
+    public String save(@Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "add-page";
+        } else {
+            user.setRegDate(new Date());
+            this.repo.save(user);
+            model.addAttribute("user", new User());
+            model.addAttribute("Msg", "Successfully data insert");
+
         }
-        user.setRegDate(new Date());
-        this.repo.save(user);
-        model.addAttribute("user", new User());
-        model.addAttribute("Msg", "Successfully data insert");
         return "add-page";
+
     }
 
     @GetMapping(value = "/edit/{id}")
@@ -49,13 +59,16 @@ public class UserController {
     }
 
     @PostMapping(value = "/edit/{id}")
-    public String edit(@Valid User user, @PathVariable("id") Integer id, Model model, BindingResult bindingResult) {
+    public String edit(@Valid User user, BindingResult bindingResult, @PathVariable("id") Integer id, Model model) {
         if (bindingResult.hasErrors()) {
             return "edit-page";
+        } else {
+            this.repo.save(user);
+            model.addAttribute("user", new User());
+            model.addAttribute("Msg2", "Successfully data insert");
         }
-        this.repo.save(user);
-        return "redirect:/";
 
+        return "edit-page";
     }
 
     @GetMapping(value = "/del/{id}")

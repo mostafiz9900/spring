@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/addrole}">New Student Add</a>
+<div>
+    <form>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>UserRole</th>
+                <th>EditRole</th>
+                <th>DeleteRole</th>
+
+            </tr>
+            <tr th:each="ur: ${list}">
+
+                <td th:text="${ur.id}"></td>
+                <td th:text="${ur.roleName}"></td>
+
+                <td>
+                    <a th:href="@{'/editrole/'+${ur.id}}">EditRole</a>
+                </td>
+                <td>
+                    <a th:href="@{'/delrole/'+${ur.id}}">DeleteRole</a>
+                </td>
+
+
+            </tr>
+        </table>
+    </form>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/addrole}">addrole</a>
+</div>
+</body>
+</html>

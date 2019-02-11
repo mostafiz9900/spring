@@ -36,7 +36,7 @@
 
             </tr>
             <tr>
-                <td>Eound</td>
+                <td>Round</td>
                 <td>
                     <select th:field="*{round}" >
                         <option value="">Select A Round</option>
@@ -71,7 +71,7 @@
             </tr>
             <th th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Subject Error</th>
 
-         <!--   <tr>
+           <!-- <tr>
                 <td>RegDate</td>
                 <td><input type="date" th:field="*{regDate}" /></td>
                 <td th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}">regDate Error</td>
@@ -83,11 +83,11 @@
                  <td th:if="${#fields.hasErrors('lastModifi')}" th:errors="*{lastModifi}">lastModifi Error</td>
 
              </tr>-->
-            <!--<tr>-->
-                <!--<td>BirthDay</td>-->
-                <!--<td><input type="date" th:field="*{birthday}" /></td>-->
+            <tr>
+                <td>BirthDay</td>
+                <td><input type="date" th:field="*{birthday}" /></td>
 
-            <!--</tr>-->
+            </tr>
 
             <tr>
                 <td>User Name</td>
@@ -110,5 +110,8 @@
 
     </form>
 </div>
+<a th:href="@{/}">Home</a>
+<a th:href="@{/addrole}">addrole</a>
+<a th:href="@{/viewrole}">viewrole</a>
 </body>
 </html>

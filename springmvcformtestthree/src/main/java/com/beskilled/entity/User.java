@@ -38,12 +38,13 @@ public class User {
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-
     private Date regDate;
+
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @LastModifiedDate
     private Date lastModifi = new Date();
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
@@ -52,6 +53,15 @@ public class User {
     private String userName;
     @NotEmpty
     private String password;
+
+    private long fileSize;
+    private String fileName;
+    //  @Lob
+    // private byte[] file;
+    private String filePath;
+    private String fileExtension;
+
+
 
     public User() {
     }
@@ -71,11 +81,11 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -175,13 +185,45 @@ public class User {
         this.password = password;
     }
 
+    public long getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public String getFileExtension() {
+        return fileExtension;
+    }
+
+    public void setFileExtension(String fileExtension) {
+        this.fileExtension = fileExtension;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id &&
-                age == user.age &&
+        return age == user.age &&
+                Objects.equals(id, user.id) &&
                 Objects.equals(name, user.name) &&
                 Objects.equals(phone, user.phone) &&
                 Objects.equals(email, user.email) &&
@@ -200,6 +242,25 @@ public class User {
         int result = Objects.hash(id, name, age, phone, email, round, gender, regDate, lastModifi, birthday, userName, password);
         result = 31 * result + Arrays.hashCode(subject);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", round='" + round + '\'' +
+                ", subject=" + Arrays.toString(subject) +
+                ", gender='" + gender + '\'' +
+                ", regDate=" + regDate +
+                ", lastModifi=" + lastModifi +
+                ", birthday=" + birthday +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
 
