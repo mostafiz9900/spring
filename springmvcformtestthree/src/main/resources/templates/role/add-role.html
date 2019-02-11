@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <style>
+        .hh {
+            width: 5%;
+
+
+        }
+
+        .container {
+            background-color: chartreuse;
+            margin: 0 auto;
+            width: 50%;
+            height: 70%;
+            padding: 40px;
+        }
+
+        .succ {
+            font-weight: 600;
+            color: green;
+        }
+
+        .err {
+            color: #ff0000;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<span class="err" th:text="${exitMsg}"></span>
+<span class="succ" th:text="${RoleMsg}"></span>
+<form th:action="@{/addrole}" th:object="${userRole}" th:method="POST">
+    <table>
+        <tr>
+            <th class="hh">Name</th>
+            <td>
+                <input type="text" th:field="*{roleName}"/>
+            </td>
+            <td class="err" th:if="${#fields.hasErrors('roleName')}" th:errors="*{roleName}">Role Name Error</td>
+
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">SaveRole</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<a th:href="@{/}">Home</a>
+<a th:href="@{/viewrole}">viewrole</a>
+</div>
+</body>
+</html>

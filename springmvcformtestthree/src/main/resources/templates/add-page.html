@@ -2,43 +2,70 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <style>
+        .hh {
+            width: 5%;
+
+        }
+
+        .container {
+            background-color: chartreuse;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        .succ {
+            font-weight: 600;
+            color: green;
+        }
+
+        .err {
+            color: red;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-<span th:text="${Msg}"></span>
-<div>
 
-    <form th:action="@{/add}" th:object="${user}" method="POST">
-        <table>
+<div class="container">
+    <span class="succ" th:text="${Msg}"></span>
+    <form th:action="@{/add}" th:object="${user}" method="POST" enctype="multipart/form-data">
+        <table class="table table-borderless">
             <tr>
-                <td>Name</td>
-                <td><input type="text" th:field="*{name}" /></td>
+                <th class="hh">Name</th>
+                <td><input type="text" th:field="*{name}"/></td>
                 <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
 
             </tr>
             <tr>
-                <td>Age</td>
+                <th>Age</th>
                 <td><input type="number" th:field="*{age}"/></td>
-                <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                <td class="err" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
 
             </tr>
             <tr>
-                <td>Phone</td>
-                <td><input type="number" th:field="*{phone}" /></td>
+                <th>Phone</th>
+                <td><input type="number" th:field="*{phone}"/></td>
                 <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</td>
 
             </tr>
             <tr>
-                <td>Email</td>
-                <td><input type="text" th:field="*{email}" /></td>
+                <th>Email</th>
+                <td><input type="text" th:field="*{email}"/></td>
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
 
             </tr>
             <tr>
-                <td>Round</td>
+                <th>Round</th>
                 <td>
-                    <select th:field="*{round}" >
+                    <select th:field="*{round}">
                         <option value="">Select A Round</option>
                         <option value="Round-35">Round-35</option>
                         <option value="Round-36">Round-36</option>
@@ -53,30 +80,30 @@
 
             </tr>
             <tr>
-                <td>Subject</td>
+                <th>Subject</th>
                 <td>
-                    Java: <input type="checkbox" value="java" th:field="*{subject}" />
-                    Html: <input type="checkbox" value="html" th:field="*{subject}" />
-                    Spring:<input type="checkbox" value="spring" th:field="*{subject}" />
+                    Java: <input type="checkbox" value="java" th:field="*{subject}"/>
+                    Html: <input type="checkbox" value="html" th:field="*{subject}"/>
+                    Spring:<input type="checkbox" value="spring" th:field="*{subject}"/>
                 </td>
                 <td th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error</td>
 
             </tr>
             <tr>
-                <td>Gender</td>
+                <th>Gender</th>
                 <td>
-                    Mail:<input type="radio" value="mail" th:field="*{gender}" />
-                    Femail:<input type="radio" value="mail" th:field="*{gender}" />
+                    Mail:<input type="radio" value="mail" th:field="*{gender}"/>
+                    Femail:<input type="radio" value="mail" th:field="*{gender}"/>
                 </td>
             </tr>
             <th th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Subject Error</th>
 
-           <!-- <tr>
-                <td>RegDate</td>
-                <td><input type="date" th:field="*{regDate}" /></td>
-                <td th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}">regDate Error</td>
+            <!-- <tr>
+                 <td>RegDate</td>
+                 <td><input type="date" th:field="*{regDate}" /></td>
+                 <td th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}">regDate Error</td>
 
-            </tr>-->
+             </tr>-->
             <!-- <tr>
                  <td>LastDate</td>
                  <td><input type="date" th:field="*{lastModifi}" th:value="${user}"/></td>
@@ -84,34 +111,40 @@
 
              </tr>-->
             <tr>
-                <td>BirthDay</td>
-                <td><input type="date" th:field="*{birthday}" /></td>
+                <th>BirthDay</th>
+                <td><input type="date" th:field="*{birthday}"/></td>
 
             </tr>
 
             <tr>
-                <td>User Name</td>
-                <td><input type="text" th:field="*{userName}" /></td>
+                <th>User Name</th>
+                <td><input type="text" th:field="*{userName}"/></td>
                 <td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">userName Error</td>
 
             </tr>
             <tr>
-                <td>password</td>
-                <td><input type="password" th:field="*{password}" /></td>
+                <th>Password</th>
+                <td><input type="password" th:field="*{password}"/></td>
                 <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
 
             </tr>
             <tr>
+                <th>Photo</th>
+                <td><input type="file" name="file"/></td>
+            </tr>
+
+            <tr>
                 <td>
-                    <button type="submit">Save</button>
+                    <input type="submit" value="Save"></input>
                 </td>
             </tr>
         </table>
 
     </form>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/addrole}">addrole</a>
+    <a th:href="@{/viewrole}">viewrole</a>
 </div>
-<a th:href="@{/}">Home</a>
-<a th:href="@{/addrole}">addrole</a>
-<a th:href="@{/viewrole}">viewrole</a>
+
 </body>
 </html>

@@ -20,19 +20,19 @@ public class RoleController {
     @GetMapping(value = "/viewrole")
     public String roleView(Model model) {
         model.addAttribute("list", this.roleRepo.findAll());
-        return "view-role";
+        return "role/view-role";
     }
 
     @GetMapping(value = "/addrole")
     public String addRole(UserRole userRole) {
-        return "add-role";
+        return "role/add-role";
 
     }
 
     @PostMapping("/addrole")
     public String savaRole(@Valid UserRole userRole, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "add-role";
+            return "role/add-role";
         }  else {
             if (userRole != null) {
                 UserRole userRole1s = this.roleRepo.findByRoleName(userRole.getRoleName());
@@ -47,21 +47,21 @@ public class RoleController {
             }
         }
 
-        return "add-role";
+        return "role/add-role";
 
     }
 
     @GetMapping(value = "/editrole/{id}")
     public String editShowRole(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("userRole", this.roleRepo.getOne(id));
-        return "edit-role";
+        return "role/edit-role";
 
     }
 
     @PostMapping(value = "/editrole/{id}")
     public String editRole(@PathVariable("id") Integer id, @Valid UserRole userRole, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "edit-role";
+            return "role/edit-role";
         } else {
 
                     this.roleRepo.save(userRole);
@@ -71,7 +71,7 @@ public class RoleController {
 
 
         }
-        return "edit-role";
+        return "role/edit-role";
     }
 
     @GetMapping(value = "/delrole/{id}")

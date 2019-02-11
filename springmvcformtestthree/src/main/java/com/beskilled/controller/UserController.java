@@ -10,18 +10,23 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 
 @Controller
 public class UserController {
-   /* private static String UPLOADED_FOLDER = "D:/git/myGit/spring/springmvcformtestthree/src/main/redirect/static/images";
+    private static String UPLOADED_FOLDER = "src/main/resources/static/images";
 
 
     @Autowired
     private ImageOptimizer imageOptimizer;
-*/
+
     @Autowired
     private UserRepo repo;
 
@@ -37,25 +42,37 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public String save(@Valid User user, BindingResult bindingResult, Model model) {
+    public String save(@Valid User user, BindingResult bindingResult, Model model, @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors()) {
             return "add-page";
         } else {
             user.setRegDate(new Date());
-            this.repo.save(user);
-            model.addAttribute("user", new User());
-            model.addAttribute("Msg", "Successfully data insert");
+            try {
+                byte[] bytes = file.getBytes();
+                Path path=Paths.get(UPLOADED_FOLDER+file.getOriginalFilename());
+                Files.write(path, bytes);
+                user.setFileName("new-" + file.getOriginalFilename());
+                user.setFileSize(file.getSize());
+                user.setFilePath("images/" + "new-" + file.getOriginalFilename());
+                user.setFileExtension(file.getContentType());
 
+                this.repo.save(user);
+                model.addAttribute("user", new User());
+                model.addAttribute("Msg", "Successfully data insert");
+
+                imageOptimizer.optimizeImage(UPLOADED_FOLDER, file, 0.3f, 100, 100);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return "add-page";
-
     }
 
     @GetMapping(value = "/edit/{id}")
     public String viewEdit(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("user", this.repo.getOne(id));
         return "edit-page";
-
     }
 
     @PostMapping(value = "/edit/{id}")
@@ -78,5 +95,4 @@ public class UserController {
         }
         return "redirect:/";
     }
-
 }
