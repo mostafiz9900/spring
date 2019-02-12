@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -59,26 +57,41 @@ public class RoleController {
     }
 
     @PostMapping(value = "/editrole/{id}")
-    public String editRole(@PathVariable("id") Integer id, @Valid UserRole userRole, BindingResult result, Model model) {
+    public String editRole(@PathVariable("id") Integer id , @Valid UserRole userRole, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "role/edit-role";
         } else {
 
+            if (userRole != null) {
+                UserRole userRole1s = this.roleRepo.findByRoleName(userRole.getRoleName());
+                if (userRole1s != null) {
+                    model.addAttribute("exitMsg", "role name already exit");
+                    return "role/edit-role";
+                } else {
                     this.roleRepo.save(userRole);
                     model.addAttribute("userRole", new UserRole());
                     model.addAttribute("RoleMsgEdit", "Successfully  Data Edit");
 
+                }
+            }
+                  /*  this.roleRepo.save(userRole);
+                    model.addAttribute("userRole", new UserRole());
+                    model.addAttribute("RoleMsgEdit", "Successfully  Data Edit");
+*/
 
 
         }
-        return "role/edit-role";
+        return "redirect:/viewrole";
     }
 
-    @GetMapping(value = "/delrole/{id}")
+    //@GetMapping(value = "/delrole/{id}")
+    @RequestMapping(value = "/delrole/{id}", method = RequestMethod.GET)
     public String deleteRole(@PathVariable("id") Integer id) {
         if (id != null) {
             this.roleRepo.deleteById(id);
         }
-        return "redirect:/";
+        return "redirect:/viewrole";
     }
+
+
 }

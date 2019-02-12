@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table
@@ -62,6 +63,17 @@ public class User {
     private String fileExtension;
 
 
+@ManyToMany(fetch = FetchType.EAGER)
+@JoinTable(name = "user_userrole", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+private Set<UserRole> userRolle;
+
+    public Set<UserRole> getUserRolle() {
+        return userRolle;
+    }
+
+    public void setUserRolle(Set<UserRole> userRolle) {
+        this.userRolle = userRolle;
+    }
 
     public User() {
     }

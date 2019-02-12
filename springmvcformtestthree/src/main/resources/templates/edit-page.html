@@ -26,7 +26,7 @@
 
         .succ {
             font-weight: 600;
-            color: green;
+            color: white;
         }
 
         .err {
@@ -39,13 +39,22 @@
 
 <div class="container">
     <span class="succ" th:text="${Msg2}"></span>
+    <a th:href="@{/}" class="btn btn-info">Home</a>
 
-    <form th:action="@{/edit/} + ${id}" th:object="${user}" method="POST">
+    <form th:action="@{/edit/} + ${id}" th:object="${user}" method="POST" enctype="multipart/form-data">
         <table>
+            <input type="hidden" th:field="*{id}" />
+            <td>
+                <select th:field="*{userRolle}" multiple>
+                    <option th:each="role: ${roleList}" th:value="${role.id}"><span
+                            th:text="${role.roleName}"></span>
+                    </option>
+                </select>
+            </td>
             <tr>
                 <th class="hh">Name</th>
                 <td><input type="text" th:field="*{name}" /></td>
-                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                <td  th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
 
             </tr>
             <tr>
@@ -131,6 +140,10 @@
                 <td><input type="password" th:field="*{password}" /></td>
                 <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
 
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><input type="file" name="file"/></td>
             </tr>
             <tr>
                 <td>

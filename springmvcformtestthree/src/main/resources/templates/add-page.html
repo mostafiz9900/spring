@@ -23,7 +23,7 @@
 
         .succ {
             font-weight: 600;
-            color: green;
+            color: white;
         }
 
         .err {
@@ -38,6 +38,18 @@
     <span class="succ" th:text="${Msg}"></span>
     <form th:action="@{/add}" th:object="${user}" method="POST" enctype="multipart/form-data">
         <table class="table table-borderless">
+            <tr>
+                <th class="hh">Role</th>
+                <td>
+                    <select th:field="*{userRolle}" multiple>
+                        <option th:each="role: ${roleList}" th:value="${role.id}"><span
+                                th:text="${role.roleName}"></span>
+                        </option>
+                    </select>
+                </td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+
+            </tr>
             <tr>
                 <th class="hh">Name</th>
                 <td><input type="text" th:field="*{name}"/></td>
@@ -141,9 +153,9 @@
         </table>
 
     </form>
-    <a th:href="@{/}">Home</a>
-    <a th:href="@{/addrole}">addrole</a>
-    <a th:href="@{/viewrole}">viewrole</a>
+    <a th:href="@{/}" class="btn btn-info">Home</a>
+    <a th:href="@{/addrole}"  class="btn btn-info">addrole</a>
+    <a th:href="@{/viewrole}"  class="btn btn-info">viewrole</a>
 </div>
 
 </body>

@@ -12,8 +12,8 @@
 </head>
 <body>
 
-<div class="table-responsive">
-    <a th:href="@{/addrole}">New Student Add</a>
+<div class="container">
+    <a th:href="@{/addrole}" class="btn btn-info">New Student Add</a>
     <form>
         <table class="table table-hover table-striped">
             <tr  class="table-primary">
@@ -29,18 +29,18 @@
                 <td th:text="${ur.roleName}"></td>
 
                 <td>
-                    <a th:href="@{'/editrole/'+${ur.id}}">EditRole</a>
+                    <a th:href="@{'/editrole/'+${ur.id}}" class="btn btn-info">EditRole</a>
                 </td>
                 <td>
-                    <a th:href="@{'/delrole/'+${ur.id}}">DeleteRole</a>
+                    <a th:href="@{'/delrole/'+${ur.id}}" class="btn btn-info">DeleteRole</a>
                 </td>
 
 
             </tr>
         </table>
     </form>
-    <a th:href="@{/}">Home</a>
-    <a th:href="@{/addrole}">addrole</a>
+    <a th:href="@{/}"  class="btn btn-info">Home</a>
+    <a th:href="@{/addrole}"  class="btn btn-info">addrole</a>
 </div>
 </body>
 </html>

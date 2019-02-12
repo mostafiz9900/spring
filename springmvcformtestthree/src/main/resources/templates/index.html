@@ -13,7 +13,7 @@
 
 
 <div class="table-responsive">
-    <h3><a th:href="@{/add}">New Student Add</a></h3>
+    <h3><a th:href="@{/add}" class="btn btn-info">New Student Add</a></h3>
     <table class="table table-hover table-striped">
             <tr  class="table-primary">
                 <th>Id</th>
@@ -30,6 +30,7 @@
                 <th>UserName</th>
                 <th>Password</th>
                 <th>Photo</th>
+                <th>Role List</th>
                 <th>Edit</th>
                 <th>Delete</th>
 
@@ -55,20 +56,29 @@
                 <td th:text="${u.birthday}" th:pattern="yyyy-MM-dd"></td>
                 <td th:text="${u.userName}"></td>
                 <td th:text="${u.password}"></td>
+
+
+
                 <td><img th:src="@{${u.getFilePath()}}" width="100" height="100"></td>
+
                 <td>
-                    <a th:href="@{'/edit/'+${u.id}}">Edit</a>
+                <span th:each="role:${u.userRolle}">
+                    <span th:text="${role.roleName}"></span>
+                </span>
                 </td>
                 <td>
-                    <a th:href="@{'/del/'+${u.id}}">Delete</a>
+                    <a th:href="@{'/edit/'+${u.id}}" class="btn btn-info">Edit</a>
+                </td>
+                <td>
+                    <a th:href="@{'/del/'+${u.id}}" class="btn btn-info">Delete</a>
                 </td>
 
 
             </tr>
         </table>
 
-    <a th:href="@{/addrole}">addrole</a>
-    <a th:href="@{/viewrole}">viewrole</a>
+    <a th:href="@{/addrole}" class="btn btn-info">addrole</a>
+    <a th:href="@{/viewrole}" class="btn btn-info">viewrole</a>
 </div>
 </body>
 </html>
