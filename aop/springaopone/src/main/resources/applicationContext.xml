@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="empBean" class="com.beskilled.Employee">
+        <property name="name" value="hello Spring"/>
+        <property name="id" value="100"/>
+    </bean>
+
+    <bean id="doBeanMeth" class="com.beskilled.DoBeforMethod"></bean>
+
+    <bean id="simpleServ" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="empBean"/>
+        <property name="interceptorNames">
+            <list>
+                <value>doBeanMeth</value>
+            </list>
+        </property>
+    </bean>
+</beans>
