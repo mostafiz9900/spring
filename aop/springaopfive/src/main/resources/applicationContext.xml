@@ -2,26 +2,41 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean id="empBean" class="com.beskilled.Employee">
         <property name="id" value="101"/>
         <property name="name" value="Mostafiz"/>
     </bean>
+
+
+    <!--
     <bean id="beforeMethod" class="com.beskilled.DoBeforeMethod"></bean>
     <bean id="afterMethod" class="com.beskilled.DoAfterReturtingMethod"></bean>
     <bean id="afterMethodThrows" class="com.beskilled.DoAfterThrowing"></bean>
+    -->
+
     <bean id="doAroundMethodBean" class="com.beskilled.DoAroundMethod"></bean>
+
+
+    <bean id="simplePointcout" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="sayHello"/>
+    </bean>
+
+    <bean id="simpleAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="simplePointcout"/>
+        <property name="advice"   ref="doAroundMethodBean"/>
+    </bean>
 
     <bean id="simpleProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="empBean"/>
         <property name="interceptorNames">
             <list>
-                <value>beforeMethod</value>
-                <value>afterMethod</value>
-                <value>afterMethodThrows</value>
-                <value>doAroundMethodBean</value>
+                <value>simpleAdvisor</value>
+
             </list>
         </property>
 
     </bean>
+
 
 </beans>
