@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>Hello, world!</title>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{/}">View All</a></li>
+            <li><a th:href="@{/add}">Add New User</a></li>
+            <li><a th:href="@{/viewrole}">RoleView</a></li>
+            <li><a th:href="@{/addrole}">Add Role</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+
 <div class="container">
-    <a th:href="@{/add}" class="btn btn-info">Add New User</a>
     <h2>Striped Rows</h2>
     <p>The .table-striped class adds zebra-stripes to a table:</p>
     <table class="table table-striped">
@@ -24,6 +39,7 @@
             <th>Email</th>
             <th>User Name</th>
             <th>Password</th>
+            <th>Role Name</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -34,6 +50,11 @@
             <td th:text="${u.name}"></td>
             <td th:text="${u.email}"></td>
             <td th:text="${u.username}"></td>
+            <td>
+                <span th:each="r:${u.role}">
+                    <span th:text="${r.name}"></span>
+                </span>
+            </td>
             <td th:text="${u.password}"></td>
             <td>
                 <a th:href="@{'/edit/'+${u.id}}" class="btn btn-info">Edit</a>

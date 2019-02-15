@@ -6,16 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>Hello, world!</title>
 </head>
 <body>
-<div class="container">
-    <a th:href="@{/addrole}" class="btn btn-info">Add New User</a>
-    <h2>Striped Rows</h2>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{/}">View All</a></li>
+            <li><a th:href="@{/add}">Add New User</a></li>
+            <li><a th:href="@{/viewrole}">RoleView</a></li>
+            <li><a th:href="@{/addrole}">Add Role</a></li>
 
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h2>Striped Rows</h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -26,15 +38,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ur:${list}">
+        <tr th:each="ur:${rolelist}">
             <td th:text="${ur.id}"></td>
             <td th:text="${ur.name}"></td>
 
             <td>
-                <a th:href="@{'/editrole/'+${ur.id}}" class="btn btn-info">Edit</a>
+                <a th:href="@{'/editrole/' + ${ur.id}}" class="btn btn-info">Edit</a>
             </td>
             <td>
-                <a th:href="@{'/delrole/'+${ur.id}}" class="btn btn-danger">Delete</a>
+                <a th:href="@{'/delrole/' + ${ur.id}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 

@@ -19,7 +19,7 @@ public class RoleController {
 
     @GetMapping("/viewrole")
     public String roleView(Model model) {
-        model.addAttribute("list", this.roleRepo.findAll());
+        model.addAttribute("rolelist", this.roleRepo.findAll());
         return "role/view";
     }
 
@@ -41,7 +41,7 @@ public class RoleController {
     }
 
     @GetMapping("/editrole/{id}")
-    public String roleEdit(@PathVariable("id") Long id, Model model) {
+    public String roleEditView(@PathVariable("id") Long id, Model model) {
         model.addAttribute("role" , this.roleRepo.getOne(id));
         return "role/edit";
     }
@@ -53,16 +53,16 @@ public class RoleController {
         }
         this.roleRepo.save(role);
         model.addAttribute("role", new Role());
-        return "redirect:/view";
+        return "redirect:/viewrole";
 
     }
 
-    @GetMapping("/delrole/{id}")
-    public String delete(@PathVariable("id") Long id) {
+    @GetMapping(value = "/delrole/{id}")
+    public String deleteRole(@PathVariable("id") Long id) {
         if (id != null) {
             this.roleRepo.deleteById(id);
         }
-        return "redirect:/view/";
+        return "redirect:/viewrole";
     }
 
 }
