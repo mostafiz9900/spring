@@ -1,12 +1,6 @@
-package com.beskilled.entitly;
-
-
-import com.sun.istack.internal.NotNull;
+package com.beskilled.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,30 +9,27 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 3, max = 20)
     private String name;
-
     private String email;
-
     private String username;
-
     private String password;
-
     private boolean status;
-
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns =@JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> role;
-
-    public Set<Role> getRole() {
-        return role;
-    }
-
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
+    @JoinTable(name = "user_role",
+    joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     public User() {
+    }
+
+    public User(String name, String email, String username, String password, boolean status, Set<Role> roles) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.status = status;
+        this.roles = roles;
     }
 
     public User(User user) {
@@ -46,16 +37,8 @@ public class User {
         this.email = user.email;
         this.username = user.username;
         this.password = user.password;
-        this.status=user.status;
-        this.role = user.role;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+        this.status = user.status;
+        this.roles = user.roles;
     }
 
     public Long getId() {
@@ -98,6 +81,21 @@ public class User {
         this.password = password;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -110,11 +108,11 @@ public class User {
                 Objects.equals(email, user.email) &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(role, user.role);
+                Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, username, password, status, role);
+        return Objects.hash(id, name, email, username, password, status, roles);
     }
 }
