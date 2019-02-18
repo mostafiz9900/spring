@@ -17,4 +17,8 @@ public class HomeController {
     public String test(){
         return "test";
     }
+    @GetMapping(value = "/f")
+    public String from(){
+        return "from";
+    }
 }
