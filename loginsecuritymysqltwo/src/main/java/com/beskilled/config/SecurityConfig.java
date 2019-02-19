@@ -21,6 +21,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableJpaRepositories(basePackageClasses = com.beskilled.repo.UserRepository.class)
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private LoggingAccessDeniedHandler loggingAccessDeniedHandler;
+
     @Autowired
     CustomUserDetailsService customUserDetailsService;
 
@@ -31,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
@@ -45,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.authorizeRequests()
-               .antMatchers("/public/**","/login","/","/save-role","/save-user").permitAll()
-               .antMatchers("/adm/**").hasRole("ADMIN")
+               .antMatchers("/public/**","/login","/","/save-role","/edit-role/**","/save-user","/view-role","/delrole/**").permitAll()
+               .antMatchers("/adm/**","/role/**").hasRole("ADMIN")
                .antMatchers("/us/**").hasRole("USER")
                .antMatchers("/sd/**").hasRole("SUPERADMIN")
                .antMatchers("/se/**").hasAnyRole("ADMIN","USER","SUPERADMIN")
@@ -62,6 +66,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                .clearAuthentication(true)
                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                .logoutSuccessUrl("/login?logout")
-               .permitAll();
+               .permitAll()
+               .and()
+               .exceptionHandling()
+               .accessDeniedHandler(loggingAccessDeniedHandler);
+
     }
 }
