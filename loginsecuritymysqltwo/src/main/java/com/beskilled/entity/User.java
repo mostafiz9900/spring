@@ -1,6 +1,9 @@
 package com.beskilled.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,9 +12,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(min = 4, max = 30)
     private String name;
+    @NotNull
     private String email;
+    @NotEmpty
     private String username;
+    @NotNull
     private String password;
     private boolean status;
     @ManyToMany(fetch = FetchType.EAGER)

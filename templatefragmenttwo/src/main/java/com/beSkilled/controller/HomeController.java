@@ -13,4 +13,8 @@ public class HomeController {
     public String layout() {
         return "layout";
     }
+    @GetMapping(value = "/view")
+    public String view() {
+        return "view";
+    }
 }

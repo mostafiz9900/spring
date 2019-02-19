@@ -43,6 +43,7 @@ public class HomeController {
 
         User user=userRepository.findByUsername(auth.getName());
         model.addAttribute("name", user.getName());
+        model.addAttribute("email", user.getEmail());
         return "secure/secure";
     }
 

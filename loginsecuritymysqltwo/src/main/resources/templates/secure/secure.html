@@ -13,6 +13,7 @@
 
   <h1><a th:href="@{/logout}">Logout</a></h1>
     <h1>Welcome name  : <span th:text="${name}"></span></h1>
+    <h1>Welcome name  : <span th:text="${email}"></span></h1>
   <h1>Welcome : <span th:text="${username}"></span></h1>
    <span sec:authorize="hasRole('ROLE_SUPERADMIN')">
 
