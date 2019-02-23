@@ -1,7 +1,7 @@
-describe('Chart.controllers.bar', function() {
+describe('Chart.controllers.bar', function () {
 	describe('auto', jasmine.specsFromFixtures('controller.bar'));
 
-	it('should be constructed', function() {
+	it('should be constructed', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -26,7 +26,7 @@ describe('Chart.controllers.bar', function() {
 		expect(meta.controller.index).toBe(0);
 	});
 
-	it('should use the first scale IDs if the dataset does not specify them', function() {
+	it('should use the first scale IDs if the dataset does not specify them', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -53,11 +53,11 @@ describe('Chart.controllers.bar', function() {
 		expect(meta.yAxisID).toBe('firstYScaleID');
 	});
 
-	it('should correctly count the number of stacks ignoring datasets of other types and hidden datasets', function() {
+	it('should correctly count the number of stacks ignoring datasets of other types and hidden datasets', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -76,11 +76,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is not specified', function() {
+	it('should correctly count the number of stacks when a group is not specified', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -99,11 +99,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is not specified and the scale is stacked', function() {
+	it('should correctly count the number of stacks when a group is not specified and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -132,11 +132,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is not specified and the scale is not stacked', function() {
+	it('should correctly count the number of stacks when a group is not specified and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -165,11 +165,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for some', function() {
+	it('should correctly count the number of stacks when a group is specified for some', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -188,11 +188,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for some and the scale is stacked', function() {
+	it('should correctly count the number of stacks when a group is specified for some and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -221,11 +221,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for some and the scale is not stacked', function() {
+	it('should correctly count the number of stacks when a group is specified for some and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -254,11 +254,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for all', function() {
+	it('should correctly count the number of stacks when a group is specified for all', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -277,11 +277,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for all and the scale is stacked', function() {
+	it('should correctly count the number of stacks when a group is specified for all and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -310,11 +310,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly count the number of stacks when a group is specified for all and the scale is not stacked', function() {
+	it('should correctly count the number of stacks when a group is specified for all and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -343,11 +343,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index accounting for datasets of other types and hidden datasets', function() {
+	it('should correctly get the stack index accounting for datasets of other types and hidden datasets', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -367,11 +367,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is not specified', function() {
+	it('should correctly get the stack index when a group is not specified', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -393,11 +393,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is not specified and the scale is stacked', function() {
+	it('should correctly get the stack index when a group is not specified and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -429,11 +429,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is not specified and the scale is not stacked', function() {
+	it('should correctly get the stack index when a group is not specified and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -465,11 +465,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for some', function() {
+	it('should correctly get the stack index when a group is specified for some', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -491,11 +491,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for some and the scale is stacked', function() {
+	it('should correctly get the stack index when a group is specified for some and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -527,11 +527,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for some and the scale is not stacked', function() {
+	it('should correctly get the stack index when a group is specified for some and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -563,11 +563,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for all', function() {
+	it('should correctly get the stack index when a group is specified for all', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -589,11 +589,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for all and the scale is stacked', function() {
+	it('should correctly get the stack index when a group is specified for all and the scale is stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -625,11 +625,11 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should correctly get the stack index when a group is specified for all and the scale is not stacked', function() {
+	it('should correctly get the stack index when a group is specified for all and the scale is not stacked', function () {
 		[
 			'bar',
 			'horizontalBar'
-		].forEach(function(barType) {
+		].forEach(function (barType) {
 			var chart = window.acquireChart({
 				type: barType,
 				data: {
@@ -661,7 +661,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should create rectangle elements for each data item during initialization', function() {
+	it('should create rectangle elements for each data item during initialization', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -681,7 +681,7 @@ describe('Chart.controllers.bar', function() {
 		expect(meta.data[3] instanceof Chart.elements.Rectangle).toBe(true);
 	});
 
-	it('should update elements when modifying data', function() {
+	it('should update elements when modifying data', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -733,7 +733,7 @@ describe('Chart.controllers.bar', function() {
 		[
 			{x: 89, y: 512},
 			{x: 217, y: 0}
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._datasetIndex).toBe(1);
 			expect(meta.data[i]._index).toBe(i);
 			expect(meta.data[i]._xScale).toBe(chart.scales.firstXScaleID);
@@ -758,7 +758,7 @@ describe('Chart.controllers.bar', function() {
 		expect(meta.data.length).toBe(3); // should add a new meta data item
 	});
 
-	it('should get the correct bar points when datasets of different types exist', function() {
+	it('should get the correct bar points when datasets of different types exist', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -803,7 +803,7 @@ describe('Chart.controllers.bar', function() {
 		expect(bar2._model.y).toBeCloseToPixel(0);
 	});
 
-	it('should update elements when the scales are stacked', function() {
+	it('should update elements when the scales are stacked', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -840,7 +840,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92 / 2, x: 166, y: 439},
 			{b: 293, w: 92 / 2, x: 295, y: 146},
 			{b: 293, w: 92 / 2, x: 422, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -854,7 +854,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92 / 2, x: 217, y: 73},
 			{b: 146, w: 92 / 2, x: 345, y: 146},
 			{b: 439, w: 92 / 2, x: 473, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta1.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -862,7 +862,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should update elements when the scales are stacked and the y axis has a user defined minimum', function() {
+	it('should update elements when the scales are stacked and the y axis has a user defined minimum', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -903,7 +903,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 1024, w: 92 / 2, x: 166, y: 819},
 			{b: 1024, w: 92 / 2, x: 294, y: 922},
 			{b: 1024, w: 92 / 2, x: 422.5, y: 0}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -917,7 +917,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 819, w: 92 / 2, x: 217, y: 0},
 			{b: 922, w: 92 / 2, x: 345, y: 0},
 			{b: 0, w: 92 / 2, x: 473.5, y: 0}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta1.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -925,7 +925,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should update elements when only the category scale is stacked', function() {
+	it('should update elements when only the category scale is stacked', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -962,7 +962,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92, x: 192, y: 439},
 			{b: 293, w: 92, x: 320, y: 146},
 			{b: 293, w: 92, x: 448, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -976,7 +976,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92, x: 192, y: 73},
 			{b: 293, w: 92, x: 320, y: 293},
 			{b: 293, w: 92, x: 448, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta1.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -984,7 +984,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should update elements when the scales are stacked and data is strings', function() {
+	it('should update elements when the scales are stacked and data is strings', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1021,7 +1021,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92 / 2, x: 166, y: 439},
 			{b: 293, w: 92 / 2, x: 295, y: 146},
 			{b: 293, w: 92 / 2, x: 422, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1035,7 +1035,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92 / 2, x: 217, y: 73},
 			{b: 146, w: 92 / 2, x: 345, y: 146},
 			{b: 439, w: 92 / 2, x: 473, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta1.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1043,7 +1043,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should get the correct bar points for grouped stacked chart if the group name is same', function() {
+	it('should get the correct bar points for grouped stacked chart if the group name is same', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1082,7 +1082,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92, x: 192, y: 439},
 			{b: 293, w: 92, x: 320, y: 146},
 			{b: 293, w: 92, x: 448, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1096,7 +1096,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 293, w: 92, x: 192, y: 73},
 			{b: 146, w: 92, x: 320, y: 146},
 			{b: 439, w: 92, x: 448, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1104,7 +1104,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should get the correct bar points for grouped stacked chart if the group name is different', function() {
+	it('should get the correct bar points for grouped stacked chart if the group name is different', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1139,7 +1139,7 @@ describe('Chart.controllers.bar', function() {
 		[
 			{x: 89, y: 256},
 			{x: 217, y: 0}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta.data[i]._model.base).toBeCloseToPixel(512);
 			expect(meta.data[i]._model.width).toBeCloseToPixel(46);
 			expect(meta.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1147,7 +1147,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should get the correct bar points for grouped stacked chart', function() {
+	it('should get the correct bar points for grouped stacked chart', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1185,7 +1185,7 @@ describe('Chart.controllers.bar', function() {
 		[
 			{b: 384, x: 89, y: 256},
 			{b: 256, x: 217, y: 0}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta.data[i]._model.width).toBeCloseToPixel(46);
 			expect(meta.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1193,7 +1193,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should update elements when the scales are stacked and the y axis is logarithmic', function() {
+	it('should update elements when the scales are stacked and the y axis is logarithmic', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1232,7 +1232,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 512, w: 102, x: 192, y: 118},
 			{b: 512, w: 102, x: 320, y: 512},
 			{b: 512, w: 102, x: 449, y: 118}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta0.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1246,7 +1246,7 @@ describe('Chart.controllers.bar', function() {
 			{b: 118, w: 102, x: 192, y: 102},
 			{b: 512, w: 102, x: 320, y: 512},
 			{b: 118, w: 102, x: 449, y: 0}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.base).toBeCloseToPixel(values.b);
 			expect(meta1.data[i]._model.width).toBeCloseToPixel(values.w);
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
@@ -1254,7 +1254,7 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	it('should draw all bars', function() {
+	it('should draw all bars', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1283,7 +1283,7 @@ describe('Chart.controllers.bar', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should set hover styles on rectangles', function() {
+	it('should set hover styles on rectangles', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1347,7 +1347,7 @@ describe('Chart.controllers.bar', function() {
 		expect(bar._model.borderWidth).toBe(1.5);
 	});
 
-	it('should remove a hover style from a bar', function() {
+	it('should remove a hover style from a bar', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -1407,8 +1407,8 @@ describe('Chart.controllers.bar', function() {
 		expect(bar._model.borderWidth).toBe(1.5);
 	});
 
-	describe('Bar width', function() {
-		beforeEach(function() {
+	describe('Bar width', function () {
+		beforeEach(function () {
 			// 2 datasets
 			this.data = {
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -1420,7 +1420,7 @@ describe('Chart.controllers.bar', function() {
 			};
 		});
 
-		afterEach(function() {
+		afterEach(function () {
 			var chart = window.acquireChart(this.config);
 			var meta = chart.getDatasetMeta(0);
 			var xScale = chart.scales[meta.xAxisID];
@@ -1446,7 +1446,7 @@ describe('Chart.controllers.bar', function() {
 
 		});
 
-		it('should correctly set bar width when min and max option is set.', function() {
+		it('should correctly set bar width when min and max option is set.', function () {
 			this.config = {
 				type: 'bar',
 				data: this.data,
@@ -1463,7 +1463,7 @@ describe('Chart.controllers.bar', function() {
 			};
 		});
 
-		it('should correctly set bar width when scale are stacked with min and max options.', function() {
+		it('should correctly set bar width when scale are stacked with min and max options.', function () {
 			this.config = {
 				type: 'bar',
 				data: this.data,
@@ -1484,8 +1484,8 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	describe('Bar height (horizontalBar type)', function() {
-		beforeEach(function() {
+	describe('Bar height (horizontalBar type)', function () {
+		beforeEach(function () {
 			// 2 datasets
 			this.data = {
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -1497,7 +1497,7 @@ describe('Chart.controllers.bar', function() {
 			};
 		});
 
-		afterEach(function() {
+		afterEach(function () {
 			var chart = window.acquireChart(this.config);
 			var meta = chart.getDatasetMeta(0);
 			var yScale = chart.scales[meta.yAxisID];
@@ -1523,7 +1523,7 @@ describe('Chart.controllers.bar', function() {
 
 		});
 
-		it('should correctly set bar height when min and max option is set.', function() {
+		it('should correctly set bar height when min and max option is set.', function () {
 			this.config = {
 				type: 'horizontalBar',
 				data: this.data,
@@ -1540,7 +1540,7 @@ describe('Chart.controllers.bar', function() {
 			};
 		});
 
-		it('should correctly set bar height when scale are stacked with min and max options.', function() {
+		it('should correctly set bar height when scale are stacked with min and max options.', function () {
 			this.config = {
 				type: 'horizontalBar',
 				data: this.data,
@@ -1561,10 +1561,10 @@ describe('Chart.controllers.bar', function() {
 		});
 	});
 
-	describe('Bar thickness with a category scale', function() {
-		[undefined, 20].forEach(function(barThickness) {
-			describe('When barThickness is ' + barThickness, function() {
-				beforeEach(function() {
+	describe('Bar thickness with a category scale', function () {
+		[undefined, 20].forEach(function (barThickness) {
+			describe('When barThickness is ' + barThickness, function () {
+				beforeEach(function () {
 					this.chart = window.acquireChart({
 						type: 'bar',
 						data: {
@@ -1592,7 +1592,7 @@ describe('Chart.controllers.bar', function() {
 					});
 				});
 
-				it('should correctly set bar width', function() {
+				it('should correctly set bar width', function () {
 					var chart = this.chart;
 					var expected, i, ilen, meta;
 
@@ -1615,7 +1615,7 @@ describe('Chart.controllers.bar', function() {
 					}
 				});
 
-				it('should correctly set bar width if maxBarThickness is specified', function() {
+				it('should correctly set bar width if maxBarThickness is specified', function () {
 					var chart = this.chart;
 					var options = chart.options.scales.xAxes[0];
 					var i, ilen, meta;

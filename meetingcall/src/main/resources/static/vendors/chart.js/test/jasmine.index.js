@@ -2,7 +2,7 @@ var Context = require('./jasmine.context');
 var matchers = require('./jasmine.matchers');
 var utils = require('./jasmine.utils');
 
-(function() {
+(function () {
 
 	// Keep track of all acquired charts to automatically release them after each specs
 	var charts = {};
@@ -34,24 +34,24 @@ var utils = require('./jasmine.utils');
 	// some style initialization to limit differences between browsers across different plateforms.
 	utils.injectCSS(
 		'.chartjs-wrapper, .chartjs-wrapper canvas {' +
-			'border: 0;' +
-			'margin: 0;' +
-			'padding: 0;' +
+		'border: 0;' +
+		'margin: 0;' +
+		'padding: 0;' +
 		'}' +
 		'.chartjs-wrapper {' +
-			'position: absolute' +
+		'position: absolute' +
 		'}');
 
 	jasmine.specsFromFixtures = utils.specsFromFixtures;
 	jasmine.triggerMouseEvent = utils.triggerMouseEvent;
 
-	beforeEach(function() {
+	beforeEach(function () {
 		jasmine.addMatchers(matchers);
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		// Auto releasing acquired charts
-		Object.keys(charts).forEach(function(id) {
+		Object.keys(charts).forEach(function (id) {
 			var chart = charts[id];
 			if (!(chart.$test || {}).persistent) {
 				releaseChart(chart);

@@ -13,7 +13,7 @@ var signature = require('../signature');
  * @param {number} bytes the number of bytes to generate.
  * @returns {string} the result.
  */
-var decToHex = function(dec, bytes) {
+var decToHex = function (dec, bytes) {
     var hex = "", i;
     for (i = 0; i < bytes; i++) {
         hex += String.fromCharCode(dec & 0xff);
@@ -65,7 +65,7 @@ var generateUnixExternalFileAttr = function (unixPermissions, isDir) {
 var generateDosExternalFileAttr = function (dosPermissions, isDir) {
 
     // the dir flag is already set for compatibility
-    return (dosPermissions || 0)  & 0x3F;
+    return (dosPermissions || 0) & 0x3F;
 };
 
 /**
@@ -78,30 +78,30 @@ var generateDosExternalFileAttr = function (dosPermissions, isDir) {
  * @param {Function} encodeFileName the function to encode the file name / comment.
  * @return {Object} the zip parts.
  */
-var generateZipParts = function(streamInfo, streamedContent, streamingEnded, offset, platform, encodeFileName) {
+var generateZipParts = function (streamInfo, streamedContent, streamingEnded, offset, platform, encodeFileName) {
     var file = streamInfo['file'],
-    compression = streamInfo['compression'],
-    useCustomEncoding = encodeFileName !== utf8.utf8encode,
-    encodedFileName = utils.transformTo("string", encodeFileName(file.name)),
-    utfEncodedFileName = utils.transformTo("string", utf8.utf8encode(file.name)),
-    comment = file.comment,
-    encodedComment = utils.transformTo("string", encodeFileName(comment)),
-    utfEncodedComment = utils.transformTo("string", utf8.utf8encode(comment)),
-    useUTF8ForFileName = utfEncodedFileName.length !== file.name.length,
-    useUTF8ForComment = utfEncodedComment.length !== comment.length,
-    dosTime,
-    dosDate,
-    extraFields = "",
-    unicodePathExtraField = "",
-    unicodeCommentExtraField = "",
-    dir = file.dir,
-    date = file.date;
+        compression = streamInfo['compression'],
+        useCustomEncoding = encodeFileName !== utf8.utf8encode,
+        encodedFileName = utils.transformTo("string", encodeFileName(file.name)),
+        utfEncodedFileName = utils.transformTo("string", utf8.utf8encode(file.name)),
+        comment = file.comment,
+        encodedComment = utils.transformTo("string", encodeFileName(comment)),
+        utfEncodedComment = utils.transformTo("string", utf8.utf8encode(comment)),
+        useUTF8ForFileName = utfEncodedFileName.length !== file.name.length,
+        useUTF8ForComment = utfEncodedComment.length !== comment.length,
+        dosTime,
+        dosDate,
+        extraFields = "",
+        unicodePathExtraField = "",
+        unicodeCommentExtraField = "",
+        dir = file.dir,
+        date = file.date;
 
 
     var dataInfo = {
-        crc32 : 0,
-        compressedSize : 0,
-        uncompressedSize : 0
+        crc32: 0,
+        compressedSize: 0,
+        uncompressedSize: 0
     };
 
     // if the content is streamed, the sizes/crc32 are only available AFTER
@@ -131,7 +131,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
         // dos or unix, we set the dos dir flag
         extFileAttr |= 0x00010;
     }
-    if(platform === "UNIX") {
+    if (platform === "UNIX") {
         versionMadeBy = 0x031E; // UNIX, version 3.0
         extFileAttr |= generateUnixExternalFileAttr(file.unixPermissions, dir);
     } else { // DOS or other, fallback to DOS
@@ -183,7 +183,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
             unicodePathExtraField;
     }
 
-    if(useUTF8ForComment) {
+    if (useUTF8ForComment) {
 
         unicodeCommentExtraField =
             // Version
@@ -349,9 +349,9 @@ function ZipFileWorker(streamFiles, comment, platform, encodeFileName) {
     this.currentFile = null;
 
 
-
     this._sources = [];
 }
+
 utils.inherits(ZipFileWorker, GenericWorker);
 
 /**
@@ -363,16 +363,16 @@ ZipFileWorker.prototype.push = function (chunk) {
     var entriesCount = this.entriesCount;
     var remainingFiles = this._sources.length;
 
-    if(this.accumulate) {
+    if (this.accumulate) {
         this.contentBuffer.push(chunk);
     } else {
         this.bytesWritten += chunk.data.length;
 
         GenericWorker.prototype.push.call(this, {
-            data : chunk.data,
-            meta : {
-                currentFile : this.currentFile,
-                percent : entriesCount ? (currentFilePercent + 100 * (entriesCount - remainingFiles - 1)) / entriesCount : 100
+            data: chunk.data,
+            meta: {
+                currentFile: this.currentFile,
+                percent: entriesCount ? (currentFilePercent + 100 * (entriesCount - remainingFiles - 1)) / entriesCount : 100
             }
         });
     }
@@ -389,11 +389,11 @@ ZipFileWorker.prototype.openedSource = function (streamInfo) {
     var streamedContent = this.streamFiles && !streamInfo['file'].dir;
 
     // don't stream folders (because they don't have any content)
-    if(streamedContent) {
+    if (streamedContent) {
         var record = generateZipParts(streamInfo, streamedContent, false, this.currentSourceOffset, this.zipPlatform, this.encodeFileName);
         this.push({
-            data : record.fileRecord,
-            meta : {percent:0}
+            data: record.fileRecord,
+            meta: {percent: 0}
         });
     } else {
         // we need to wait for the whole file before pushing anything
@@ -411,20 +411,20 @@ ZipFileWorker.prototype.closedSource = function (streamInfo) {
     var record = generateZipParts(streamInfo, streamedContent, true, this.currentSourceOffset, this.zipPlatform, this.encodeFileName);
 
     this.dirRecords.push(record.dirRecord);
-    if(streamedContent) {
+    if (streamedContent) {
         // after the streamed file, we put data descriptors
         this.push({
-            data : generateDataDescriptors(streamInfo),
-            meta : {percent:100}
+            data: generateDataDescriptors(streamInfo),
+            meta: {percent: 100}
         });
     } else {
         // the content wasn't streamed, we need to push everything now
         // first the file record, then the content
         this.push({
-            data : record.fileRecord,
-            meta : {percent:0}
+            data: record.fileRecord,
+            meta: {percent: 0}
         });
-        while(this.contentBuffer.length) {
+        while (this.contentBuffer.length) {
             this.push(this.contentBuffer.shift());
         }
     }
@@ -437,10 +437,10 @@ ZipFileWorker.prototype.closedSource = function (streamInfo) {
 ZipFileWorker.prototype.flush = function () {
 
     var localDirLength = this.bytesWritten;
-    for(var i = 0; i < this.dirRecords.length; i++) {
+    for (var i = 0; i < this.dirRecords.length; i++) {
         this.push({
-            data : this.dirRecords[i],
-            meta : {percent:100}
+            data: this.dirRecords[i],
+            meta: {percent: 100}
         });
     }
     var centralDirLength = this.bytesWritten - localDirLength;
@@ -448,8 +448,8 @@ ZipFileWorker.prototype.flush = function () {
     var dirEnd = generateCentralDirectoryEnd(this.dirRecords.length, centralDirLength, localDirLength, this.zipComment, this.encodeFileName);
 
     this.push({
-        data : dirEnd,
-        meta : {percent:100}
+        data: dirEnd,
+        meta: {percent: 100}
     });
 };
 
@@ -478,7 +478,7 @@ ZipFileWorker.prototype.registerPrevious = function (previous) {
     });
     previous.on('end', function () {
         self.closedSource(self.previous.streamInfo);
-        if(self._sources.length) {
+        if (self._sources.length) {
             self.prepareNextSource();
         } else {
             self.end();
@@ -494,7 +494,7 @@ ZipFileWorker.prototype.registerPrevious = function (previous) {
  * @see GenericWorker.resume
  */
 ZipFileWorker.prototype.resume = function () {
-    if(!GenericWorker.prototype.resume.call(this)) {
+    if (!GenericWorker.prototype.resume.call(this)) {
         return false;
     }
 
@@ -513,13 +513,13 @@ ZipFileWorker.prototype.resume = function () {
  */
 ZipFileWorker.prototype.error = function (e) {
     var sources = this._sources;
-    if(!GenericWorker.prototype.error.call(this, e)) {
+    if (!GenericWorker.prototype.error.call(this, e)) {
         return false;
     }
-    for(var i = 0; i < sources.length; i++) {
+    for (var i = 0; i < sources.length; i++) {
         try {
             sources[i].error(e);
-        } catch(e) {
+        } catch (e) {
             // the `error` exploded, nothing to do
         }
     }
@@ -532,7 +532,7 @@ ZipFileWorker.prototype.error = function (e) {
 ZipFileWorker.prototype.lock = function () {
     GenericWorker.prototype.lock.call(this);
     var sources = this._sources;
-    for(var i = 0; i < sources.length; i++) {
+    for (var i = 0; i < sources.length; i++) {
         sources[i].lock();
     }
 };

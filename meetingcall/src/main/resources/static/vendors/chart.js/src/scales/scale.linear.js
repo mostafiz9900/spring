@@ -4,7 +4,7 @@ var defaults = require('../core/core.defaults');
 var helpers = require('../helpers/index');
 var Ticks = require('../core/core.ticks');
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var defaultConfig = {
 		position: 'left',
@@ -15,7 +15,7 @@ module.exports = function(Chart) {
 
 	var LinearScale = Chart.LinearScaleBase.extend({
 
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			var opts = me.options;
 			var chart = me.chart;
@@ -35,7 +35,7 @@ module.exports = function(Chart) {
 
 			var hasStacks = opts.stacked;
 			if (hasStacks === undefined) {
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					if (hasStacks) {
 						return;
 					}
@@ -51,7 +51,7 @@ module.exports = function(Chart) {
 			if (opts.stacked || hasStacks) {
 				var valuesPerStack = {};
 
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 					var key = [
 						meta.type,
@@ -72,7 +72,7 @@ module.exports = function(Chart) {
 					var negativeValues = valuesPerStack[key].negativeValues;
 
 					if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-						helpers.each(dataset.data, function(rawValue, index) {
+						helpers.each(dataset.data, function (rawValue, index) {
 							var value = +me.getRightValue(rawValue);
 							if (isNaN(value) || meta.data[index].hidden) {
 								return;
@@ -92,7 +92,7 @@ module.exports = function(Chart) {
 					}
 				});
 
-				helpers.each(valuesPerStack, function(valuesForType) {
+				helpers.each(valuesPerStack, function (valuesForType) {
 					var values = valuesForType.positiveValues.concat(valuesForType.negativeValues);
 					var minVal = helpers.min(values);
 					var maxVal = helpers.max(values);
@@ -101,10 +101,10 @@ module.exports = function(Chart) {
 				});
 
 			} else {
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 					if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-						helpers.each(dataset.data, function(rawValue, index) {
+						helpers.each(dataset.data, function (rawValue, index) {
 							var value = +me.getRightValue(rawValue);
 							if (isNaN(value) || meta.data[index].hidden) {
 								return;
@@ -132,7 +132,7 @@ module.exports = function(Chart) {
 			// Common base implementation to handle ticks.min, ticks.max, ticks.beginAtZero
 			this.handleTickRangeOptions();
 		},
-		getTickLimit: function() {
+		getTickLimit: function () {
 			var maxTicks;
 			var me = this;
 			var tickOpts = me.options.ticks;
@@ -148,17 +148,17 @@ module.exports = function(Chart) {
 			return maxTicks;
 		},
 		// Called after the ticks are built. We need
-		handleDirectionalChanges: function() {
+		handleDirectionalChanges: function () {
 			if (!this.isHorizontal()) {
 				// We are in a vertical orientation. The top value is the highest. So reverse the array
 				this.ticks.reverse();
 			}
 		},
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
 		},
 		// Utils
-		getPixelForValue: function(value) {
+		getPixelForValue: function (value) {
 			// This must be called after fit has been run so that
 			// this.left, this.top, this.right, and this.bottom have been defined
 			var me = this;
@@ -175,14 +175,14 @@ module.exports = function(Chart) {
 			}
 			return pixel;
 		},
-		getValueForPixel: function(pixel) {
+		getValueForPixel: function (pixel) {
 			var me = this;
 			var isHorizontal = me.isHorizontal();
 			var innerDimension = isHorizontal ? me.width : me.height;
 			var offset = (isHorizontal ? pixel - me.left : me.bottom - pixel) / innerDimension;
 			return me.start + ((me.end - me.start) * offset);
 		},
-		getPixelForTick: function(index) {
+		getPixelForTick: function (index) {
 			return this.getPixelForValue(this.ticksAsNumbers[index]);
 		}
 	});

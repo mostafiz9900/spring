@@ -1,20 +1,20 @@
-describe('Platform.dom', function() {
+describe('Platform.dom', function () {
 
-	describe('context acquisition', function() {
+	describe('context acquisition', function () {
 		var canvasId = 'chartjs-canvas';
 
-		beforeEach(function() {
+		beforeEach(function () {
 			var canvas = document.createElement('canvas');
 			canvas.setAttribute('id', canvasId);
 			window.document.body.appendChild(canvas);
 		});
 
-		afterEach(function() {
+		afterEach(function () {
 			document.getElementById(canvasId).remove();
 		});
 
 		// see https://github.com/chartjs/Chart.js/issues/2807
-		it('should gracefully handle invalid item', function() {
+		it('should gracefully handle invalid item', function () {
 			var chart = new Chart('foobar');
 
 			expect(chart).not.toBeValidChart();
@@ -22,7 +22,7 @@ describe('Platform.dom', function() {
 			chart.destroy();
 		});
 
-		it('should accept a DOM element id', function() {
+		it('should accept a DOM element id', function () {
 			var canvas = document.getElementById(canvasId);
 			var chart = new Chart(canvasId);
 
@@ -33,7 +33,7 @@ describe('Platform.dom', function() {
 			chart.destroy();
 		});
 
-		it('should accept a canvas element', function() {
+		it('should accept a canvas element', function () {
 			var canvas = document.getElementById(canvasId);
 			var chart = new Chart(canvas);
 
@@ -44,7 +44,7 @@ describe('Platform.dom', function() {
 			chart.destroy();
 		});
 
-		it('should accept a canvas context2D', function() {
+		it('should accept a canvas context2D', function () {
 			var canvas = document.getElementById(canvasId);
 			var context = canvas.getContext('2d');
 			var chart = new Chart(context);
@@ -56,7 +56,7 @@ describe('Platform.dom', function() {
 			chart.destroy();
 		});
 
-		it('should accept an array containing canvas', function() {
+		it('should accept an array containing canvas', function () {
 			var canvas = document.getElementById(canvasId);
 			var chart = new Chart([canvas]);
 
@@ -67,9 +67,9 @@ describe('Platform.dom', function() {
 			chart.destroy();
 		});
 
-		it('should accept a canvas from an iframe', function(done) {
+		it('should accept a canvas from an iframe', function (done) {
 			var iframe = document.createElement('iframe');
-			iframe.onload = function() {
+			iframe.onload = function () {
 				var doc = iframe.contentDocument;
 				doc.body.innerHTML += '<canvas id="chart"></canvas>';
 				var canvas = doc.getElementById('chart');
@@ -90,8 +90,8 @@ describe('Platform.dom', function() {
 		});
 	});
 
-	describe('config.options.aspectRatio', function() {
-		it('should use default "global" aspect ratio for render and display sizes', function() {
+	describe('config.options.aspectRatio', function () {
+		it('should use default "global" aspect ratio for render and display sizes', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -108,7 +108,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should use default "chart" aspect ratio for render and display sizes', function() {
+		it('should use default "chart" aspect ratio for render and display sizes', function () {
 			var ratio = Chart.defaults.doughnut.aspectRatio;
 			Chart.defaults.doughnut.aspectRatio = 1;
 
@@ -131,7 +131,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should use "user" aspect ratio for render and display sizes', function() {
+		it('should use "user" aspect ratio for render and display sizes', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false,
@@ -149,7 +149,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should not apply aspect ratio when height specified', function() {
+		it('should not apply aspect ratio when height specified', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false,
@@ -168,8 +168,8 @@ describe('Platform.dom', function() {
 		});
 	});
 
-	describe('config.options.responsive: false', function() {
-		it('should use default canvas size for render and display sizes', function() {
+	describe('config.options.responsive: false', function () {
+		it('should use default canvas size for render and display sizes', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -186,7 +186,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should use canvas attributes for render and display sizes', function() {
+		it('should use canvas attributes for render and display sizes', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -205,7 +205,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should use canvas style for render and display sizes (if no attributes)', function() {
+		it('should use canvas style for render and display sizes (if no attributes)', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -222,7 +222,7 @@ describe('Platform.dom', function() {
 			});
 		});
 
-		it('should use attributes for the render size and style for the display size', function() {
+		it('should use attributes for the render size and style for the display size', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -242,7 +242,7 @@ describe('Platform.dom', function() {
 		});
 
 		// https://github.com/chartjs/Chart.js/issues/3860
-		it('should support decimal display width and/or height', function() {
+		it('should support decimal display width and/or height', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: false
@@ -260,8 +260,8 @@ describe('Platform.dom', function() {
 		});
 	});
 
-	describe('config.options.responsive: true (maintainAspectRatio: true)', function() {
-		it('should fill parent width and use aspect ratio to calculate height', function() {
+	describe('config.options.responsive: true (maintainAspectRatio: true)', function () {
+		it('should fill parent width and use aspect ratio to calculate height', function () {
 			var chart = acquireChart({
 				options: {
 					responsive: true,
@@ -283,8 +283,8 @@ describe('Platform.dom', function() {
 		});
 	});
 
-	describe('controller.destroy', function() {
-		it('should reset context to default values', function() {
+	describe('controller.destroy', function () {
+		it('should reset context to default values', function () {
 			var chart = acquireChart({});
 			var context = chart.ctx;
 
@@ -305,12 +305,12 @@ describe('Platform.dom', function() {
 				strokeStyle: '#000000',
 				textAlign: 'start',
 				textBaseline: 'alphabetic'
-			}, function(value, key) {
+			}, function (value, key) {
 				expect(context[key]).toBe(value);
 			});
 		});
 
-		it('should restore canvas initial values', function(done) {
+		it('should restore canvas initial values', function (done) {
 			var chart = acquireChart({
 				options: {
 					responsive: true,
@@ -329,7 +329,7 @@ describe('Platform.dom', function() {
 			var canvas = chart.canvas;
 			var wrapper = canvas.parentNode;
 			wrapper.style.width = '475px';
-			waitForResize(chart, function() {
+			waitForResize(chart, function () {
 				expect(chart).toBeChartOfSize({
 					dw: 475, dh: 450,
 					rw: 475, rh: 450,
@@ -348,11 +348,11 @@ describe('Platform.dom', function() {
 		});
 	});
 
-	describe('event handling', function() {
-		it('should notify plugins about events', function() {
+	describe('event handling', function () {
+		it('should notify plugins about events', function () {
 			var notifiedEvent;
 			var plugin = {
-				afterEvent: function(chart, e) {
+				afterEvent: function (chart, e) {
 					notifiedEvent = e;
 				}
 			};

@@ -7,10 +7,10 @@
 
 'use strict'
 
-const rollup  = require('rollup')
-const path    = require('path')
-const babel   = require('rollup-plugin-babel')
-const TEST    = process.env.NODE_ENV === 'test'
+const rollup = require('rollup')
+const path = require('path')
+const babel = require('rollup-plugin-babel')
+const TEST = process.env.NODE_ENV === 'test'
 
 const plugins = [
   babel({
@@ -42,40 +42,43 @@ const bsPlugins = {
 }
 
 Object.keys(bsPlugins)
-  .forEach((pluginKey) => {
-    console.log(`Building ${pluginKey} plugin...`)
+  .forEach((pluginKey) = > {
+  console.log(`Building ${pluginKey} plugin...`)
 
-    const external = ['jquery', 'popper.js']
-    const globals = {
-      jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
-      'popper.js': 'Popper'
-    }
+const external = ['jquery', 'popper.js']
+const globals = {
+  jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
+  'popper.js': 'Popper'
+}
 
-    // Do not bundle Util in plugins
-    if (pluginKey !== 'Util') {
-      external.push(bsPlugins.Util)
-      globals[bsPlugins.Util] = 'Util'
-    }
+// Do not bundle Util in plugins
+if (pluginKey !== 'Util') {
+  external.push(bsPlugins.Util)
+  globals[bsPlugins.Util] = 'Util'
+}
 
-    // Do not bundle Tooltip in Popover
-    if (pluginKey === 'Popover') {
-      external.push(bsPlugins.Tooltip)
-      globals[bsPlugins.Tooltip] = 'Tooltip'
-    }
+// Do not bundle Tooltip in Popover
+if (pluginKey === 'Popover') {
+  external.push(bsPlugins.Tooltip)
+  globals[bsPlugins.Tooltip] = 'Tooltip'
+}
 
-    rollup.rollup({
-      input: bsPlugins[pluginKey],
-      plugins,
-      external
-    }).then((bundle) => {
-      bundle.write({
-        format,
-        name: pluginKey,
-        sourcemap: true,
-        globals,
-        file: path.resolve(__dirname, `${rootPath}${pluginKey.toLowerCase()}.js`)
-      })
-        .then(() => console.log(`Building ${pluginKey} plugin... Done !`))
-        .catch((err) => console.error(`${pluginKey}: ${err}`))
-    })
-  })
+rollup.rollup({
+  input: bsPlugins[pluginKey],
+  plugins,
+  external
+}).then((bundle) = > {
+  bundle.write({
+  format,
+  name: pluginKey,
+  sourcemap: true,
+  globals,
+  file: path.resolve(__dirname, `${rootPath}${pluginKey.toLowerCase()}.js`)
+})
+  .then(() = > console.log(`Building ${pluginKey} plugin... Done !`)
+)
+.
+catch((err) = > console.error(`${pluginKey}: ${err}`)
+)
+})
+})

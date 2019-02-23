@@ -43,18 +43,18 @@ const files = [
   }
 ]
 
-files.forEach((file) => {
-  fs.readFile(file.file, 'utf8', (err, data) => {
-    if (err) {
-      throw err
-    }
+files.forEach((file) = > {
+  fs.readFile(file.file, 'utf8', (err, data) = > {
+  if(err) {
+    throw err
+  }
 
-    const integrity = sriToolbox.generate({
-      algorithms: ['sha384']
-    }, data)
+  const integrity = sriToolbox.generate({
+    algorithms: ['sha384']
+  }, data)
 
-    console.log(`${file.configPropertyName}: ${integrity}`)
+  console.log(`${file.configPropertyName}: ${integrity}`)
 
-    sh.sed('-i', new RegExp(`(\\s${file.configPropertyName}:\\s+"|')(\\S+)("|')`), `$1${integrity}$3`, configFile)
-  })
+sh.sed('-i', new RegExp(`(\\s${file.configPropertyName}:\\s+"|')(\\S+)("|')`), `$1${integrity}$3`, configFile)
+})
 })

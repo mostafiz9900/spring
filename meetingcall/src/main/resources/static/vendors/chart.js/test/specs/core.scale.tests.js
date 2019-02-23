@@ -1,7 +1,7 @@
-describe('Core.scale', function() {
+describe('Core.scale', function () {
 	describe('auto', jasmine.specsFromFixtures('core.scale'));
 
-	it('should provide default scale label options', function() {
+	it('should provide default scale label options', function () {
 		expect(Chart.defaults.scale.scaleLabel).toEqual({
 			// display property
 			display: false,

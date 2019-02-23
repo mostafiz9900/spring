@@ -71,7 +71,6 @@
   }
 }
 
-
 //
 // Container illustrations
 //
@@ -108,7 +107,6 @@
 .bd-example-container-fluid {
   max-width: none;
 }
-
 
 //
 // Docs examples
@@ -234,9 +232,11 @@
 .bd-example-control-sizing input[type="text"] + input[type="text"] {
   margin-top: .5rem;
 }
+
 .bd-example-form .input-group {
   margin-bottom: .5rem;
 }
+
 .bd-example > textarea.form-control {
   resize: vertical;
 }

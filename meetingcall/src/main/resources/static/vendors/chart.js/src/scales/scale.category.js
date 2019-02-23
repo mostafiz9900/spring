@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	// Default config for a category scale
 	var defaultConfig = {
@@ -9,16 +9,16 @@ module.exports = function(Chart) {
 
 	var DatasetScale = Chart.Scale.extend({
 		/**
-		* Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use those
-		* else fall back to data.labels
-		* @private
-		*/
-		getLabels: function() {
+		 * Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use those
+		 * else fall back to data.labels
+		 * @private
+		 */
+		getLabels: function () {
 			var data = this.chart.data;
 			return this.options.labels || (this.isHorizontal() ? data.xLabels : data.yLabels) || data.labels;
 		},
 
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			var labels = me.getLabels();
 			me.minIndex = 0;
@@ -41,14 +41,14 @@ module.exports = function(Chart) {
 			me.max = labels[me.maxIndex];
 		},
 
-		buildTicks: function() {
+		buildTicks: function () {
 			var me = this;
 			var labels = me.getLabels();
 			// If we are viewing some subset of labels, slice the original array
 			me.ticks = (me.minIndex === 0 && me.maxIndex === labels.length - 1) ? labels : labels.slice(me.minIndex, me.maxIndex + 1);
 		},
 
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			var me = this;
 			var data = me.chart.data;
 			var isHorizontal = me.isHorizontal();
@@ -60,7 +60,7 @@ module.exports = function(Chart) {
 		},
 
 		// Used to get data value locations.  Value can either be an index or a numerical value
-		getPixelForValue: function(value, index) {
+		getPixelForValue: function (value, index) {
 			var me = this;
 			var offset = me.options.offset;
 			// 1 is added because we need the length but we have the indexes
@@ -98,10 +98,10 @@ module.exports = function(Chart) {
 
 			return me.top + Math.round(heightOffset);
 		},
-		getPixelForTick: function(index) {
+		getPixelForTick: function (index) {
 			return this.getPixelForValue(this.ticks[index], index + this.minIndex, null);
 		},
-		getValueForPixel: function(pixel) {
+		getValueForPixel: function (pixel) {
 			var me = this;
 			var offset = me.options.offset;
 			var value;
@@ -123,7 +123,7 @@ module.exports = function(Chart) {
 
 			return value + me.minIndex;
 		},
-		getBasePixel: function() {
+		getBasePixel: function () {
 			return this.bottom;
 		}
 	});

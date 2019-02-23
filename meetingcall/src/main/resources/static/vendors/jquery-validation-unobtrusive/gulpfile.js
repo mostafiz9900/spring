@@ -5,7 +5,7 @@ var gulp = require("gulp"),
     lec = require('gulp-line-ending-corrector'),
     pkg = require('./package.json');
 
-gulp.task("minifyJS", function(){
+gulp.task("minifyJS", function () {
     gulp.src(["src/jquery.validate.unobtrusive.js"])
         .pipe(replace(/@version.*/, '@version v' + pkg.version))
         .pipe(gulp.dest("dist"))

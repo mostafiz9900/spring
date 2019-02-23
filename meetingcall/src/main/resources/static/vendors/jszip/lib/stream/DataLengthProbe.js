@@ -13,13 +13,14 @@ function DataLengthProbe(propName) {
     this.propName = propName;
     this.withStreamInfo(propName, 0);
 }
+
 utils.inherits(DataLengthProbe, GenericWorker);
 
 /**
  * @see GenericWorker.processChunk
  */
 DataLengthProbe.prototype.processChunk = function (chunk) {
-    if(chunk) {
+    if (chunk) {
         var length = this.streamInfo[this.propName] || 0;
         this.streamInfo[this.propName] = length + chunk.data.length;
     }

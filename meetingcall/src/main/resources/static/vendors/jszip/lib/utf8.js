@@ -14,10 +14,10 @@ var GenericWorker = require('./stream/GenericWorker');
 // Note, that 5 & 6-byte values and some 4-byte values can not be represented in JS,
 // because max possible codepoint is 0x10ffff
 var _utf8len = new Array(256);
-for (var i=0; i<256; i++) {
-  _utf8len[i] = (i >= 252 ? 6 : i >= 248 ? 5 : i >= 240 ? 4 : i >= 224 ? 3 : i >= 192 ? 2 : 1);
+for (var i = 0; i < 256; i++) {
+    _utf8len[i] = (i >= 252 ? 6 : i >= 248 ? 5 : i >= 240 ? 4 : i >= 224 ? 3 : i >= 192 ? 2 : 1);
 }
-_utf8len[254]=_utf8len[254]=1; // Invalid sequence start
+_utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
 // convert string to array (typed, when possible)
 var string2buf = function (str) {
@@ -26,8 +26,8 @@ var string2buf = function (str) {
     // count binary size
     for (m_pos = 0; m_pos < str_len; m_pos++) {
         c = str.charCodeAt(m_pos);
-        if ((c & 0xfc00) === 0xd800 && (m_pos+1 < str_len)) {
-            c2 = str.charCodeAt(m_pos+1);
+        if ((c & 0xfc00) === 0xd800 && (m_pos + 1 < str_len)) {
+            c2 = str.charCodeAt(m_pos + 1);
             if ((c2 & 0xfc00) === 0xdc00) {
                 c = 0x10000 + ((c - 0xd800) << 10) + (c2 - 0xdc00);
                 m_pos++;
@@ -44,10 +44,10 @@ var string2buf = function (str) {
     }
 
     // convert
-    for (i=0, m_pos = 0; i < buf_len; m_pos++) {
+    for (i = 0, m_pos = 0; i < buf_len; m_pos++) {
         c = str.charCodeAt(m_pos);
-        if ((c & 0xfc00) === 0xd800 && (m_pos+1 < str_len)) {
-            c2 = str.charCodeAt(m_pos+1);
+        if ((c & 0xfc00) === 0xd800 && (m_pos + 1 < str_len)) {
+            c2 = str.charCodeAt(m_pos + 1);
             if ((c2 & 0xfc00) === 0xdc00) {
                 c = 0x10000 + ((c - 0xd800) << 10) + (c2 - 0xdc00);
                 m_pos++;
@@ -83,23 +83,31 @@ var string2buf = function (str) {
 //
 // buf[] - utf8 bytes array
 // max   - length limit (mandatory);
-var utf8border = function(buf, max) {
+var utf8border = function (buf, max) {
     var pos;
 
     max = max || buf.length;
-    if (max > buf.length) { max = buf.length; }
+    if (max > buf.length) {
+        max = buf.length;
+    }
 
     // go back from last position, until start of sequence found
-    pos = max-1;
-    while (pos >= 0 && (buf[pos] & 0xC0) === 0x80) { pos--; }
+    pos = max - 1;
+    while (pos >= 0 && (buf[pos] & 0xC0) === 0x80) {
+        pos--;
+    }
 
     // Fuckup - very small and broken sequence,
     // return max, because we should return something anyway.
-    if (pos < 0) { return max; }
+    if (pos < 0) {
+        return max;
+    }
 
     // If we came to start of buffer - that means vuffer is too small,
     // return max too.
-    if (pos === 0) { return max; }
+    if (pos === 0) {
+        return max;
+    }
 
     return (pos + _utf8len[buf[pos]] > max) ? pos : max;
 };
@@ -112,16 +120,23 @@ var buf2string = function (buf) {
     // Reserve max possible length (2 words per char)
     // NB: by unknown reasons, Array is significantly faster for
     //     String.fromCharCode.apply than Uint16Array.
-    var utf16buf = new Array(len*2);
+    var utf16buf = new Array(len * 2);
 
-    for (out=0, i=0; i<len;) {
+    for (out = 0, i = 0; i < len;) {
         c = buf[i++];
         // quick process ascii
-        if (c < 0x80) { utf16buf[out++] = c; continue; }
+        if (c < 0x80) {
+            utf16buf[out++] = c;
+            continue;
+        }
 
         c_len = _utf8len[c];
         // skip 5 & 6 byte codes
-        if (c_len > 4) { utf16buf[out++] = 0xfffd; i += c_len-1; continue; }
+        if (c_len > 4) {
+            utf16buf[out++] = 0xfffd;
+            i += c_len - 1;
+            continue;
+        }
 
         // apply mask on first byte
         c &= c_len === 2 ? 0x1f : c_len === 3 ? 0x0f : 0x07;
@@ -132,7 +147,10 @@ var buf2string = function (buf) {
         }
 
         // terminated by end of string?
-        if (c_len > 1) { utf16buf[out++] = 0xfffd; continue; }
+        if (c_len > 1) {
+            utf16buf[out++] = 0xfffd;
+            continue;
+        }
 
         if (c < 0x10000) {
             utf16buf[out++] = c;
@@ -145,7 +163,7 @@ var buf2string = function (buf) {
 
     // shrinkBuf(utf16buf, out)
     if (utf16buf.length !== out) {
-        if(utf16buf.subarray) {
+        if (utf16buf.subarray) {
             utf16buf = utf16buf.subarray(0, out);
         } else {
             utf16buf.length = out;
@@ -200,6 +218,7 @@ function Utf8DecodeWorker() {
     // the last bytes if a chunk didn't end with a complete codepoint.
     this.leftOver = null;
 }
+
 utils.inherits(Utf8DecodeWorker, GenericWorker);
 
 /**
@@ -211,7 +230,7 @@ Utf8DecodeWorker.prototype.processChunk = function (chunk) {
 
     // 1st step, re-use what's left of the previous chunk
     if (this.leftOver && this.leftOver.length) {
-        if(support.uint8array) {
+        if (support.uint8array) {
             var previousData = data;
             data = new Uint8Array(previousData.length + this.leftOver.length);
             data.set(this.leftOver, 0);
@@ -235,8 +254,8 @@ Utf8DecodeWorker.prototype.processChunk = function (chunk) {
     }
 
     this.push({
-        data : exports.utf8decode(usableData),
-        meta : chunk.meta
+        data: exports.utf8decode(usableData),
+        meta: chunk.meta
     });
 };
 
@@ -244,10 +263,10 @@ Utf8DecodeWorker.prototype.processChunk = function (chunk) {
  * @see GenericWorker.flush
  */
 Utf8DecodeWorker.prototype.flush = function () {
-    if(this.leftOver && this.leftOver.length) {
+    if (this.leftOver && this.leftOver.length) {
         this.push({
-            data : exports.utf8decode(this.leftOver),
-            meta : {}
+            data: exports.utf8decode(this.leftOver),
+            meta: {}
         });
         this.leftOver = null;
     }
@@ -261,6 +280,7 @@ exports.Utf8DecodeWorker = Utf8DecodeWorker;
 function Utf8EncodeWorker() {
     GenericWorker.call(this, "utf-8 encode");
 }
+
 utils.inherits(Utf8EncodeWorker, GenericWorker);
 
 /**
@@ -268,8 +288,8 @@ utils.inherits(Utf8EncodeWorker, GenericWorker);
  */
 Utf8EncodeWorker.prototype.processChunk = function (chunk) {
     this.push({
-        data : exports.utf8encode(chunk.data),
-        meta : chunk.meta
+        data: exports.utf8encode(chunk.data),
+        meta: chunk.meta
     });
 };
 exports.Utf8EncodeWorker = Utf8EncodeWorker;

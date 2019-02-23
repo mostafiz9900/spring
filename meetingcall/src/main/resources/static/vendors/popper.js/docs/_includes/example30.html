@@ -17,16 +17,16 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    var fakeBody = document.querySelector('.example2__fake-body');
-    $('.nano').nanoScroller({ scrollTop: fakeBody.clientHeight / 2 });
+    document.addEventListener('DOMContentLoaded', function () {
+        var fakeBody = document.querySelector('.example2__fake-body');
+        $('.nano').nanoScroller({scrollTop: fakeBody.clientHeight / 2});
 
-    setTimeout(function() {
-        var pop1 = new Popper(example2reference1, example2popper1, {
-            placement: 'left',
-        });
-    }, 1000);
-}, false);
+        setTimeout(function () {
+            var pop1 = new Popper(example2reference1, example2popper1, {
+                placement: 'left',
+            });
+        }, 1000);
+    }, false);
 </script>
 
 <style>
@@ -35,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function(){
         height: 450px;
         flex: 1;
     }
+
     .example2__scrol-box {
         height: 200%;
-            display: flex;
-            align-content: center;
-            align-items: center;
+        display: flex;
+        align-content: center;
+        align-items: center;
     }
 </style>

@@ -1,6 +1,6 @@
 /* eslint camelcase: 0 */
 
-module.exports = function(karma) {
+module.exports = function (karma) {
 	var args = karma.args || {};
 	var config = {
 		browsers: ['Firefox'],

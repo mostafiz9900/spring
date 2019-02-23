@@ -1,13 +1,13 @@
 // Test the category scale
 
-describe('Category scale tests', function() {
-	it('Should register the constructor with the scale service', function() {
+describe('Category scale tests', function () {
+	it('Should register the constructor with the scale service', function () {
 		var Constructor = Chart.scaleService.getScaleConstructor('category');
 		expect(Constructor).not.toBe(undefined);
 		expect(typeof Constructor).toBe('function');
 	});
 
-	it('Should have the correct default config', function() {
+	it('Should have the correct default config', function () {
 		var defaultConfig = Chart.scaleService.getScaleDefaults('category');
 		expect(defaultConfig).toEqual({
 			display: true,
@@ -52,7 +52,7 @@ describe('Category scale tests', function() {
 		expect(defaultConfig.ticks.callback).toEqual(jasmine.any(Function));
 	});
 
-	it('Should generate ticks from the data labels', function() {
+	it('Should generate ticks from the data labels', function () {
 		var scaleID = 'myScale';
 
 		var mockData = {
@@ -79,7 +79,7 @@ describe('Category scale tests', function() {
 		expect(scale.ticks).toEqual(mockData.labels);
 	});
 
-	it('Should generate ticks from the data xLabels', function() {
+	it('Should generate ticks from the data xLabels', function () {
 		var scaleID = 'myScale';
 
 		var mockData = {
@@ -106,7 +106,7 @@ describe('Category scale tests', function() {
 		expect(scale.ticks).toEqual(mockData.xLabels);
 	});
 
-	it('Should generate ticks from the data yLabels', function() {
+	it('Should generate ticks from the data yLabels', function () {
 		var scaleID = 'myScale';
 
 		var mockData = {
@@ -134,7 +134,7 @@ describe('Category scale tests', function() {
 		expect(scale.ticks).toEqual(mockData.yLabels);
 	});
 
-	it('Should generate ticks from the axis labels', function() {
+	it('Should generate ticks from the axis labels', function () {
 		var labels = ['tick1', 'tick2', 'tick3', 'tick4', 'tick5'];
 		var chart = window.acquireChart({
 			type: 'line',
@@ -156,7 +156,7 @@ describe('Category scale tests', function() {
 		expect(scale.ticks).toEqual(labels);
 	});
 
-	it ('should get the correct label for the index', function() {
+	it('should get the correct label for the index', function () {
 		var scaleID = 'myScale';
 
 		var mockData = {
@@ -184,7 +184,7 @@ describe('Category scale tests', function() {
 		expect(scale.getLabelForIndex(1)).toBe('tick2');
 	});
 
-	it ('Should get the correct pixel for a value when horizontal', function() {
+	it('Should get the correct pixel for a value when horizontal', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -227,7 +227,7 @@ describe('Category scale tests', function() {
 		expect(xScale.getValueForPixel(397)).toBe(4);
 	});
 
-	it ('Should get the correct pixel for a value when there are repeated labels', function() {
+	it('Should get the correct pixel for a value when there are repeated labels', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -258,7 +258,7 @@ describe('Category scale tests', function() {
 		expect(xScale.getPixelForValue('tick_1', 1, 0)).toBeCloseToPixel(143);
 	});
 
-	it ('Should get the correct pixel for a value when horizontal and zoomed', function() {
+	it('Should get the correct pixel for a value when horizontal and zoomed', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -299,7 +299,7 @@ describe('Category scale tests', function() {
 		expect(xScale.getPixelForValue(0, 3, 0)).toBeCloseToPixel(417);
 	});
 
-	it ('should get the correct pixel for a value when vertical', function() {
+	it('should get the correct pixel for a value when vertical', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -344,7 +344,7 @@ describe('Category scale tests', function() {
 		expect(yScale.getValueForPixel(439)).toBe(4);
 	});
 
-	it ('should get the correct pixel for a value when vertical and zoomed', function() {
+	it('should get the correct pixel for a value when vertical and zoomed', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {

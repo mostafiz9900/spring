@@ -1,7 +1,7 @@
 // Test the rectangle element
 
-describe('Title block tests', function() {
-	it('Should have the correct default config', function() {
+describe('Title block tests', function () {
+	it('Should have the correct default config', function () {
 		expect(Chart.defaults.global.title).toEqual({
 			display: false,
 			position: 'top',
@@ -14,7 +14,7 @@ describe('Title block tests', function() {
 		});
 	});
 
-	it('should update correctly', function() {
+	it('should update correctly', function () {
 		var chart = {};
 
 		var options = Chart.helpers.clone(Chart.defaults.global.title);
@@ -43,7 +43,7 @@ describe('Title block tests', function() {
 		});
 	});
 
-	it('should update correctly when vertical', function() {
+	it('should update correctly when vertical', function () {
 		var chart = {};
 
 		var options = Chart.helpers.clone(Chart.defaults.global.title);
@@ -73,7 +73,7 @@ describe('Title block tests', function() {
 		});
 	});
 
-	it('should have the correct size when there are multiple lines of text', function() {
+	it('should have the correct size when there are multiple lines of text', function () {
 		var chart = {};
 
 		var options = Chart.helpers.clone(Chart.defaults.global.title);
@@ -95,7 +95,7 @@ describe('Title block tests', function() {
 		});
 	});
 
-	it('should draw correctly horizontally', function() {
+	it('should draw correctly horizontally', function () {
 		var chart = {};
 		var context = window.createMockContext();
 
@@ -144,7 +144,7 @@ describe('Title block tests', function() {
 		}]);
 	});
 
-	it ('should draw correctly vertically', function() {
+	it('should draw correctly vertically', function () {
 		var chart = {};
 		var context = window.createMockContext();
 
@@ -227,8 +227,8 @@ describe('Title block tests', function() {
 		}]);
 	});
 
-	describe('config update', function() {
-		it ('should update the options', function() {
+	describe('config update', function () {
+		it('should update the options', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {
@@ -250,7 +250,7 @@ describe('Title block tests', function() {
 			expect(chart.titleBlock.options.display).toBe(false);
 		});
 
-		it ('should update the associated layout item', function() {
+		it('should update the associated layout item', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {},
@@ -277,7 +277,7 @@ describe('Title block tests', function() {
 			expect(chart.titleBlock.weight).toBe(42);
 		});
 
-		it ('should remove the title if the new options are false', function() {
+		it('should remove the title if the new options are false', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {
@@ -294,7 +294,7 @@ describe('Title block tests', function() {
 			expect(chart.titleBlock).toBe(undefined);
 		});
 
-		it ('should create the title if the title options are changed to exist', function() {
+		it('should create the title if the title options are changed to exist', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {

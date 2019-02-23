@@ -24,7 +24,7 @@ defaults._set('global', {
  * IMPORTANT: this class is exposed publicly as Chart.Legend, backward compatibility required!
  */
 var Title = Element.extend({
-	initialize: function(config) {
+	initialize: function (config) {
 		var me = this;
 		helpers.extend(me, config);
 
@@ -35,7 +35,7 @@ var Title = Element.extend({
 	// These methods are ordered by lifecycle. Utilities then follow.
 
 	beforeUpdate: noop,
-	update: function(maxWidth, maxHeight, margins) {
+	update: function (maxWidth, maxHeight, margins) {
 		var me = this;
 
 		// Update Lifecycle - Probably don't want to ever extend or overwrite this function ;)
@@ -70,7 +70,7 @@ var Title = Element.extend({
 	//
 
 	beforeSetDimensions: noop,
-	setDimensions: function() {
+	setDimensions: function () {
 		var me = this;
 		// Set the unconstrained dimension before label rotation
 		if (me.isHorizontal()) {
@@ -109,7 +109,7 @@ var Title = Element.extend({
 	//
 
 	beforeFit: noop,
-	fit: function() {
+	fit: function () {
 		var me = this;
 		var valueOrDefault = helpers.valueOrDefault;
 		var opts = me.options;
@@ -135,13 +135,13 @@ var Title = Element.extend({
 	afterFit: noop,
 
 	// Shared Methods
-	isHorizontal: function() {
+	isHorizontal: function () {
 		var pos = this.options.position;
 		return pos === 'top' || pos === 'bottom';
 	},
 
 	// Actually draw the title block on the canvas
-	draw: function() {
+	draw: function () {
 		var me = this;
 		var ctx = me.ctx;
 		var valueOrDefault = helpers.valueOrDefault;
@@ -223,7 +223,7 @@ module.exports = {
 	 */
 	_element: Title,
 
-	beforeInit: function(chart) {
+	beforeInit: function (chart) {
 		var titleOpts = chart.options.title;
 
 		if (titleOpts) {
@@ -231,7 +231,7 @@ module.exports = {
 		}
 	},
 
-	beforeUpdate: function(chart) {
+	beforeUpdate: function (chart) {
 		var titleOpts = chart.options.title;
 		var titleBlock = chart.titleBlock;
 

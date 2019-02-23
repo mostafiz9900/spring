@@ -31,9 +31,9 @@ const miniBanner = `/*
  */`
 
 bundle({
-  name: 'Tooltip',
-  input: 'src/index.js',
-  file: 'tooltip.js',
-  banner,
-  miniBanner,
+    name: 'Tooltip',
+    input: 'src/index.js',
+    file: 'tooltip.js',
+    banner,
+    miniBanner,
 });

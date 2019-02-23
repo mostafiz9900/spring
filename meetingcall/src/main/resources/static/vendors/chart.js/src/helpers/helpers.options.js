@@ -15,7 +15,7 @@ module.exports = {
 	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
 	 * @since 2.7.0
 	 */
-	toLineHeight: function(value, size) {
+	toLineHeight: function (value, size) {
 		var matches = ('' + value).match(/^(normal|(\d+(?:\.\d+)?)(px|em|%)?)$/);
 		if (!matches || matches[1] === 'normal') {
 			return size * 1.2;
@@ -24,13 +24,13 @@ module.exports = {
 		value = +matches[2];
 
 		switch (matches[3]) {
-		case 'px':
-			return value;
-		case '%':
-			value /= 100;
-			break;
-		default:
-			break;
+			case 'px':
+				return value;
+			case '%':
+				value /= 100;
+				break;
+			default:
+				break;
 		}
 
 		return size * value;
@@ -43,7 +43,7 @@ module.exports = {
 	 * @returns {Object} The padding values (top, right, bottom, left, width, height)
 	 * @since 2.7.0
 	 */
-	toPadding: function(value) {
+	toPadding: function (value) {
 		var t, r, b, l;
 
 		if (helpers.isObject(value)) {
@@ -74,7 +74,7 @@ module.exports = {
 	 * at `index` become the new input.
 	 * @since 2.7.0
 	 */
-	resolve: function(inputs, context, index) {
+	resolve: function (inputs, context, index) {
 		var i, ilen, value;
 
 		for (i = 0, ilen = inputs.length; i < ilen; ++i) {

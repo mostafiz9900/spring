@@ -22,11 +22,9 @@
     "consistent-return": "off",
     "no-magic-numbers": "off",
     "vars-on-top": "off",
-
     // Stylistic Issues
     "func-style": "off",
     "spaced-comment": "off",
-
     // ECMAScript 6
     "no-var": "off",
     "object-shorthand": "off",

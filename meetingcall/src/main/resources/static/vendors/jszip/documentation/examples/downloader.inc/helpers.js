@@ -1,11 +1,12 @@
 /**
  * Reset the message.
  */
-function resetMessage () {
+function resetMessage() {
     $("#result")
-    .removeClass()
-    .text("");
+        .removeClass()
+        .text("");
 }
+
 /**
  * show a successful message.
  * @param {String} text the text to show.
@@ -13,9 +14,10 @@ function resetMessage () {
 function showMessage(text) {
     resetMessage();
     $("#result")
-    .addClass("alert alert-success")
-    .text(text);
+        .addClass("alert alert-success")
+        .text(text);
 }
+
 /**
  * show an error message.
  * @param {String} text the text to show.
@@ -23,23 +25,24 @@ function showMessage(text) {
 function showError(text) {
     resetMessage();
     $("#result")
-    .addClass("alert alert-danger")
-    .text(text);
+        .addClass("alert alert-danger")
+        .text(text);
 }
+
 /**
  * Update the progress bar.
  * @param {Integer} percent the current percent
  */
 function updatePercent(percent) {
     $("#progress_bar").removeClass("hide")
-    .find(".progress-bar")
-    .attr("aria-valuenow", percent)
-    .css({
-        width : percent + "%"
-    });
+        .find(".progress-bar")
+        .attr("aria-valuenow", percent)
+        .css({
+            width: percent + "%"
+        });
 }
 
-if(!JSZip.support.blob) {
+if (!JSZip.support.blob) {
     showError("This demo works only with a recent browser !");
     return;
 }

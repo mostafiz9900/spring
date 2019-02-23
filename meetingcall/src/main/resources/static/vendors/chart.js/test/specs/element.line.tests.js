@@ -1,6 +1,6 @@
 // Tests for the line element
-describe('Chart.elements.Line', function() {
-	it('should be constructed', function() {
+describe('Chart.elements.Line', function () {
+	it('should be constructed', function () {
 		var line = new Chart.elements.Line({
 			_datasetindex: 2,
 			_points: [1, 2, 3, 4]
@@ -11,7 +11,7 @@ describe('Chart.elements.Line', function() {
 		expect(line._points).toEqual([1, 2, 3, 4]);
 	});
 
-	it('should draw with default settings', function() {
+	it('should draw with default settings', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -125,7 +125,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should draw with straight lines for a tension of 0', function() {
+	it('should draw with straight lines for a tension of 0', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -243,12 +243,12 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should draw stepped lines, with "before" interpolation', function() {
+	it('should draw stepped lines, with "before" interpolation', function () {
 
 		// Both `true` and `'before'` should draw the same steppedLine
 		var beforeInterpolations = [true, 'before'];
 
-		beforeInterpolations.forEach(function(mode) {
+		beforeInterpolations.forEach(function (mode) {
 			var mockContext = window.createMockContext();
 
 			// Create our points
@@ -376,7 +376,7 @@ describe('Chart.elements.Line', function() {
 		});
 	});
 
-	it('should draw stepped lines, with "after" interpolation', function() {
+	it('should draw stepped lines, with "after" interpolation', function () {
 
 		var mockContext = window.createMockContext();
 
@@ -504,7 +504,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should draw with custom settings', function() {
+	it('should draw with custom settings', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -627,7 +627,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip points correctly', function() {
+	it('should skip points correctly', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -740,7 +740,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip points correctly when spanGaps is true', function() {
+	it('should skip points correctly when spanGaps is true', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -854,7 +854,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip points correctly when all points are skipped', function() {
+	it('should skip points correctly when all points are skipped', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -962,7 +962,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip the first point correctly', function() {
+	it('should skip the first point correctly', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1075,7 +1075,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip the first point correctly when spanGaps is true', function() {
+	it('should skip the first point correctly when spanGaps is true', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1189,7 +1189,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip the last point correctly', function() {
+	it('should skip the last point correctly', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1302,7 +1302,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should skip the last point correctly when spanGaps is true', function() {
+	it('should skip the last point correctly when spanGaps is true', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1416,7 +1416,7 @@ describe('Chart.elements.Line', function() {
 		expect(mockContext.getCalls()).toEqual(expected);
 	});
 
-	it('should be able to draw with a loop back to the beginning point', function() {
+	it('should be able to draw with a loop back to the beginning point', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1536,7 +1536,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should be able to draw with a loop back to the beginning point when there is a skip in the middle of the dataset', function() {
+	it('should be able to draw with a loop back to the beginning point when there is a skip in the middle of the dataset', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1654,7 +1654,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should be able to draw with a loop back to the beginning point when span gaps is true and there is a skip in the middle of the dataset', function() {
+	it('should be able to draw with a loop back to the beginning point when span gaps is true and there is a skip in the middle of the dataset', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1773,7 +1773,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should be able to draw with a loop back to the beginning point when the first point is skipped', function() {
+	it('should be able to draw with a loop back to the beginning point when the first point is skipped', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points
@@ -1888,7 +1888,7 @@ describe('Chart.elements.Line', function() {
 		}]);
 	});
 
-	it('should be able to draw with a loop back to the beginning point when the last point is skipped', function() {
+	it('should be able to draw with a loop back to the beginning point when the last point is skipped', function () {
 		var mockContext = window.createMockContext();
 
 		// Create our points

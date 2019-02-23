@@ -13,7 +13,7 @@ var GenericWorker = require('./stream/GenericWorker');
  * @param {String|ArrayBuffer|Uint8Array|Buffer} data the data
  * @param {Object} options the options of the file
  */
-var ZipObject = function(name, data, options) {
+var ZipObject = function (name, data, options) {
     this.name = name;
     this.dir = options.dir;
     this.date = options.date;
@@ -25,8 +25,8 @@ var ZipObject = function(name, data, options) {
     this._dataBinary = options.binary;
     // keep only the compression
     this.options = {
-        compression : options.compression,
-        compressionOptions : options.compressionOptions
+        compression: options.compression,
+        compressionOptions: options.compressionOptions
     };
 };
 
@@ -100,7 +100,7 @@ ZipObject.prototype = {
             return this._data.getCompressedWorker();
         } else {
             var result = this._decompressWorker();
-            if(!this._dataBinary) {
+            if (!this._dataBinary) {
                 result = result.pipe(new utf8.Utf8EncodeWorker());
             }
             return CompressedObject.createWorkerFrom(result, compression, compressionOptions);
@@ -111,7 +111,7 @@ ZipObject.prototype = {
      * @private
      * @return Worker the worker.
      */
-    _decompressWorker : function () {
+    _decompressWorker: function () {
         if (this._data instanceof CompressedObject) {
             return this._data.getContentWorker();
         } else if (this._data instanceof GenericWorker) {
@@ -127,7 +127,7 @@ var removedFn = function () {
     throw new Error("This method has been removed in JSZip 3.0, please check the upgrade guide.");
 };
 
-for(var i = 0; i < removedMethods.length; i++) {
+for (var i = 0; i < removedMethods.length; i++) {
     ZipObject.prototype[removedMethods[i]] = removedFn;
 }
 module.exports = ZipObject;

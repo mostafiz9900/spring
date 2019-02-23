@@ -17,12 +17,12 @@ baseurl:        ""
 url:            "https://getbootstrap.com"
 encoding:       UTF-8
 exclude:
-  - docs/4.1/assets/scss/
+- docs/4.1/assets/scss/
 
 plugins:
-  - jekyll-redirect-from
-  - jekyll-sitemap
-  - jekyll-toc
+- jekyll-redirect-from
+- jekyll-sitemap
+- jekyll-toc
 
 # Social
 title:              Bootstrap

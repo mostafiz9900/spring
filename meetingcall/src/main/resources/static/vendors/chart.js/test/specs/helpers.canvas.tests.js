@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Chart.helpers.canvas', function() {
+describe('Chart.helpers.canvas', function () {
 	var helpers = Chart.helpers;
 
-	describe('clear', function() {
-		it('should clear the chart canvas', function() {
+	describe('clear', function () {
+		it('should clear the chart canvas', function () {
 			var chart = acquireChart({}, {
 				canvas: {
 					style: 'width: 150px; height: 245px'
@@ -21,8 +21,8 @@ describe('Chart.helpers.canvas', function() {
 		});
 	});
 
-	describe('roundedRect', function() {
-		it('should create a rounded rectangle path', function() {
+	describe('roundedRect', function () {
+		it('should create a rounded rectangle path', function () {
 			var context = window.createMockContext();
 
 			helpers.canvas.roundedRect(context, 10, 20, 30, 40, 5);
@@ -39,7 +39,7 @@ describe('Chart.helpers.canvas', function() {
 				{name: 'quadraticCurveTo', args: [10, 20, 15, 20]}
 			]);
 		});
-		it('should optimize path if radius is 0', function() {
+		it('should optimize path if radius is 0', function () {
 			var context = window.createMockContext();
 
 			helpers.canvas.roundedRect(context, 10, 20, 30, 40, 0);

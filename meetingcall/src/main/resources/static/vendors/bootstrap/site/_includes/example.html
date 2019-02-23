@@ -12,12 +12,12 @@ optional: hide_markup - disabled (default)
 
 {%- if include.hide_preview == null -%}
 <div{% if preview_id %} id="{{ preview_id }}"{% endif %} class="bd-example{% if preview_class %} {{ preview_class }}{% endif %}">
-  {{- include.content -}}
+{{- include.content -}}
 </div>
 {%- endif -%}
 
 {%- if include.hide_markup == null -%}
-  {%- highlight html -%}
-    {{- include.content | replace: 'data-src="holder.js', 'src="...' -}}
-  {%- endhighlight -%}
+{%- highlight html -%}
+{{- include.content | replace: 'data-src="holder.js', 'src="...' -}}
+{%- endhighlight -%}
 {%- endif -%}

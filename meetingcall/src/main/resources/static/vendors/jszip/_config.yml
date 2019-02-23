@@ -5,7 +5,7 @@ source: ./
 incremental: false
 highlighter: rouge
 gist:
-    noscript: false
+  noscript: false
 # /overwritten
 
 baseurl: /jszip
@@ -16,9 +16,9 @@ exclude: ['bin', 'README.md', 'node_modules']
 
 
 kramdown:
-    input: GFM
-    hard_wrap: false
+  input: GFM
+  hard_wrap: false
 gems:
-    - jekyll-coffeescript
-    - jekyll-paginate
+- jekyll-coffeescript
+- jekyll-paginate
 

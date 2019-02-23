@@ -131,7 +131,12 @@
     "type": "donut",
     "text": "4,7,6,5",
     "opts": {
-      "fill": ["cyan", "magenta", "yellow", "black"],
+      "fill": [
+        "cyan",
+        "magenta",
+        "yellow",
+        "black"
+      ],
       "height": 32
     },
     "width": 16,
@@ -323,7 +328,12 @@
     "type": "pie",
     "text": "4,7,6,5",
     "opts": {
-      "fill": ["cyan", "magenta", "yellow", "black"],
+      "fill": [
+        "cyan",
+        "magenta",
+        "yellow",
+        "black"
+      ],
       "height": 32
     },
     "width": 16,

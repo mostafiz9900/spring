@@ -1,10 +1,10 @@
-( function ( $ ) {
+(function ($) {
     "use strict";
 
 
     // Counter Number
     $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
+        $(this).prop('Counter', 0).animate({
             Counter: $(this).text()
         }, {
             duration: 3000,
@@ -16,19 +16,19 @@
     });
 
     //WidgetChart 1
-    var ctx = document.getElementById( "widgetChart1" );
+    var ctx = document.getElementById("widgetChart1");
     ctx.height = 150;
-    var myChart = new Chart( ctx, {
+    var myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             type: 'line',
-            datasets: [ {
+            datasets: [{
                 data: [65, 59, 84, 84, 51, 55, 40],
                 label: 'Dataset',
                 backgroundColor: 'transparent',
                 borderColor: 'rgba(255,255,255,.55)',
-            }, ]
+            },]
         },
         options: {
 
@@ -38,7 +38,7 @@
             },
             responsive: true,
             scales: {
-                xAxes: [ {
+                xAxes: [{
                     gridLines: {
                         color: 'transparent',
                         zeroLineColor: 'transparent'
@@ -47,13 +47,13 @@
                         fontSize: 2,
                         fontColor: 'transparent'
                     }
-                } ],
-                yAxes: [ {
-                    display:false,
+                }],
+                yAxes: [{
+                    display: false,
                     ticks: {
                         display: false,
                     }
-                } ]
+                }]
             },
             title: {
                 display: false,
@@ -69,23 +69,23 @@
                 }
             }
         }
-    } );
+    });
 
 
     //WidgetChart 2
-    var ctx = document.getElementById( "widgetChart2" );
+    var ctx = document.getElementById("widgetChart2");
     ctx.height = 150;
-    var myChart = new Chart( ctx, {
+    var myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             type: 'line',
-            datasets: [ {
+            datasets: [{
                 data: [1, 18, 9, 17, 34, 22, 11],
                 label: 'Dataset',
                 backgroundColor: '#63c2de',
                 borderColor: 'rgba(255,255,255,.55)',
-            }, ]
+            },]
         },
         options: {
 
@@ -95,7 +95,7 @@
             },
             responsive: true,
             scales: {
-                xAxes: [ {
+                xAxes: [{
                     gridLines: {
                         color: 'transparent',
                         zeroLineColor: 'transparent'
@@ -104,13 +104,13 @@
                         fontSize: 2,
                         fontColor: 'transparent'
                     }
-                } ],
-                yAxes: [ {
-                    display:false,
+                }],
+                yAxes: [{
+                    display: false,
                     ticks: {
                         display: false,
                     }
-                } ]
+                }]
             },
             title: {
                 display: false,
@@ -127,24 +127,23 @@
                 }
             }
         }
-    } );
-
+    });
 
 
     //WidgetChart 3
-    var ctx = document.getElementById( "widgetChart3" );
+    var ctx = document.getElementById("widgetChart3");
     ctx.height = 70;
-    var myChart = new Chart( ctx, {
+    var myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             type: 'line',
-            datasets: [ {
+            datasets: [{
                 data: [78, 81, 80, 45, 34, 12, 40],
                 label: 'Dataset',
                 backgroundColor: 'rgba(255,255,255,.2)',
                 borderColor: 'rgba(255,255,255,.55)',
-            }, ]
+            },]
         },
         options: {
 
@@ -154,7 +153,7 @@
             },
             responsive: true,
             scales: {
-                xAxes: [ {
+                xAxes: [{
                     gridLines: {
                         color: 'transparent',
                         zeroLineColor: 'transparent'
@@ -163,13 +162,13 @@
                         fontSize: 2,
                         fontColor: 'transparent'
                     }
-                } ],
-                yAxes: [ {
-                    display:false,
+                }],
+                yAxes: [{
+                    display: false,
                     ticks: {
                         display: false,
                     }
-                } ]
+                }]
             },
             title: {
                 display: false,
@@ -185,13 +184,13 @@
                 }
             }
         }
-    } );
+    });
 
 
     //WidgetChart 4
-    var ctx = document.getElementById( "widgetChart4" );
+    var ctx = document.getElementById("widgetChart4");
     ctx.height = 70;
-    var myChart = new Chart( ctx, {
+    var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -206,23 +205,22 @@
             ]
         },
         options: {
-              maintainAspectRatio: true,
-              legend: {
+            maintainAspectRatio: true,
+            legend: {
                 display: false
             },
             scales: {
                 xAxes: [{
-                  display: false,
-                  categoryPercentage: 1,
-                  barPercentage: 0.5
+                    display: false,
+                    categoryPercentage: 1,
+                    barPercentage: 0.5
                 }],
-                yAxes: [ {
+                yAxes: [{
                     display: false
-                } ]
+                }]
             }
         }
-    } );
+    });
 
 
-
-} )( jQuery );
+})(jQuery);

@@ -424,7 +424,7 @@ function determineLabelFormat(data, timeOpts) {
 	return 'MMM D, YYYY';
 }
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var defaultConfig = {
 		position: 'bottom',
@@ -489,7 +489,7 @@ module.exports = function(Chart) {
 	};
 
 	var TimeScale = Chart.Scale.extend({
-		initialize: function() {
+		initialize: function () {
 			if (!moment) {
 				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the time scale. Download at https://momentjs.com');
 			}
@@ -499,7 +499,7 @@ module.exports = function(Chart) {
 			Chart.Scale.prototype.initialize.call(this);
 		},
 
-		update: function() {
+		update: function () {
 			var me = this;
 			var options = me.options;
 
@@ -514,14 +514,14 @@ module.exports = function(Chart) {
 		/**
 		 * Allows data to be referenced via 't' attribute
 		 */
-		getRightValue: function(rawValue) {
+		getRightValue: function (rawValue) {
 			if (rawValue && rawValue.t !== undefined) {
 				rawValue = rawValue.t;
 			}
 			return Chart.Scale.prototype.getRightValue.call(this, rawValue);
 		},
 
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			var chart = me.chart;
 			var timeOpts = me.options.time;
@@ -595,7 +595,7 @@ module.exports = function(Chart) {
 			};
 		},
 
-		buildTicks: function() {
+		buildTicks: function () {
 			var me = this;
 			var min = me.min;
 			var max = me.max;
@@ -606,15 +606,15 @@ module.exports = function(Chart) {
 			var i, ilen, timestamp;
 
 			switch (options.ticks.source) {
-			case 'data':
-				timestamps = me._timestamps.data;
-				break;
-			case 'labels':
-				timestamps = me._timestamps.labels;
-				break;
-			case 'auto':
-			default:
-				timestamps = generate(min, max, me.getLabelCapacity(min), options);
+				case 'data':
+					timestamps = me._timestamps.data;
+					break;
+				case 'labels':
+					timestamps = me._timestamps.labels;
+					break;
+				case 'auto':
+				default:
+					timestamps = generate(min, max, me.getLabelCapacity(min), options);
 			}
 
 			if (options.bounds === 'ticks' && timestamps.length) {
@@ -647,7 +647,7 @@ module.exports = function(Chart) {
 			return ticksFromTimestamps(ticks, me._majorUnit);
 		},
 
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			var me = this;
 			var data = me.chart.data;
 			var timeOpts = me.options.time;
@@ -671,7 +671,7 @@ module.exports = function(Chart) {
 		 * Function to format an individual tick mark
 		 * @private
 		 */
-		tickFormatFunction: function(tick, index, ticks, formatOverride) {
+		tickFormatFunction: function (tick, index, ticks, formatOverride) {
 			var me = this;
 			var options = me.options;
 			var time = tick.valueOf();
@@ -689,7 +689,7 @@ module.exports = function(Chart) {
 			return formatter ? formatter(label, index, ticks) : label;
 		},
 
-		convertTicksToLabels: function(ticks) {
+		convertTicksToLabels: function (ticks) {
 			var labels = [];
 			var i, ilen;
 
@@ -703,7 +703,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getPixelForOffset: function(time) {
+		getPixelForOffset: function (time) {
 			var me = this;
 			var size = me._horizontal ? me.width : me.height;
 			var start = me._horizontal ? me.left : me.top;
@@ -712,7 +712,7 @@ module.exports = function(Chart) {
 			return start + size * (me._offsets.left + pos) / (me._offsets.left + 1 + me._offsets.right);
 		},
 
-		getPixelForValue: function(value, index, datasetIndex) {
+		getPixelForValue: function (value, index, datasetIndex) {
 			var me = this;
 			var time = null;
 
@@ -729,14 +729,14 @@ module.exports = function(Chart) {
 			}
 		},
 
-		getPixelForTick: function(index) {
+		getPixelForTick: function (index) {
 			var ticks = this.getTicks();
 			return index >= 0 && index < ticks.length ?
 				this.getPixelForOffset(ticks[index].value) :
 				null;
 		},
 
-		getValueForPixel: function(pixel) {
+		getValueForPixel: function (pixel) {
 			var me = this;
 			var size = me._horizontal ? me.width : me.height;
 			var start = me._horizontal ? me.left : me.top;
@@ -750,7 +750,7 @@ module.exports = function(Chart) {
 		 * Crude approximation of what the label width might be
 		 * @private
 		 */
-		getLabelWidth: function(label) {
+		getLabelWidth: function (label) {
 			var me = this;
 			var ticksOpts = me.options.ticks;
 			var tickLabelWidth = me.ctx.measureText(label).width;
@@ -765,7 +765,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getLabelCapacity: function(exampleTime) {
+		getLabelCapacity: function (exampleTime) {
 			var me = this;
 
 			var formatOverride = me.options.time.displayFormats.millisecond;	// Pick the longest format for guestimation

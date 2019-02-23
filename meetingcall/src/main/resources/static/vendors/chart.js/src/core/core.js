@@ -35,10 +35,10 @@ defaults._set('global', {
 	}
 });
 
-module.exports = function() {
+module.exports = function () {
 
 	// Occupy the global variable of Chart, and create a simple base class
-	var Chart = function(item, config) {
+	var Chart = function (item, config) {
 		this.construct(item, config);
 		return this;
 	};

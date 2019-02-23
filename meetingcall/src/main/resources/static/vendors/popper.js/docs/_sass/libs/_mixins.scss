@@ -2,22 +2,22 @@
 /// @param {string} $content Optional content value to use.
 @mixin icon($content: false) {
 
-	text-decoration: none;
+  text-decoration: none;
 
-	&:before {
+  &:before {
 
-		@if $content {
-			content: $content;
-		}
+    @if $content {
+      content: $content;
+    }
 
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-font-smoothing: antialiased;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		text-transform: none !important;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
 
-	}
+  }
 
 }
 
@@ -28,14 +28,13 @@
 /// @param {bool} $important If true, adds !important.
 @mixin padding($tb, $lr, $pad: (0,0,0,0), $important: null) {
 
-	@if $important {
-		$important: '!important';
-	}
+  @if $important {
+    $important: '!important';
+  }
 
-	padding: ($tb + nth($pad,1)) ($lr + nth($pad,2)) max(0.1em, $tb - _size(element-margin) + nth($pad,3)) ($lr + nth($pad,4)) #{$important};
+  padding: ($tb + nth($pad,1)) ($lr + nth($pad,2)) max(0.1em, $tb - _size(element-margin) + nth($pad,3)) ($lr + nth($pad,4)) #{$important};
 
 }
-
 
 /// Stripe builder
 /// @author Hugo Giraudel
@@ -43,23 +42,23 @@
 /// @param {List} $colors - List of colors
 /// @output `background-image` if several colors, `background-color` if only one
 @mixin stripes($direction, $colors) {
-	$length: length($colors);
+  $length: length($colors);
 
-	@if $length > 1 {
-		$stripes: ();
+  @if $length > 1 {
+    $stripes: ();
 
-		@for $i from 1 through $length {
-			$stripe: (100% / $length) * ($i - 1);
+    @for $i from 1 through $length {
+      $stripe: (100% / $length) * ($i - 1);
 
-			@if $i > 1 {
-				$stripes: append($stripes, nth($colors, $i - 1) $stripe, comma);
-			}
+      @if $i > 1 {
+        $stripes: append($stripes, nth($colors, $i - 1) $stripe, comma);
+      }
 
-			$stripes: append($stripes, nth($colors, $i) $stripe, comma);
-		}
+      $stripes: append($stripes, nth($colors, $i) $stripe, comma);
+    }
 
-		background-image: linear-gradient($direction, $stripes);
-	} @else if $length == 1 {
-		background-color: $colors;
-	}
+    background-image: linear-gradient($direction, $stripes);
+  } @else if $length == 1 {
+    background-color: $colors;
+  }
 }

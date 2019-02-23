@@ -12,8 +12,8 @@
 const childProcess = require('child_process')
 const vnu = require('vnu-jar')
 
-childProcess.exec('java -version', (error, stdout, stderr) => {
-  if (error) {
+childProcess.exec('java -version', (error, stdout, stderr) = > {
+  if(error) {
     console.error('Skipping vnu-jar test; Java is missing.')
     return
   }
@@ -56,7 +56,7 @@ childProcess.exec('java -version', (error, stdout, stderr) => {
   ]
 
   // For the 32-bit Java we need to pass `-Xss512k`
-  if (is32bitJava) {
+  if(is32bitJava) {
     args.splice(0, 0, '-Xss512k')
   }
 
@@ -65,4 +65,5 @@ childProcess.exec('java -version', (error, stdout, stderr) => {
     stdio: 'inherit'
   })
     .on('exit', process.exit)
-})
+}
+)

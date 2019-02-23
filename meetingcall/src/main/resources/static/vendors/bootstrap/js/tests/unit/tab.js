@@ -47,9 +47,9 @@ $(function () {
   QUnit.test('should activate element by tab id', function (assert) {
     assert.expect(2)
     var tabsHTML = '<ul class="nav">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ul>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ul>'
 
     $('<ul><li id="home"/><li id="profile"/></ul>').appendTo('#qunit-fixture')
 
@@ -63,9 +63,9 @@ $(function () {
   QUnit.test('should activate element by tab id', function (assert) {
     assert.expect(2)
     var pillsHTML = '<ul class="nav nav-pills">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ul>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ul>'
 
     $('<ul><li id="home"/><li id="profile"/></ul>').appendTo('#qunit-fixture')
 
@@ -79,9 +79,9 @@ $(function () {
   QUnit.test('should activate element by tab id in ordered list', function (assert) {
     assert.expect(2)
     var pillsHTML = '<ol class="nav nav-pills">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ol>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ol>'
 
     $('<ol><li id="home"/><li id="profile"/></ol>').appendTo('#qunit-fixture')
 
@@ -94,10 +94,10 @@ $(function () {
 
   QUnit.test('should activate element by tab id in nav list', function (assert) {
     assert.expect(2)
-    var tabsHTML =  '<nav class="nav">' +
-                      '<a href="#home">Home</a>' +
-                      '<a href="#profile">Profile</a>' +
-                    '</nav>'
+    var tabsHTML = '<nav class="nav">' +
+      '<a href="#home">Home</a>' +
+      '<a href="#profile">Profile</a>' +
+      '</nav>'
 
     $('<nav><div id="home"></div><div id="profile"></div></nav>').appendTo('#qunit-fixture')
 
@@ -110,10 +110,10 @@ $(function () {
 
   QUnit.test('should activate element by tab id in list group', function (assert) {
     assert.expect(2)
-    var tabsHTML =  '<div class="list-group">' +
-                      '<a href="#home">Home</a>' +
-                      '<a href="#profile">Profile</a>' +
-                    '</div>'
+    var tabsHTML = '<div class="list-group">' +
+      '<a href="#home">Home</a>' +
+      '<a href="#profile">Profile</a>' +
+      '</div>'
 
     $('<nav><div id="home"></div><div id="profile"></div></nav>').appendTo('#qunit-fixture')
 
@@ -183,14 +183,14 @@ $(function () {
     var done = assert.async()
 
     var dropHTML =
-        '<ul class="drop nav">' +
-        '  <li class="dropdown"><a data-toggle="dropdown" href="#">1</a>' +
-        '    <ul class="dropdown-menu nav">' +
-        '      <li><a href="#1-1" data-toggle="tab">1-1</a></li>' +
-        '      <li><a href="#1-2" data-toggle="tab">1-2</a></li>' +
-        '    </ul>' +
-        '  </li>' +
-        '</ul>'
+      '<ul class="drop nav">' +
+      '  <li class="dropdown"><a data-toggle="dropdown" href="#">1</a>' +
+      '    <ul class="dropdown-menu nav">' +
+      '      <li><a href="#1-1" data-toggle="tab">1-1</a></li>' +
+      '      <li><a href="#1-2" data-toggle="tab">1-2</a></li>' +
+      '    </ul>' +
+      '  </li>' +
+      '</ul>'
 
     $(dropHTML)
       .find('ul > li:first-child a')
@@ -212,9 +212,9 @@ $(function () {
     var done = assert.async()
 
     var tabsHTML = '<ul class="nav">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ul>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ul>'
 
     $(tabsHTML)
       .find('li:first-child a')
@@ -243,9 +243,9 @@ $(function () {
     var done = assert.async()
 
     var tabsHTML = '<ul class="nav">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ul>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ul>'
 
     $(tabsHTML)
       .find('li:first-child a')
@@ -268,9 +268,9 @@ $(function () {
     var done = assert.async()
 
     var tabsHTML = '<ul class="nav">' +
-        '<li><a href="#home">Home</a></li>' +
-        '<li><a href="#profile">Profile</a></li>' +
-        '</ul>'
+      '<li><a href="#home">Home</a></li>' +
+      '<li><a href="#profile">Profile</a></li>' +
+      '</ul>'
 
     $(tabsHTML)
       .find('li:first-child a')
@@ -290,9 +290,9 @@ $(function () {
   QUnit.test('selected tab should have aria-selected', function (assert) {
     assert.expect(8)
     var tabsHTML = '<ul class="nav nav-tabs">' +
-        '<li><a class="nav-item active" href="#home" toggle="tab" aria-selected="true">Home</a></li>' +
-        '<li><a class="nav-item" href="#profile" toggle="tab" aria-selected="false">Profile</a></li>' +
-        '</ul>'
+      '<li><a class="nav-item active" href="#home" toggle="tab" aria-selected="true">Home</a></li>' +
+      '<li><a class="nav-item" href="#profile" toggle="tab" aria-selected="false">Profile</a></li>' +
+      '</ul>'
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
     $tabs.find('li:first-child a').bootstrapTab('show')
@@ -315,9 +315,9 @@ $(function () {
   QUnit.test('selected tab should deactivate previous selected tab', function (assert) {
     assert.expect(2)
     var tabsHTML = '<ul class="nav nav-tabs">' +
-        '<li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">Home</a></li>' +
-        '<li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile</a></li>' +
-        '</ul>'
+      '<li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">Home</a></li>' +
+      '<li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile</a></li>' +
+      '</ul>'
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
     $tabs.find('li:last-child a').trigger('click')
@@ -328,15 +328,15 @@ $(function () {
   QUnit.test('selected tab should deactivate previous selected link in dropdown', function (assert) {
     assert.expect(3)
     var tabsHTML = '<ul class="nav nav-tabs">' +
-        '<li class="nav-item"><a class="nav-link" href="#home" data-toggle="tab">Home</a></li>' +
-        '<li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile</a></li>' +
-        '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item active" href="#dropdown1" id="dropdown1-tab" data-toggle="tab">@fat</a>' +
-        '<a class="dropdown-item" href="#dropdown2" id="dropdown2-tab" data-toggle="tab">@mdo</a>' +
-        '</div>' +
-        '</li>' +
-        '</ul>'
+      '<li class="nav-item"><a class="nav-link" href="#home" data-toggle="tab">Home</a></li>' +
+      '<li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile</a></li>' +
+      '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item active" href="#dropdown1" id="dropdown1-tab" data-toggle="tab">@fat</a>' +
+      '<a class="dropdown-item" href="#dropdown2" id="dropdown2-tab" data-toggle="tab">@mdo</a>' +
+      '</div>' +
+      '</li>' +
+      '</ul>'
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
     $tabs.find('li:first-child a').trigger('click')
@@ -349,25 +349,25 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var tabsHTML =
-        '<nav class="nav nav-tabs" role="tablist">' +
-        '  <a id="tab1" href="#x-tab1" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab1">Tab 1</a>' +
-        '  <a href="#x-tab2" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab2" aria-selected="true">Tab 2</a>' +
-        '  <a href="#x-tab3" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab3">Tab 3</a>' +
-        '</nav>' +
-        '<div class="tab-content">' +
-        '  <div class="tab-pane" id="x-tab1" role="tabpanel">' +
-        '    <nav class="nav nav-tabs" role="tablist">' +
-        '      <a href="#nested-tab1" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab1" aria-selected="true">Nested Tab 1</a>' +
-        '      <a id="tabNested2" href="#nested-tab2" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-profile">Nested Tab2</a>' +
-        '    </nav>' +
-        '    <div class="tab-content">' +
-        '      <div class="tab-pane active" id="nested-tab1" role="tabpanel">Nested Tab1 Content</div>' +
-        '      <div class="tab-pane" id="nested-tab2" role="tabpanel">Nested Tab2 Content</div>' +
-        '    </div>' +
-        '  </div>' +
-        '  <div class="tab-pane active" id="x-tab2" role="tabpanel">Tab2 Content</div>' +
-        '  <div class="tab-pane" id="x-tab3" role="tabpanel">Tab3 Content</div>' +
-        '</div>'
+      '<nav class="nav nav-tabs" role="tablist">' +
+      '  <a id="tab1" href="#x-tab1" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab1">Tab 1</a>' +
+      '  <a href="#x-tab2" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab2" aria-selected="true">Tab 2</a>' +
+      '  <a href="#x-tab3" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab3">Tab 3</a>' +
+      '</nav>' +
+      '<div class="tab-content">' +
+      '  <div class="tab-pane" id="x-tab1" role="tabpanel">' +
+      '    <nav class="nav nav-tabs" role="tablist">' +
+      '      <a href="#nested-tab1" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab1" aria-selected="true">Nested Tab 1</a>' +
+      '      <a id="tabNested2" href="#nested-tab2" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-profile">Nested Tab2</a>' +
+      '    </nav>' +
+      '    <div class="tab-content">' +
+      '      <div class="tab-pane active" id="nested-tab1" role="tabpanel">Nested Tab1 Content</div>' +
+      '      <div class="tab-pane" id="nested-tab2" role="tabpanel">Nested Tab2 Content</div>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="tab-pane active" id="x-tab2" role="tabpanel">Tab2 Content</div>' +
+      '  <div class="tab-pane" id="x-tab3" role="tabpanel">Tab3 Content</div>' +
+      '</div>'
 
     $(tabsHTML).appendTo('#qunit-fixture')
 

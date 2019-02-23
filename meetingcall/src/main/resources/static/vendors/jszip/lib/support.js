@@ -33,6 +33,6 @@ else {
 
 try {
     exports.nodestream = !!require('readable-stream').Readable;
-} catch(e) {
+} catch (e) {
     exports.nodestream = false;
 }

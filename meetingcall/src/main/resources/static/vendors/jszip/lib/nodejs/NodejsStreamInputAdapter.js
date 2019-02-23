@@ -27,42 +27,42 @@ NodejsStreamInputAdapter.prototype._bindStream = function (stream) {
     this._stream = stream;
     stream.pause();
     stream
-    .on("data", function (chunk) {
-        self.push({
-            data: chunk,
-            meta : {
-                percent : 0
+        .on("data", function (chunk) {
+            self.push({
+                data: chunk,
+                meta: {
+                    percent: 0
+                }
+            });
+        })
+        .on("error", function (e) {
+            if (self.isPaused) {
+                this.generatedError = e;
+            } else {
+                self.error(e);
+            }
+        })
+        .on("end", function () {
+            if (self.isPaused) {
+                self._upstreamEnded = true;
+            } else {
+                self.end();
             }
         });
-    })
-    .on("error", function (e) {
-        if(self.isPaused) {
-            this.generatedError = e;
-        } else {
-            self.error(e);
-        }
-    })
-    .on("end", function () {
-        if(self.isPaused) {
-            self._upstreamEnded = true;
-        } else {
-            self.end();
-        }
-    });
 };
 NodejsStreamInputAdapter.prototype.pause = function () {
-    if(!GenericWorker.prototype.pause.call(this)) {
+    if (!GenericWorker.prototype.pause.call(this)) {
         return false;
     }
     this._stream.pause();
     return true;
 };
 NodejsStreamInputAdapter.prototype.resume = function () {
-    if(!GenericWorker.prototype.resume.call(this)) {
+    if (!GenericWorker.prototype.resume.call(this)) {
         return false;
     }
 
-    if(this._upstreamEnded) {
+    if (this._upstreamEnded) {
         this.end();
     } else {
         this._stream.resume();

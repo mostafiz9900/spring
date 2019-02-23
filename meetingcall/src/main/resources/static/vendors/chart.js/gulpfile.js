@@ -69,36 +69,36 @@ gulp.task('default', ['build', 'watch']);
  */
 function bowerTask() {
   var json = JSON.stringify({
-      name: package.name,
-      description: package.description,
-      homepage: package.homepage,
-      license: package.license,
-      version: package.version,
-      main: outDir + "Chart.js",
-      ignore: [
-        '.github',
-        '.codeclimate.yml',
-        '.gitignore',
-        '.npmignore',
-        '.travis.yml',
-        'scripts'
-      ]
-    }, null, 2);
+    name: package.name,
+    description: package.description,
+    homepage: package.homepage,
+    license: package.license,
+    version: package.version,
+    main: outDir + "Chart.js",
+    ignore: [
+      '.github',
+      '.codeclimate.yml',
+      '.gitignore',
+      '.npmignore',
+      '.travis.yml',
+      'scripts'
+    ]
+  }, null, 2);
 
-  return file('bower.json', json, { src: true })
+  return file('bower.json', json, {src: true})
     .pipe(gulp.dest('./'));
 }
 
 function buildTask() {
 
   var errorHandler = function (err) {
-    if(argv.forceOutput) {
+    if (argv.forceOutput) {
       var browserError = 'console.error("Gulp: ' + err.toString() + '")';
-      ['Chart', 'Chart.min', 'Chart.bundle', 'Chart.bundle.min'].forEach(function(fileName) {
-        fs.writeFileSync(outDir+fileName+'.js', browserError);
+      ['Chart', 'Chart.min', 'Chart.bundle', 'Chart.bundle.min'].forEach(function (fileName) {
+        fs.writeFileSync(outDir + fileName + '.js', browserError);
       });
     }
-    if(argv.silentErrors) {
+    if (argv.silentErrors) {
       util.log(util.colors.red('[Error]'), err.toString());
       this.emit('end');
     } else {
@@ -106,7 +106,7 @@ function buildTask() {
     }
   }
 
-  var bundled = browserify('./src/chart.js', { standalone: 'Chart' })
+  var bundled = browserify('./src/chart.js', {standalone: 'Chart'})
     .plugin(collapse)
     .bundle()
     .on('error', errorHandler)
@@ -120,7 +120,7 @@ function buildTask() {
     .pipe(streamify(concat('Chart.bundle.min.js')))
     .pipe(gulp.dest(outDir));
 
-  var nonBundled = browserify('./src/chart.js', { standalone: 'Chart' })
+  var nonBundled = browserify('./src/chart.js', {standalone: 'Chart'})
     .ignore('moment')
     .plugin(collapse)
     .bundle()
@@ -141,17 +141,17 @@ function buildTask() {
 
 function packageTask() {
   return merge(
-      // gather "regular" files landing in the package root
-      gulp.src([outDir + '*.js', 'LICENSE.md']),
+    // gather "regular" files landing in the package root
+    gulp.src([outDir + '*.js', 'LICENSE.md']),
 
-      // since we moved the dist files one folder up (package root), we need to rewrite
-      // samples src="../dist/ to src="../ and then copy them in the /samples directory.
-      gulp.src('./samples/**/*', { base: '.' })
-        .pipe(streamify(replace(/src="((?:\.\.\/)+)dist\//g, 'src="$1')))
+    // since we moved the dist files one folder up (package root), we need to rewrite
+    // samples src="../dist/ to src="../ and then copy them in the /samples directory.
+    gulp.src('./samples/**/*', {base: '.'})
+      .pipe(streamify(replace(/src="((?:\.\.\/)+)dist\//g, 'src="$1')))
   )
   // finally, create the zip archive
-  .pipe(zip('Chart.js.zip'))
-  .pipe(gulp.dest(outDir));
+    .pipe(zip('Chart.js.zip'))
+    .pipe(gulp.dest(outDir));
 }
 
 function lintJsTask() {
@@ -189,13 +189,16 @@ function docsTask(done) {
   const script = require.resolve('gitbook-cli/bin/gitbook.js');
   const cmd = process.execPath;
 
-  exec([cmd, script, 'install', './'].join(' ')).then(() => {
+  exec([cmd, script, 'install', './'].join(' ')).then(() = > {
     return exec([cmd, script, 'build', './', './dist/docs'].join(' '));
-  }).catch((err) => {
+}).
+  catch((err) = > {
     console.error(err.stdout);
-  }).then(() => {
+}).
+  then(() = > {
     done();
-  });
+})
+  ;
 }
 
 function startTest() {
@@ -214,18 +217,18 @@ function startTest() {
 
 function unittestTask(done) {
   new karma.Server({
-    configFile: path.join(__dirname, 'karma.conf.js'),
-    singleRun: !argv.watch,
-    files: startTest(),
-    args: {
-      coverage: !!argv.coverage
-    }
-  },
-  // https://github.com/karma-runner/gulp-karma/issues/18
-  function(error) {
-    error = error ? new Error('Karma returned with the error code: ' + error) : undefined;
-    done(error);
-  }).start();
+      configFile: path.join(__dirname, 'karma.conf.js'),
+      singleRun: !argv.watch,
+      files: startTest(),
+      args: {
+        coverage: !!argv.coverage
+      }
+    },
+    // https://github.com/karma-runner/gulp-karma/issues/18
+    function (error) {
+      error = error ? new Error('Karma returned with the error code: ' + error) : undefined;
+      done(error);
+    }).start();
 }
 
 function librarySizeTask() {

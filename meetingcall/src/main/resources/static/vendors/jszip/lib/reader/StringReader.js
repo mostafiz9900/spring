@@ -5,17 +5,18 @@ var utils = require('../utils');
 function StringReader(data) {
     DataReader.call(this, data);
 }
+
 utils.inherits(StringReader, DataReader);
 /**
  * @see DataReader.byteAt
  */
-StringReader.prototype.byteAt = function(i) {
+StringReader.prototype.byteAt = function (i) {
     return this.data.charCodeAt(this.zero + i);
 };
 /**
  * @see DataReader.lastIndexOfSignature
  */
-StringReader.prototype.lastIndexOfSignature = function(sig) {
+StringReader.prototype.lastIndexOfSignature = function (sig) {
     return this.data.lastIndexOf(sig) - this.zero;
 };
 /**
@@ -28,7 +29,7 @@ StringReader.prototype.readAndCheckSignature = function (sig) {
 /**
  * @see DataReader.readData
  */
-StringReader.prototype.readData = function(size) {
+StringReader.prototype.readData = function (size) {
     this.checkOffset(size);
     // this will work because the constructor applied the "& 0xff" mask.
     var result = this.data.slice(this.zero + this.index, this.zero + this.index + size);

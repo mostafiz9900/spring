@@ -1,4 +1,4 @@
-(function(global) {
+(function (global) {
 
 	var Samples = global.Samples || (global.Samples = {});
 

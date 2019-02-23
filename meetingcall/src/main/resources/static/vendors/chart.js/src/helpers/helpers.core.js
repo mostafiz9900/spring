@@ -7,16 +7,17 @@ var helpers = {
 	/**
 	 * An empty function that can be used, for example, for optional callback.
 	 */
-	noop: function() {},
+	noop: function () {
+	},
 
 	/**
 	 * Returns a unique id, sequentially generated from a global variable.
 	 * @returns {Number}
 	 * @function
 	 */
-	uid: (function() {
+	uid: (function () {
 		var id = 0;
-		return function() {
+		return function () {
 			return id++;
 		};
 	}()),
@@ -27,7 +28,7 @@ var helpers = {
 	 * @returns {Boolean}
 	 * @since 2.7.0
 	 */
-	isNullOrUndef: function(value) {
+	isNullOrUndef: function (value) {
 		return value === null || typeof value === 'undefined';
 	},
 
@@ -37,7 +38,7 @@ var helpers = {
 	 * @returns {Boolean}
 	 * @function
 	 */
-	isArray: Array.isArray ? Array.isArray : function(value) {
+	isArray: Array.isArray ? Array.isArray : function (value) {
 		return Object.prototype.toString.call(value) === '[object Array]';
 	},
 
@@ -47,7 +48,7 @@ var helpers = {
 	 * @returns {Boolean}
 	 * @since 2.7.0
 	 */
-	isObject: function(value) {
+	isObject: function (value) {
 		return value !== null && Object.prototype.toString.call(value) === '[object Object]';
 	},
 
@@ -57,7 +58,7 @@ var helpers = {
 	 * @param {*} defaultValue - The value to return if `value` is undefined.
 	 * @returns {*}
 	 */
-	valueOrDefault: function(value, defaultValue) {
+	valueOrDefault: function (value, defaultValue) {
 		return typeof value === 'undefined' ? defaultValue : value;
 	},
 
@@ -68,7 +69,7 @@ var helpers = {
 	 * @param {*} defaultValue - The value to return if `value[index]` is undefined.
 	 * @returns {*}
 	 */
-	valueAtIndexOrDefault: function(value, index, defaultValue) {
+	valueAtIndexOrDefault: function (value, index, defaultValue) {
 		return helpers.valueOrDefault(helpers.isArray(value) ? value[index] : value, defaultValue);
 	},
 
@@ -80,7 +81,7 @@ var helpers = {
 	 * @param {Object} [thisArg] - The value of `this` provided for the call to `fn`.
 	 * @returns {*}
 	 */
-	callback: function(fn, args, thisArg) {
+	callback: function (fn, args, thisArg) {
 		if (fn && typeof fn.call === 'function') {
 			return fn.apply(thisArg, args);
 		}
@@ -95,7 +96,7 @@ var helpers = {
 	 * @param {Object} [thisArg] - The value of `this` provided for the call to `fn`.
 	 * @param {Boolean} [reverse] - If true, iterates backward on the loopable.
 	 */
-	each: function(loopable, fn, thisArg, reverse) {
+	each: function (loopable, fn, thisArg, reverse) {
 		var i, len, keys;
 		if (helpers.isArray(loopable)) {
 			len = loopable.length;
@@ -124,7 +125,7 @@ var helpers = {
 	 * @param {Array} a1 - The array to compare
 	 * @returns {Boolean}
 	 */
-	arrayEquals: function(a0, a1) {
+	arrayEquals: function (a0, a1) {
 		var i, ilen, v0, v1;
 
 		if (!a0 || !a1 || a0.length !== a1.length) {
@@ -153,7 +154,7 @@ var helpers = {
 	 * @param {*} source - The value to clone.
 	 * @returns {*}
 	 */
-	clone: function(source) {
+	clone: function (source) {
 		if (helpers.isArray(source)) {
 			return source.map(helpers.clone);
 		}
@@ -179,7 +180,7 @@ var helpers = {
 	 * Note(SB): this method is also used by configMerge and scaleMerge as fallback.
 	 * @private
 	 */
-	_merger: function(key, target, source, options) {
+	_merger: function (key, target, source, options) {
 		var tval = target[key];
 		var sval = source[key];
 
@@ -194,7 +195,7 @@ var helpers = {
 	 * Merges source[key] in target[key] only if target[key] is undefined.
 	 * @private
 	 */
-	_mergerIf: function(key, target, source) {
+	_mergerIf: function (key, target, source) {
 		var tval = target[key];
 		var sval = source[key];
 
@@ -214,7 +215,7 @@ var helpers = {
 	 * @param {Function} [options.merger] - The merge method (key, target, source, options)
 	 * @returns {Object} The `target` object.
 	 */
-	merge: function(target, source, options) {
+	merge: function (target, source, options) {
 		var sources = helpers.isArray(source) ? source : [source];
 		var ilen = sources.length;
 		var merge, i, keys, klen, k;
@@ -248,7 +249,7 @@ var helpers = {
 	 * @param {Object|Array(Object)} source - Object(s) to merge into `target`.
 	 * @returns {Object} The `target` object.
 	 */
-	mergeIf: function(target, source) {
+	mergeIf: function (target, source) {
 		return helpers.merge(target, source, {merger: helpers._mergerIf});
 	},
 
@@ -259,8 +260,8 @@ var helpers = {
 	 * @param {Object} argN - Additional objects containing properties to merge in target.
 	 * @returns {Object} The `target` object.
 	 */
-	extend: function(target) {
-		var setFn = function(value, key) {
+	extend: function (target) {
+		var setFn = function (value, key) {
 			target[key] = value;
 		};
 		for (var i = 1, ilen = arguments.length; i < ilen; ++i) {
@@ -272,13 +273,13 @@ var helpers = {
 	/**
 	 * Basic javascript inheritance based on the model created in Backbone.js
 	 */
-	inherits: function(extensions) {
+	inherits: function (extensions) {
 		var me = this;
-		var ChartElement = (extensions && extensions.hasOwnProperty('constructor')) ? extensions.constructor : function() {
+		var ChartElement = (extensions && extensions.hasOwnProperty('constructor')) ? extensions.constructor : function () {
 			return me.apply(this, arguments);
 		};
 
-		var Surrogate = function() {
+		var Surrogate = function () {
 			this.constructor = ChartElement;
 		};
 
@@ -316,7 +317,7 @@ helpers.callCallback = helpers.callback;
  * @todo remove at version 3
  * @private
  */
-helpers.indexOf = function(array, item, fromIndex) {
+helpers.indexOf = function (array, item, fromIndex) {
 	return Array.prototype.indexOf.call(array, item, fromIndex);
 };
 

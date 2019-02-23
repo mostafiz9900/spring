@@ -1,5 +1,5 @@
-describe('Chart.controllers.radar', function() {
-	it('Should be constructed', function() {
+describe('Chart.controllers.radar', function () {
+	it('Should be constructed', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -20,7 +20,7 @@ describe('Chart.controllers.radar', function() {
 		expect(meta.controller.index).toBe(1);
 	});
 
-	it('Should create arc elements for each data item during initialization', function() {
+	it('Should create arc elements for each data item during initialization', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -40,7 +40,7 @@ describe('Chart.controllers.radar', function() {
 		expect(meta.data[3] instanceof Chart.elements.Point).toBe(true);
 	});
 
-	it('should draw all elements', function() {
+	it('should draw all elements', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -68,7 +68,7 @@ describe('Chart.controllers.radar', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should update elements', function() {
+	it('should update elements', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -129,7 +129,7 @@ describe('Chart.controllers.radar', function() {
 			{x: 256, y: 256, cppx: 256, cppy: 256, cpnx: 256, cpny: 256},
 			{x: 256, y: 256, cppx: 256, cppy: 256, cpnx: 256, cpny: 256},
 			{x: 256, y: 256, cppx: 256, cppy: 256, cpnx: 256, cpny: 256},
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._model.x).toBeCloseToPixel(expected.x);
 			expect(meta.data[i]._model.y).toBeCloseToPixel(expected.y);
 			expect(meta.data[i]._model.controlPointPreviousX).toBeCloseToPixel(expected.cppx);
@@ -156,7 +156,7 @@ describe('Chart.controllers.radar', function() {
 			{x: 464, y: 256, cppx: 464, cppy: 248, cpnx: 464, cpny: 262},
 			{x: 256, y: 256, cppx: 276.9, cppy: 256, cpnx: 250.4, cpny: 256},
 			{x: 200, y: 256, cppx: 200, cppy: 259, cpnx: 200, cpny: 245},
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._model.x).toBeCloseToPixel(expected.x);
 			expect(meta.data[i]._model.y).toBeCloseToPixel(expected.y);
 			expect(meta.data[i]._model.controlPointPreviousX).toBeCloseToPixel(expected.cppx);
@@ -213,7 +213,7 @@ describe('Chart.controllers.radar', function() {
 			{x: 464, y: 256},
 			{x: 256, y: 256},
 			{x: 200, y: 256},
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._model.x).toBeCloseToPixel(expected.x);
 			expect(meta.data[i]._model.y).toBeCloseToPixel(expected.y);
 			expect(meta.data[i]._model).toEqual(jasmine.objectContaining({
@@ -284,7 +284,7 @@ describe('Chart.controllers.radar', function() {
 		}));
 	});
 
-	it('should set point hover styles', function() {
+	it('should set point hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -361,7 +361,7 @@ describe('Chart.controllers.radar', function() {
 	});
 
 
-	it('should remove hover styles', function() {
+	it('should remove hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -442,7 +442,7 @@ describe('Chart.controllers.radar', function() {
 		expect(point._model.radius).toBe(4.4);
 	});
 
-	it('should allow pointBorderWidth to be set to 0', function() {
+	it('should allow pointBorderWidth to be set to 0', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -459,7 +459,7 @@ describe('Chart.controllers.radar', function() {
 		expect(point._model.borderWidth).toBe(0);
 	});
 
-	it('should use the pointRadius setting over the radius setting', function() {
+	it('should use the pointRadius setting over the radius setting', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {

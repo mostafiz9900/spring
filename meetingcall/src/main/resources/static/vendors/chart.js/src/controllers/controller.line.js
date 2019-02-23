@@ -24,7 +24,7 @@ defaults._set('line', {
 	}
 });
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	function lineEnabled(dataset, options) {
 		return helpers.valueOrDefault(dataset.showLine, options.showLines);
@@ -36,7 +36,7 @@ module.exports = function(Chart) {
 
 		dataElementType: elements.Point,
 
-		update: function(reset) {
+		update: function (reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var line = meta.dataset;
@@ -100,7 +100,7 @@ module.exports = function(Chart) {
 			}
 		},
 
-		getPointBackgroundColor: function(point, index) {
+		getPointBackgroundColor: function (point, index) {
 			var backgroundColor = this.chart.options.elements.point.backgroundColor;
 			var dataset = this.getDataset();
 			var custom = point.custom || {};
@@ -116,7 +116,7 @@ module.exports = function(Chart) {
 			return backgroundColor;
 		},
 
-		getPointBorderColor: function(point, index) {
+		getPointBorderColor: function (point, index) {
 			var borderColor = this.chart.options.elements.point.borderColor;
 			var dataset = this.getDataset();
 			var custom = point.custom || {};
@@ -132,7 +132,7 @@ module.exports = function(Chart) {
 			return borderColor;
 		},
 
-		getPointBorderWidth: function(point, index) {
+		getPointBorderWidth: function (point, index) {
 			var borderWidth = this.chart.options.elements.point.borderWidth;
 			var dataset = this.getDataset();
 			var custom = point.custom || {};
@@ -148,7 +148,7 @@ module.exports = function(Chart) {
 			return borderWidth;
 		},
 
-		updateElement: function(point, index, reset) {
+		updateElement: function (point, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var custom = point.custom || {};
@@ -195,7 +195,7 @@ module.exports = function(Chart) {
 			};
 		},
 
-		calculatePointY: function(value, index, datasetIndex) {
+		calculatePointY: function (value, index, datasetIndex) {
 			var me = this;
 			var chart = me.chart;
 			var meta = me.getMeta();
@@ -228,7 +228,7 @@ module.exports = function(Chart) {
 			return yScale.getPixelForValue(value);
 		},
 
-		updateBezierControlPoints: function() {
+		updateBezierControlPoints: function () {
 			var me = this;
 			var meta = me.getMeta();
 			var area = me.chart.chartArea;
@@ -237,7 +237,7 @@ module.exports = function(Chart) {
 
 			// Only consider points that are drawn in case the spanGaps option is used
 			if (meta.dataset._model.spanGaps) {
-				points = points.filter(function(pt) {
+				points = points.filter(function (pt) {
 					return !pt._model.skip;
 				});
 			}
@@ -276,7 +276,7 @@ module.exports = function(Chart) {
 			}
 		},
 
-		draw: function() {
+		draw: function () {
 			var me = this;
 			var chart = me.chart;
 			var meta = me.getMeta();
@@ -299,7 +299,7 @@ module.exports = function(Chart) {
 			}
 		},
 
-		setHoverStyle: function(point) {
+		setHoverStyle: function (point) {
 			// Point
 			var dataset = this.chart.data.datasets[point._datasetIndex];
 			var index = point._index;
@@ -312,7 +312,7 @@ module.exports = function(Chart) {
 			model.borderWidth = custom.hoverBorderWidth || helpers.valueAtIndexOrDefault(dataset.pointHoverBorderWidth, index, model.borderWidth);
 		},
 
-		removeHoverStyle: function(point) {
+		removeHoverStyle: function (point) {
 			var me = this;
 			var dataset = me.chart.data.datasets[point._datasetIndex];
 			var index = point._index;

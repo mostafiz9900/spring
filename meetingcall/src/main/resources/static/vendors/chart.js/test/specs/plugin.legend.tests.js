@@ -1,6 +1,6 @@
 // Test the rectangle element
-describe('Legend block tests', function() {
-	it('should have the correct default config', function() {
+describe('Legend block tests', function () {
+	it('should have the correct default config', function () {
 		expect(Chart.defaults.global.legend).toEqual({
 			display: true,
 			position: 'top',
@@ -20,7 +20,7 @@ describe('Legend block tests', function() {
 		});
 	});
 
-	it('should update correctly', function() {
+	it('should update correctly', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -86,7 +86,7 @@ describe('Legend block tests', function() {
 		}]);
 	});
 
-	it('should filter items', function() {
+	it('should filter items', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -115,7 +115,7 @@ describe('Legend block tests', function() {
 			options: {
 				legend: {
 					labels: {
-						filter: function(legendItem, data) {
+						filter: function (legendItem, data) {
 							var dataset = data.datasets[legendItem.datasetIndex];
 							return !dataset.legendHidden;
 						}
@@ -151,8 +151,8 @@ describe('Legend block tests', function() {
 		}]);
 	});
 
-	it('should not throw when the label options are missing', function() {
-		var makeChart = function() {
+	it('should not throw when the label options are missing', function () {
+		var makeChart = function () {
 			window.acquireChart({
 				type: 'bar',
 				data: {
@@ -176,7 +176,7 @@ describe('Legend block tests', function() {
 		expect(makeChart).not.toThrow();
 	});
 
-	it('should draw correctly', function() {
+	it('should draw correctly', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -208,7 +208,7 @@ describe('Legend block tests', function() {
 			{h: 12, l: 101, t: 10, w: 93},
 			{h: 12, l: 205, t: 10, w: 93},
 			{h: 12, l: 308, t: 10, w: 93}
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(chart.legend.legendHitBoxes[i].height).toBeCloseToPixel(expected.h);
 			expect(chart.legend.legendHitBoxes[i].left).toBeCloseToPixel(expected.l);
 			expect(chart.legend.legendHitBoxes[i].top).toBeCloseToPixel(expected.t);
@@ -389,8 +389,8 @@ describe('Legend block tests', function() {
 		}]);*/
 	});
 
-	describe('config update', function() {
-		it ('should update the options', function() {
+	describe('config update', function () {
+		it('should update the options', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {
@@ -412,7 +412,7 @@ describe('Legend block tests', function() {
 			expect(chart.legend.options.display).toBe(false);
 		});
 
-		it ('should update the associated layout item', function() {
+		it('should update the associated layout item', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {},
@@ -439,7 +439,7 @@ describe('Legend block tests', function() {
 			expect(chart.legend.weight).toBe(42);
 		});
 
-		it ('should remove the legend if the new options are false', function() {
+		it('should remove the legend if the new options are false', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {
@@ -456,7 +456,7 @@ describe('Legend block tests', function() {
 			expect(chart.legend).toBe(undefined);
 		});
 
-		it ('should create the legend if the legend options are changed to exist', function() {
+		it('should create the legend if the legend options are changed to exist', function () {
 			var chart = acquireChart({
 				type: 'line',
 				data: {

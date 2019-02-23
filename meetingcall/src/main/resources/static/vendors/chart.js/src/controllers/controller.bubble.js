@@ -24,11 +24,11 @@ defaults._set('bubble', {
 
 	tooltips: {
 		callbacks: {
-			title: function() {
+			title: function () {
 				// Title doesn't make sense for scatter since we format the data as a point
 				return '';
 			},
-			label: function(item, data) {
+			label: function (item, data) {
 				var datasetLabel = data.datasets[item.datasetIndex].label || '';
 				var dataPoint = data.datasets[item.datasetIndex].data[item.index];
 				return datasetLabel + ': (' + item.xLabel + ', ' + item.yLabel + ', ' + dataPoint.r + ')';
@@ -38,7 +38,7 @@ defaults._set('bubble', {
 });
 
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	Chart.controllers.bubble = Chart.DatasetController.extend({
 		/**
@@ -49,13 +49,13 @@ module.exports = function(Chart) {
 		/**
 		 * @protected
 		 */
-		update: function(reset) {
+		update: function (reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var points = meta.data;
 
 			// Update Points
-			helpers.each(points, function(point, index) {
+			helpers.each(points, function (point, index) {
 				me.updateElement(point, index, reset);
 			});
 		},
@@ -63,7 +63,7 @@ module.exports = function(Chart) {
 		/**
 		 * @protected
 		 */
-		updateElement: function(point, index, reset) {
+		updateElement: function (point, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var custom = point.custom || {};
@@ -99,7 +99,7 @@ module.exports = function(Chart) {
 		/**
 		 * @protected
 		 */
-		setHoverStyle: function(point) {
+		setHoverStyle: function (point) {
 			var model = point._model;
 			var options = point._options;
 
@@ -112,7 +112,7 @@ module.exports = function(Chart) {
 		/**
 		 * @protected
 		 */
-		removeHoverStyle: function(point) {
+		removeHoverStyle: function (point) {
 			var model = point._model;
 			var options = point._options;
 
@@ -125,7 +125,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		_resolveElementOptions: function(point, index) {
+		_resolveElementOptions: function (point, index) {
 			var me = this;
 			var chart = me.chart;
 			var datasets = chart.data.datasets;

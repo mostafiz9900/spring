@@ -31,9 +31,9 @@ function GenericWorker(name) {
     this.isLocked = false;
     // the event listeners
     this._listeners = {
-        'data':[],
-        'end':[],
-        'error':[]
+        'data': [],
+        'end': [],
+        'error': []
     };
     // the previous worker, if any
     this.previous = null;
@@ -44,14 +44,14 @@ GenericWorker.prototype = {
      * Push a chunk to the next workers.
      * @param {Object} chunk the chunk to push
      */
-    push : function (chunk) {
+    push: function (chunk) {
         this.emit("data", chunk);
     },
     /**
      * End the stream.
      * @return {Boolean} true if this call ended the worker, false otherwise.
      */
-    end : function () {
+    end: function () {
         if (this.isFinished) {
             return false;
         }
@@ -71,12 +71,12 @@ GenericWorker.prototype = {
      * @param {Error} e the error which caused the premature end.
      * @return {Boolean} true if this call ended the worker with an error, false otherwise.
      */
-    error : function (e) {
+    error: function (e) {
         if (this.isFinished) {
             return false;
         }
 
-        if(this.isPaused) {
+        if (this.isPaused) {
             this.generatedError = e;
         } else {
             this.isFinished = true;
@@ -86,7 +86,7 @@ GenericWorker.prototype = {
             // in the workers chain exploded in the middle of the chain,
             // the error event will go downward but we also need to notify
             // workers upward that there has been an error.
-            if(this.previous) {
+            if (this.previous) {
                 this.previous.error(e);
             }
 
@@ -100,14 +100,14 @@ GenericWorker.prototype = {
      * @param {Function} listener the function to call when the event is triggered
      * @return {GenericWorker} the current object for chainability
      */
-    on : function (name, listener) {
+    on: function (name, listener) {
         this._listeners[name].push(listener);
         return this;
     },
     /**
      * Clean any references when a worker is ending.
      */
-    cleanUp : function () {
+    cleanUp: function () {
         this.streamInfo = this.generatedError = this.extraStreamInfo = null;
         this._listeners = [];
     },
@@ -116,9 +116,9 @@ GenericWorker.prototype = {
      * @param {String} name the name of the event (data, end, error)
      * @param {Object} arg the argument to call the callback with.
      */
-    emit : function (name, arg) {
+    emit: function (name, arg) {
         if (this._listeners[name]) {
-            for(var i = 0; i < this._listeners[name].length; i++) {
+            for (var i = 0; i < this._listeners[name].length; i++) {
                 this._listeners[name][i].call(this, arg);
             }
         }
@@ -128,7 +128,7 @@ GenericWorker.prototype = {
      * @param {Worker} next the worker receiving events from the current one.
      * @return {worker} the next worker for chainability
      */
-    pipe : function (next) {
+    pipe: function (next) {
         return next.registerPrevious(this);
     },
     /**
@@ -139,7 +139,7 @@ GenericWorker.prototype = {
      * @param {Worker} previous the previous worker, sending events to this one
      * @return {Worker} the current worker for chainability
      */
-    registerPrevious : function (previous) {
+    registerPrevious: function (previous) {
         if (this.isLocked) {
             throw new Error("The stream '" + this + "' has already been used.");
         }
@@ -148,7 +148,7 @@ GenericWorker.prototype = {
         this.streamInfo = previous.streamInfo;
         // ... and adding our own bits
         this.mergeStreamInfo();
-        this.previous =  previous;
+        this.previous = previous;
         var self = this;
         previous.on('data', function (chunk) {
             self.processChunk(chunk);
@@ -165,13 +165,13 @@ GenericWorker.prototype = {
      * Pause the stream so it doesn't send events anymore.
      * @return {Boolean} true if this call paused the worker, false otherwise.
      */
-    pause : function () {
-        if(this.isPaused || this.isFinished) {
+    pause: function () {
+        if (this.isPaused || this.isFinished) {
             return false;
         }
         this.isPaused = true;
 
-        if(this.previous) {
+        if (this.previous) {
             this.previous.pause();
         }
         return true;
@@ -180,19 +180,19 @@ GenericWorker.prototype = {
      * Resume a paused stream.
      * @return {Boolean} true if this call resumed the worker, false otherwise.
      */
-    resume : function () {
-        if(!this.isPaused || this.isFinished) {
+    resume: function () {
+        if (!this.isPaused || this.isFinished) {
             return false;
         }
         this.isPaused = false;
 
         // if true, the worker tried to resume but failed
         var withError = false;
-        if(this.generatedError) {
+        if (this.generatedError) {
             this.error(this.generatedError);
             withError = true;
         }
-        if(this.previous) {
+        if (this.previous) {
             this.previous.resume();
         }
 
@@ -201,12 +201,13 @@ GenericWorker.prototype = {
     /**
      * Flush any remaining bytes as the stream is ending.
      */
-    flush : function () {},
+    flush: function () {
+    },
     /**
      * Process a chunk. This is usually the method overridden.
      * @param {Object} chunk the chunk to process.
      */
-    processChunk : function(chunk) {
+    processChunk: function (chunk) {
         this.push(chunk);
     },
     /**
@@ -215,7 +216,7 @@ GenericWorker.prototype = {
      * @param {Object} value the associated value
      * @return {Worker} the current worker for chainability
      */
-    withStreamInfo : function (key, value) {
+    withStreamInfo: function (key, value) {
         this.extraStreamInfo[key] = value;
         this.mergeStreamInfo();
         return this;
@@ -223,8 +224,8 @@ GenericWorker.prototype = {
     /**
      * Merge this worker's streamInfo into the chain's streamInfo.
      */
-    mergeStreamInfo : function () {
-        for(var key in this.extraStreamInfo) {
+    mergeStreamInfo: function () {
+        for (var key in this.extraStreamInfo) {
             if (!this.extraStreamInfo.hasOwnProperty(key)) {
                 continue;
             }
@@ -250,7 +251,7 @@ GenericWorker.prototype = {
      *
      * Pretty print the workers chain.
      */
-    toString : function () {
+    toString: function () {
         var me = "Worker " + this.name;
         if (this.previous) {
             return this.previous + " -> " + me;

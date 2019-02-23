@@ -1,6 +1,6 @@
-describe('Plugin.filler', function() {
+describe('Plugin.filler', function () {
 	function decodedFillValues(chart) {
-		return chart.data.datasets.map(function(dataset, index) {
+		return chart.data.datasets.map(function (dataset, index) {
 			var meta = chart.getDatasetMeta(index) || {};
 			expect(meta.$filler).toBeDefined();
 			return meta.$filler.fill;
@@ -9,8 +9,8 @@ describe('Plugin.filler', function() {
 
 	describe('auto', jasmine.specsFromFixtures('plugin.filler'));
 
-	describe('dataset.fill', function() {
-		it('should support boundaries', function() {
+	describe('dataset.fill', function () {
+		it('should support boundaries', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -25,7 +25,7 @@ describe('Plugin.filler', function() {
 			expect(decodedFillValues(chart)).toEqual(['origin', 'start', 'end']);
 		});
 
-		it('should support absolute dataset index', function() {
+		it('should support absolute dataset index', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -41,7 +41,7 @@ describe('Plugin.filler', function() {
 			expect(decodedFillValues(chart)).toEqual([1, 3, 0, 2]);
 		});
 
-		it('should support relative dataset index', function() {
+		it('should support relative dataset index', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -62,7 +62,7 @@ describe('Plugin.filler', function() {
 			]);
 		});
 
-		it('should handle default fill when true (origin)', function() {
+		it('should handle default fill when true (origin)', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -76,7 +76,7 @@ describe('Plugin.filler', function() {
 			expect(decodedFillValues(chart)).toEqual(['origin', false]);
 		});
 
-		it('should ignore self dataset index', function() {
+		it('should ignore self dataset index', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -97,7 +97,7 @@ describe('Plugin.filler', function() {
 			]);
 		});
 
-		it('should ignore out of bounds dataset index', function() {
+		it('should ignore out of bounds dataset index', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -118,7 +118,7 @@ describe('Plugin.filler', function() {
 			]);
 		});
 
-		it('should ignore invalid values', function() {
+		it('should ignore invalid values', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -136,7 +136,10 @@ describe('Plugin.filler', function() {
 						{fill: null},
 						{fill: []},
 						{fill: {}},
-						{fill: function() {}}
+						{
+							fill: function () {
+							}
+						}
 					]
 				}
 			});
@@ -160,8 +163,8 @@ describe('Plugin.filler', function() {
 		});
 	});
 
-	describe('options.plugins.filler.propagate', function() {
-		it('should compute propagated fill targets if true', function() {
+	describe('options.plugins.filler.propagate', function () {
+		it('should compute propagated fill targets if true', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -198,7 +201,7 @@ describe('Plugin.filler', function() {
 			]);
 		});
 
-		it('should preserve initial fill targets if false', function() {
+		it('should preserve initial fill targets if false', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -234,7 +237,7 @@ describe('Plugin.filler', function() {
 			]);
 		});
 
-		it('should prevent recursive propagation', function() {
+		it('should prevent recursive propagation', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {

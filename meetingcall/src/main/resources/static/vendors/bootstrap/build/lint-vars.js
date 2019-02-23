@@ -36,9 +36,10 @@ function findUnusedVars(dir) {
   // String of all Sass files' content
   let sassFilesString = ''
 
-  sassFiles.forEach((file) => {
+  sassFiles.forEach((file) = > {
     sassFilesString += fs.readFileSync(file, 'utf8')
-  })
+  }
+)
 
   // Array of all Sass variables
   const variables = sassFilesString.match(/(^\$[a-zA-Z0-9_-]+[^:])/gm)
@@ -46,16 +47,18 @@ function findUnusedVars(dir) {
   console.log(`Found ${variables.length} total variables.`)
 
   // Loop through each variable
-  variables.forEach((variable) => {
+  variables.forEach((variable) = > {
     const re = new RegExp(regExpQuote(variable), 'g')
     const count = (sassFilesString.match(re) || []).length
 
-    if (count === 1) {
-      console.log(`Variable "${variable}" is not being used.`)
-      unusedVarsFound = true
-      globalSuccess = false
-    }
-  })
+    if(count === 1
+)
+  {
+    console.log(`Variable "${variable}" is not being used.`)
+    unusedVarsFound = true
+    globalSuccess = false
+  }
+})
 
   if (unusedVarsFound === false) {
     console.log(`No unused variables found in "${dir}".`)
@@ -69,9 +72,10 @@ function main(args) {
     process.exit(1)
   }
 
-  args.forEach((arg) => {
+  args.forEach((arg) = > {
     findUnusedVars(arg)
-  })
+  }
+)
 
   if (globalSuccess === false) {
     process.exit(1)

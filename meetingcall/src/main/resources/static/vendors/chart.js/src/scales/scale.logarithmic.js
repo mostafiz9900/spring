@@ -55,7 +55,7 @@ function generateTicks(generationOptions, dataRange) {
 }
 
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var defaultConfig = {
 		position: 'left',
@@ -67,13 +67,14 @@ module.exports = function(Chart) {
 	};
 
 	var LogarithmicScale = Chart.Scale.extend({
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			var opts = me.options;
 			var chart = me.chart;
 			var data = chart.data;
 			var datasets = data.datasets;
 			var isHorizontal = me.isHorizontal();
+
 			function IDMatches(meta) {
 				return isHorizontal ? meta.xAxisID === me.id : meta.yAxisID === me.id;
 			}
@@ -85,7 +86,7 @@ module.exports = function(Chart) {
 
 			var hasStacks = opts.stacked;
 			if (hasStacks === undefined) {
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					if (hasStacks) {
 						return;
 					}
@@ -101,7 +102,7 @@ module.exports = function(Chart) {
 			if (opts.stacked || hasStacks) {
 				var valuesPerStack = {};
 
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 					var key = [
 						meta.type,
@@ -115,7 +116,7 @@ module.exports = function(Chart) {
 							valuesPerStack[key] = [];
 						}
 
-						helpers.each(dataset.data, function(rawValue, index) {
+						helpers.each(dataset.data, function (rawValue, index) {
 							var values = valuesPerStack[key];
 							var value = +me.getRightValue(rawValue);
 							// invalid, hidden and negative values are ignored
@@ -128,7 +129,7 @@ module.exports = function(Chart) {
 					}
 				});
 
-				helpers.each(valuesPerStack, function(valuesForType) {
+				helpers.each(valuesPerStack, function (valuesForType) {
 					if (valuesForType.length > 0) {
 						var minVal = helpers.min(valuesForType);
 						var maxVal = helpers.max(valuesForType);
@@ -138,10 +139,10 @@ module.exports = function(Chart) {
 				});
 
 			} else {
-				helpers.each(datasets, function(dataset, datasetIndex) {
+				helpers.each(datasets, function (dataset, datasetIndex) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 					if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-						helpers.each(dataset.data, function(rawValue, index) {
+						helpers.each(dataset.data, function (rawValue, index) {
 							var value = +me.getRightValue(rawValue);
 							// invalid, hidden and negative values are ignored
 							if (isNaN(value) || meta.data[index].hidden || value < 0) {
@@ -171,7 +172,7 @@ module.exports = function(Chart) {
 			// Common base implementation to handle ticks.min, ticks.max
 			this.handleTickRangeOptions();
 		},
-		handleTickRangeOptions: function() {
+		handleTickRangeOptions: function () {
 			var me = this;
 			var opts = me.options;
 			var tickOpts = opts.ticks;
@@ -209,7 +210,7 @@ module.exports = function(Chart) {
 				}
 			}
 		},
-		buildTicks: function() {
+		buildTicks: function () {
 			var me = this;
 			var opts = me.options;
 			var tickOpts = opts.ticks;
@@ -238,16 +239,16 @@ module.exports = function(Chart) {
 				ticks.reverse();
 			}
 		},
-		convertTicksToLabels: function() {
+		convertTicksToLabels: function () {
 			this.tickValues = this.ticks.slice();
 
 			Chart.Scale.prototype.convertTicksToLabels.call(this);
 		},
 		// Get the correct tooltip label
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
 		},
-		getPixelForTick: function(index) {
+		getPixelForTick: function (index) {
 			return this.getPixelForValue(this.tickValues[index]);
 		},
 		/**
@@ -256,13 +257,13 @@ module.exports = function(Chart) {
 		 * @return {Number} The first tick value.
 		 * @private
 		 */
-		_getFirstTickValue: function(value) {
+		_getFirstTickValue: function (value) {
 			var exp = Math.floor(helpers.log10(value));
 			var significand = Math.floor(value / Math.pow(10, exp));
 
 			return significand * Math.pow(10, exp);
 		},
-		getPixelForValue: function(value) {
+		getPixelForValue: function (value) {
 			var me = this;
 			var reverse = me.options.ticks.reverse;
 			var log10 = helpers.log10;
@@ -304,7 +305,7 @@ module.exports = function(Chart) {
 			}
 			return pixel;
 		},
-		getValueForPixel: function(pixel) {
+		getValueForPixel: function (pixel) {
 			var me = this;
 			var reverse = me.options.ticks.reverse;
 			var log10 = helpers.log10;

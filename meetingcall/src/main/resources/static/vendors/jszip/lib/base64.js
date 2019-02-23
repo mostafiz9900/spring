@@ -6,7 +6,7 @@ var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=
 
 
 // public method for encoding
-exports.encode = function(input) {
+exports.encode = function (input) {
     var output = [];
     var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
     var i = 0, len = input.length, remainingBytes = len;
@@ -38,7 +38,7 @@ exports.encode = function(input) {
 };
 
 // public method for decoding
-exports.decode = function(input) {
+exports.decode = function (input) {
     var chr1, chr2, chr3;
     var enc1, enc2, enc3, enc4;
     var i = 0, resultIndex = 0;
@@ -58,10 +58,10 @@ exports.decode = function(input) {
     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
 
     var totalLength = input.length * 3 / 4;
-    if(input.charAt(input.length - 1) === _keyStr.charAt(64)) {
+    if (input.charAt(input.length - 1) === _keyStr.charAt(64)) {
         totalLength--;
     }
-    if(input.charAt(input.length - 2) === _keyStr.charAt(64)) {
+    if (input.charAt(input.length - 2) === _keyStr.charAt(64)) {
         totalLength--;
     }
     if (totalLength % 1 !== 0) {
@@ -75,9 +75,9 @@ exports.decode = function(input) {
     }
     var output;
     if (support.uint8array) {
-        output = new Uint8Array(totalLength|0);
+        output = new Uint8Array(totalLength | 0);
     } else {
-        output = new Array(totalLength|0);
+        output = new Array(totalLength | 0);
     }
 
     while (i < input.length) {

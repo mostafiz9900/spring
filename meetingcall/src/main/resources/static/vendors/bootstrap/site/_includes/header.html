@@ -6,15 +6,16 @@
 
 <title>
   {%- if page.title -%}
-    {{ page.title | smartify }} · {{ site.title | smartify }}
+  {{ page.title | smartify }} · {{ site.title | smartify }}
   {%- else -%}
-    {{ site.title | smartify }} · {{ site.description | smartify }}
+  {{ site.title | smartify }} · {{ site.description | smartify }}
   {%- endif -%}
 </title>
 
 <!-- Bootstrap core CSS -->
 {% if site.github %}
-<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/bootstrap.min.css" rel="stylesheet" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
 {% else %}
 <link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/bootstrap.css" rel="stylesheet">
 {% endif %}
@@ -30,7 +31,10 @@
 {% include social.html %}
 
 <script>
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  window.ga = window.ga || function () {
+    (ga.q = ga.q || []).push(arguments)
+  };
+  ga.l = +new Date;
   ga('create', 'UA-146052-10', 'getbootstrap.com');
   ga('send', 'pageview');
 </script>

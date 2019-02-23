@@ -6,21 +6,21 @@
 	<script src="../../../dist/Chart.bundle.js"></script>
 	<script src="../../utils.js"></script>
 	<style>
-	canvas {
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-	}
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
 	</style>
 </head>
 
 <body>
-	<div style="width:75%;">
-		<canvas id="canvas"></canvas>
-	</div>
-	<button id="randomizeData">Randomize Data</button>
-	<script>
-	var randomScalingFactor = function() {
+<div style="width:75%;">
+	<canvas id="canvas"></canvas>
+</div>
+<button id="randomizeData">Randomize Data</button>
+<script>
+	var randomScalingFactor = function () {
 		return Math.ceil(Math.random() * 10.0) * Math.pow(10, Math.ceil(Math.random() * 5));
 	};
 
@@ -76,14 +76,14 @@
 		}
 	};
 
-	window.onload = function() {
+	window.onload = function () {
 		var ctx = document.getElementById('canvas').getContext('2d');
 		window.myLine = new Chart(ctx, config);
 	};
 
-	document.getElementById('randomizeData').addEventListener('click', function() {
-		config.data.datasets.forEach(function(dataset) {
-			dataset.data = dataset.data.map(function() {
+	document.getElementById('randomizeData').addEventListener('click', function () {
+		config.data.datasets.forEach(function (dataset) {
+			dataset.data = dataset.data.map(function () {
 				return randomScalingFactor();
 			});
 
@@ -91,7 +91,7 @@
 
 		window.myLine.update();
 	});
-	</script>
+</script>
 </body>
 
 </html>

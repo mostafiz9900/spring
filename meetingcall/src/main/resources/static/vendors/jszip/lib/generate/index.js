@@ -38,15 +38,15 @@ exports.generateWorker = function (zip, options, comment) {
             var dir = file.dir, date = file.date;
 
             file._compressWorker(compression, compressionOptions)
-            .withStreamInfo("file", {
-                name : relativePath,
-                dir : dir,
-                date : date,
-                comment : file.comment || "",
-                unixPermissions : file.unixPermissions,
-                dosPermissions : file.dosPermissions
-            })
-            .pipe(zipFileWorker);
+                .withStreamInfo("file", {
+                    name: relativePath,
+                    dir: dir,
+                    date: date,
+                    comment: file.comment || "",
+                    unixPermissions: file.unixPermissions,
+                    dosPermissions: file.dosPermissions
+                })
+                .pipe(zipFileWorker);
         });
         zipFileWorker.entriesCount = entriesCount;
     } catch (e) {

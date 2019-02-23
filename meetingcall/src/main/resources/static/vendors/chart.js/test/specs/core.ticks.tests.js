@@ -1,6 +1,6 @@
-describe('Test tick generators', function() {
+describe('Test tick generators', function () {
 	// formatters are used as default config values so users want to be able to reference them
-	it('Should expose formatters api', function() {
+	it('Should expose formatters api', function () {
 		expect(typeof Chart.Ticks).toBeDefined();
 		expect(typeof Chart.Ticks.formatters).toBeDefined();
 		expect(typeof Chart.Ticks.formatters.values).toBe('function');
@@ -8,7 +8,7 @@ describe('Test tick generators', function() {
 		expect(typeof Chart.Ticks.formatters.logarithmic).toBe('function');
 	});
 
-	it('Should generate linear spaced ticks with correct precision', function() {
+	it('Should generate linear spaced ticks with correct precision', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -25,7 +25,7 @@ describe('Test tick generators', function() {
 						type: 'linear',
 						position: 'bottom',
 						ticks: {
-							callback: function(value) {
+							callback: function (value) {
 								return value.toString();
 							}
 						}
@@ -33,7 +33,7 @@ describe('Test tick generators', function() {
 					yAxes: [{
 						type: 'linear',
 						ticks: {
-							callback: function(value) {
+							callback: function (value) {
 								return value.toString();
 							}
 						}
@@ -49,7 +49,7 @@ describe('Test tick generators', function() {
 		expect(yAxis.ticks).toEqual(['1', '0.8', '0.6', '0.4', '0.2', '0', '-0.2', '-0.4', '-0.6', '-0.8', '-1']);
 	});
 
-	it('Should generate logarithmic spaced ticks with correct precision', function() {
+	it('Should generate logarithmic spaced ticks with correct precision', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -68,7 +68,7 @@ describe('Test tick generators', function() {
 						ticks: {
 							min: 0.1,
 							max: 1,
-							callback: function(value) {
+							callback: function (value) {
 								return value.toString();
 							}
 						}
@@ -78,7 +78,7 @@ describe('Test tick generators', function() {
 						ticks: {
 							min: 0.1,
 							max: 1,
-							callback: function(value) {
+							callback: function (value) {
 								return value.toString();
 							}
 						}

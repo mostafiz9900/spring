@@ -48,16 +48,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<button disabled href="#" class="btn dropdown-toggle" data-toggle="dropdown">Dropdown</button>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<button disabled href="#" class="btn dropdown-toggle" data-toggle="dropdown">Dropdown</button>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     $(dropdownHTML).appendTo('#qunit-fixture')
     var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').bootstrapDropdown()
     $dropdown.on('click', function () {
@@ -71,14 +71,14 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
     $dropdown
       .parent('.dropdown')
@@ -93,14 +93,14 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-boundary="viewport">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-boundary="viewport">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
     $dropdown
       .parent('.dropdown')
@@ -115,16 +115,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -142,16 +142,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -172,16 +172,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<button href="#" class="btn dropdown-toggle disabled" data-toggle="dropdown">Dropdown</button>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<button href="#" class="btn dropdown-toggle disabled" data-toggle="dropdown">Dropdown</button>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
 
     $(dropdownHTML).appendTo('#qunit-fixture')
     var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').bootstrapDropdown()
@@ -196,16 +196,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
     $dropdown
       .parent('.dropdown')
@@ -220,16 +220,16 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="/foo/" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="/foo/" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
     $dropdown
       .parent('.dropdown')
@@ -244,16 +244,16 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -265,9 +265,9 @@ $(function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), '"show" class added on click')
         $(document.body).trigger('click')
       }).on('hidden.bs.dropdown', function () {
-        assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
-        done()
-      })
+      assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
+      done()
+    })
     $dropdown.trigger('click')
   })
 
@@ -275,16 +275,16 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="dropdown-divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="dropdown-divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -297,9 +297,9 @@ $(function () {
         e.which = 9 // Tab
         $(document.body).trigger(e)
       }).on('hidden.bs.dropdown', function () {
-        assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
-        done()
-      })
+      assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
+      done()
+    })
     $dropdown.trigger('click')
   })
 
@@ -307,20 +307,20 @@ $(function () {
     assert.expect(7)
     var done = assert.async()
     var dropdownHTML = '<div class="nav">' +
-        '<div class="dropdown" id="testmenu">' +
-        '<a class="dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <span class="caret"/></a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#sub1">Submenu 1</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="btn-group">' +
-        '<button class="btn">Actions</button>' +
-        '<button class="btn dropdown-toggle" data-toggle="dropdown"></button>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Action 1</a>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown" id="testmenu">' +
+      '<a class="dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <span class="caret"/></a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#sub1">Submenu 1</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="btn-group">' +
+      '<button class="btn">Actions</button>' +
+      '<button class="btn dropdown-toggle" data-toggle="dropdown"></button>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Action 1</a>' +
+      '</div>' +
+      '</div>'
     var $dropdowns = $(dropdownHTML).appendTo('#qunit-fixture').find('[data-toggle="dropdown"]')
     var $first = $dropdowns.first()
     var $last = $dropdowns.last()
@@ -333,9 +333,9 @@ $(function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         $(document.body).trigger('click')
       }).on('hidden.bs.dropdown', function () {
-        assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
-        $last.trigger('click')
-      })
+      assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
+      $last.trigger('click')
+    })
 
     $last.parent('.btn-group')
       .on('shown.bs.dropdown', function () {
@@ -343,9 +343,9 @@ $(function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         $(document.body).trigger('click')
       }).on('hidden.bs.dropdown', function () {
-        assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
-        done()
-      })
+      assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
+      done()
+    })
     $first.trigger('click')
   })
 
@@ -353,20 +353,20 @@ $(function () {
     assert.expect(7)
     var done = assert.async()
     var dropdownHTML = '<div class="nav">' +
-        '<div class="dropdown" id="testmenu">' +
-        '<a class="dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <span class="caret"/></a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#sub1">Submenu 1</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="btn-group">' +
-        '<button class="btn">Actions</button>' +
-        '<button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"/></button>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Action 1</a>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown" id="testmenu">' +
+      '<a class="dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <span class="caret"/></a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#sub1">Submenu 1</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="btn-group">' +
+      '<button class="btn">Actions</button>' +
+      '<button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"/></button>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Action 1</a>' +
+      '</div>' +
+      '</div>'
     var $dropdowns = $(dropdownHTML).appendTo('#qunit-fixture').find('[data-toggle="dropdown"]')
     var $first = $dropdowns.first()
     var $last = $dropdowns.last()
@@ -381,9 +381,9 @@ $(function () {
         e.which = 9 // Tab
         $(document.body).trigger(e)
       }).on('hidden.bs.dropdown', function () {
-        assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
-        $last.trigger('click')
-      })
+      assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
+      $last.trigger('click')
+    })
 
     $last.parent('.btn-group')
       .on('shown.bs.dropdown', function () {
@@ -393,25 +393,25 @@ $(function () {
         e.which = 9 // Tab
         $(document.body).trigger(e)
       }).on('hidden.bs.dropdown', function () {
-        assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
-        done()
-      })
+      assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
+      done()
+    })
     $first.trigger('click')
   })
 
   QUnit.test('should fire show and hide event', function (assert) {
     assert.expect(2)
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -436,16 +436,16 @@ $(function () {
   QUnit.test('should fire shown and hidden event', function (assert) {
     assert.expect(2)
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -470,16 +470,16 @@ $(function () {
   QUnit.test('should fire shown and hidden event with a relatedTarget', function (assert) {
     assert.expect(2)
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -502,16 +502,16 @@ $(function () {
   QUnit.test('should fire hide and hidden event with a clickEvent', function (assert) {
     assert.expect(3)
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -535,16 +535,16 @@ $(function () {
   QUnit.test('should fire hide and hidden event without a clickEvent if event type is not click', function (assert) {
     assert.expect(3)
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -572,18 +572,18 @@ $(function () {
     var done = assert.async()
 
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '<input type="text" id="input">' +
-        '<textarea id="textarea"/>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '<input type="text" id="input">' +
+      '<textarea id="textarea"/>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -617,15 +617,15 @@ $(function () {
     assert.expect(3)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item disabled" href="#">Disabled link</a>' +
-        '<button class="dropdown-item" type="button" disabled>Disabled button</button>' +
-        '<a id="item1" class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item disabled" href="#">Disabled link</a>' +
+      '<button class="dropdown-item" type="button" disabled>Disabled button</button>' +
+      '<a id="item1" class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -652,14 +652,14 @@ $(function () {
     assert.expect(4)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a id="item1" class="dropdown-item" href="#">A link</a>' +
-        '<a id="item2" class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a id="item1" class="dropdown-item" href="#">A link</a>' +
+      '<a id="item2" class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -692,11 +692,11 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var dropdownHTML = '<div class="dropdown">' +
-        '<button type="button" data-toggle="dropdown">Dropdown</button>' +
-        '<div class="dropdown-menu">' +
-        '<input id="textField" type="text" />' +
-        '</div>' +
-        '</div>'
+      '<button type="button" data-toggle="dropdown">Dropdown</button>' +
+      '<div class="dropdown-menu">' +
+      '<input id="textField" type="text" />' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -721,11 +721,11 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var dropdownHTML = '<div class="dropdown">' +
-        '<button type="button" data-toggle="dropdown">Dropdown</button>' +
-        '<div class="dropdown-menu">' +
-        '<textarea id="textArea"></textarea>' +
-        '</div>' +
-        '</div>'
+      '<button type="button" data-toggle="dropdown">Dropdown</button>' +
+      '<div class="dropdown-menu">' +
+      '<textarea id="textArea"></textarea>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -750,15 +750,15 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var html = '<nav class="navbar navbar-expand-md navbar-light bg-light">' +
-        '<div class="dropdown">' +
-        '  <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>' +
-        '  <div class="dropdown-menu" aria-labelledby="dropdown">' +
-        '    <a class="dropdown-item" href="#">Action</a>' +
-        '    <a class="dropdown-item" href="#">Another action</a>' +
-        '    <a class="dropdown-item" href="#">Something else here</a>' +
-        '  </div>' +
-        '</div>' +
-        '</nav>'
+      '<div class="dropdown">' +
+      '  <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>' +
+      '  <div class="dropdown-menu" aria-labelledby="dropdown">' +
+      '    <a class="dropdown-item" href="#">Action</a>' +
+      '    <a class="dropdown-item" href="#">Another action</a>' +
+      '    <a class="dropdown-item" href="#">Something else here</a>' +
+      '  </div>' +
+      '</div>' +
+      '</nav>'
 
     $(html).appendTo('#qunit-fixture')
     var $triggerDropdown = $('#qunit-fixture')
@@ -780,18 +780,18 @@ $(function () {
     var done = assert.async()
 
     var dropdownHTML = '<div class="tabs">' +
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '<input type="text" id="input">' +
-        '<textarea id="textarea"/>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '<input type="text" id="input">' +
+      '<textarea id="textarea"/>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
@@ -849,17 +849,17 @@ $(function () {
     var done = assert.async()
 
     var dropdownHTML =
-        '<ul class="nav tabs">' +
-        '  <li class="dropdown">' +
-        '    <input type="text" id="input" data-toggle="dropdown">' +
-        '    <div class="dropdown-menu" role="menu">' +
-        '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
-        '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
-        '      <div class="divider"></div>' +
-        '      <a class="dropdown-item" href="#">Another link</a>' +
-        '    </div>' +
-        '  </li>' +
-        '</ul>'
+      '<ul class="nav tabs">' +
+      '  <li class="dropdown">' +
+      '    <input type="text" id="input" data-toggle="dropdown">' +
+      '    <div class="dropdown-menu" role="menu">' +
+      '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
+      '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
+      '      <div class="divider"></div>' +
+      '      <a class="dropdown-item" href="#">Another link</a>' +
+      '    </div>' +
+      '  </li>' +
+      '</ul>'
 
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
@@ -917,17 +917,17 @@ $(function () {
     var done = assert.async()
 
     var dropdownHTML =
-        '<ul class="nav tabs">' +
-        '  <li class="dropdown">' +
-        '    <textarea id="textarea" data-toggle="dropdown"></textarea>' +
-        '    <div class="dropdown-menu" role="menu">' +
-        '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
-        '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
-        '      <div class="divider"></div>' +
-        '      <a class="dropdown-item" href="#">Another link</a>' +
-        '    </div>' +
-        '  </li>' +
-        '</ul>'
+      '<ul class="nav tabs">' +
+      '  <li class="dropdown">' +
+      '    <textarea id="textarea" data-toggle="dropdown"></textarea>' +
+      '    <div class="dropdown-menu" role="menu">' +
+      '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
+      '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
+      '      <div class="divider"></div>' +
+      '      <a class="dropdown-item" href="#">Another link</a>' +
+      '    </div>' +
+      '  </li>' +
+      '</ul>'
 
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
@@ -983,15 +983,15 @@ $(function () {
   QUnit.test('should not use Popper.js if display set to static', function (assert) {
     assert.expect(1)
     var dropdownHTML =
-        '<div class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-display="static">Dropdown</a>' +
-        '<div class="dropdown-menu">' +
-        '<a class="dropdown-item" href="#">Secondary link</a>' +
-        '<a class="dropdown-item" href="#">Something else here</a>' +
-        '<div class="divider"/>' +
-        '<a class="dropdown-item" href="#">Another link</a>' +
-        '</div>' +
-        '</div>'
+      '<div class="dropdown">' +
+      '<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-display="static">Dropdown</a>' +
+      '<div class="dropdown-menu">' +
+      '<a class="dropdown-item" href="#">Secondary link</a>' +
+      '<a class="dropdown-item" href="#">Something else here</a>' +
+      '<div class="divider"/>' +
+      '<a class="dropdown-item" href="#">Another link</a>' +
+      '</div>' +
+      '</div>'
 
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')

@@ -1,16 +1,16 @@
-describe('Deprecations', function() {
-	describe('Version 2.8.0', function() {
-		describe('Chart.layoutService', function() {
-			it('should be defined and an alias of Chart.layouts', function() {
+describe('Deprecations', function () {
+	describe('Version 2.8.0', function () {
+		describe('Chart.layoutService', function () {
+			it('should be defined and an alias of Chart.layouts', function () {
 				expect(Chart.layoutService).toBeDefined();
 				expect(Chart.layoutService).toBe(Chart.layouts);
 			});
 		});
 	});
 
-	describe('Version 2.7.0', function() {
-		describe('Chart.Controller.update(duration, lazy)', function() {
-			it('should add an animation with the provided options', function() {
+	describe('Version 2.7.0', function () {
+		describe('Chart.Controller.update(duration, lazy)', function () {
+			it('should add an animation with the provided options', function () {
 				var chart = acquireChart({
 					type: 'doughnut',
 					options: {
@@ -34,8 +34,8 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.Controller.render(duration, lazy)', function() {
-			it('should add an animation with the provided options', function() {
+		describe('Chart.Controller.render(duration, lazy)', function () {
+			it('should add an animation with the provided options', function () {
 				var chart = acquireChart({
 					type: 'doughnut',
 					options: {
@@ -59,12 +59,12 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.helpers.indexOf', function() {
-			it('should be defined and a function', function() {
+		describe('Chart.helpers.indexOf', function () {
+			it('should be defined and a function', function () {
 				expect(Chart.helpers.indexOf).toBeDefined();
 				expect(typeof Chart.helpers.indexOf).toBe('function');
 			});
-			it('should returns the correct index', function() {
+			it('should returns the correct index', function () {
 				expect(Chart.helpers.indexOf([1, 2, 42], 42)).toBe(2);
 				expect(Chart.helpers.indexOf([1, 2, 42], 3)).toBe(-1);
 				expect(Chart.helpers.indexOf([1, 42, 2, 42], 42, 2)).toBe(3);
@@ -72,40 +72,40 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.helpers.clear', function() {
-			it('should be defined and an alias of Chart.helpers.canvas.clear', function() {
+		describe('Chart.helpers.clear', function () {
+			it('should be defined and an alias of Chart.helpers.canvas.clear', function () {
 				expect(Chart.helpers.clear).toBeDefined();
 				expect(Chart.helpers.clear).toBe(Chart.helpers.canvas.clear);
 			});
 		});
 
-		describe('Chart.helpers.getValueOrDefault', function() {
-			it('should be defined and an alias of Chart.helpers.valueOrDefault', function() {
+		describe('Chart.helpers.getValueOrDefault', function () {
+			it('should be defined and an alias of Chart.helpers.valueOrDefault', function () {
 				expect(Chart.helpers.getValueOrDefault).toBeDefined();
 				expect(Chart.helpers.getValueOrDefault).toBe(Chart.helpers.valueOrDefault);
 			});
 		});
 
-		describe('Chart.helpers.getValueAtIndexOrDefault', function() {
-			it('should be defined and an alias of Chart.helpers.valueAtIndexOrDefault', function() {
+		describe('Chart.helpers.getValueAtIndexOrDefault', function () {
+			it('should be defined and an alias of Chart.helpers.valueAtIndexOrDefault', function () {
 				expect(Chart.helpers.getValueAtIndexOrDefault).toBeDefined();
 				expect(Chart.helpers.getValueAtIndexOrDefault).toBe(Chart.helpers.valueAtIndexOrDefault);
 			});
 		});
 
-		describe('Chart.helpers.easingEffects', function() {
-			it('should be defined and an alias of Chart.helpers.easing.effects', function() {
+		describe('Chart.helpers.easingEffects', function () {
+			it('should be defined and an alias of Chart.helpers.easing.effects', function () {
 				expect(Chart.helpers.easingEffects).toBeDefined();
 				expect(Chart.helpers.easingEffects).toBe(Chart.helpers.easing.effects);
 			});
 		});
 
-		describe('Chart.helpers.drawRoundedRectangle', function() {
-			it('should be defined and a function', function() {
+		describe('Chart.helpers.drawRoundedRectangle', function () {
+			it('should be defined and a function', function () {
 				expect(Chart.helpers.drawRoundedRectangle).toBeDefined();
 				expect(typeof Chart.helpers.drawRoundedRectangle).toBe('function');
 			});
-			it('should call Chart.helpers.canvas.roundedRect', function() {
+			it('should call Chart.helpers.canvas.roundedRect', function () {
 				var ctx = window.createMockContext();
 				spyOn(Chart.helpers.canvas, 'roundedRect');
 
@@ -118,12 +118,12 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.helpers.addEvent', function() {
-			it('should be defined and a function', function() {
+		describe('Chart.helpers.addEvent', function () {
+			it('should be defined and a function', function () {
 				expect(Chart.helpers.addEvent).toBeDefined();
 				expect(typeof Chart.helpers.addEvent).toBe('function');
 			});
-			it('should correctly add event listener', function() {
+			it('should correctly add event listener', function () {
 				var listener = jasmine.createSpy('spy');
 				Chart.helpers.addEvent(window, 'test', listener);
 				window.dispatchEvent(new Event('test'));
@@ -131,12 +131,12 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.helpers.removeEvent', function() {
-			it('should be defined and a function', function() {
+		describe('Chart.helpers.removeEvent', function () {
+			it('should be defined and a function', function () {
 				expect(Chart.helpers.removeEvent).toBeDefined();
 				expect(typeof Chart.helpers.removeEvent).toBe('function');
 			});
-			it('should correctly remove event listener', function() {
+			it('should correctly remove event listener', function () {
 				var listener = jasmine.createSpy('spy');
 				Chart.helpers.addEvent(window, 'test', listener);
 				Chart.helpers.removeEvent(window, 'test', listener);
@@ -146,14 +146,14 @@ describe('Deprecations', function() {
 		});
 	});
 
-	describe('Version 2.6.0', function() {
+	describe('Version 2.6.0', function () {
 		// https://github.com/chartjs/Chart.js/issues/2481
-		describe('Chart.Controller', function() {
-			it('should be defined and an alias of Chart', function() {
+		describe('Chart.Controller', function () {
+			it('should be defined and an alias of Chart', function () {
 				expect(Chart.Controller).toBeDefined();
 				expect(Chart.Controller).toBe(Chart);
 			});
-			it('should be prototype of chart instances', function() {
+			it('should be prototype of chart instances', function () {
 				var chart = acquireChart({});
 				expect(chart.constructor).toBe(Chart.Controller);
 				expect(chart instanceof Chart.Controller).toBeTruthy();
@@ -161,14 +161,14 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('chart.chart', function() {
-			it('should be defined and an alias of chart', function() {
+		describe('chart.chart', function () {
+			it('should be defined and an alias of chart', function () {
 				var chart = acquireChart({});
 				var proxy = chart.chart;
 				expect(proxy).toBeDefined();
 				expect(proxy).toBe(chart);
 			});
-			it('should defined previously existing properties', function() {
+			it('should defined previously existing properties', function () {
 				var chart = acquireChart({}, {
 					canvas: {
 						style: 'width: 140px; height: 320px'
@@ -187,22 +187,22 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.Animation.animationObject', function() {
-			it('should be defined and an alias of Chart.Animation', function(done) {
+		describe('Chart.Animation.animationObject', function () {
+			it('should be defined and an alias of Chart.Animation', function (done) {
 				var animation = null;
 
 				acquireChart({
 					options: {
 						animation: {
 							duration: 50,
-							onComplete: function(arg) {
+							onComplete: function (arg) {
 								animation = arg;
 							}
 						}
 					}
 				});
 
-				setTimeout(function() {
+				setTimeout(function () {
 					expect(animation).not.toBeNull();
 					expect(animation.animationObject).toBeDefined();
 					expect(animation.animationObject).toBe(animation);
@@ -211,21 +211,21 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.Animation.chartInstance', function() {
-			it('should be defined and an alias of Chart.Animation.chart', function(done) {
+		describe('Chart.Animation.chartInstance', function () {
+			it('should be defined and an alias of Chart.Animation.chart', function (done) {
 				var animation = null;
 				var chart = acquireChart({
 					options: {
 						animation: {
 							duration: 50,
-							onComplete: function(arg) {
+							onComplete: function (arg) {
 								animation = arg;
 							}
 						}
 					}
 				});
 
-				setTimeout(function() {
+				setTimeout(function () {
 					expect(animation).not.toBeNull();
 					expect(animation.chartInstance).toBeDefined();
 					expect(animation.chartInstance).toBe(chart);
@@ -234,8 +234,8 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.elements.Line: fill option', function() {
-			it('should decode "zero", "top" and "bottom" as "origin", "start" and "end"', function() {
+		describe('Chart.elements.Line: fill option', function () {
+			it('should decode "zero", "top" and "bottom" as "origin", "start" and "end"', function () {
 				var chart = window.acquireChart({
 					type: 'line',
 					data: {
@@ -247,7 +247,7 @@ describe('Deprecations', function() {
 					}
 				});
 
-				['origin', 'start', 'end'].forEach(function(expected, index) {
+				['origin', 'start', 'end'].forEach(function (expected, index) {
 					var meta = chart.getDatasetMeta(index);
 					expect(meta.$filler).toBeDefined();
 					expect(meta.$filler.fill).toBe(expected);
@@ -255,15 +255,15 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.helpers.callCallback', function() {
-			it('should be defined and an alias of Chart.helpers.callback', function() {
+		describe('Chart.helpers.callCallback', function () {
+			it('should be defined and an alias of Chart.helpers.callback', function () {
 				expect(Chart.helpers.callCallback).toBeDefined();
 				expect(Chart.helpers.callCallback).toBe(Chart.helpers.callback);
 			});
 		});
 
-		describe('Time Axis: unitStepSize option', function() {
-			it('should use the stepSize property', function() {
+		describe('Time Axis: unitStepSize option', function () {
+			it('should use the stepSize property', function () {
 				var chart = window.acquireChart({
 					type: 'line',
 					data: {
@@ -284,7 +284,7 @@ describe('Deprecations', function() {
 					}
 				});
 
-				var ticks = chart.scales.time.getTicks().map(function(tick) {
+				var ticks = chart.scales.time.getTicks().map(function (tick) {
 					return tick.label;
 				});
 
@@ -293,16 +293,16 @@ describe('Deprecations', function() {
 		});
 	});
 
-	describe('Version 2.5.0', function() {
-		describe('Chart.PluginBase', function() {
-			it('should exist and extendable', function() {
+	describe('Version 2.5.0', function () {
+		describe('Chart.PluginBase', function () {
+			it('should exist and extendable', function () {
 				expect(Chart.PluginBase).toBeDefined();
 				expect(Chart.PluginBase.extend).toBeDefined();
 			});
 		});
 
-		describe('IPlugin.afterScaleUpdate', function() {
-			it('should be called after the chart as been layed out', function() {
+		describe('IPlugin.afterScaleUpdate', function () {
+			it('should be called after the chart as been layed out', function () {
 				var sequence = [];
 				var plugin = {};
 				var hooks = [
@@ -312,13 +312,13 @@ describe('Deprecations', function() {
 				];
 
 				var override = Chart.layouts.update;
-				Chart.layouts.update = function() {
+				Chart.layouts.update = function () {
 					sequence.push('layoutUpdate');
 					override.apply(this, arguments);
 				};
 
-				hooks.forEach(function(name) {
-					plugin[name] = function() {
+				hooks.forEach(function (name) {
+					plugin[name] = function () {
 						sequence.push(name);
 					};
 				});
@@ -334,9 +334,9 @@ describe('Deprecations', function() {
 		});
 	});
 
-	describe('Version 2.4.0', function() {
-		describe('x-axis mode', function() {
-			it ('behaves like index mode with intersect: false', function() {
+	describe('Version 2.4.0', function () {
+		describe('x-axis mode', function () {
+			it('behaves like index mode with intersect: false', function () {
 				var data = {
 					datasets: [{
 						label: 'Dataset 1',
@@ -373,17 +373,17 @@ describe('Deprecations', function() {
 		});
 	});
 
-	describe('Version 2.1.5', function() {
+	describe('Version 2.1.5', function () {
 		// https://github.com/chartjs/Chart.js/pull/2752
-		describe('Chart.pluginService', function() {
-			it('should be defined and an alias of Chart.plugins', function() {
+		describe('Chart.pluginService', function () {
+			it('should be defined and an alias of Chart.plugins', function () {
 				expect(Chart.pluginService).toBeDefined();
 				expect(Chart.pluginService).toBe(Chart.plugins);
 			});
 		});
 
-		describe('Chart.Legend', function() {
-			it('should be defined and an instance of Chart.Element', function() {
+		describe('Chart.Legend', function () {
+			it('should be defined and an instance of Chart.Element', function () {
 				var legend = new Chart.Legend({});
 				expect(Chart.Legend).toBeDefined();
 				expect(legend).not.toBe(undefined);
@@ -391,8 +391,8 @@ describe('Deprecations', function() {
 			});
 		});
 
-		describe('Chart.Title', function() {
-			it('should be defined and an instance of Chart.Element', function() {
+		describe('Chart.Title', function () {
+			it('should be defined and an instance of Chart.Element', function () {
 				var title = new Chart.Title({});
 				expect(Chart.Title).toBeDefined();
 				expect(title).not.toBe(undefined);

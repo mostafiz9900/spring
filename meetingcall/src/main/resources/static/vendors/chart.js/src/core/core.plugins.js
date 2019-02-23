@@ -31,9 +31,9 @@ module.exports = {
 	 * Registers the given plugin(s) if not already registered.
 	 * @param {Array|Object} plugins plugin instance(s).
 	 */
-	register: function(plugins) {
+	register: function (plugins) {
 		var p = this._plugins;
-		([]).concat(plugins).forEach(function(plugin) {
+		([]).concat(plugins).forEach(function (plugin) {
 			if (p.indexOf(plugin) === -1) {
 				p.push(plugin);
 			}
@@ -46,9 +46,9 @@ module.exports = {
 	 * Unregisters the given plugin(s) only if registered.
 	 * @param {Array|Object} plugins plugin instance(s).
 	 */
-	unregister: function(plugins) {
+	unregister: function (plugins) {
 		var p = this._plugins;
-		([]).concat(plugins).forEach(function(plugin) {
+		([]).concat(plugins).forEach(function (plugin) {
 			var idx = p.indexOf(plugin);
 			if (idx !== -1) {
 				p.splice(idx, 1);
@@ -62,7 +62,7 @@ module.exports = {
 	 * Remove all registered plugins.
 	 * @since 2.1.5
 	 */
-	clear: function() {
+	clear: function () {
 		this._plugins = [];
 		this._cacheId++;
 	},
@@ -72,7 +72,7 @@ module.exports = {
 	 * @returns {Number}
 	 * @since 2.1.5
 	 */
-	count: function() {
+	count: function () {
 		return this._plugins.length;
 	},
 
@@ -81,7 +81,7 @@ module.exports = {
 	 * @returns {Array} array of plugin objects.
 	 * @since 2.1.5
 	 */
-	getAll: function() {
+	getAll: function () {
 		return this._plugins;
 	},
 
@@ -94,7 +94,7 @@ module.exports = {
 	 * @param {Array} [args] - Extra arguments to apply to the hook call.
 	 * @returns {Boolean} false if any of the plugins return false, else returns true.
 	 */
-	notify: function(chart, hook, args) {
+	notify: function (chart, hook, args) {
 		var descriptors = this.descriptors(chart);
 		var ilen = descriptors.length;
 		var i, descriptor, plugin, params, method;
@@ -120,7 +120,7 @@ module.exports = {
 	 * @returns {Array} [{ plugin, options }]
 	 * @private
 	 */
-	descriptors: function(chart) {
+	descriptors: function (chart) {
 		var cache = chart.$plugins || (chart.$plugins = {});
 		if (cache.id === this._cacheId) {
 			return cache.descriptors;
@@ -131,7 +131,7 @@ module.exports = {
 		var config = (chart && chart.config) || {};
 		var options = (config.options && config.options.plugins) || {};
 
-		this._plugins.concat(config.plugins || []).forEach(function(plugin) {
+		this._plugins.concat(config.plugins || []).forEach(function (plugin) {
 			var idx = plugins.indexOf(plugin);
 			if (idx !== -1) {
 				return;
@@ -165,7 +165,7 @@ module.exports = {
 	 * https://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
 	 * @private
 	 */
-	_invalidate: function(chart) {
+	_invalidate: function (chart) {
 		delete chart.$plugins;
 	}
 };
@@ -210,7 +210,7 @@ module.exports = {
  * @param {Object} options - The plugin options.
  * @returns {Boolean} false to cancel the datasets update.
  * @since version 2.1.5
-*/
+ */
 /**
  * @method IPlugin#afterDatasetsUpdate
  * @desc Called after the `chart` datasets have been updated. Note that this hook

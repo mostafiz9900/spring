@@ -1,7 +1,7 @@
 // Test the rectangle element
 
-describe('Rectangle element tests', function() {
-	it ('Should be constructed', function() {
+describe('Rectangle element tests', function () {
+	it('Should be constructed', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -12,7 +12,7 @@ describe('Rectangle element tests', function() {
 		expect(rectangle._index).toBe(1);
 	});
 
-	it ('Should correctly identify as in range', function() {
+	it('Should correctly identify as in range', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -61,7 +61,7 @@ describe('Rectangle element tests', function() {
 		expect(negativeRectangle.inRange(10, -5)).toBe(true);
 	});
 
-	it ('should get the correct height', function() {
+	it('should get the correct height', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -93,7 +93,7 @@ describe('Rectangle element tests', function() {
 		expect(negativeRectangle.height()).toBe(5);
 	});
 
-	it ('should get the correct tooltip position', function() {
+	it('should get the correct tooltip position', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -132,7 +132,7 @@ describe('Rectangle element tests', function() {
 		});
 	});
 
-	it ('should get the correct area', function() {
+	it('should get the correct area', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -149,7 +149,7 @@ describe('Rectangle element tests', function() {
 		expect(rectangle.getArea()).toEqual(60);
 	});
 
-	it ('should get the center', function() {
+	it('should get the center', function () {
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
 			_index: 1
@@ -166,7 +166,7 @@ describe('Rectangle element tests', function() {
 		expect(rectangle.getCenterPoint()).toEqual({x: 10, y: 7.5});
 	});
 
-	it ('should draw correctly', function() {
+	it('should draw correctly', function () {
 		var mockContext = window.createMockContext();
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
@@ -223,7 +223,7 @@ describe('Rectangle element tests', function() {
 		}]);
 	});
 
-	it ('should draw correctly with no stroke', function() {
+	it('should draw correctly with no stroke', function () {
 		var mockContext = window.createMockContext();
 		var rectangle = new Chart.elements.Rectangle({
 			_datasetIndex: 2,
@@ -298,8 +298,8 @@ describe('Rectangle element tests', function() {
 		expect(drawCalls).toEqual(expectedDrawCalls);
 	}
 
-	it ('should draw correctly respecting "borderSkipped" == "bottom"', function() {
-		testBorderSkipped ('bottom', [
+	it('should draw correctly respecting "borderSkipped" == "bottom"', function () {
+		testBorderSkipped('bottom', [
 			{name: 'moveTo', args: [8, 0]},
 			{name: 'lineTo', args: [8, 15]},
 			{name: 'lineTo', args: [12, 15]},
@@ -307,8 +307,8 @@ describe('Rectangle element tests', function() {
 		]);
 	});
 
-	it ('should draw correctly respecting "borderSkipped" == "left"', function() {
-		testBorderSkipped ('left', [
+	it('should draw correctly respecting "borderSkipped" == "left"', function () {
+		testBorderSkipped('left', [
 			{name: 'moveTo', args: [8, 15]},
 			{name: 'lineTo', args: [12, 15]},
 			{name: 'lineTo', args: [12, 0]},
@@ -316,8 +316,8 @@ describe('Rectangle element tests', function() {
 		]);
 	});
 
-	it ('should draw correctly respecting "borderSkipped" == "top"', function() {
-		testBorderSkipped ('top', [
+	it('should draw correctly respecting "borderSkipped" == "top"', function () {
+		testBorderSkipped('top', [
 			{name: 'moveTo', args: [12, 15]},
 			{name: 'lineTo', args: [12, 0]},
 			{name: 'lineTo', args: [8, 0]},
@@ -325,8 +325,8 @@ describe('Rectangle element tests', function() {
 		]);
 	});
 
-	it ('should draw correctly respecting "borderSkipped" == "right"', function() {
-		testBorderSkipped ('right', [
+	it('should draw correctly respecting "borderSkipped" == "right"', function () {
+		testBorderSkipped('right', [
 			{name: 'moveTo', args: [12, 0]},
 			{name: 'lineTo', args: [8, 0]},
 			{name: 'lineTo', args: [8, 15]},

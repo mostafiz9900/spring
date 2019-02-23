@@ -24,7 +24,7 @@ defaults._set('global', {
 });
 
 module.exports = Element.extend({
-	draw: function() {
+	draw: function () {
 		var me = this;
 		var vm = me._view;
 		var ctx = me._chart.ctx;

@@ -7,17 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping(value = "/")
-    public String displayHome(){
+    public String displayHome() {
 
         return "index";
     }
+
     @GetMapping(value = "/table")
-    public String tabledisplay(){
+    public String tabledisplay() {
 
         return "table";
     }
+
     @GetMapping(value = "/lay")
-    public String layoutttt(){
+    public String layoutttt() {
 
         return "layout";
     }

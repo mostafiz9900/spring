@@ -1,6 +1,6 @@
-describe('Chart.controllers.scatter', function() {
-	describe('showLines option', function() {
-		it('should not draw a line if undefined', function() {
+describe('Chart.controllers.scatter', function () {
+	describe('showLines option', function () {
+		it('should not draw a line if undefined', function () {
 			var chart = window.acquireChart({
 				type: 'scatter',
 				data: {

@@ -1,12 +1,12 @@
 // Tests of the scale service
-describe('Test the scale service', function() {
+describe('Test the scale service', function () {
 
-	it('should update scale defaults', function() {
+	it('should update scale defaults', function () {
 		var defaults = {
 			testProp: true
 		};
 		var type = 'my_test_type';
-		var Constructor = function() {
+		var Constructor = function () {
 			this.initialized = true;
 		};
 		Chart.scaleService.registerScaleType(type, Constructor, defaults);

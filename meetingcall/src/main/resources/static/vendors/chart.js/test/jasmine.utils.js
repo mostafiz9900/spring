@@ -2,7 +2,7 @@
 
 function loadJSON(url, callback) {
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
+	request.onreadystatechange = function () {
 		if (request.readyState === 4) {
 			return callback(JSON.parse(request.responseText));
 		}
@@ -23,7 +23,7 @@ function createCanvas(w, h) {
 function readImageData(url, callback) {
 	var image = new Image();
 
-	image.onload = function() {
+	image.onload = function () {
 		var h = image.height;
 		var w = image.width;
 		var canvas = createCanvas(w, h);
@@ -113,15 +113,15 @@ function injectCSS(css) {
 }
 
 function specFromFixture(description, inputs) {
-	it(inputs.json, function(done) {
-		loadJSON(inputs.json, function(json) {
+	it(inputs.json, function (done) {
+		loadJSON(inputs.json, function (json) {
 			var chart = acquireChart(json.config, json.options);
 			if (!inputs.png) {
 				fail('Missing PNG comparison file for ' + inputs.json);
 				done();
 			}
 
-			readImageData(inputs.png, function(expected) {
+			readImageData(inputs.png, function (expected) {
 				expect(chart).toEqualImageData(expected, json);
 				releaseChart(chart);
 				done();
@@ -134,7 +134,7 @@ function specsFromFixtures(path) {
 	var regex = new RegExp('(^/base/test/fixtures/' + path + '.+)\\.(png|json)');
 	var inputs = {};
 
-	Object.keys(__karma__.files || {}).forEach(function(file) {
+	Object.keys(__karma__.files || {}).forEach(function (file) {
 		var matches = file.match(regex);
 		var name = matches && matches[1];
 		var type = matches && matches[2];
@@ -145,8 +145,8 @@ function specsFromFixtures(path) {
 		}
 	});
 
-	return function() {
-		Object.keys(inputs).forEach(function(key) {
+	return function () {
+		Object.keys(inputs).forEach(function (key) {
 			specFromFixture(key, inputs[key]);
 		});
 	};
@@ -154,7 +154,7 @@ function specsFromFixtures(path) {
 
 function waitForResize(chart, callback) {
 	var override = chart.resize;
-	chart.resize = function() {
+	chart.resize = function () {
 		chart.resize = override;
 		override.apply(this, arguments);
 		callback();

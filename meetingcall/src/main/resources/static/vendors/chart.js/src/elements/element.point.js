@@ -33,7 +33,7 @@ function yRange(mouseY) {
 }
 
 module.exports = Element.extend({
-	inRange: function(mouseX, mouseY) {
+	inRange: function (mouseX, mouseY) {
 		var vm = this._view;
 		return vm ? ((Math.pow(mouseX - vm.x, 2) + Math.pow(mouseY - vm.y, 2)) < Math.pow(vm.hitRadius + vm.radius, 2)) : false;
 	},
@@ -42,7 +42,7 @@ module.exports = Element.extend({
 	inXRange: xRange,
 	inYRange: yRange,
 
-	getCenterPoint: function() {
+	getCenterPoint: function () {
 		var vm = this._view;
 		return {
 			x: vm.x,
@@ -50,11 +50,11 @@ module.exports = Element.extend({
 		};
 	},
 
-	getArea: function() {
+	getArea: function () {
 		return Math.PI * Math.pow(this._view.radius, 2);
 	},
 
-	tooltipPosition: function() {
+	tooltipPosition: function () {
 		var vm = this._view;
 		return {
 			x: vm.x,
@@ -63,7 +63,7 @@ module.exports = Element.extend({
 		};
 	},
 
-	draw: function(chartArea) {
+	draw: function (chartArea) {
 		var vm = this._view;
 		var model = this._model;
 		var ctx = this._chart.ctx;

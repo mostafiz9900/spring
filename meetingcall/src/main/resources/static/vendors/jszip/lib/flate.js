@@ -69,10 +69,10 @@ FlateWorker.prototype._createPako = function () {
         level: this._pakoOptions.level || -1 // default compression
     });
     var self = this;
-    this._pako.onData = function(data) {
+    this._pako.onData = function (data) {
         self.push({
-            data : data,
-            meta : self.meta
+            data: data,
+            meta: self.meta
         });
     };
 };

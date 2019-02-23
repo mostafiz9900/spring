@@ -1,29 +1,29 @@
-describe('Chart.plugins', function() {
-	beforeEach(function() {
+describe('Chart.plugins', function () {
+	beforeEach(function () {
 		this._plugins = Chart.plugins.getAll();
 		Chart.plugins.clear();
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		Chart.plugins.clear();
 		Chart.plugins.register(this._plugins);
 		delete this._plugins;
 	});
 
-	describe('Chart.plugins.register', function() {
-		it('should register a plugin', function() {
+	describe('Chart.plugins.register', function () {
+		it('should register a plugin', function () {
 			Chart.plugins.register({});
 			expect(Chart.plugins.count()).toBe(1);
 			Chart.plugins.register({});
 			expect(Chart.plugins.count()).toBe(2);
 		});
 
-		it('should register an array of plugins', function() {
+		it('should register an array of plugins', function () {
 			Chart.plugins.register([{}, {}, {}]);
 			expect(Chart.plugins.count()).toBe(3);
 		});
 
-		it('should succeed to register an already registered plugin', function() {
+		it('should succeed to register an already registered plugin', function () {
 			var plugin = {};
 			Chart.plugins.register(plugin);
 			expect(Chart.plugins.count()).toBe(1);
@@ -34,8 +34,8 @@ describe('Chart.plugins', function() {
 		});
 	});
 
-	describe('Chart.plugins.unregister', function() {
-		it('should unregister a plugin', function() {
+	describe('Chart.plugins.unregister', function () {
+		it('should unregister a plugin', function () {
 			var plugin = {};
 			Chart.plugins.register(plugin);
 			expect(Chart.plugins.count()).toBe(1);
@@ -43,7 +43,7 @@ describe('Chart.plugins', function() {
 			expect(Chart.plugins.count()).toBe(0);
 		});
 
-		it('should unregister an array of plugins', function() {
+		it('should unregister an array of plugins', function () {
 			var plugins = [{}, {}, {}];
 			Chart.plugins.register(plugins);
 			expect(Chart.plugins.count()).toBe(3);
@@ -51,7 +51,7 @@ describe('Chart.plugins', function() {
 			expect(Chart.plugins.count()).toBe(1);
 		});
 
-		it('should succeed to unregister a plugin not registered', function() {
+		it('should succeed to unregister a plugin not registered', function () {
 			var plugin = {};
 			Chart.plugins.register(plugin);
 			expect(Chart.plugins.count()).toBe(1);
@@ -62,9 +62,12 @@ describe('Chart.plugins', function() {
 		});
 	});
 
-	describe('Chart.plugins.notify', function() {
-		it('should call inline plugins with arguments', function() {
-			var plugin = {hook: function() {}};
+	describe('Chart.plugins.notify', function () {
+		it('should call inline plugins with arguments', function () {
+			var plugin = {
+				hook: function () {
+				}
+			};
 			var chart = window.acquireChart({
 				plugins: [plugin]
 			});
@@ -78,8 +81,11 @@ describe('Chart.plugins', function() {
 			expect(plugin.hook.calls.first().args[2]).toEqual({});
 		});
 
-		it('should call global plugins with arguments', function() {
-			var plugin = {hook: function() {}};
+		it('should call global plugins with arguments', function () {
+			var plugin = {
+				hook: function () {
+				}
+			};
 			var chart = window.acquireChart({});
 
 			spyOn(plugin, 'hook');
@@ -92,8 +98,11 @@ describe('Chart.plugins', function() {
 			expect(plugin.hook.calls.first().args[2]).toEqual({});
 		});
 
-		it('should call plugin only once even if registered multiple times', function() {
-			var plugin = {hook: function() {}};
+		it('should call plugin only once even if registered multiple times', function () {
+			var plugin = {
+				hook: function () {
+				}
+			};
 			var chart = window.acquireChart({
 				plugins: [plugin, plugin]
 			});
@@ -105,34 +114,34 @@ describe('Chart.plugins', function() {
 			expect(plugin.hook.calls.count()).toBe(1);
 		});
 
-		it('should call plugins in the correct order (global first)', function() {
+		it('should call plugins in the correct order (global first)', function () {
 			var results = [];
 			var chart = window.acquireChart({
 				plugins: [{
-					hook: function() {
+					hook: function () {
 						results.push(1);
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						results.push(2);
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						results.push(3);
 					}
 				}]
 			});
 
 			Chart.plugins.register([{
-				hook: function() {
+				hook: function () {
 					results.push(4);
 				}
 			}, {
-				hook: function() {
+				hook: function () {
 					results.push(5);
 				}
 			}, {
-				hook: function() {
+				hook: function () {
 					results.push(6);
 				}
 			}]);
@@ -142,66 +151,68 @@ describe('Chart.plugins', function() {
 			expect(results).toEqual([4, 5, 6, 1, 2, 3]);
 		});
 
-		it('should return TRUE if no plugin explicitly returns FALSE', function() {
+		it('should return TRUE if no plugin explicitly returns FALSE', function () {
 			var chart = window.acquireChart({
 				plugins: [{
-					hook: function() {}
+					hook: function () {
+					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return null;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return 0;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return true;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return 1;
 					}
 				}]
 			});
 
 			var plugins = chart.config.plugins;
-			plugins.forEach(function(plugin) {
+			plugins.forEach(function (plugin) {
 				spyOn(plugin, 'hook').and.callThrough();
 			});
 
 			var ret = Chart.plugins.notify(chart, 'hook');
 			expect(ret).toBeTruthy();
-			plugins.forEach(function(plugin) {
+			plugins.forEach(function (plugin) {
 				expect(plugin.hook).toHaveBeenCalled();
 			});
 		});
 
-		it('should return FALSE if any plugin explicitly returns FALSE', function() {
+		it('should return FALSE if any plugin explicitly returns FALSE', function () {
 			var chart = window.acquireChart({
 				plugins: [{
-					hook: function() {}
+					hook: function () {
+					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return null;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return false;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return 42;
 					}
 				}, {
-					hook: function() {
+					hook: function () {
 						return 'bar';
 					}
 				}]
 			});
 
 			var plugins = chart.config.plugins;
-			plugins.forEach(function(plugin) {
+			plugins.forEach(function (plugin) {
 				spyOn(plugin, 'hook').and.callThrough();
 			});
 
@@ -215,9 +226,12 @@ describe('Chart.plugins', function() {
 		});
 	});
 
-	describe('config.options.plugins', function() {
-		it('should call plugins with options at last argument', function() {
-			var plugin = {id: 'foo', hook: function() {}};
+	describe('config.options.plugins', function () {
+		it('should call plugins with options at last argument', function () {
+			var plugin = {
+				id: 'foo', hook: function () {
+				}
+			};
 			var chart = window.acquireChart({
 				options: {
 					plugins: {
@@ -239,11 +253,20 @@ describe('Chart.plugins', function() {
 			expect(plugin.hook.calls.argsFor(2)[3]).toEqual({a: '123'});
 		});
 
-		it('should call plugins with options associated to their identifier', function() {
+		it('should call plugins with options associated to their identifier', function () {
 			var plugins = {
-				a: {id: 'a', hook: function() {}},
-				b: {id: 'b', hook: function() {}},
-				c: {id: 'c', hook: function() {}}
+				a: {
+					id: 'a', hook: function () {
+					}
+				},
+				b: {
+					id: 'b', hook: function () {
+					}
+				},
+				c: {
+					id: 'c', hook: function () {
+					}
+				}
 			};
 
 			Chart.plugins.register(plugins.a);
@@ -273,11 +296,20 @@ describe('Chart.plugins', function() {
 			expect(plugins.c.hook.calls.first().args[1]).toEqual({c: '789'});
 		});
 
-		it('should not called plugins when config.options.plugins.{id} is FALSE', function() {
+		it('should not called plugins when config.options.plugins.{id} is FALSE', function () {
 			var plugins = {
-				a: {id: 'a', hook: function() {}},
-				b: {id: 'b', hook: function() {}},
-				c: {id: 'c', hook: function() {}}
+				a: {
+					id: 'a', hook: function () {
+					}
+				},
+				b: {
+					id: 'b', hook: function () {
+					}
+				},
+				c: {
+					id: 'c', hook: function () {
+					}
+				}
 			};
 
 			Chart.plugins.register(plugins.a);
@@ -303,8 +335,11 @@ describe('Chart.plugins', function() {
 			expect(plugins.c.hook).toHaveBeenCalled();
 		});
 
-		it('should call plugins with default options when plugin options is TRUE', function() {
-			var plugin = {id: 'a', hook: function() {}};
+		it('should call plugins with default options when plugin options is TRUE', function () {
+			var plugin = {
+				id: 'a', hook: function () {
+				}
+			};
 
 			Chart.defaults.global.plugins.a = {a: 42};
 			Chart.plugins.register(plugin);
@@ -326,8 +361,11 @@ describe('Chart.plugins', function() {
 		});
 
 
-		it('should call plugins with default options if plugin config options is undefined', function() {
-			var plugin = {id: 'a', hook: function() {}};
+		it('should call plugins with default options if plugin config options is undefined', function () {
+			var plugin = {
+				id: 'a', hook: function () {
+				}
+			};
 
 			Chart.defaults.global.plugins.a = {a: 'foobar'};
 			Chart.plugins.register(plugin);
@@ -344,8 +382,11 @@ describe('Chart.plugins', function() {
 		});
 
 		// https://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
-		it('should invalidate cache when update plugin options', function() {
-			var plugin = {id: 'a', hook: function() {}};
+		it('should invalidate cache when update plugin options', function () {
+			var plugin = {
+				id: 'a', hook: function () {
+				}
+			};
 			var chart = window.acquireChart({
 				plugins: [plugin],
 				options: {

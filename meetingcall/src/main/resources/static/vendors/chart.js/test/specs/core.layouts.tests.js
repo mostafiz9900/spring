@@ -1,5 +1,5 @@
-describe('Chart.layouts', function() {
-	it('should be exposed through Chart.layouts', function() {
+describe('Chart.layouts', function () {
+	it('should be exposed through Chart.layouts', function () {
 		expect(Chart.layouts).toBeDefined();
 		expect(typeof Chart.layouts).toBe('object');
 		expect(Chart.layouts.defaults).toBeDefined();
@@ -12,7 +12,7 @@ describe('Chart.layouts', function() {
 	// Disable tests which need to be rewritten based on changes introduced by
 	// the following changes: https://github.com/chartjs/Chart.js/pull/2346
 	// using xit marks the test as pending: http://jasmine.github.io/2.0/introduction.html#section-Pending_Specs
-	xit('should fit a simple chart with 2 scales', function() {
+	xit('should fit a simple chart with 2 scales', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -60,7 +60,7 @@ describe('Chart.layouts', function() {
 		expect(chart.scales.yScale.labelRotation).toBeCloseTo(0);
 	});
 
-	xit('should fit scales that are in the top and right positions', function() {
+	xit('should fit scales that are in the top and right positions', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -110,7 +110,7 @@ describe('Chart.layouts', function() {
 		expect(chart.scales.yScale.labelRotation).toBeCloseTo(0);
 	});
 
-	it('should fit scales that overlap the chart area', function() {
+	it('should fit scales that overlap the chart area', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -136,7 +136,7 @@ describe('Chart.layouts', function() {
 		expect(chart.scale.height).toBeCloseToPixel(480);
 	});
 
-	xit('should fit multiple axes in the same position', function() {
+	xit('should fit multiple axes in the same position', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -197,7 +197,7 @@ describe('Chart.layouts', function() {
 		expect(chart.scales.yScale2.labelRotation).toBeCloseTo(0);
 	});
 
-	xit ('should fix a full width box correctly', function() {
+	xit('should fix a full width box correctly', function () {
 		var chart = window.acquireChart({
 			type: 'bar',
 			data: {
@@ -252,8 +252,8 @@ describe('Chart.layouts', function() {
 		expect(chart.scales.yScale.top).toBeCloseToPixel(60);
 	});
 
-	describe('padding settings', function() {
-		it('should apply a single padding to all dimensions', function() {
+	describe('padding settings', function () {
+		it('should apply a single padding to all dimensions', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {
@@ -300,7 +300,7 @@ describe('Chart.layouts', function() {
 			expect(chart.chartArea.top).toBeCloseToPixel(10);
 		});
 
-		it('should apply padding in all positions', function() {
+		it('should apply padding in all positions', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {
@@ -352,7 +352,7 @@ describe('Chart.layouts', function() {
 			expect(chart.chartArea.top).toBeCloseToPixel(8);
 		});
 
-		it('should default to 0 padding if no dimensions specified', function() {
+		it('should default to 0 padding if no dimensions specified', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {
@@ -400,8 +400,8 @@ describe('Chart.layouts', function() {
 		});
 	});
 
-	describe('ordering by weight', function() {
-		it('should keep higher weights outside', function() {
+	describe('ordering by weight', function () {
+		it('should keep higher weights outside', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {
@@ -438,7 +438,7 @@ describe('Chart.layouts', function() {
 			expect(xAxis.bottom).toBe(title.top);
 		});
 
-		it('should correctly set weights of scales and order them', function() {
+		it('should correctly set weights of scales and order them', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {
@@ -560,8 +560,8 @@ describe('Chart.layouts', function() {
 		});
 	});
 
-	describe('box sizing', function() {
-		it('should correctly compute y-axis width to fit labels', function() {
+	describe('box sizing', function () {
+		it('should correctly compute y-axis width to fit labels', function () {
 			var chart = window.acquireChart({
 				type: 'bar',
 				data: {

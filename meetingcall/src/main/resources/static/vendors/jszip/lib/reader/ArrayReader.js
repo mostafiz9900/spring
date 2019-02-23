@@ -4,21 +4,22 @@ var utils = require('../utils');
 
 function ArrayReader(data) {
     DataReader.call(this, data);
-	for(var i = 0; i < this.data.length; i++) {
-		data[i] = data[i] & 0xFF;
-	}
+    for (var i = 0; i < this.data.length; i++) {
+        data[i] = data[i] & 0xFF;
+    }
 }
+
 utils.inherits(ArrayReader, DataReader);
 /**
  * @see DataReader.byteAt
  */
-ArrayReader.prototype.byteAt = function(i) {
+ArrayReader.prototype.byteAt = function (i) {
     return this.data[this.zero + i];
 };
 /**
  * @see DataReader.lastIndexOfSignature
  */
-ArrayReader.prototype.lastIndexOfSignature = function(sig) {
+ArrayReader.prototype.lastIndexOfSignature = function (sig) {
     var sig0 = sig.charCodeAt(0),
         sig1 = sig.charCodeAt(1),
         sig2 = sig.charCodeAt(2),
@@ -45,9 +46,9 @@ ArrayReader.prototype.readAndCheckSignature = function (sig) {
 /**
  * @see DataReader.readData
  */
-ArrayReader.prototype.readData = function(size) {
+ArrayReader.prototype.readData = function (size) {
     this.checkOffset(size);
-    if(size === 0) {
+    if (size === 0) {
         return [];
     }
     var result = this.data.slice(this.zero + this.index, this.zero + this.index + size);

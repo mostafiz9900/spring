@@ -1,9 +1,9 @@
 'use strict';
 
-describe('Chart.helpers.easing', function() {
+describe('Chart.helpers.easing', function () {
 	var easing = Chart.helpers.easing;
 
-	describe('effects', function() {
+	describe('effects', function () {
 		var expected = {
 			easeInOutBack: [-0, -0.03751855, -0.09255566, -0.07883348, 0.08992579, 0.5, 0.91007421, 1.07883348, 1.09255566, 1.03751855, 1],
 			easeInOutBounce: [0, 0.03, 0.11375, 0.045, 0.34875, 0.5, 0.65125, 0.955, 0.88625, 0.97, 1],
@@ -52,8 +52,8 @@ describe('Chart.helpers.easing', function() {
 			return values;
 		}
 
-		Object.keys(easing.effects).forEach(function(method) {
-			it ('"' + method + '" should return expected values', function() {
+		Object.keys(easing.effects).forEach(function (method) {
+			it('"' + method + '" should return expected values', function () {
 				expect(generate(method)).toEqual(expected[method]);
 			});
 		});

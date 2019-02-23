@@ -24,17 +24,17 @@ defaults._set('scatter', {
 
 	tooltips: {
 		callbacks: {
-			title: function() {
+			title: function () {
 				return '';     // doesn't make sense for scatter since data are formatted as a point
 			},
-			label: function(item) {
+			label: function (item) {
 				return '(' + item.xLabel + ', ' + item.yLabel + ')';
 			}
 		}
 	}
 });
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	// Scatter charts use line controllers
 	Chart.controllers.scatter = Chart.controllers.line;

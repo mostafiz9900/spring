@@ -2,15 +2,15 @@
 
 'use strict';
 
-(function() {
+(function () {
 	Chart.plugins.register({
 		id: 'samples-filler-analyser',
 
-		beforeInit: function(chart, options) {
+		beforeInit: function (chart, options) {
 			this.element = document.getElementById(options.target);
 		},
 
-		afterUpdate: function(chart) {
+		afterUpdate: function (chart) {
 			var datasets = chart.data.datasets;
 			var element = this.element;
 			var stats = [];
@@ -35,11 +35,11 @@
 
 			this.element.innerHTML = '<table>' +
 				'<tr>' +
-					'<th>Dataset</th>' +
-					'<th>Fill</th>' +
-					'<th>Target (visibility)</th>' +
+				'<th>Dataset</th>' +
+				'<th>Fill</th>' +
+				'<th>Target (visibility)</th>' +
 				'</tr>' +
-				stats.map(function(stat) {
+				stats.map(function (stat) {
 					var target = stat.target;
 					var row =
 						'<td><b>' + stat.index + '</b></td>' +

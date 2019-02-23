@@ -18,7 +18,7 @@ module.exports = {
 		 * @param value the value to display
 		 * @return {String|Array} the label to display
 		 */
-		values: function(value) {
+		values: function (value) {
 			return helpers.isArray(value) ? value : '' + value;
 		},
 
@@ -30,7 +30,7 @@ module.exports = {
 		 * @param ticks {Array<Number>} the list of ticks being converted
 		 * @return {String} string representation of the tickValue parameter
 		 */
-		linear: function(tickValue, index, ticks) {
+		linear: function (tickValue, index, ticks) {
 			// If we have lots of ticks, don't use the ones
 			var delta = ticks.length > 3 ? ticks[2] - ticks[1] : ticks[1] - ticks[0];
 
@@ -56,7 +56,7 @@ module.exports = {
 			return tickString;
 		},
 
-		logarithmic: function(tickValue, index, ticks) {
+		logarithmic: function (tickValue, index, ticks) {
 			var remain = tickValue / (Math.pow(10, Math.floor(helpers.log10(tickValue))));
 
 			if (tickValue === 0) {

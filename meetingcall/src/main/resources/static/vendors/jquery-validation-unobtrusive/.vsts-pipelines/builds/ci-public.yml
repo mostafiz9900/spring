@@ -11,6 +11,6 @@ resources:
     ref: refs/heads/release/2.2
 
 phases:
-  - template: .vsts-pipelines/templates/phases/default-build.yml@buildtools
-    parameters:
-      agentOs: Windows
+- template: .vsts-pipelines/templates/phases/default-build.yml@buildtools
+  parameters:
+    agentOs: Windows

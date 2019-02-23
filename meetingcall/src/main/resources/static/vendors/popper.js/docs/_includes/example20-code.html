@@ -5,14 +5,14 @@
 </p>
 {% highlight javascript %}
 var popper = new Popper(referenceElement, onLeftPopper, {
-    placement: 'left',
-    modifiers: {
-        flip: {
-            behavior: ['left', 'bottom', 'top']
-        },
-        preventOverflow: {
-            boundariesElement: container,
-        },
-    },
+placement: 'left',
+modifiers: {
+flip: {
+behavior: ['left', 'bottom', 'top']
+},
+preventOverflow: {
+boundariesElement: container,
+},
+},
 });
 {% endhighlight %}

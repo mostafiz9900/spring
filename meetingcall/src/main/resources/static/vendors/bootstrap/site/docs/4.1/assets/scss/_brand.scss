@@ -20,9 +20,11 @@
   padding: 4rem 0;
   text-align: center;
 }
+
 .bd-brand-item + .bd-brand-item {
   border-top: 1px solid #fff;
 }
+
 .bd-brand-logos .inverse {
   color: #fff;
   background-color: #563d7c;
@@ -34,6 +36,7 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .bd-brand-item .bd-booticon {
   margin-right: auto;
   margin-left: auto;
@@ -68,7 +71,6 @@
     font-size: 4rem;
   }
 }
-
 
 //
 // Color swatches

@@ -11,7 +11,8 @@ var NodejsStreamOutputAdapter = null;
 if (support.nodestream) {
     try {
         NodejsStreamOutputAdapter = require('../nodejs/NodejsStreamOutputAdapter');
-    } catch(e) {}
+    } catch (e) {
+    }
 }
 
 /**
@@ -24,7 +25,7 @@ if (support.nodestream) {
  * @return {String|Uint8Array|ArrayBuffer|Buffer|Blob} the content in the right format.
  */
 function transformZipOutput(type, content, mimeType) {
-    switch(type) {
+    switch (type) {
         case "blob" :
             return utils.newBlob(utils.transformTo("arraybuffer", content), mimeType);
         case "base64" :
@@ -41,19 +42,19 @@ function transformZipOutput(type, content, mimeType) {
  * @return {String|Uint8Array|Buffer} the concatenated data
  * @throws Error if the asked type is unsupported
  */
-function concat (type, dataArray) {
+function concat(type, dataArray) {
     var i, index = 0, res = null, totalLength = 0;
-    for(i = 0; i < dataArray.length; i++) {
+    for (i = 0; i < dataArray.length; i++) {
         totalLength += dataArray[i].length;
     }
-    switch(type) {
+    switch (type) {
         case "string":
             return dataArray.join("");
-          case "array":
+        case "array":
             return Array.prototype.concat.apply([], dataArray);
         case "uint8array":
             res = new Uint8Array(totalLength);
-            for(i = 0; i < dataArray.length; i++) {
+            for (i = 0; i < dataArray.length; i++) {
                 res.set(dataArray[i], index);
                 index += dataArray[i].length;
             }
@@ -61,7 +62,7 @@ function concat (type, dataArray) {
         case "nodebuffer":
             return Buffer.concat(dataArray);
         default:
-            throw new Error("concat : unsupported type '"  + type + "'");
+            throw new Error("concat : unsupported type '" + type + "'");
     }
 }
 
@@ -75,32 +76,32 @@ function concat (type, dataArray) {
  * @return Promise the promise for the accumulation.
  */
 function accumulate(helper, updateCallback) {
-    return new external.Promise(function (resolve, reject){
+    return new external.Promise(function (resolve, reject) {
         var dataArray = [];
         var chunkType = helper._internalType,
             resultType = helper._outputType,
             mimeType = helper._mimeType;
         helper
-        .on('data', function (data, meta) {
-            dataArray.push(data);
-            if(updateCallback) {
-                updateCallback(meta);
-            }
-        })
-        .on('error', function(err) {
-            dataArray = [];
-            reject(err);
-        })
-        .on('end', function (){
-            try {
-                var result = transformZipOutput(resultType, concat(chunkType, dataArray), mimeType);
-                resolve(result);
-            } catch (e) {
-                reject(e);
-            }
-            dataArray = [];
-        })
-        .resume();
+            .on('data', function (data, meta) {
+                dataArray.push(data);
+                if (updateCallback) {
+                    updateCallback(meta);
+                }
+            })
+            .on('error', function (err) {
+                dataArray = [];
+                reject(err);
+            })
+            .on('end', function () {
+                try {
+                    var result = transformZipOutput(resultType, concat(chunkType, dataArray), mimeType);
+                    resolve(result);
+                } catch (e) {
+                    reject(e);
+                }
+                dataArray = [];
+            })
+            .resume();
     });
 }
 
@@ -113,14 +114,14 @@ function accumulate(helper, updateCallback) {
  */
 function StreamHelper(worker, outputType, mimeType) {
     var internalType = outputType;
-    switch(outputType) {
+    switch (outputType) {
         case "blob":
         case "arraybuffer":
             internalType = "uint8array";
-        break;
+            break;
         case "base64":
             internalType = "string";
-        break;
+            break;
     }
 
     try {
@@ -135,7 +136,7 @@ function StreamHelper(worker, outputType, mimeType) {
         // the last workers can be rewired without issues but we need to
         // prevent any updates on previous workers.
         worker.lock();
-    } catch(e) {
+    } catch (e) {
         this._worker = new GenericWorker("error");
         this._worker.error(e);
     }
@@ -148,7 +149,7 @@ StreamHelper.prototype = {
      * @param {Function} updateCb the update callback.
      * @return Promise the promise for the accumulation.
      */
-    accumulate : function (updateCb) {
+    accumulate: function (updateCb) {
         return accumulate(this, updateCb);
     },
     /**
@@ -157,10 +158,10 @@ StreamHelper.prototype = {
      * @param {Function} fn the listener
      * @return {StreamHelper} the current helper.
      */
-    on : function (evt, fn) {
+    on: function (evt, fn) {
         var self = this;
 
-        if(evt === "data") {
+        if (evt === "data") {
             this._worker.on(evt, function (chunk) {
                 fn.call(self, chunk.data, chunk.meta);
             });
@@ -175,7 +176,7 @@ StreamHelper.prototype = {
      * Resume the flow of chunks.
      * @return {StreamHelper} the current helper.
      */
-    resume : function () {
+    resume: function () {
         utils.delay(this._worker.resume, [], this._worker);
         return this;
     },
@@ -183,7 +184,7 @@ StreamHelper.prototype = {
      * Pause the flow of chunks.
      * @return {StreamHelper} the current helper.
      */
-    pause : function () {
+    pause: function () {
         this._worker.pause();
         return this;
     },
@@ -192,7 +193,7 @@ StreamHelper.prototype = {
      * @param {Function} updateCb the update callback.
      * @return {NodejsStreamOutputAdapter} the nodejs stream.
      */
-    toNodejsStream : function (updateCb) {
+    toNodejsStream: function (updateCb) {
         utils.checkSupport("nodestream");
         if (this._outputType !== "nodebuffer") {
             // an object stream containing blob/arraybuffer/uint8array/string
@@ -203,7 +204,7 @@ StreamHelper.prototype = {
         }
 
         return new NodejsStreamOutputAdapter(this, {
-            objectMode : this._outputType !== "nodebuffer"
+            objectMode: this._outputType !== "nodebuffer"
         }, updateCb);
     }
 };

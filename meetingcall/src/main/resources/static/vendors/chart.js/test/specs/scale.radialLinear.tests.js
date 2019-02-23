@@ -1,12 +1,12 @@
 // Tests for the radial linear scale used by the polar area and radar charts
-describe('Test the radial linear scale', function() {
-	it('Should register the constructor with the scale service', function() {
+describe('Test the radial linear scale', function () {
+	it('Should register the constructor with the scale service', function () {
 		var Constructor = Chart.scaleService.getScaleConstructor('radialLinear');
 		expect(Constructor).not.toBe(undefined);
 		expect(typeof Constructor).toBe('function');
 	});
 
-	it('Should have the correct default config', function() {
+	it('Should have the correct default config', function () {
 		var defaultConfig = Chart.scaleService.getScaleDefaults('radialLinear');
 		expect(defaultConfig).toEqual({
 			angleLines: {
@@ -67,7 +67,7 @@ describe('Test the radial linear scale', function() {
 		expect(defaultConfig.pointLabels.callback).toEqual(jasmine.any(Function));
 	});
 
-	it('Should correctly determine the max & min data values', function() {
+	it('Should correctly determine the max & min data values', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -87,7 +87,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.max).toBe(150);
 	});
 
-	it('Should correctly determine the max & min of string data values', function() {
+	it('Should correctly determine the max & min of string data values', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -107,7 +107,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.max).toBe(150);
 	});
 
-	it('Should correctly determine the max & min data values when there are hidden datasets', function() {
+	it('Should correctly determine the max & min data values when there are hidden datasets', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -130,7 +130,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.max).toBe(150);
 	});
 
-	it('Should correctly determine the max & min data values when there is NaN data', function() {
+	it('Should correctly determine the max & min data values when there is NaN data', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -148,7 +148,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.max).toBe(70);
 	});
 
-	it('Should ensure that the scale has a max and min that are not equal', function() {
+	it('Should ensure that the scale has a max and min that are not equal', function () {
 		var scaleID = 'myScale';
 
 		var mockData = {
@@ -172,7 +172,7 @@ describe('Test the radial linear scale', function() {
 		expect(scale.max).toBe(1);
 	});
 
-	it('Should use the suggestedMin and suggestedMax options', function() {
+	it('Should use the suggestedMin and suggestedMax options', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -195,7 +195,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.max).toBe(10);
 	});
 
-	it('Should use the min and max options', function() {
+	it('Should use the min and max options', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -219,7 +219,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.ticks).toEqual(['-1010', '-1000', '-500', '0', '500', '1000', '1010']);
 	});
 
-	it('should forcibly include 0 in the range if the beginAtZero option is used', function() {
+	it('should forcibly include 0 in the range if the beginAtZero option is used', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -255,7 +255,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.ticks).toEqual(['-50', '-45', '-40', '-35', '-30', '-25', '-20']);
 	});
 
-	it('Should generate tick marks in the correct order in reversed mode', function() {
+	it('Should generate tick marks in the correct order in reversed mode', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -278,7 +278,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.end).toBe(0);
 	});
 
-	it('Should build labels using the user supplied callback', function() {
+	it('Should build labels using the user supplied callback', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -290,7 +290,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					ticks: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -302,7 +302,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.pointLabels).toEqual(['label1', 'label2', 'label3', 'label4', 'label5']);
 	});
 
-	it('Should build point labels using the user supplied callback', function() {
+	it('Should build point labels using the user supplied callback', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -314,7 +314,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					pointLabels: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -325,7 +325,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.pointLabels).toEqual(['0', '1', '2', '3', '4']);
 	});
 
-	it('should correctly set the center point', function() {
+	it('should correctly set the center point', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -337,7 +337,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					pointLabels: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -350,7 +350,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.yCenter).toBe(280);
 	});
 
-	it('should correctly get the label for a given data index', function() {
+	it('should correctly get the label for a given data index', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -362,7 +362,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					pointLabels: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -372,7 +372,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.getLabelForIndex(1, 0)).toBe(5);
 	});
 
-	it('should get the correct distance from the center point', function() {
+	it('should get the correct distance from the center point', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -384,7 +384,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					pointLabels: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -406,7 +406,7 @@ describe('Test the radial linear scale', function() {
 		expect(chart.scale.getDistanceFromCenterForValue(chart.scale.max)).toBe(0);
 	});
 
-	it('should correctly get angles for all points', function() {
+	it('should correctly get angles for all points', function () {
 		var chart = window.acquireChart({
 			type: 'radar',
 			data: {
@@ -418,7 +418,7 @@ describe('Test the radial linear scale', function() {
 			options: {
 				scale: {
 					pointLabels: {
-						callback: function(value, index) {
+						callback: function (value, index) {
 							return index.toString();
 						}
 					}
@@ -427,7 +427,7 @@ describe('Test the radial linear scale', function() {
 			}
 		});
 
-		var radToNearestDegree = function(rad) {
+		var radToNearestDegree = function (rad) {
 			return Math.round((360 * rad) / (2 * Math.PI));
 		};
 

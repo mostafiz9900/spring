@@ -28,7 +28,7 @@ function DataWorker(dataP) {
         self.data = data;
         self.max = data && data.length || 0;
         self.type = utils.getTypeOf(data);
-        if(!self.isPaused) {
+        if (!self.isPaused) {
             self._tickAndRepeat();
         }
     }, function (e) {
@@ -50,7 +50,7 @@ DataWorker.prototype.cleanUp = function () {
  * @see GenericWorker.resume
  */
 DataWorker.prototype.resume = function () {
-    if(!GenericWorker.prototype.resume.call(this)) {
+    if (!GenericWorker.prototype.resume.call(this)) {
         return false;
     }
 
@@ -64,13 +64,13 @@ DataWorker.prototype.resume = function () {
 /**
  * Trigger a tick a schedule an other call to this function.
  */
-DataWorker.prototype._tickAndRepeat = function() {
+DataWorker.prototype._tickAndRepeat = function () {
     this._tickScheduled = false;
-    if(this.isPaused || this.isFinished) {
+    if (this.isPaused || this.isFinished) {
         return;
     }
     this._tick();
-    if(!this.isFinished) {
+    if (!this.isFinished) {
         utils.delay(this._tickAndRepeat, [], this);
         this._tickScheduled = true;
     }
@@ -79,9 +79,9 @@ DataWorker.prototype._tickAndRepeat = function() {
 /**
  * Read and push a chunk.
  */
-DataWorker.prototype._tick = function() {
+DataWorker.prototype._tick = function () {
 
-    if(this.isPaused || this.isFinished) {
+    if (this.isPaused || this.isFinished) {
         return false;
     }
 
@@ -91,23 +91,23 @@ DataWorker.prototype._tick = function() {
         // EOF
         return this.end();
     } else {
-        switch(this.type) {
+        switch (this.type) {
             case "string":
                 data = this.data.substring(this.index, nextIndex);
-            break;
+                break;
             case "uint8array":
                 data = this.data.subarray(this.index, nextIndex);
-            break;
+                break;
             case "array":
             case "nodebuffer":
                 data = this.data.slice(this.index, nextIndex);
-            break;
+                break;
         }
         this.index = nextIndex;
         return this.push({
-            data : data,
-            meta : {
-                percent : this.max ? this.index / this.max * 100 : 0
+            data: data,
+            meta: {
+                percent: this.max ? this.index / this.max * 100 : 0
             }
         });
     }

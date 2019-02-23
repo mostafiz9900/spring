@@ -1,5 +1,5 @@
-describe('Chart.controllers.line', function() {
-	it('should be constructed', function() {
+describe('Chart.controllers.line', function () {
+	it('should be constructed', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -20,7 +20,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.controller.index).toBe(1);
 	});
 
-	it('Should use the first scale IDs if the dataset does not specify them', function() {
+	it('Should use the first scale IDs if the dataset does not specify them', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -46,7 +46,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.yAxisID).toBe('firstYScaleID');
 	});
 
-	it('Should create line elements and point elements for each data item during initialization', function() {
+	it('Should create line elements and point elements for each data item during initialization', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -67,7 +67,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.dataset instanceof Chart.elements.Line).toBe(true); // 1 line element
 	});
 
-	it('should draw all elements', function() {
+	it('should draw all elements', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -97,7 +97,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should draw all elements except lines', function() {
+	it('should draw all elements except lines', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -128,7 +128,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should draw all elements except lines turned off per dataset', function() {
+	it('should draw all elements except lines turned off per dataset', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -160,7 +160,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should update elements when modifying data', function() {
+	it('should update elements when modifying data', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -208,7 +208,7 @@ describe('Chart.controllers.line', function() {
 		[
 			{x: 0, y: 512},
 			{x: 171, y: 0}
-		].forEach(function(expected, i) {
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._datasetIndex).toBe(0);
 			expect(meta.data[i]._index).toBe(i);
 			expect(meta.data[i]._xScale).toBe(chart.scales.firstXScaleID);
@@ -227,7 +227,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.data.length).toBe(3); // should add a new meta data item
 	});
 
-	it('should correctly calculate x scale for label and point', function() {
+	it('should correctly calculate x scale for label and point', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -295,7 +295,7 @@ describe('Chart.controllers.line', function() {
 		expect(points[3]._model.x).toBeCloseToPixel(512);
 	});
 
-	it('should update elements when the y scale is stacked', function() {
+	it('should update elements when the y scale is stacked', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -330,7 +330,7 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 439},
 			{x: 341, y: 146},
 			{x: 512, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
@@ -342,14 +342,14 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 73},
 			{x: 341, y: 146},
 			{x: 512, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
 
 	});
 
-	it('should update elements when the y scale is stacked with multiple axes', function() {
+	it('should update elements when the y scale is stacked with multiple axes', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -392,7 +392,7 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 439},
 			{x: 341, y: 146},
 			{x: 512, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
@@ -404,14 +404,14 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 73},
 			{x: 341, y: 146},
 			{x: 512, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
 
 	});
 
-	it('should update elements when the y scale is stacked and datasets is scatter data', function() {
+	it('should update elements when the y scale is stacked and datasets is scatter data', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -470,7 +470,7 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 439},
 			{x: 341, y: 146},
 			{x: 512, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
@@ -482,14 +482,14 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 73},
 			{x: 341, y: 146},
 			{x: 512, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
 
 	});
 
-	it('should update elements when the y scale is stacked and data is strings', function() {
+	it('should update elements when the y scale is stacked and data is strings', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -524,7 +524,7 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 439},
 			{x: 341, y: 146},
 			{x: 512, y: 439}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
@@ -536,14 +536,14 @@ describe('Chart.controllers.line', function() {
 			{x: 171, y: 73},
 			{x: 341, y: 146},
 			{x: 512, y: 497}
-		].forEach(function(values, i) {
+		].forEach(function (values, i) {
 			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
 			expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
 
 	});
 
-	it('should fall back to the line styles for points', function() {
+	it('should fall back to the line styles for points', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -567,7 +567,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.dataset._model.borderWidth).toBe(0.55);
 	});
 
-	it('should handle number of data point changes in update', function() {
+	it('should handle number of data point changes in update', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -597,7 +597,7 @@ describe('Chart.controllers.line', function() {
 		expect(meta.data[4] instanceof Chart.elements.Point).toBe(true);
 	});
 
-	it('should set point hover styles', function() {
+	it('should set point hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -669,7 +669,7 @@ describe('Chart.controllers.line', function() {
 		expect(point._model.radius).toBe(4.4);
 	});
 
-	it('should remove hover styles', function() {
+	it('should remove hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -746,7 +746,7 @@ describe('Chart.controllers.line', function() {
 		expect(point._model.radius).toBe(4.4);
 	});
 
-	it('should allow 0 as a point border width', function() {
+	it('should allow 0 as a point border width', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -765,7 +765,7 @@ describe('Chart.controllers.line', function() {
 		expect(point._model.borderWidth).toBe(0);
 	});
 
-	it('should allow an array as the point border width setting', function() {
+	it('should allow an array as the point border width setting', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {

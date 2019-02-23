@@ -29,14 +29,14 @@ section: example
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="file-saver-js">
-{% highlight js %}
-{% include_relative download-zip-file.inc/blob.js %}
-{% endhighlight %}
+        {% highlight js %}
+        {% include_relative download-zip-file.inc/blob.js %}
+        {% endhighlight %}
     </div>
     <div role="tabpanel" class="tab-pane" id="file-saver-html">
-{% highlight html %}
-{% include_relative download-zip-file.inc/blob.html %}
-{% endhighlight %}
+        {% highlight html %}
+        {% include_relative download-zip-file.inc/blob.html %}
+        {% endhighlight %}
     </div>
 </div>
 
@@ -65,29 +65,35 @@ section: example
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="data-uri-js">
-{% highlight js %}
-{% include_relative download-zip-file.inc/data_uri.js %}
-{% endhighlight %}
+        {% highlight js %}
+        {% include_relative download-zip-file.inc/data_uri.js %}
+        {% endhighlight %}
     </div>
     <div role="tabpanel" class="tab-pane" id="data-uri-html">
-{% highlight html %}
-{% include_relative download-zip-file.inc/data_uri.html %}
-{% endhighlight %}
+        {% highlight html %}
+        {% include_relative download-zip-file.inc/data_uri.html %}
+        {% endhighlight %}
     </div>
 </div>
 
 <script type="text/javascript">
-(function () {
-    // Blob
-    if (JSZip.support.blob) {
-        {% include_relative download-zip-file.inc/blob.js %}
-    } else {
-        blobLink.innerHTML += " (not supported on this browser)";
-    }
-})();
+    (function () {
+        // Blob
+        if (JSZip.support.blob) {
+            {%
+                include_relative
+                download - zip - file.inc / blob.js %
+            }
+        } else {
+            blobLink.innerHTML += " (not supported on this browser)";
+        }
+    })();
 
-(function () {
-    // data URI
-    {% include_relative download-zip-file.inc/data_uri.js %}
-})();
+    (function () {
+        // data URI
+        {%
+            include_relative
+            download - zip - file.inc / data_uri.js %
+        }
+    })();
 </script>

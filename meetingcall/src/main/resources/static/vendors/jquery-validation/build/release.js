@@ -19,41 +19,42 @@
 */
 
 /*jshint node:true */
-module.exports = function( Release ) {
+module.exports = function (Release) {
 
-function today() {
-	return new Date().toISOString().replace(/T.+/, "");
-}
+    function today() {
+        return new Date().toISOString().replace(/T.+/, "");
+    }
 
 // also add version property to this
-Release._jsonFiles.push( "validation.jquery.json" );
+    Release._jsonFiles.push("validation.jquery.json");
 
-Release.define({
-	issueTracker: "github",
-	changelogShell: function() {
-		return Release.newVersion + " / " + today() + "\n==================\n\n";
-	},
+    Release.define({
+        issueTracker: "github",
+        changelogShell: function () {
+            return Release.newVersion + " / " + today() + "\n==================\n\n";
+        },
 
-	generateArtifacts: function( done ) {
-		Release.exec( "grunt release", "Grunt command failed" );
-		// Keep this list of files in sync with package.json's files key
-		done([
-			"dist/localization/",
-			"dist/additional-methods.js",
-			"dist/additional-methods.min.js",
-			"dist/jquery.validate.js",
-			"dist/jquery.validate.min.js",
+        generateArtifacts: function (done) {
+            Release.exec("grunt release", "Grunt command failed");
+            // Keep this list of files in sync with package.json's files key
+            done([
+                "dist/localization/",
+                "dist/additional-methods.js",
+                "dist/additional-methods.min.js",
+                "dist/jquery.validate.js",
+                "dist/jquery.validate.min.js",
 
-			// The sub-resource integrity hashes of the distribution files
-			"dist/jquery-validation-sri.json"
-		]);
-	},
+                // The sub-resource integrity hashes of the distribution files
+                "dist/jquery-validation-sri.json"
+            ]);
+        },
 
-	cdnPublish: false,
-	npmPublish: true,
+        cdnPublish: false,
+        npmPublish: true,
 
-	// disable authors check
-	_checkAuthorsTxt: function() {}
-});
+        // disable authors check
+        _checkAuthorsTxt: function () {
+        }
+    });
 
 };

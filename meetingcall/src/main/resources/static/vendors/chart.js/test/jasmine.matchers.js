@@ -29,13 +29,14 @@ function buildPixelMatchPreview(actual, expected, diff, threshold, tolerance, co
 	[
 		{data: actual, label: 'Actual'},
 		{data: expected, label: 'Expected'},
-		{data: diff, label:
-			'diff: ' + count + 'px ' +
-			'(' + toPercent(ratio) + '%)<br/>' +
-			'thr: ' + toPercent(threshold) + '%, ' +
-			'tol: ' + toPercent(tolerance) + '%'
+		{
+			data: diff, label:
+				'diff: ' + count + 'px ' +
+				'(' + toPercent(ratio) + '%)<br/>' +
+				'thr: ' + toPercent(threshold) + '%, ' +
+				'tol: ' + toPercent(tolerance) + '%'
 		}
-	].forEach(function(values) {
+	].forEach(function (values) {
 		var item = document.createElement('div');
 		item.style.cssText = 'text-align: center; font: 12px monospace; line-height: 1.4; margin: 8px';
 		item.innerHTML = '<div style="margin: 8px; height: 32px">' + values.label + '</div>';
@@ -44,7 +45,7 @@ function buildPixelMatchPreview(actual, expected, diff, threshold, tolerance, co
 	});
 
 	// WORKAROUND: https://github.com/karma-runner/karma-jasmine/issues/139
-	wrapper.indexOf = function() {
+	wrapper.indexOf = function () {
 		return -1;
 	};
 
@@ -53,7 +54,7 @@ function buildPixelMatchPreview(actual, expected, diff, threshold, tolerance, co
 
 function toBeCloseToPixel() {
 	return {
-		compare: function(actual, expected) {
+		compare: function (actual, expected) {
 			var result = false;
 
 			if (!isNaN(actual) && !isNaN(expected)) {
@@ -71,7 +72,7 @@ function toBeCloseToPixel() {
 
 function toEqualOneOf() {
 	return {
-		compare: function(actual, expecteds) {
+		compare: function (actual, expecteds) {
 			var result = false;
 			for (var i = 0, l = expecteds.length; i < l; i++) {
 				if (actual === expecteds[i]) {
@@ -88,7 +89,7 @@ function toEqualOneOf() {
 
 function toBeValidChart() {
 	return {
-		compare: function(actual) {
+		compare: function (actual) {
 			var message = null;
 
 			if (!(actual instanceof Chart)) {
@@ -113,7 +114,7 @@ function toBeValidChart() {
 
 function toBeChartOfSize() {
 	return {
-		compare: function(actual, expected) {
+		compare: function (actual, expected) {
 			var res = toBeValidChart().compare(actual);
 			if (!res.pass) {
 				return res;
@@ -158,7 +159,7 @@ function toBeChartOfSize() {
 
 function toEqualImageData() {
 	return {
-		compare: function(actual, expected, opts) {
+		compare: function (actual, expected, opts) {
 			var message = null;
 			var debug = opts.debug || false;
 			var tolerance = opts.tolerance === undefined ? 0.001 : opts.tolerance;

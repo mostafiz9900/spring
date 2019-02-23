@@ -15,7 +15,7 @@ defaults._set('global', {
 });
 
 module.exports = Element.extend({
-	inLabelRange: function(mouseX) {
+	inLabelRange: function (mouseX) {
 		var vm = this._view;
 
 		if (vm) {
@@ -24,12 +24,12 @@ module.exports = Element.extend({
 		return false;
 	},
 
-	inRange: function(chartX, chartY) {
+	inRange: function (chartX, chartY) {
 		var vm = this._view;
 
 		if (vm) {
 			var pointRelativePosition = helpers.getAngleFromPoint(vm, {x: chartX, y: chartY});
-			var	angle = pointRelativePosition.angle;
+			var angle = pointRelativePosition.angle;
 			var distance = pointRelativePosition.distance;
 
 			// Sanitise angle range
@@ -54,7 +54,7 @@ module.exports = Element.extend({
 		return false;
 	},
 
-	getCenterPoint: function() {
+	getCenterPoint: function () {
 		var vm = this._view;
 		var halfAngle = (vm.startAngle + vm.endAngle) / 2;
 		var halfRadius = (vm.innerRadius + vm.outerRadius) / 2;
@@ -64,12 +64,12 @@ module.exports = Element.extend({
 		};
 	},
 
-	getArea: function() {
+	getArea: function () {
 		var vm = this._view;
 		return Math.PI * ((vm.endAngle - vm.startAngle) / (2 * Math.PI)) * (Math.pow(vm.outerRadius, 2) - Math.pow(vm.innerRadius, 2));
 	},
 
-	tooltipPosition: function() {
+	tooltipPosition: function () {
 		var vm = this._view;
 		var centreAngle = vm.startAngle + ((vm.endAngle - vm.startAngle) / 2);
 		var rangeFromCentre = (vm.outerRadius - vm.innerRadius) / 2 + vm.innerRadius;
@@ -80,7 +80,7 @@ module.exports = Element.extend({
 		};
 	},
 
-	draw: function() {
+	draw: function () {
 		var ctx = this._chart.ctx;
 		var vm = this._view;
 		var sA = vm.startAngle;

@@ -15,7 +15,7 @@ defaults._set('radar', {
 	}
 });
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	Chart.controllers.radar = Chart.DatasetController.extend({
 
@@ -25,7 +25,7 @@ module.exports = function(Chart) {
 
 		linkScales: helpers.noop,
 
-		update: function(reset) {
+		update: function (reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var line = meta.dataset;
@@ -65,14 +65,14 @@ module.exports = function(Chart) {
 			meta.dataset.pivot();
 
 			// Update Points
-			helpers.each(points, function(point, index) {
+			helpers.each(points, function (point, index) {
 				me.updateElement(point, index, reset);
 			}, me);
 
 			// Update bezier control points
 			me.updateBezierControlPoints();
 		},
-		updateElement: function(point, index, reset) {
+		updateElement: function (point, index, reset) {
 			var me = this;
 			var custom = point.custom || {};
 			var dataset = me.getDataset();
@@ -114,11 +114,11 @@ module.exports = function(Chart) {
 
 			point._model.skip = custom.skip ? custom.skip : (isNaN(point._model.x) || isNaN(point._model.y));
 		},
-		updateBezierControlPoints: function() {
+		updateBezierControlPoints: function () {
 			var chartArea = this.chart.chartArea;
 			var meta = this.getMeta();
 
-			helpers.each(meta.data, function(point, index) {
+			helpers.each(meta.data, function (point, index) {
 				var model = point._model;
 				var controlPoints = helpers.splineCurve(
 					helpers.previousItem(meta.data, index, true)._model,
@@ -139,7 +139,7 @@ module.exports = function(Chart) {
 			});
 		},
 
-		setHoverStyle: function(point) {
+		setHoverStyle: function (point) {
 			// Point
 			var dataset = this.chart.data.datasets[point._datasetIndex];
 			var custom = point.custom || {};
@@ -152,7 +152,7 @@ module.exports = function(Chart) {
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : helpers.valueAtIndexOrDefault(dataset.pointHoverBorderWidth, index, model.borderWidth);
 		},
 
-		removeHoverStyle: function(point) {
+		removeHoverStyle: function (point) {
 			var dataset = this.chart.data.datasets[point._datasetIndex];
 			var custom = point.custom || {};
 			var index = point._index;

@@ -1,7 +1,7 @@
 // Test the rectangle element
 
-describe('Arc element tests', function() {
-	it ('Should be constructed', function() {
+describe('Arc element tests', function () {
+	it('Should be constructed', function () {
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
 			_index: 1
@@ -12,7 +12,7 @@ describe('Arc element tests', function() {
 		expect(arc._index).toBe(1);
 	});
 
-	it ('should determine if in range', function() {
+	it('should determine if in range', function () {
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
 			_index: 1
@@ -39,7 +39,7 @@ describe('Arc element tests', function() {
 		expect(arc.inRange(-1.0 * Math.sqrt(7), Math.sqrt(7))).toBe(false);
 	});
 
-	it ('should get the tooltip position', function() {
+	it('should get the tooltip position', function () {
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
 			_index: 1
@@ -60,7 +60,7 @@ describe('Arc element tests', function() {
 		expect(pos.y).toBeCloseTo(0.5);
 	});
 
-	it ('should get the area', function() {
+	it('should get the area', function () {
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
 			_index: 1
@@ -79,7 +79,7 @@ describe('Arc element tests', function() {
 		expect(arc.getArea()).toBeCloseTo(0.5 * Math.PI, 6);
 	});
 
-	it ('should get the center', function() {
+	it('should get the center', function () {
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
 			_index: 1
@@ -100,7 +100,7 @@ describe('Arc element tests', function() {
 		expect(center.y).toBeCloseTo(0.5, 6);
 	});
 
-	it ('should draw correctly with no border', function() {
+	it('should draw correctly with no border', function () {
 		var mockContext = window.createMockContext();
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,
@@ -155,7 +155,7 @@ describe('Arc element tests', function() {
 		}]);
 	});
 
-	it ('should draw correctly with a border', function() {
+	it('should draw correctly with a border', function () {
 		var mockContext = window.createMockContext();
 		var arc = new Chart.elements.Arc({
 			_datasetIndex: 2,

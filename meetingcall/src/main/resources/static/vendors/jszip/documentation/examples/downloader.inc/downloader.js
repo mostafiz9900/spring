@@ -1,4 +1,3 @@
-
 var Promise = window.Promise;
 if (!Promise) {
     Promise = JSZip.external.Promise;
@@ -10,9 +9,9 @@ if (!Promise) {
  * @return {Promise} the promise containing the data.
  */
 function urlToPromise(url) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         JSZipUtils.getBinaryContent(url, function (err, data) {
-            if(err) {
+            if (err) {
                 reject(err);
             } else {
                 resolve(data);
@@ -32,27 +31,27 @@ var $form = $("#download_form").on("submit", function () {
         var $this = $(this);
         var url = $this.data("url");
         var filename = url.replace(/.*\//g, "");
-        zip.file(filename, urlToPromise(url), {binary:true});
+        zip.file(filename, urlToPromise(url), {binary: true});
     });
 
     // when everything has been downloaded, we can trigger the dl
-    zip.generateAsync({type:"blob"}, function updateCallback(metadata) {
+    zip.generateAsync({type: "blob"}, function updateCallback(metadata) {
         var msg = "progression : " + metadata.percent.toFixed(2) + " %";
-        if(metadata.currentFile) {
+        if (metadata.currentFile) {
             msg += ", current file = " + metadata.currentFile;
         }
         showMessage(msg);
-        updatePercent(metadata.percent|0);
+        updatePercent(metadata.percent | 0);
     })
-    .then(function callback(blob) {
+        .then(function callback(blob) {
 
-        // see FileSaver.js
-        saveAs(blob, "example.zip");
+            // see FileSaver.js
+            saveAs(blob, "example.zip");
 
-        showMessage("done !");
-    }, function (e) {
-        showError(e);
-    });
+            showMessage("done !");
+        }, function (e) {
+            showError(e);
+        });
 
     return false;
 });

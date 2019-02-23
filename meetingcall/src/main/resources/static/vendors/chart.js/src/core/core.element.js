@@ -52,18 +52,18 @@ function interpolate(start, view, model, ease) {
 	}
 }
 
-var Element = function(configuration) {
+var Element = function (configuration) {
 	helpers.extend(this, configuration);
 	this.initialize.apply(this, arguments);
 };
 
 helpers.extend(Element.prototype, {
 
-	initialize: function() {
+	initialize: function () {
 		this.hidden = false;
 	},
 
-	pivot: function() {
+	pivot: function () {
 		var me = this;
 		if (!me._view) {
 			me._view = helpers.clone(me._model);
@@ -72,7 +72,7 @@ helpers.extend(Element.prototype, {
 		return me;
 	},
 
-	transition: function(ease) {
+	transition: function (ease) {
 		var me = this;
 		var model = me._model;
 		var start = me._start;
@@ -98,14 +98,14 @@ helpers.extend(Element.prototype, {
 		return me;
 	},
 
-	tooltipPosition: function() {
+	tooltipPosition: function () {
 		return {
 			x: this._model.x,
 			y: this._model.y
 		};
 	},
 
-	hasValue: function() {
+	hasValue: function () {
 		return helpers.isNumber(this._model.x) && helpers.isNumber(this._model.y);
 	}
 });

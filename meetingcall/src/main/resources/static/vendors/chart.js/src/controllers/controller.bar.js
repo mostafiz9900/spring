@@ -70,7 +70,7 @@ defaults._set('horizontalBar', {
 
 	tooltips: {
 		callbacks: {
-			title: function(item, data) {
+			title: function (item, data) {
 				// Pick first xLabel for now
 				var title = '';
 
@@ -85,7 +85,7 @@ defaults._set('horizontalBar', {
 				return title;
 			},
 
-			label: function(item, data) {
+			label: function (item, data) {
 				var datasetLabel = data.datasets[item.datasetIndex].label || '';
 				return datasetLabel + ': ' + item.xLabel;
 			}
@@ -182,13 +182,13 @@ function computeFlexCategoryTraits(index, ruler, options) {
 	};
 }
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	Chart.controllers.bar = Chart.DatasetController.extend({
 
 		dataElementType: elements.Rectangle,
 
-		initialize: function() {
+		initialize: function () {
 			var me = this;
 			var meta;
 
@@ -199,7 +199,7 @@ module.exports = function(Chart) {
 			meta.bar = true;
 		},
 
-		update: function(reset) {
+		update: function (reset) {
 			var me = this;
 			var rects = me.getMeta().data;
 			var i, ilen;
@@ -211,7 +211,7 @@ module.exports = function(Chart) {
 			}
 		},
 
-		updateElement: function(rectangle, index, reset) {
+		updateElement: function (rectangle, index, reset) {
 			var me = this;
 			var chart = me.chart;
 			var meta = me.getMeta();
@@ -241,7 +241,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		updateElementGeometry: function(rectangle, index, reset) {
+		updateElementGeometry: function (rectangle, index, reset) {
 			var me = this;
 			var model = rectangle._model;
 			var vscale = me.getValueScale();
@@ -262,28 +262,28 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getValueScaleId: function() {
+		getValueScaleId: function () {
 			return this.getMeta().yAxisID;
 		},
 
 		/**
 		 * @private
 		 */
-		getIndexScaleId: function() {
+		getIndexScaleId: function () {
 			return this.getMeta().xAxisID;
 		},
 
 		/**
 		 * @private
 		 */
-		getValueScale: function() {
+		getValueScale: function () {
 			return this.getScaleForId(this.getValueScaleId());
 		},
 
 		/**
 		 * @private
 		 */
-		getIndexScale: function() {
+		getIndexScale: function () {
 			return this.getScaleForId(this.getIndexScaleId());
 		},
 
@@ -293,7 +293,7 @@ module.exports = function(Chart) {
 		 * @returns {Array} The stack list
 		 * @private
 		 */
-		_getStacks: function(last) {
+		_getStacks: function (last) {
 			var me = this;
 			var chart = me.chart;
 			var scale = me.getIndexScale();
@@ -306,8 +306,8 @@ module.exports = function(Chart) {
 				meta = chart.getDatasetMeta(i);
 				if (meta.bar && chart.isDatasetVisible(i) &&
 					(stacked === false ||
-					(stacked === true && stacks.indexOf(meta.stack) === -1) ||
-					(stacked === undefined && (meta.stack === undefined || stacks.indexOf(meta.stack) === -1)))) {
+						(stacked === true && stacks.indexOf(meta.stack) === -1) ||
+						(stacked === undefined && (meta.stack === undefined || stacks.indexOf(meta.stack) === -1)))) {
 					stacks.push(meta.stack);
 				}
 			}
@@ -319,7 +319,7 @@ module.exports = function(Chart) {
 		 * Returns the effective number of stacks based on groups and bar visibility.
 		 * @private
 		 */
-		getStackCount: function() {
+		getStackCount: function () {
 			return this._getStacks().length;
 		},
 
@@ -330,7 +330,7 @@ module.exports = function(Chart) {
 		 * @returns {Number} The stack index
 		 * @private
 		 */
-		getStackIndex: function(datasetIndex, name) {
+		getStackIndex: function (datasetIndex, name) {
 			var stacks = this._getStacks(datasetIndex);
 			var index = (name !== undefined)
 				? stacks.indexOf(name)
@@ -344,7 +344,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getRuler: function() {
+		getRuler: function () {
 			var me = this;
 			var scale = me.getIndexScale();
 			var stackCount = me.getStackCount();
@@ -377,7 +377,7 @@ module.exports = function(Chart) {
 		 * Note: pixel values are not clamped to the scale area.
 		 * @private
 		 */
-		calculateBarValuePixels: function(datasetIndex, index) {
+		calculateBarValuePixels: function (datasetIndex, index) {
 			var me = this;
 			var chart = me.chart;
 			var meta = me.getMeta();
@@ -421,7 +421,7 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		calculateBarIndexPixels: function(datasetIndex, index, ruler) {
+		calculateBarIndexPixels: function (datasetIndex, index, ruler) {
 			var me = this;
 			var options = ruler.scale.options;
 			var range = options.barThickness === 'flex'
@@ -442,7 +442,7 @@ module.exports = function(Chart) {
 			};
 		},
 
-		draw: function() {
+		draw: function () {
 			var me = this;
 			var chart = me.chart;
 			var scale = me.getValueScale();
@@ -462,7 +462,7 @@ module.exports = function(Chart) {
 			helpers.canvas.unclipArea(chart.ctx);
 		},
 
-		setHoverStyle: function(rectangle) {
+		setHoverStyle: function (rectangle) {
 			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
 			var index = rectangle._index;
 			var custom = rectangle.custom || {};
@@ -473,7 +473,7 @@ module.exports = function(Chart) {
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : helpers.valueAtIndexOrDefault(dataset.hoverBorderWidth, index, model.borderWidth);
 		},
 
-		removeHoverStyle: function(rectangle) {
+		removeHoverStyle: function (rectangle) {
 			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
 			var index = rectangle._index;
 			var custom = rectangle.custom || {};
@@ -490,14 +490,14 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getValueScaleId: function() {
+		getValueScaleId: function () {
 			return this.getMeta().xAxisID;
 		},
 
 		/**
 		 * @private
 		 */
-		getIndexScaleId: function() {
+		getIndexScaleId: function () {
 			return this.getMeta().yAxisID;
 		}
 	});

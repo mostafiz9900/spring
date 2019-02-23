@@ -6,11 +6,11 @@
     "sass/_flag-icon.scss"
   ],
   "ignore": [
-      "**/.*",
-      "assets",
-      "Gruntfile.coffee",
-      "index.html",
-      "LICENSE",
-      "package.json"
+    "**/.*",
+    "assets",
+    "Gruntfile.coffee",
+    "index.html",
+    "LICENSE",
+    "package.json"
   ]
 }

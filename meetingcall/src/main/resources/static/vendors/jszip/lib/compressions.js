@@ -4,10 +4,10 @@ var GenericWorker = require("./stream/GenericWorker");
 
 exports.STORE = {
     magic: "\x00\x00",
-    compressWorker : function (compressionOptions) {
+    compressWorker: function (compressionOptions) {
         return new GenericWorker("STORE compression");
     },
-    uncompressWorker : function () {
+    uncompressWorker: function () {
         return new GenericWorker("STORE decompression");
     }
 };

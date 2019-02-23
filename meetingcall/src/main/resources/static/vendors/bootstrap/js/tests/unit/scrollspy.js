@@ -49,31 +49,31 @@ $(function () {
     var done = assert.async()
 
     var sectionHTML = '<div id="root" class="active">' +
-        '<div class="topbar">' +
-        '<div class="topbar-inner">' +
-        '<div class="container" id="ss-target">' +
-        '<ul class="nav">' +
-        '<li class="nav-item"><a href="#masthead">Overview</a></li>' +
-        '<li class="nav-item"><a href="#detail">Detail</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div id="scrollspy-example" style="height: 100px; overflow: auto;">' +
-        '<div style="height: 200px;">' +
-        '<h4 id="masthead">Overview</h4>' +
-        '<p style="height: 200px">' +
-        'Ad leggings keytar, brunch id art party dolor labore.' +
-        '</p>' +
-        '</div>' +
-        '<div style="height: 200px;">' +
-        '<h4 id="detail">Detail</h4>' +
-        '<p style="height: 200px">' +
-        'Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard.' +
-        '</p>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="topbar">' +
+      '<div class="topbar-inner">' +
+      '<div class="container" id="ss-target">' +
+      '<ul class="nav">' +
+      '<li class="nav-item"><a href="#masthead">Overview</a></li>' +
+      '<li class="nav-item"><a href="#detail">Detail</a></li>' +
+      '</ul>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div id="scrollspy-example" style="height: 100px; overflow: auto;">' +
+      '<div style="height: 200px;">' +
+      '<h4 id="masthead">Overview</h4>' +
+      '<p style="height: 200px">' +
+      'Ad leggings keytar, brunch id art party dolor labore.' +
+      '</p>' +
+      '</div>' +
+      '<div style="height: 200px;">' +
+      '<h4 id="detail">Detail</h4>' +
+      '<p style="height: 200px">' +
+      'Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard.' +
+      '</p>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $section = $(sectionHTML).appendTo('#qunit-fixture')
 
     var $scrollspy = $section
@@ -96,31 +96,31 @@ $(function () {
     var done = assert.async()
 
     var sectionHTML = '<div id="root" class="active">' +
-        '<div class="topbar">' +
-        '<div class="topbar-inner">' +
-        '<div class="container" id="ss-target">' +
-        '<ul class="nav">' +
-        '<li class="nav-item"><a href="#masthead">Overview</a></li>' +
-        '<li class="nav-item"><a href="#detail">Detail</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div id="scrollspy-example" style="height: 100px; overflow: auto;">' +
-        '<div style="height: 200px;">' +
-        '<h4 id="masthead">Overview</h4>' +
-        '<p style="height: 200px">' +
-        'Ad leggings keytar, brunch id art party dolor labore.' +
-        '</p>' +
-        '</div>' +
-        '<div style="height: 200px;">' +
-        '<h4 id="detail">Detail</h4>' +
-        '<p style="height: 200px">' +
-        'Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard.' +
-        '</p>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+      '<div class="topbar">' +
+      '<div class="topbar-inner">' +
+      '<div class="container" id="ss-target">' +
+      '<ul class="nav">' +
+      '<li class="nav-item"><a href="#masthead">Overview</a></li>' +
+      '<li class="nav-item"><a href="#detail">Detail</a></li>' +
+      '</ul>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div id="scrollspy-example" style="height: 100px; overflow: auto;">' +
+      '<div style="height: 200px;">' +
+      '<h4 id="masthead">Overview</h4>' +
+      '<p style="height: 200px">' +
+      'Ad leggings keytar, brunch id art party dolor labore.' +
+      '</p>' +
+      '</div>' +
+      '<div style="height: 200px;">' +
+      '<h4 id="detail">Detail</h4>' +
+      '<p style="height: 200px">' +
+      'Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard.' +
+      '</p>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
     var $section = $(sectionHTML).appendTo('#qunit-fixture')
 
     var $scrollspy = $section
@@ -143,18 +143,18 @@ $(function () {
     var done = assert.async()
 
     var sectionHTML = '<div id="header" style="height: 500px;"></div>' +
-        '<nav id="navigation" class="navbar">' +
-        '<ul class="navbar-nav">' +
-        '<li class="nav-item active"><a class="nav-link" id="one-link" href="#one">One</a></li>' +
-        '<li class="nav-item"><a class="nav-link" id="two-link" href="#two">Two</a></li>' +
-        '<li class="nav-item"><a class="nav-link" id="three-link" href="#three">Three</a></li>' +
-        '</ul>' +
-        '</nav>' +
-        '<div id="content" style="height: 200px; overflow-y: auto;">' +
-        '<div id="one" style="height: 500px;"></div>' +
-        '<div id="two" style="height: 300px;"></div>' +
-        '<div id="three" style="height: 10px;"></div>' +
-        '</div>'
+      '<nav id="navigation" class="navbar">' +
+      '<ul class="navbar-nav">' +
+      '<li class="nav-item active"><a class="nav-link" id="one-link" href="#one">One</a></li>' +
+      '<li class="nav-item"><a class="nav-link" id="two-link" href="#two">Two</a></li>' +
+      '<li class="nav-item"><a class="nav-link" id="three-link" href="#three">Three</a></li>' +
+      '</ul>' +
+      '</nav>' +
+      '<div id="content" style="height: 200px; overflow-y: auto;">' +
+      '<div id="one" style="height: 500px;"></div>' +
+      '<div id="two" style="height: 300px;"></div>' +
+      '<div id="three" style="height: 10px;"></div>' +
+      '</div>'
     var $section = $(sectionHTML).appendTo('#qunit-fixture')
     var $scrollspy = $section
       .show()
@@ -185,7 +185,7 @@ $(function () {
       '</ul>' +
       '</nav>'
     var contentHtml =
-        '<div class="content" style="overflow: auto; height: 50px">' +
+      '<div class="content" style="overflow: auto; height: 50px">' +
       '<div id="div-1" style="height: 100px; padding: 0; margin: 0">div 1</div>' +
       '<div id="div-2" style="height: 200px; padding: 0; margin: 0">div 2</div>' +
       '</div>'
@@ -229,7 +229,7 @@ $(function () {
       '</nav>' +
       '</nav>'
     var contentHtml =
-        '<div class="content" style="overflow: auto; height: 50px">' +
+      '<div class="content" style="overflow: auto; height: 50px">' +
       '<div id="div-1" style="height: 100px; padding: 0; margin: 0">div 1</div>' +
       '<div id="div-2" style="height: 200px; padding: 0; margin: 0">div 2</div>' +
       '</div>'
@@ -273,7 +273,7 @@ $(function () {
       '</div>' +
       '</nav>'
     var contentHtml =
-        '<div class="content" style="overflow: auto; height: 50px">' +
+      '<div class="content" style="overflow: auto; height: 50px">' +
       '<div id="div-1" style="height: 100px; padding: 0; margin: 0">div 1</div>' +
       '<div id="div-2" style="height: 200px; padding: 0; margin: 0">div 2</div>' +
       '</div>'
@@ -493,22 +493,22 @@ $(function () {
     var done = assert.async()
 
     var sectionHTML = '<div id="header" style="height: 500px;"></div>' +
-        '<nav id="navigation" class="navbar">' +
-        '<ul class="navbar-nav">' +
-        '<li class="nav-item"><a id="one-link"   class="nav-link active" href="#one">One</a></li>' +
-        '<li class="nav-item"><a id="two-link"   class="nav-link" href="#two">Two</a></li>' +
-        '<li class="nav-item"><a id="three-link" class="nav-link" href="#three">Three</a></li>' +
-        '</ul>' +
-        '</nav>'
+      '<nav id="navigation" class="navbar">' +
+      '<ul class="navbar-nav">' +
+      '<li class="nav-item"><a id="one-link"   class="nav-link active" href="#one">One</a></li>' +
+      '<li class="nav-item"><a id="two-link"   class="nav-link" href="#two">Two</a></li>' +
+      '<li class="nav-item"><a id="three-link" class="nav-link" href="#three">Three</a></li>' +
+      '</ul>' +
+      '</nav>'
     $(sectionHTML).appendTo('#qunit-fixture')
 
     var scrollspyHTML = '<div id="content" style="height: 200px; overflow-y: auto;">' +
-        '<div id="spacer" style="height: 100px;"/>' +
-        '<div id="one" style="height: 100px;"/>' +
-        '<div id="two" style="height: 100px;"/>' +
-        '<div id="three" style="height: 100px;"/>' +
-        '<div id="spacer" style="height: 100px;"/>' +
-        '</div>'
+      '<div id="spacer" style="height: 100px;"/>' +
+      '<div id="one" style="height: 100px;"/>' +
+      '<div id="two" style="height: 100px;"/>' +
+      '<div id="three" style="height: 100px;"/>' +
+      '<div id="spacer" style="height: 100px;"/>' +
+      '</div>'
     var $scrollspy = $(scrollspyHTML).appendTo('#qunit-fixture')
 
     $scrollspy
@@ -534,24 +534,24 @@ $(function () {
     var done = assert.async()
 
     var sectionHTML = '<div id="header" style="height: 500px;"></div>' +
-        '<nav id="navigation" class="navbar">' +
-        '<ul class="navbar-nav">' +
-        '<li class="nav-item"><a id="one-link"   class="nav-link active" href="#one">One</a></li>' +
-        '<li class="nav-item"><a id="two-link"   class="nav-link" href="#two">Two</a></li>' +
-        '<li class="nav-item"><a id="three-link" class="nav-link" href="#three">Three</a></li>' +
-        '</ul>' +
-        '</nav>'
+      '<nav id="navigation" class="navbar">' +
+      '<ul class="navbar-nav">' +
+      '<li class="nav-item"><a id="one-link"   class="nav-link active" href="#one">One</a></li>' +
+      '<li class="nav-item"><a id="two-link"   class="nav-link" href="#two">Two</a></li>' +
+      '<li class="nav-item"><a id="three-link" class="nav-link" href="#three">Three</a></li>' +
+      '</ul>' +
+      '</nav>'
     $(sectionHTML).appendTo('#qunit-fixture')
 
     var negativeHeight = -10
     var startOfSectionTwo = 101
 
     var scrollspyHTML = '<div id="content" style="height: 200px; overflow-y: auto;">' +
-        '<div id="one" style="height: 100px;"/>' +
-        '<div id="two" style="height: 100px;"/>' +
-        '<div id="three" style="height: 100px;"/>' +
-        '<div id="spacer" style="height: 100px;"/>' +
-        '</div>'
+      '<div id="one" style="height: 100px;"/>' +
+      '<div id="two" style="height: 100px;"/>' +
+      '<div id="three" style="height: 100px;"/>' +
+      '<div id="spacer" style="height: 100px;"/>' +
+      '</div>'
     var $scrollspy = $(scrollspyHTML).appendTo('#qunit-fixture')
 
     $scrollspy
@@ -586,7 +586,7 @@ $(function () {
       '</ul>' +
       '</nav>'
     var contentHtml =
-        '<div class="content" style="position: relative; overflow: auto; height: 100px">' +
+      '<div class="content" style="position: relative; overflow: auto; height: 100px">' +
       '<div id="div-100-1" style="position: relative; height: 100%; padding: 0; margin: 0">div 1</div>' +
       '<div id="div-100-2" style="position: relative; height: 100%; padding: 0; margin: 0">div 2</div>' +
       '<div id="div-100-3" style="position: relative; height: 100%; padding: 0; margin: 0">div 3</div>' +

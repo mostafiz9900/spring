@@ -20,50 +20,50 @@ var activatedAnimations = activateAnimations();
 
 // Task options
 var opts = {
-  destPath: './',
-  concatName: 'animate.css',
+    destPath: './',
+    concatName: 'animate.css',
 
-  autoprefixer: {
-    browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'],
-    cascade: false,
-  },
+    autoprefixer: {
+        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'],
+        cascade: false,
+    },
 
-  minRename: {
-    suffix: '.min',
-  },
+    minRename: {
+        suffix: '.min',
+    },
 
-  banner: [
-    '@charset "UTF-8";\n',
-    '/*!',
-    ' * <%= name %> -<%= homepage %>',
-    ' * Version - <%= version %>',
-    ' * Licensed under the MIT license - http://opensource.org/licenses/MIT',
-    ' *',
-    ' * Copyright (c) <%= new Date().getFullYear() %> <%= author.name %>',
-    ' */\n\n',
-  ].join('\n'),
+    banner: [
+        '@charset "UTF-8";\n',
+        '/*!',
+        ' * <%= name %> -<%= homepage %>',
+        ' * Version - <%= version %>',
+        ' * Licensed under the MIT license - http://opensource.org/licenses/MIT',
+        ' *',
+        ' * Copyright (c) <%= new Date().getFullYear() %> <%= author.name %>',
+        ' */\n\n',
+    ].join('\n'),
 };
 
 // ----------------------------
 // Gulp task definitions
 // ----------------------------
 
-gulp.task('createCSS', function() {
-  return gulp
-    .src(activatedAnimations)
-    .pipe(concat(opts.concatName))
-    .pipe(postcss([autoprefixer(opts.autoprefixer)]))
-    .pipe(gulp.dest(opts.destPath))
-    .pipe(postcss([cssnano({reduceIdents: {keyframes: false}})]))
-    .pipe(rename(opts.minRename))
-    .pipe(gulp.dest(opts.destPath));
+gulp.task('createCSS', function () {
+    return gulp
+        .src(activatedAnimations)
+        .pipe(concat(opts.concatName))
+        .pipe(postcss([autoprefixer(opts.autoprefixer)]))
+        .pipe(gulp.dest(opts.destPath))
+        .pipe(postcss([cssnano({reduceIdents: {keyframes: false}})]))
+        .pipe(rename(opts.minRename))
+        .pipe(gulp.dest(opts.destPath));
 });
 
-gulp.task('addHeader', function() {
-  return gulp
-    .src('*.css')
-    .pipe(header(opts.banner, pkg))
-    .pipe(gulp.dest(opts.destPath));
+gulp.task('addHeader', function () {
+    return gulp
+        .src('*.css')
+        .pipe(header(opts.banner, pkg))
+        .pipe(gulp.dest(opts.destPath));
 });
 
 gulp.task('default', gulp.series('createCSS', 'addHeader'));
@@ -74,34 +74,34 @@ gulp.task('default', gulp.series('createCSS', 'addHeader'));
 
 // Read the config file and return an array of the animations to be activated
 function activateAnimations() {
-  var categories = JSON.parse(fs.readFileSync('animate-config.json')),
-    category,
-    files,
-    file,
-    target = [],
-    count = 0;
+    var categories = JSON.parse(fs.readFileSync('animate-config.json')),
+        category,
+        files,
+        file,
+        target = [],
+        count = 0;
 
-  for (category in categories) {
-    if (categories.hasOwnProperty(category)) {
-      files = categories[category];
+    for (category in categories) {
+        if (categories.hasOwnProperty(category)) {
+            files = categories[category];
 
-      for (file in files) {
-        if (files[file]) {
-          // marked as true
-          target.push('source/' + category + '/' + file + '.css');
-          count += 1;
+            for (file in files) {
+                if (files[file]) {
+                    // marked as true
+                    target.push('source/' + category + '/' + file + '.css');
+                    count += 1;
+                }
+            }
         }
-      }
     }
-  }
-  // prepend base CSS
-  target.push('source/_base.css');
+    // prepend base CSS
+    target.push('source/_base.css');
 
-  if (!count) {
-    gutil.log('No animations activated.');
-  } else {
-    gutil.log(count + (count > 1 ? ' animations' : ' animation') + ' activated.');
-  }
+    if (!count) {
+        gutil.log('No animations activated.');
+    } else {
+        gutil.log(count + (count > 1 ? ' animations' : ' animation') + ' activated.');
+    }
 
-  return target;
+    return target;
 }

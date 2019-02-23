@@ -1,7 +1,7 @@
 // Test the rectangle element
-describe('Core.Tooltip', function() {
-	describe('config', function() {
-		it('should not include the dataset label in the body string if not defined', function() {
+describe('Core.Tooltip', function () {
+	describe('config', function () {
+		it('should not include the dataset label in the body string if not defined', function () {
 			var data = {
 				datasets: [{
 					data: [10, 20, 30],
@@ -26,8 +26,8 @@ describe('Core.Tooltip', function() {
 		});
 	});
 
-	describe('index mode', function() {
-		it('Should only use x distance when intersect is false', function() {
+	describe('index mode', function () {
+		it('Should only use x distance when intersect is false', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -147,7 +147,7 @@ describe('Core.Tooltip', function() {
 			expect(tooltip._view.y).toBeCloseToPixel(155);
 		});
 
-		it('Should only display if intersecting if intersect is set', function() {
+		it('Should only display if intersecting if intersect is set', function () {
 			var chart = window.acquireChart({
 				type: 'line',
 				data: {
@@ -236,7 +236,7 @@ describe('Core.Tooltip', function() {
 		});
 	});
 
-	it('Should display in single mode', function() {
+	it('Should display in single mode', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -345,7 +345,7 @@ describe('Core.Tooltip', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(312);
 	});
 
-	it('Should display information from user callbacks', function() {
+	it('Should display information from user callbacks', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -366,40 +366,40 @@ describe('Core.Tooltip', function() {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						beforeTitle: function() {
+						beforeTitle: function () {
 							return 'beforeTitle';
 						},
-						title: function() {
+						title: function () {
 							return 'title';
 						},
-						afterTitle: function() {
+						afterTitle: function () {
 							return 'afterTitle';
 						},
-						beforeBody: function() {
+						beforeBody: function () {
 							return 'beforeBody';
 						},
-						beforeLabel: function() {
+						beforeLabel: function () {
 							return 'beforeLabel';
 						},
-						label: function() {
+						label: function () {
 							return 'label';
 						},
-						afterLabel: function() {
+						afterLabel: function () {
 							return 'afterLabel';
 						},
-						afterBody: function() {
+						afterBody: function () {
 							return 'afterBody';
 						},
-						beforeFooter: function() {
+						beforeFooter: function () {
 							return 'beforeFooter';
 						},
-						footer: function() {
+						footer: function () {
 							return 'footer';
 						},
-						afterFooter: function() {
+						afterFooter: function () {
 							return 'afterFooter';
 						},
-						labelTextColor: function() {
+						labelTextColor: function () {
 							return 'labelTextColor';
 						}
 					}
@@ -498,7 +498,7 @@ describe('Core.Tooltip', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(190);
 	});
 
-	it('Should allow sorting items', function() {
+	it('Should allow sorting items', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -518,7 +518,7 @@ describe('Core.Tooltip', function() {
 			options: {
 				tooltips: {
 					mode: 'label',
-					itemSort: function(a, b) {
+					itemSort: function (a, b) {
 						return a.datasetIndex > b.datasetIndex ? -1 : 1;
 					}
 				}
@@ -578,7 +578,7 @@ describe('Core.Tooltip', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(155);
 	});
 
-	it('should filter items from the tooltip using the callback', function() {
+	it('should filter items from the tooltip using the callback', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -599,7 +599,7 @@ describe('Core.Tooltip', function() {
 			options: {
 				tooltips: {
 					mode: 'label',
-					filter: function(tooltipItem, data) {
+					filter: function (tooltipItem, data) {
 						// For testing purposes remove the first dataset that has a tooltipHidden property
 						return !data.datasets[tooltipItem.datasetIndex].tooltipHidden;
 					}
@@ -650,7 +650,7 @@ describe('Core.Tooltip', function() {
 		}));
 	});
 
-	it('should set the caretPadding based on a config setting', function() {
+	it('should set the caretPadding based on a config setting', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -702,7 +702,7 @@ describe('Core.Tooltip', function() {
 		}));
 	});
 
-	it('Should have dataPoints', function() {
+	it('Should have dataPoints', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -762,7 +762,7 @@ describe('Core.Tooltip', function() {
 		expect(tooltip._view.dataPoints[0].y).toBeCloseToPixel(point._model.y);
 	});
 
-	it('Should not update if active element has not changed', function() {
+	it('Should not update if active element has not changed', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -783,7 +783,7 @@ describe('Core.Tooltip', function() {
 				tooltips: {
 					mode: 'single',
 					callbacks: {
-						title: function() {
+						title: function () {
 							return 'registering callback...';
 						}
 					}
@@ -823,10 +823,10 @@ describe('Core.Tooltip', function() {
 		expect(tooltip.update).not.toHaveBeenCalled();
 	});
 
-	describe('positioners', function() {
-		it('Should call custom positioner with correct parameters and scope', function() {
+	describe('positioners', function () {
+		it('Should call custom positioner with correct parameters and scope', function () {
 
-			Chart.Tooltip.positioners.test = function() {
+			Chart.Tooltip.positioners.test = function () {
 				return {x: 0, y: 0};
 			};
 
@@ -883,7 +883,7 @@ describe('Core.Tooltip', function() {
 		});
 	});
 
-	it('Should avoid tooltip truncation in x axis if there is enough space to show tooltip without truncation', function() {
+	it('Should avoid tooltip truncation in x axis if there is enough space to show tooltip without truncation', function () {
 		var chart = window.acquireChart({
 			type: 'pie',
 			data: {

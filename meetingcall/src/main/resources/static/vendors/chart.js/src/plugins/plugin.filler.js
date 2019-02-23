@@ -19,7 +19,7 @@ defaults._set('global', {
 });
 
 var mappers = {
-	dataset: function(source) {
+	dataset: function (source) {
 		var index = source.fill;
 		var chart = source.chart;
 		var meta = chart.getDatasetMeta(index);
@@ -27,17 +27,17 @@ var mappers = {
 		var points = (visible && meta.dataset._children) || [];
 		var length = points.length || 0;
 
-		return !length ? null : function(point, i) {
+		return !length ? null : function (point, i) {
 			return (i < length && points[i]._view) || null;
 		};
 	},
 
-	boundary: function(source) {
+	boundary: function (source) {
 		var boundary = source.boundary;
 		var x = boundary ? boundary.x : null;
 		var y = boundary ? boundary.y : null;
 
-		return function(point) {
+		return function (point) {
 			return {
 				x: x === null ? point.x : x,
 				y: y === null ? point.y : y,
@@ -78,21 +78,21 @@ function decodeFill(el, index, count) {
 	}
 
 	switch (fill) {
-	// compatibility
-	case 'bottom':
-		return 'start';
-	case 'top':
-		return 'end';
-	case 'zero':
-		return 'origin';
-	// supported boundaries
-	case 'origin':
-	case 'start':
-	case 'end':
-		return fill;
-	// invalid fill values
-	default:
-		return false;
+		// compatibility
+		case 'bottom':
+			return 'start';
+		case 'top':
+			return 'end';
+		case 'zero':
+			return 'origin';
+		// supported boundaries
+		case 'origin':
+		case 'start':
+		case 'end':
+			return fill;
+		// invalid fill values
+		default:
+			return false;
 	}
 }
 
@@ -260,7 +260,7 @@ function doFill(ctx, points, mapper, view, color, loop) {
 module.exports = {
 	id: 'filler',
 
-	afterDatasetsUpdate: function(chart, options) {
+	afterDatasetsUpdate: function (chart, options) {
 		var count = (chart.data.datasets || []).length;
 		var propagate = options.propagate;
 		var sources = [];
@@ -296,7 +296,7 @@ module.exports = {
 		}
 	},
 
-	beforeDatasetDraw: function(chart, args) {
+	beforeDatasetDraw: function (chart, args) {
 		var meta = args.meta.$filler;
 		if (!meta) {
 			return;

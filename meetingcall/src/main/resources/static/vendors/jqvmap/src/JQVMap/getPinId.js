@@ -1,3 +1,3 @@
 JQVMap.prototype.getPinId = function (cc) {
-  return this.getCountryId(cc) + '_pin';
+    return this.getCountryId(cc) + '_pin';
 };

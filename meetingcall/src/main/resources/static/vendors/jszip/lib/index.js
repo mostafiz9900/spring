@@ -6,11 +6,11 @@
  */
 function JSZip() {
     // if this constructor is used without `new`, it adds `new` before itself:
-    if(!(this instanceof JSZip)) {
+    if (!(this instanceof JSZip)) {
         return new JSZip();
     }
 
-    if(arguments.length) {
+    if (arguments.length) {
         throw new Error("The constructor with parameters has been removed in JSZip 3.0, please check the upgrade guide.");
     }
 
@@ -25,7 +25,7 @@ function JSZip() {
 
     // Where we are in the hierarchy
     this.root = "";
-    this.clone = function() {
+    this.clone = function () {
         var newObj = new JSZip();
         for (var i in this) {
             if (typeof this[i] !== "function") {
@@ -35,6 +35,7 @@ function JSZip() {
         return newObj;
     };
 }
+
 JSZip.prototype = require('./object');
 JSZip.prototype.loadAsync = require('./load');
 JSZip.support = require('./support');

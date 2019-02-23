@@ -12,16 +12,16 @@
 <script src="js/jquery.nanoscroller.js"></script>
 
 <script>
-  $('h1[id], h2[id], h3[id], h4[id], h5[id]').each(function(i, el) {
-    var name = $(el).prev().find('a[name]:not([href])').attr('name');
-    if (!name) {
-      name = $(el).attr('id');
-      $(el).attr('id', '');
-      $(el).prepend('<a name="' + name + '"></a>')
-    }
-    $(el).wrap('<a class="anchor-wrapper" href="#' + name + '"></a>')
-    $(el).append('<i class="fa fa-link link-anchor" />');
-  });
+    $('h1[id], h2[id], h3[id], h4[id], h5[id]').each(function (i, el) {
+        var name = $(el).prev().find('a[name]:not([href])').attr('name');
+        if (!name) {
+            name = $(el).attr('id');
+            $(el).attr('id', '');
+            $(el).prepend('<a name="' + name + '"></a>')
+        }
+        $(el).wrap('<a class="anchor-wrapper" href="#' + name + '"></a>')
+        $(el).append('<i class="fa fa-link link-anchor" />');
+    });
 </script>
 
 <script src="js/main.js"></script>

@@ -15,16 +15,16 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    var shiftStart = new Popper(example4reference1, example4popper1, {
-        placement: 'left-start',
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+        var shiftStart = new Popper(example4reference1, example4popper1, {
+            placement: 'left-start',
+        });
 
-    var shiftEnd = new Popper(example4reference1, example4popper2, {
-        placement: 'bottom-end',
-    });
+        var shiftEnd = new Popper(example4reference1, example4popper2, {
+            placement: 'bottom-end',
+        });
 
-}, false);
+    }, false);
 </script>
 
 <style>
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
     #example4popper2 {
         width: 100px;
     }
+
     #example4popper1 {
         height: 150px;
     }

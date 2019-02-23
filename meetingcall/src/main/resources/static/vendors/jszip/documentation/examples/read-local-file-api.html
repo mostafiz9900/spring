@@ -28,28 +28,31 @@ section: example
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="load-js">
-{% highlight js %}
-{% include_relative read-local-file-api.inc/read.js %}
-{% endhighlight %}
+        {% highlight js %}
+        {% include_relative read-local-file-api.inc/read.js %}
+        {% endhighlight %}
     </div>
     <div role="tabpanel" class="tab-pane" id="load-html">
-{% highlight html %}
-{% include_relative read-local-file-api.inc/read.html %}
-{% endhighlight %}
+        {% highlight html %}
+        {% include_relative read-local-file-api.inc/read.html %}
+        {% endhighlight %}
     </div>
 </div>
 
 <div id="error_block" class="alert alert-danger hidden">
-  You will need a recent browser to use this demo :(
+    You will need a recent browser to use this demo :(
 </div>
 <script type="text/javascript">
-(function () {
-  if (!window.FileReader || !window.ArrayBuffer) {
-    $("#error_block").removeClass("hidden").addClass("show");
-    return;
-  }
+    (function () {
+        if (!window.FileReader || !window.ArrayBuffer) {
+            $("#error_block").removeClass("hidden").addClass("show");
+            return;
+        }
 
-{% include_relative read-local-file-api.inc/read.js %}
+        {%
+            include_relative
+            read - local - file - api.inc / read.js %
+        }
 
-})();
+    })();
 </script>

@@ -6,19 +6,19 @@
 	<script src="../../../dist/Chart.bundle.js"></script>
 	<script src="../../utils.js"></script>
 	<style>
-	canvas {
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-	}
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
 	</style>
 </head>
 
 <body>
-	<div style="width:75%">
-		<canvas id="canvas"></canvas>
-	</div>
-	<script>
+<div style="width:75%">
+	<canvas id="canvas"></canvas>
+</div>
+<script>
 	var color = Chart.helpers.color;
 	var scatterChartData = {
 		datasets: [{
@@ -122,7 +122,7 @@
 		}]
 	};
 
-	window.onload = function() {
+	window.onload = function () {
 		var ctx = document.getElementById('canvas').getContext('2d');
 		window.myScatter = Chart.Scatter(ctx, {
 			data: scatterChartData,
@@ -136,7 +136,7 @@
 						type: 'logarithmic',
 						position: 'bottom',
 						ticks: {
-							userCallback: function(tick) {
+							userCallback: function (tick) {
 								var remain = tick / (Math.pow(10, Math.floor(Chart.helpers.log10(tick))));
 								if (remain === 1 || remain === 2 || remain === 5) {
 									return tick.toString() + 'Hz';
@@ -152,7 +152,7 @@
 					yAxes: [{
 						type: 'linear',
 						ticks: {
-							userCallback: function(tick) {
+							userCallback: function (tick) {
 								return tick.toString() + 'dB';
 							}
 						},
@@ -165,7 +165,7 @@
 			}
 		});
 	};
-	</script>
+</script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ var defaults = require('../core/core.defaults');
 var helpers = require('../helpers/index');
 var Ticks = require('../core/core.ticks');
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var globalDefaults = defaults.global;
 
@@ -50,7 +50,7 @@ module.exports = function(Chart) {
 			fontSize: 10,
 
 			// Function - Used to convert point labels
-			callback: function(label) {
+			callback: function (label) {
 				return label;
 			}
 		}
@@ -317,7 +317,7 @@ module.exports = function(Chart) {
 	}
 
 	var LinearRadialScale = Chart.LinearScaleBase.extend({
-		setDimensions: function() {
+		setDimensions: function () {
 			var me = this;
 			var opts = me.options;
 			var tickOpts = opts.ticks;
@@ -331,17 +331,17 @@ module.exports = function(Chart) {
 			var tickFontSize = helpers.valueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
 			me.drawingArea = opts.display ? (minSize / 2) - (tickFontSize / 2 + tickOpts.backdropPaddingY) : (minSize / 2);
 		},
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			var chart = me.chart;
 			var min = Number.POSITIVE_INFINITY;
 			var max = Number.NEGATIVE_INFINITY;
 
-			helpers.each(chart.data.datasets, function(dataset, datasetIndex) {
+			helpers.each(chart.data.datasets, function (dataset, datasetIndex) {
 				if (chart.isDatasetVisible(datasetIndex)) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 
-					helpers.each(dataset.data, function(rawValue, index) {
+					helpers.each(dataset.data, function (rawValue, index) {
 						var value = +me.getRightValue(rawValue);
 						if (isNaN(value) || meta.data[index].hidden) {
 							return;
@@ -359,12 +359,12 @@ module.exports = function(Chart) {
 			// Common base implementation to handle ticks.min, ticks.max, ticks.beginAtZero
 			me.handleTickRangeOptions();
 		},
-		getTickLimit: function() {
+		getTickLimit: function () {
 			var tickOpts = this.options.ticks;
 			var tickFontSize = helpers.valueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
 			return Math.min(tickOpts.maxTicksLimit ? tickOpts.maxTicksLimit : 11, Math.ceil(this.drawingArea / (1.5 * tickFontSize)));
 		},
-		convertTicksToLabels: function() {
+		convertTicksToLabels: function () {
 			var me = this;
 
 			Chart.LinearScaleBase.prototype.convertTicksToLabels.call(me);
@@ -372,10 +372,10 @@ module.exports = function(Chart) {
 			// Point labels
 			me.pointLabels = me.chart.data.labels.map(me.options.pointLabels.callback, me);
 		},
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
 		},
-		fit: function() {
+		fit: function () {
 			if (this.options.pointLabels.display) {
 				fitWithPointLabels(this);
 			} else {
@@ -386,7 +386,7 @@ module.exports = function(Chart) {
 		 * Set radius reductions and determine new radius and center point
 		 * @private
 		 */
-		setReductions: function(largestPossibleRadius, furthestLimits, furthestAngles) {
+		setReductions: function (largestPossibleRadius, furthestLimits, furthestAngles) {
 			var me = this;
 			var radiusReductionLeft = furthestLimits.l / Math.sin(furthestAngles.l);
 			var radiusReductionRight = Math.max(furthestLimits.r - me.width, 0) / Math.sin(furthestAngles.r);
@@ -403,7 +403,7 @@ module.exports = function(Chart) {
 				Math.round(largestPossibleRadius - (radiusReductionTop + radiusReductionBottom) / 2));
 			me.setCenterPoint(radiusReductionLeft, radiusReductionRight, radiusReductionTop, radiusReductionBottom);
 		},
-		setCenterPoint: function(leftMovement, rightMovement, topMovement, bottomMovement) {
+		setCenterPoint: function (leftMovement, rightMovement, topMovement, bottomMovement) {
 			var me = this;
 			var maxRight = me.width - rightMovement - me.drawingArea;
 			var maxLeft = leftMovement + me.drawingArea;
@@ -414,7 +414,7 @@ module.exports = function(Chart) {
 			me.yCenter = Math.round(((maxTop + maxBottom) / 2) + me.top);
 		},
 
-		getIndexAngle: function(index) {
+		getIndexAngle: function (index) {
 			var angleMultiplier = (Math.PI * 2) / getValueCount(this);
 			var startAngle = this.chart.options && this.chart.options.startAngle ?
 				this.chart.options.startAngle :
@@ -425,7 +425,7 @@ module.exports = function(Chart) {
 			// Start from the top instead of right, so remove a quarter of the circle
 			return index * angleMultiplier + startAngleRadians;
 		},
-		getDistanceFromCenterForValue: function(value) {
+		getDistanceFromCenterForValue: function (value) {
 			var me = this;
 
 			if (value === null) {
@@ -439,7 +439,7 @@ module.exports = function(Chart) {
 			}
 			return (value - me.min) * scalingFactor;
 		},
-		getPointPosition: function(index, distanceFromCenter) {
+		getPointPosition: function (index, distanceFromCenter) {
 			var me = this;
 			var thisAngle = me.getIndexAngle(index) - (Math.PI / 2);
 			return {
@@ -447,23 +447,23 @@ module.exports = function(Chart) {
 				y: Math.round(Math.sin(thisAngle) * distanceFromCenter) + me.yCenter
 			};
 		},
-		getPointPositionForValue: function(index, value) {
+		getPointPositionForValue: function (index, value) {
 			return this.getPointPosition(index, this.getDistanceFromCenterForValue(value));
 		},
 
-		getBasePosition: function() {
+		getBasePosition: function () {
 			var me = this;
 			var min = me.min;
 			var max = me.max;
 
 			return me.getPointPositionForValue(0,
 				me.beginAtZero ? 0 :
-				min < 0 && max < 0 ? max :
-				min > 0 && max > 0 ? min :
-				0);
+					min < 0 && max < 0 ? max :
+						min > 0 && max > 0 ? min :
+							0);
 		},
 
-		draw: function() {
+		draw: function () {
 			var me = this;
 			var opts = me.options;
 			var gridLineOpts = opts.gridLines;
@@ -480,7 +480,7 @@ module.exports = function(Chart) {
 				var tickFontFamily = valueOrDefault(tickOpts.fontFamily, globalDefaults.defaultFontFamily);
 				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
 
-				helpers.each(me.ticks, function(label, index) {
+				helpers.each(me.ticks, function (label, index) {
 					// Don't draw a centre value (if it is minimum)
 					if (index > 0 || tickOpts.reverse) {
 						var yCenterOffset = me.getDistanceFromCenterForValue(me.ticksAsNumbers[index]);

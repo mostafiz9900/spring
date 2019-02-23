@@ -53,7 +53,7 @@ function getBarBounds(bar) {
 }
 
 module.exports = Element.extend({
-	draw: function() {
+	draw: function () {
 		var ctx = this._chart.ctx;
 		var vm = this._view;
 		var left, right, top, bottom, signX, signY, borderSkipped;
@@ -144,12 +144,12 @@ module.exports = Element.extend({
 		}
 	},
 
-	height: function() {
+	height: function () {
 		var vm = this._view;
 		return vm.base - vm.y;
 	},
 
-	inRange: function(mouseX, mouseY) {
+	inRange: function (mouseX, mouseY) {
 		var inRange = false;
 
 		if (this._view) {
@@ -160,7 +160,7 @@ module.exports = Element.extend({
 		return inRange;
 	},
 
-	inLabelRange: function(mouseX, mouseY) {
+	inLabelRange: function (mouseX, mouseY) {
 		var me = this;
 		if (!me._view) {
 			return false;
@@ -178,17 +178,17 @@ module.exports = Element.extend({
 		return inRange;
 	},
 
-	inXRange: function(mouseX) {
+	inXRange: function (mouseX) {
 		var bounds = getBarBounds(this);
 		return mouseX >= bounds.left && mouseX <= bounds.right;
 	},
 
-	inYRange: function(mouseY) {
+	inYRange: function (mouseY) {
 		var bounds = getBarBounds(this);
 		return mouseY >= bounds.top && mouseY <= bounds.bottom;
 	},
 
-	getCenterPoint: function() {
+	getCenterPoint: function () {
 		var vm = this._view;
 		var x, y;
 		if (isVertical(this)) {
@@ -202,12 +202,12 @@ module.exports = Element.extend({
 		return {x: x, y: y};
 	},
 
-	getArea: function() {
+	getArea: function () {
 		var vm = this._view;
 		return vm.width * Math.abs(vm.y - vm.base);
 	},
 
-	tooltipPosition: function() {
+	tooltipPosition: function () {
 		var vm = this._view;
 		return {
 			x: vm.x,

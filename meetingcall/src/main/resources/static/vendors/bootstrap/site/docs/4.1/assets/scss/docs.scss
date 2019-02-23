@@ -5,7 +5,6 @@
  * Licensed under the Creative Commons Attribution 3.0 Unported License. For
  * details, see https://creativecommons.org/licenses/by/3.0/.
  */
-
 // Dev notes
 //
 // Background information on nomenclature and architecture decisions here.
@@ -22,12 +21,10 @@
 //   and layout of the Bootstrap docs. They are not included in our builds.
 //
 // Happy Bootstrapping!
-
 // Load Bootstrap variables and mixins
 @import "../../../../../scss/functions";
 @import "../../../../../scss/variables";
 @import "../../../../../scss/mixins";
-
 // Load docs components
 @import "variables";
 @import "nav";
@@ -45,7 +42,6 @@
 @import "brand";
 @import "colors";
 @import "clipboard-js";
-
 // Load docs dependencies
 @import "syntax";
 @import "anchor";

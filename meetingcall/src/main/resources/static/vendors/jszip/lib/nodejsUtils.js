@@ -6,14 +6,14 @@ module.exports = {
      * In a browser, browserify won't include this file and the whole module
      * will be resolved an empty object.
      */
-    isNode : typeof Buffer !== "undefined",
+    isNode: typeof Buffer !== "undefined",
     /**
      * Create a new nodejs Buffer from an existing content.
      * @param {Object} data the data to pass to the constructor.
      * @param {String} encoding the encoding to use.
      * @return {Buffer} a new Buffer.
      */
-    newBufferFrom: function(data, encoding) {
+    newBufferFrom: function (data, encoding) {
         // XXX We can't use `Buffer.from` which comes from `Uint8Array.from`
         // in nodejs v4 (< v.4.5). It's not the expected implementation (and
         // has a different signature).
@@ -39,11 +39,11 @@ module.exports = {
      * @param {Object} b the object to test.
      * @return {Boolean} true if the object is a Buffer, false otherwise.
      */
-    isBuffer : function(b){
+    isBuffer: function (b) {
         return Buffer.isBuffer(b);
     },
 
-    isStream : function (obj) {
+    isStream: function (obj) {
         return obj &&
             typeof obj.on === "function" &&
             typeof obj.pause === "function" &&

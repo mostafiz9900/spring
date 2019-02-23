@@ -1,12 +1,12 @@
-describe('Core helper tests', function() {
+describe('Core helper tests', function () {
 
 	var helpers;
 
-	beforeAll(function() {
+	beforeAll(function () {
 		helpers = window.Chart.helpers;
 	});
 
-	it('should merge a normal config without scales', function() {
+	it('should merge a normal config without scales', function () {
 		var baseConfig = {
 			valueProp: 5,
 			arrayProp: [1, 2, 3, 4, 5, 6],
@@ -38,7 +38,7 @@ describe('Core helper tests', function() {
 		});
 	});
 
-	it('should merge scale configs', function() {
+	it('should merge scale configs', function () {
 		var baseConfig = {
 			scales: {
 				prop1: {
@@ -172,9 +172,9 @@ describe('Core helper tests', function() {
 		expect(merged.scales.yAxes[2].ticks.callback).toEqual(jasmine.any(Function));
 	});
 
-	it('should filter an array', function() {
+	it('should filter an array', function () {
 		var data = [-10, 0, 6, 0, 7];
-		var callback = function(item) {
+		var callback = function (item) {
 			return item > 2;
 		};
 		expect(helpers.where(data, callback)).toEqual([6, 7]);
@@ -186,13 +186,13 @@ describe('Core helper tests', function() {
 		expect(helpers.findPreviousWhere(data, callback, 0)).toBe(undefined);
 	});
 
-	it('should get the correct sign', function() {
+	it('should get the correct sign', function () {
 		expect(helpers.sign(0)).toBe(0);
 		expect(helpers.sign(10)).toBe(1);
 		expect(helpers.sign(-5)).toBe(-1);
 	});
 
-	it('should do a log10 operation', function() {
+	it('should do a log10 operation', function () {
 		expect(helpers.log10(0)).toBe(-Infinity);
 
 		// Check all allowed powers of 10, which should return integer values
@@ -202,19 +202,19 @@ describe('Core helper tests', function() {
 		}
 	});
 
-	it('should correctly determine if two numbers are essentially equal', function() {
+	it('should correctly determine if two numbers are essentially equal', function () {
 		expect(helpers.almostEquals(0, Number.EPSILON, 2 * Number.EPSILON)).toBe(true);
 		expect(helpers.almostEquals(1, 1.1, 0.0001)).toBe(false);
 		expect(helpers.almostEquals(1e30, 1e30 + Number.EPSILON, 0)).toBe(false);
 		expect(helpers.almostEquals(1e30, 1e30 + Number.EPSILON, 2 * Number.EPSILON)).toBe(true);
 	});
 
-	it('should correctly determine if a numbers are essentially whole', function() {
+	it('should correctly determine if a numbers are essentially whole', function () {
 		expect(helpers.almostWhole(0.99999, 0.0001)).toBe(true);
 		expect(helpers.almostWhole(0.9, 0.0001)).toBe(false);
 	});
 
-	it('should generate integer ids', function() {
+	it('should generate integer ids', function () {
 		var uid = helpers.uid();
 		expect(uid).toEqual(jasmine.any(Number));
 		expect(helpers.uid()).toBe(uid + 1);
@@ -222,7 +222,7 @@ describe('Core helper tests', function() {
 		expect(helpers.uid()).toBe(uid + 3);
 	});
 
-	it('should detect a number', function() {
+	it('should detect a number', function () {
 		expect(helpers.isNumber(123)).toBe(true);
 		expect(helpers.isNumber('123')).toBe(true);
 		expect(helpers.isNumber(null)).toBe(false);
@@ -231,14 +231,14 @@ describe('Core helper tests', function() {
 		expect(helpers.isNumber('cbc')).toBe(false);
 	});
 
-	it('should convert between radians and degrees', function() {
+	it('should convert between radians and degrees', function () {
 		expect(helpers.toRadians(180)).toBe(Math.PI);
 		expect(helpers.toRadians(90)).toBe(0.5 * Math.PI);
 		expect(helpers.toDegrees(Math.PI)).toBe(180);
 		expect(helpers.toDegrees(Math.PI * 3 / 2)).toBe(270);
 	});
 
-	it('should get an angle from a point', function() {
+	it('should get an angle from a point', function () {
 		var center = {
 			x: 0,
 			y: 0
@@ -269,7 +269,7 @@ describe('Core helper tests', function() {
 		});
 	});
 
-	it('should spline curves', function() {
+	it('should spline curves', function () {
 		expect(helpers.splineCurve({
 			x: 0,
 			y: 0
@@ -311,7 +311,7 @@ describe('Core helper tests', function() {
 		});
 	});
 
-	it('should spline curves with monotone cubic interpolation', function() {
+	it('should spline curves with monotone cubic interpolation', function () {
 		var dataPoints = [
 			{_model: {x: 0, y: 0, skip: false}},
 			{_model: {x: 3, y: 6, skip: false}},
@@ -338,142 +338,142 @@ describe('Core helper tests', function() {
 				controlPointNextY: 2
 			}
 		},
-		{
-			_model: {
-				x: 3,
-				y: 6,
-				skip: false,
-				controlPointPreviousX: 2,
-				controlPointPreviousY: 6,
-				controlPointNextX: 5,
-				controlPointNextY: 6
-			}
-		},
-		{
-			_model: {
-				x: 9,
-				y: 6,
-				skip: false,
-				controlPointPreviousX: 7,
-				controlPointPreviousY: 6,
-				controlPointNextX: 10,
-				controlPointNextY: 6
-			}
-		},
-		{
-			_model: {
-				x: 12,
-				y: 60,
-				skip: false,
-				controlPointPreviousX: 11,
-				controlPointPreviousY: 60,
-				controlPointNextX: 13,
-				controlPointNextY: 60
-			}
-		},
-		{
-			_model: {
-				x: 15,
-				y: 60,
-				skip: false,
-				controlPointPreviousX: 14,
-				controlPointPreviousY: 60,
-				controlPointNextX: 16,
-				controlPointNextY: 60
-			}
-		},
-		{
-			_model: {
-				x: 18,
-				y: 120,
-				skip: false,
-				controlPointPreviousX: 17,
-				controlPointPreviousY: 100
-			}
-		},
-		{
-			_model: {
-				x: null,
-				y: null,
-				skip: true
-			}
-		},
-		{
-			_model: {
-				x: 21,
-				y: 180,
-				skip: false,
-				controlPointNextX: 22,
-				controlPointNextY: 160
-			}
-		},
-		{
-			_model: {
-				x: 24,
-				y: 120,
-				skip: false,
-				controlPointPreviousX: 23,
-				controlPointPreviousY: 120,
-				controlPointNextX: 25,
-				controlPointNextY: 120
-			}
-		},
-		{
-			_model: {
-				x: 27,
-				y: 125,
-				skip: false,
-				controlPointPreviousX: 26,
-				controlPointPreviousY: 125,
-				controlPointNextX: 28,
-				controlPointNextY: 125
-			}
-		},
-		{
-			_model: {
-				x: 30,
-				y: 105,
-				skip: false,
-				controlPointPreviousX: 29,
-				controlPointPreviousY: 105,
-				controlPointNextX: 31,
-				controlPointNextY: 105
-			}
-		},
-		{
-			_model: {
-				x: 33,
-				y: 110,
-				skip: false,
-				controlPointPreviousX: 32,
-				controlPointPreviousY: 110,
-				controlPointNextX: 33,
-				controlPointNextY: 110
-			}
-		},
-		{
-			_model: {
-				x: 33,
-				y: 110,
-				skip: false,
-				controlPointPreviousX: 33,
-				controlPointPreviousY: 110,
-				controlPointNextX: 34,
-				controlPointNextY: 110
-			}
-		},
-		{
-			_model: {
-				x: 36,
-				y: 170,
-				skip: false,
-				controlPointPreviousX: 35,
-				controlPointPreviousY: 150
-			}
-		}]);
+			{
+				_model: {
+					x: 3,
+					y: 6,
+					skip: false,
+					controlPointPreviousX: 2,
+					controlPointPreviousY: 6,
+					controlPointNextX: 5,
+					controlPointNextY: 6
+				}
+			},
+			{
+				_model: {
+					x: 9,
+					y: 6,
+					skip: false,
+					controlPointPreviousX: 7,
+					controlPointPreviousY: 6,
+					controlPointNextX: 10,
+					controlPointNextY: 6
+				}
+			},
+			{
+				_model: {
+					x: 12,
+					y: 60,
+					skip: false,
+					controlPointPreviousX: 11,
+					controlPointPreviousY: 60,
+					controlPointNextX: 13,
+					controlPointNextY: 60
+				}
+			},
+			{
+				_model: {
+					x: 15,
+					y: 60,
+					skip: false,
+					controlPointPreviousX: 14,
+					controlPointPreviousY: 60,
+					controlPointNextX: 16,
+					controlPointNextY: 60
+				}
+			},
+			{
+				_model: {
+					x: 18,
+					y: 120,
+					skip: false,
+					controlPointPreviousX: 17,
+					controlPointPreviousY: 100
+				}
+			},
+			{
+				_model: {
+					x: null,
+					y: null,
+					skip: true
+				}
+			},
+			{
+				_model: {
+					x: 21,
+					y: 180,
+					skip: false,
+					controlPointNextX: 22,
+					controlPointNextY: 160
+				}
+			},
+			{
+				_model: {
+					x: 24,
+					y: 120,
+					skip: false,
+					controlPointPreviousX: 23,
+					controlPointPreviousY: 120,
+					controlPointNextX: 25,
+					controlPointNextY: 120
+				}
+			},
+			{
+				_model: {
+					x: 27,
+					y: 125,
+					skip: false,
+					controlPointPreviousX: 26,
+					controlPointPreviousY: 125,
+					controlPointNextX: 28,
+					controlPointNextY: 125
+				}
+			},
+			{
+				_model: {
+					x: 30,
+					y: 105,
+					skip: false,
+					controlPointPreviousX: 29,
+					controlPointPreviousY: 105,
+					controlPointNextX: 31,
+					controlPointNextY: 105
+				}
+			},
+			{
+				_model: {
+					x: 33,
+					y: 110,
+					skip: false,
+					controlPointPreviousX: 32,
+					controlPointPreviousY: 110,
+					controlPointNextX: 33,
+					controlPointNextY: 110
+				}
+			},
+			{
+				_model: {
+					x: 33,
+					y: 110,
+					skip: false,
+					controlPointPreviousX: 33,
+					controlPointPreviousY: 110,
+					controlPointNextX: 34,
+					controlPointNextY: 110
+				}
+			},
+			{
+				_model: {
+					x: 36,
+					y: 170,
+					skip: false,
+					controlPointPreviousX: 35,
+					controlPointPreviousY: 150
+				}
+			}]);
 	});
 
-	it('should get the next or previous item in an array', function() {
+	it('should get the next or previous item in an array', function () {
 		var testData = [0, 1, 2];
 
 		expect(helpers.nextItem(testData, 0, false)).toEqual(1);
@@ -488,7 +488,7 @@ describe('Core helper tests', function() {
 		expect(helpers.previousItem(testData, 1, true)).toEqual(0);
 	});
 
-	it('should return the width of the longest text in an Array and 2D Array', function() {
+	it('should return the width of the longest text in an Array and 2D Array', function () {
 		var context = window.createMockContext();
 		var font = "normal 12px 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
 		var arrayOfThings1D = ['FooBar', 'Bar'];
@@ -517,7 +517,7 @@ describe('Core helper tests', function() {
 		}]);
 	});
 
-	it('compare text with current longest and update', function() {
+	it('compare text with current longest and update', function () {
 		var context = window.createMockContext();
 		var data = {};
 		var gc = [];
@@ -539,7 +539,7 @@ describe('Core helper tests', function() {
 		}]);
 	});
 
-	it('count look at all the labels and return maximum number of lines', function() {
+	it('count look at all the labels and return maximum number of lines', function () {
 		window.createMockContext();
 		var arrayOfThings1 = ['Foo', 'Bar'];
 		var arrayOfThings2 = [['Foo', 'Bar'], 'Foo'];
@@ -550,7 +550,7 @@ describe('Core helper tests', function() {
 		expect(helpers.numberOfLabelLines(arrayOfThings3)).toEqual(3);
 	});
 
-	it ('should get the maximum width and height for a node', function() {
+	it('should get the maximum width and height for a node', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -568,7 +568,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum width of a node that has a max-width style', function() {
+	it('should get the maximum width of a node that has a max-width style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -586,7 +586,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum height of a node that has a max-height style', function() {
+	it('should get the maximum height of a node that has a max-height style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -604,7 +604,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum width of a node when the parent has a max-width style', function() {
+	it('should get the maximum width of a node when the parent has a max-width style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -626,7 +626,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum height of a node when the parent has a max-height style', function() {
+	it('should get the maximum height of a node when the parent has a max-height style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -649,7 +649,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum width of a node that has a percentage max-width style', function() {
+	it('should get the maximum width of a node that has a percentage max-width style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -667,7 +667,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum height of a node that has a percentage max-height style', function() {
+	it('should get the maximum height of a node that has a percentage max-height style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -685,7 +685,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum width of a node when the parent has a percentage max-width style', function() {
+	it('should get the maximum width of a node when the parent has a percentage max-width style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -707,7 +707,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should get the maximum height of a node when the parent has a percentage max-height style', function() {
+	it('should get the maximum height of a node when the parent has a percentage max-height style', function () {
 		// Create div with fixed size as a test bed
 		var div = document.createElement('div');
 		div.style.width = '200px';
@@ -729,7 +729,7 @@ describe('Core helper tests', function() {
 		document.body.removeChild(div);
 	});
 
-	it ('should leave styled height and width on canvas if explicitly set', function() {
+	it('should leave styled height and width on canvas if explicitly set', function () {
 		var chart = window.acquireChart({}, {
 			canvas: {
 				height: 200,
@@ -746,16 +746,16 @@ describe('Core helper tests', function() {
 		expect(canvas.style.width).toBe('400px');
 	});
 
-	describe('Color helper', function() {
+	describe('Color helper', function () {
 		function isColorInstance(obj) {
 			return typeof obj === 'object' && obj.hasOwnProperty('values') && obj.values.hasOwnProperty('rgb');
 		}
 
-		it('should return a color when called with a color', function() {
+		it('should return a color when called with a color', function () {
 			expect(isColorInstance(helpers.color('rgb(1, 2, 3)'))).toBe(true);
 		});
 
-		it('should return a color when called with a CanvasGradient instance', function() {
+		it('should return a color when called with a CanvasGradient instance', function () {
 			var context = document.createElement('canvas').getContext('2d');
 			var gradient = context.createLinearGradient(0, 1, 2, 3);
 
@@ -763,11 +763,11 @@ describe('Core helper tests', function() {
 		});
 	});
 
-	describe('Background hover color helper', function() {
-		it('should return a CanvasPattern when called with a CanvasPattern', function(done) {
+	describe('Background hover color helper', function () {
+		it('should return a CanvasPattern when called with a CanvasPattern', function (done) {
 			var dots = new Image();
 			dots.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAD1BMVEUAAAD///////////////+PQt5oAAAABXRSTlMAHlFhZsfk/BEAAAAqSURBVHgBY2BgZGJmYmSAAUYWEIDzmcBcJhiXGcxlRpPFrhdmMiqgvX0AcGIBEUAo6UAAAAAASUVORK5CYII=';
-			dots.onload = function() {
+			dots.onload = function () {
 				var chartContext = document.createElement('canvas').getContext('2d');
 				var patternCanvas = document.createElement('canvas');
 				var patternContext = patternCanvas.getContext('2d');
@@ -782,7 +782,7 @@ describe('Core helper tests', function() {
 			};
 		});
 
-		it('should return a modified version of color when called with a color', function() {
+		it('should return a modified version of color when called with a color', function () {
 			var originalColorRGB = 'rgb(70, 191, 189)';
 
 			expect(helpers.getHoverColor('#46BFBD')).not.toEqual(originalColorRGB);
