@@ -5,6 +5,9 @@
  */
 package com.beSkilled;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  *
  * @author Mostafizur
@@ -18,6 +21,15 @@ public class Hello {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+    @PostConstruct
+    public void init(){
+        System.out.println("before initializing bean-1");
+    }
+    
+    @PreDestroy
+     public void clear(){
+        System.out.println("before destrouing  bean-1");
     }
     
 }

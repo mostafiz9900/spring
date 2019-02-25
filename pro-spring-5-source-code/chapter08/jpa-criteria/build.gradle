@@ -1,0 +1,43 @@
+apply plugin: 'idea'
+
+sourceSets {
+	generated
+}
+
+sourceSets.generated.java.srcDirs = ['src/main/generated']
+
+configurations {
+	querydslapt
+}
+
+dependencies {
+	compile hibernate.querydslapt, hibernate.jpaModelGen
+}
+
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+	source = sourceSets.main.java
+	classpath = configurations.compile + configurations.querydslapt
+	options.compilerArgs = [
+			"-proc:only",
+			"-processor", "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor"
+	]
+	destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
+}
+
+compileJava.dependsOn generateQueryDSL
+
+idea {
+	module {
+		sourceDirs += file('src/main/generated')
+	}
+}
+
+jar {
+	manifest {
+		attributes(
+				"Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				'Main-Class': 'com.apress.prospring5.ch8.SpringJPADemo',
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
