@@ -16,7 +16,7 @@ public class LoginController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             return "redirect:/se";
         }
-        return "public/login";
+        return "login";
     }
 
     @GetMapping(value = "/access-denied")

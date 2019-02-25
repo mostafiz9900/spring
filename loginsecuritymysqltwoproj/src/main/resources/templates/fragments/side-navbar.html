@@ -7,13 +7,13 @@
 <body>
 <nav th:fragment="sidenavbar" id="sidebar" class="">
     <div class="sidebar-header">
-        <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-        <strong><img src="img/logo/logo2.png" alt="" /></strong>
+        <a href="index.html"><img class="main-logo" src="/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt="" /></a>
+        <strong><img src="/img/logo/logo2.png" th:src="@{/img/logo/logo2.png}" alt="" /></strong>
     </div>
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu" id="menu1">
-                <li class="active">
+                <li>
                     <a class="has-arrow" href="index.html">
                         <i class="fa big-icon fa-home icon-wrap"></i>
                         <span class="mini-click-non">Role</span>
