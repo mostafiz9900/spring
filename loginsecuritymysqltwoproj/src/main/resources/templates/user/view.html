@@ -14,7 +14,9 @@
         <table class="table table-hover table-striped">
             <tr  class="table-primary">
                 <th>Id</th>
-                <th>Name</th>
+                <th>fastName</th>
+                <th>lastName</th>
+
                 <th>Email</th>
                 <th>username</th>
                 <th>password</th>
@@ -25,7 +27,8 @@
             </tr>
             <tr th:each="s :${userlist}">
                 <td th:text="${s.id}"></td>
-                <td th:text="${s.name}"></td>
+                <td th:text="${s.firstName}"></td>
+                <td th:text="${s.lastName}"></td>
                 <td th:text="${s.email}"></td>
                 <td th:text="${s.username}"></td>
                 <td th:text="${s.password}"></td>

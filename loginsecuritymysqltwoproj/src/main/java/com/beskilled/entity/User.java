@@ -1,26 +1,45 @@
 package com.beskilled.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
+import org.springframework.data.annotation.Transient;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 4, max = 30)
-    private String name;
-    @NotNull
+    @Column(name = "first_name")
+    @NotEmpty(message = "Please provide your first name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    @NotEmpty(message = "Please provide your last name")
+    private String lastName;
+
+    @Column(name = "email", nullable = false, unique = true)
+    @Email(message = "Please provide a valid e-mail")
+    @NotEmpty(message = "Please provide an e-mail")
     private String email;
-    @NotEmpty
+
+
     private String username;
-    @NotNull
+
+    @Column(name = "password")
+    @Transient
     private String password;
+
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    @Column(name = "confirmation_token")
+    private String confirmationToken;
+
     private boolean status;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
     joinColumns = @JoinColumn(name = "user_id"),
@@ -30,17 +49,21 @@ public class User {
     public User() {
     }
 
-    public User(String name, String email, String username, String password, boolean status, Set<Role> roles) {
-        this.name = name;
+    public User(@NotEmpty(message = "Please provide your first name") String firstName, @NotEmpty(message = "Please provide your last name") String lastName, @Email(message = "Please provide a valid e-mail") @NotEmpty(message = "Please provide an e-mail") String email, @NotEmpty String username, String password, boolean enabled, String confirmationToken, boolean status, Set<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.enabled = enabled;
+        this.confirmationToken = confirmationToken;
         this.status = status;
         this.roles = roles;
     }
 
     public User(User user) {
-        this.name = user.name;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
         this.email = user.email;
         this.username = user.username;
         this.password = user.password;
@@ -56,12 +79,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -88,6 +119,22 @@ public class User {
         this.password = password;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getConfirmationToken() {
+        return confirmationToken;
+    }
+
+    public void setConfirmationToken(String confirmationToken) {
+        this.confirmationToken = confirmationToken;
+    }
+
     public boolean isStatus() {
         return status;
     }
@@ -104,22 +151,26 @@ public class User {
         this.roles = roles;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return status == user.status &&
+        return enabled == user.enabled &&
+                status == user.status &&
                 Objects.equals(id, user.id) &&
-                Objects.equals(name, user.name) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
+                Objects.equals(confirmationToken, user.confirmationToken) &&
                 Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, username, password, status, roles);
+        return Objects.hash(id, firstName, lastName, email, username, password, enabled, confirmationToken, status, roles);
     }
 }

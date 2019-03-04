@@ -1,3 +1,4 @@
+/*
 package com.beskilled.controller;
 
 import com.beskilled.entity.Role;
@@ -28,7 +29,8 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
 
-    /*
+    */
+/*
     @GetMapping(value = "/save-user")
         public String savrUser() {
             Set<Role> roles = new HashSet<>();
@@ -45,7 +47,8 @@ public class UserController {
             userRepo.save(user2);
             return "success";
         }
-    */
+    *//*
+
     @GetMapping(value = "userview")
     public String userView(Model model) {
         model.addAttribute("userlist", this.userRepo.findAll());
@@ -103,3 +106,4 @@ public class UserController {
         return "redirect:/user/userview";
     }
 }
+*/
