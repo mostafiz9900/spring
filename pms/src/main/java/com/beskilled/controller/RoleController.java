@@ -20,14 +20,14 @@ public class RoleController {
     @Autowired
     private RoleRepository roleRepo;
 
-      @GetMapping(value = "/save-role")
+      @GetMapping(value = "/role-save")
       public String saveRole(){
        Role role=new Role();
-       role.setRoleName("ADMIN");
+       role.setRoleName("SUPERADMIN");
        roleRepo.save(role);
 
           Role role2=new Role();
-          role2.setRoleName("SUPERADMIN");
+          role2.setRoleName("ADMIN");
           roleRepo.save(role2);
 
 

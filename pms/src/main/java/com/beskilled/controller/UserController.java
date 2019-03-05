@@ -31,21 +31,25 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
 
-    @GetMapping(value = "/save-user")
+    @GetMapping(value = "/user-save")
         public String savrUser() {
-            Set<Role> roles = new HashSet<>();
+        Set<Role> roles=new HashSet<>();
+        roles.add(new Role("SUPERADMIN"));
+        roles.add(new Role("ADMIN"));
+        roles.forEach((role -> {
+            roleRepo.save(role);
+        }));
             roles.add(new Role(1L));
             roles.add(new Role(2L));
-            roles.add(new Role(3L));
-            User user = new User("Mostafizur","Rahman", "mostafiz@gmail.com", "mostafiz", passwordEncoder.encode("1234"),true,null, true, roles);
+        User user = new User("Mr.","Trump", "sadmin", passwordEncoder.encode("Usa123@@"), "rajaul.cse@gmail.com", true,null, roles);
             userRepo.save(user);
 
-            Set<Role> roles2 = new HashSet<>();
+           /* Set<Role> roles2 = new HashSet<>();
             roles2.add(new Role(2L));
             roles2.add(new Role(3L));
             User user2 =  new User("sofiqul","Islam", "sofiq@gmail.com", "sofiq", passwordEncoder.encode("1234"),true,null, true, roles2);
 
-        userRepo.save(user2);
+        userRepo.save(user2);*/
             return "success";
         }
         @GetMapping(value = "/register")

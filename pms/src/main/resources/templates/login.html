@@ -1,14 +1,12 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+      xmlns:th="http://www.thymeleaf.org">
 
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | jeweler - Material Admin Template</title>
+    <title>Login | pms</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -27,7 +25,7 @@
 		============================================ -->
     <link rel="stylesheet"  th:href="@{/css/owl.carousel.css}">
     <link rel="stylesheet"  th:href="@{/css/owl.theme.css}">
-    <link rel="stylesheet" th:href="@{css/owl.transitions.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.transitions.css}">
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet"  th:href="@{/css/animate.css}">
@@ -91,7 +89,7 @@
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="#" id="loginForm">
+                        <form th:action="@{/login}" method="post" id="loginForm">
                             <div class="form-group">
                                 <label class="control-label" for="username">Username</label>
                                 <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
@@ -107,8 +105,8 @@
 										<input type="checkbox" class="i-checks"> Remember me </label>
                                 <p class="help-block small">(if this is a private computer)</p>
                             </div>
-                            <button class="btn btn-success btn-block loginbtn">Login</button>
-                            <a class="btn btn-default btn-block" href="#">Register</a>
+                            <button  class="btn btn-success btn-block loginbtn">Login</button>
+                            <a class="btn btn-default btn-block" th:href="@{/register}">Register</a>
                         </form>
                     </div>
                 </div>

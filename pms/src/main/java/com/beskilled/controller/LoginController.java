@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-    @RequestMapping(value = {"/","/login"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/login"},method = RequestMethod.GET)
     public String loginView(){
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/se";
+            return "redirect:/";
         }
         return "login";
     }

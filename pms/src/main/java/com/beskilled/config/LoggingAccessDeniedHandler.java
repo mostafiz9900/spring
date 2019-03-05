@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @Component
 public class LoggingAccessDeniedHandler implements AccessDeniedHandler {
-
+/*Only access denied use class*/
     private static Logger log = LoggerFactory.getLogger(LoggingAccessDeniedHandler.class);
 
     @Override

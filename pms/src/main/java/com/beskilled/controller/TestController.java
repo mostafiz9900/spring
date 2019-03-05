@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
     @Autowired
     private UserRepository repo;
-    @ResponseBody
+    /*@ResponseBody
     @GetMapping(value = "/test")
     public User testRepo(){
 
         return this.repo.findByUsernameOrPassword("mostafiz","");
-    }
+    }*/
 }

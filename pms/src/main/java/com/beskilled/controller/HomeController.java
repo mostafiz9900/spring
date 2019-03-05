@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private UserRepository userRepository;
+   /* @Autowired
+    private UserRepository userRepository;*/
 
-    @GetMapping(value = "/in")
+    @GetMapping(value = "/")
     public String index(){
         return "index";
     }
@@ -23,7 +23,7 @@ public class HomeController {
     public String layout(){
         return "layout";
     }
-    @GetMapping(value = "/admin")
+    /*@GetMapping(value = "/admin")
     public String adminView(){
         return "admin/addmin";
     }
@@ -45,6 +45,6 @@ public class HomeController {
         model.addAttribute("name", user.getFirstName());
         model.addAttribute("email", user.getEmail());
         return "secure/secure";
-    }
+    }*/
 
 }
