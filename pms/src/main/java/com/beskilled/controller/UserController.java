@@ -41,7 +41,7 @@ public class UserController {
         }));
             roles.add(new Role(1L));
             roles.add(new Role(2L));
-        User user = new User("Mr.","Trump", "sadmin", passwordEncoder.encode("Usa123@@"), "rajaul.cse@gmail.com", true,null, roles);
+        User user = new User("Mostafiz.","Rahman", "mostafiz", passwordEncoder.encode("mosta9900"), "mostafiz.java8@gmail.com", true,null, roles);
             userRepo.save(user);
 
            /* Set<Role> roles2 = new HashSet<>();
