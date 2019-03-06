@@ -27,7 +27,25 @@ public class UserController {
     private RoleRepository roleRepo;
 
     @Autowired
+<<<<<<< HEAD
     private PasswordEncoder passwordEncoder;
+=======
+    PasswordEncoder passwordEncoder;
+
+
+    @GetMapping(value = "/user-save")
+        public String savrUser() {
+        Set<Role> roles=new HashSet<>();
+        roles.add(new Role("SUPERADMIN"));
+        roles.add(new Role("ADMIN"));
+        roles.forEach((role -> {
+            roleRepo.save(role);
+        }));
+            roles.add(new Role(1L));
+            roles.add(new Role(2L));
+        User user = new User("Mostafiz.","Rahman", "mostafiz", passwordEncoder.encode("mosta9900"), "mostafiz.java8@gmail.com", true,null, roles);
+            userRepo.save(user);
+>>>>>>> 97302f96fdbfb94be225f4d311fca9aa5382936f
 
     @GetMapping(value = "add")
     public String viewAdd(Model model){
