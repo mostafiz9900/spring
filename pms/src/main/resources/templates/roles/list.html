@@ -5,7 +5,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>role :::list</title>
+
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -35,7 +36,11 @@
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
+
+
                                             <th data-field="name" data-editable="true">Role Name</th>
+                                            <th data-field="edit">Edit</th>
+                                            <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
@@ -66,5 +71,6 @@
 
 
 </div>
+
 </body>
 </html>

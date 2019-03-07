@@ -79,16 +79,16 @@ public class User {
     private Set<Role> roles;
 
     @ManyToOne
-    @Column(name = "desig_id")
+    @JoinColumn(name = "desig_id")
     private Designation designation;
 
 
     @ManyToOne
-    @Column(name = "org_id")
+    @JoinColumn(name = "org_id")
     private Organigation organigation;
 
     @ManyToOne
-    @Column(name = "dep_id")
+    @JoinColumn(name = "dep_id")
     private Department department;
 
     public User() {
@@ -125,7 +125,7 @@ public class User {
         this.roles = user.roles;
         this.designation = user.designation;
         this.organigation = user.organigation;
-        this.department = user.department;
+       /* this.department = user.department;*/
     }
 
     public Long getId() {

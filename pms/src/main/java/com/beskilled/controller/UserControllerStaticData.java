@@ -36,19 +36,16 @@ public class UserControllerStaticData {
     public String saveUser() {
 
         Set<Role> roles=new HashSet<>();
-        roles.add(new Role("SUPERADMIN"));
+       /* roles.add(new Role("SUPERADMIN"));
         roles.add(new Role("ADMIN"));
-        roles.add(new Role("CADMIN"));
-        roles.add(new Role("PM"));
-        roles.add(new Role("TEAMLEAD"));
-        roles.add(new Role("DEVELOPER"));
         roles.add(new Role("USER"));
         roles.forEach((role -> {
             roleRepo.save(role);
-        }));
+        }));*/
 
-        roles.add(new Role(1L));
         roles.add(new Role(2L));
+        roles.add(new Role(3L));
+
 
         User user = new User("Mostafizur","Rahman","mostafiz","admin@gmail.com",new Date(),true,UUID.randomUUID().toString(),roles);
         user.setPassword(passwordEncoder.encode("mostafiz"));

@@ -12,5 +12,35 @@ private Long id;
 private String designationName;
 private String shortDesignation;
 
+    public Designation() {
+    }
 
+    public Designation(String designationName, String shortDesignation) {
+        this.designationName = designationName;
+        this.shortDesignation = shortDesignation;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDesignationName() {
+        return designationName;
+    }
+
+    public void setDesignationName(String designationName) {
+        this.designationName = designationName;
+    }
+
+    public String getShortDesignation() {
+        return shortDesignation;
+    }
+
+    public void setShortDesignation(String shortDesignation) {
+        this.shortDesignation = shortDesignation;
+    }
 }

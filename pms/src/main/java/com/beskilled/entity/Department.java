@@ -13,5 +13,35 @@ public class Department {
     private String departmentName;
     private String rank;
 
+    public Department() {
+    }
 
+    public Department(String departmentName, String rank) {
+        this.departmentName = departmentName;
+        this.rank = rank;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
 }

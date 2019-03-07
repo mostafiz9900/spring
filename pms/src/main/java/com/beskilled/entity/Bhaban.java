@@ -13,6 +13,35 @@ public class Bhaban {
     private String bhabanName;
     private String address;
 
+    public Bhaban() {
+    }
 
+    public Bhaban(String bhabanName, String address) {
+        this.bhabanName = bhabanName;
+        this.address = address;
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getBhabanName() {
+        return bhabanName;
+    }
+
+    public void setBhabanName(String bhabanName) {
+        this.bhabanName = bhabanName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }
