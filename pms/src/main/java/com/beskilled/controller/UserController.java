@@ -1,5 +1,6 @@
 package com.beskilled.controller;
 
+
 import com.beskilled.entity.Role;
 import com.beskilled.entity.User;
 import com.beskilled.repo.RoleRepository;
@@ -9,17 +10,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/user/")
 public class UserController {
+
     @Autowired
     private UserRepository repo;
 
@@ -27,25 +30,7 @@ public class UserController {
     private RoleRepository roleRepo;
 
     @Autowired
-<<<<<<< HEAD
     private PasswordEncoder passwordEncoder;
-=======
-    PasswordEncoder passwordEncoder;
-
-
-    @GetMapping(value = "/user-save")
-        public String savrUser() {
-        Set<Role> roles=new HashSet<>();
-        roles.add(new Role("SUPERADMIN"));
-        roles.add(new Role("ADMIN"));
-        roles.forEach((role -> {
-            roleRepo.save(role);
-        }));
-            roles.add(new Role(1L));
-            roles.add(new Role(2L));
-        User user = new User("Mostafiz.","Rahman", "mostafiz", passwordEncoder.encode("mosta9900"), "mostafiz.java8@gmail.com", true,null, roles);
-            userRepo.save(user);
->>>>>>> 97302f96fdbfb94be225f4d311fca9aa5382936f
 
     @GetMapping(value = "add")
     public String viewAdd(Model model){
@@ -108,30 +93,35 @@ public class UserController {
         model.addAttribute("list",this.repo.findAll());
         return "users/list";
     }
+   /* @GetMapping(value = "/user-save")
+    public String saveUser() {
 
-    /*@GetMapping(value = "/user-save")
-    public String savrUser() {
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles=new HashSet<>();
         roles.add(new Role("SUPERADMIN"));
         roles.add(new Role("ADMIN"));
+        roles.add(new Role("CADMIN"));
+        roles.add(new Role("PM"));
+        roles.add(new Role("TEAMLEAD"));
+        roles.add(new Role("DEVELOPER"));
         roles.add(new Role("USER"));
         roles.forEach((role -> {
             roleRepo.save(role);
         }));
+
         roles.add(new Role(1L));
         roles.add(new Role(2L));
-        roles.add(new Role(3L));
 
-        User user = new User("Mostafizur", "Rahman", "mostafiz", passwordEncoder.encode("mostafiz"), "mostafiz.java8@gmail.com", true, null, roles);
-        userRepo.save(user);
-
-            Set<Role> roles2 = new HashSet<>();
-            roles2.add(new Role(2L));
-            roles2.add(new Role(3L));
-            User user2 =  new User("sofiqul","Islam", "sofiq@gmail.com", "sofiq", passwordEncoder.encode("1234"),true,null, true, roles2);
-
-        userRepo.save(user2);
+        User user = new User("Mostafizur","Rahman","mostafiz","admin@gmail.com",new Date(),true,UUID.randomUUID().toString(),roles);
+        user.setPassword(passwordEncoder.encode("mostafiz"));
+        repo.save(user);
         return "success";
-    }*/
+    }
 
+    @GetMapping(value = "/register")
+    public ModelAndView displayRegister(User user){
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("user",user);
+        mv.setViewName("signup");
+        return mv;
+    }*/
 }

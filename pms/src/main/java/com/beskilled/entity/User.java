@@ -1,4 +1,5 @@
 package com.beskilled.entity;
+
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,7 +19,7 @@ public class User {
 
 
     @NotEmpty(message = "Enter First Name")
-    @Size(min = 1,max = 50,message = "Hey, Size must be between 1 and 50")
+    @Size(min = 1, max = 50, message = "Hey, Size must be between 1 and 50")
     @Column(nullable = false)
     private String firstName;
 
@@ -49,7 +50,7 @@ public class User {
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastModifiedDate=new Date();
+    private Date lastModifiedDate = new Date();
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -76,6 +77,19 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @ManyToOne
+    @Column(name = "desig_id")
+    private Designation designation;
+
+
+    @ManyToOne
+    @Column(name = "org_id")
+    private Organigation organigation;
+
+    @ManyToOne
+    @Column(name = "dep_id")
+    private Department department;
 
     public User() {
     }
@@ -109,6 +123,9 @@ public class User {
         this.filePath = user.filePath;
         this.fileExtension = user.fileExtension;
         this.roles = user.roles;
+        this.designation = user.designation;
+        this.organigation = user.organigation;
+        this.department = user.department;
     }
 
     public Long getId() {
@@ -255,34 +272,59 @@ public class User {
         this.roles = roles;
     }
 
+    public Designation getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(Designation designation) {
+        this.designation = designation;
+    }
+
+    public Organigation getOrganigation() {
+        return organigation;
+    }
+
+    public void setOrganigation(Organigation organigation) {
+        this.organigation = organigation;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return isEnabled() == user.isEnabled() &&
-                getFileSize() == user.getFileSize() &&
-                Objects.equals(getId(), user.getId()) &&
-                Objects.equals(getFirstName(), user.getFirstName()) &&
-                Objects.equals(getLastName(), user.getLastName()) &&
-                Objects.equals(getUserName(), user.getUserName()) &&
-                Objects.equals(getPassword(), user.getPassword()) &&
-                Objects.equals(getEmail(), user.getEmail()) &&
-                Objects.equals(getMobile(), user.getMobile()) &&
-                Objects.equals(getGender(), user.getGender()) &&
-                Objects.equals(getRegiDate(), user.getRegiDate()) &&
-                Objects.equals(getLastModifiedDate(), user.getLastModifiedDate()) &&
-                Objects.equals(getBirthDate(), user.getBirthDate()) &&
-                Objects.equals(getConfirmationToken(), user.getConfirmationToken()) &&
-                Objects.equals(getFileName(), user.getFileName()) &&
-                Objects.equals(getFilePath(), user.getFilePath()) &&
-                Objects.equals(getFileExtension(), user.getFileExtension()) &&
-                Objects.equals(getRoles(), user.getRoles());
+        return enabled == user.enabled &&
+                fileSize == user.fileSize &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(mobile, user.mobile) &&
+                Objects.equals(gender, user.gender) &&
+                Objects.equals(regiDate, user.regiDate) &&
+                Objects.equals(lastModifiedDate, user.lastModifiedDate) &&
+                Objects.equals(birthDate, user.birthDate) &&
+                Objects.equals(confirmationToken, user.confirmationToken) &&
+                Objects.equals(fileName, user.fileName) &&
+                Objects.equals(filePath, user.filePath) &&
+                Objects.equals(fileExtension, user.fileExtension) &&
+                Objects.equals(roles, user.roles) &&
+                Objects.equals(designation, user.designation) &&
+                Objects.equals(organigation, user.organigation);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(getId(), getFirstName(), getLastName(), getUserName(), getPassword(), getEmail(), getMobile(), getGender(), getRegiDate(), getLastModifiedDate(), getBirthDate(), isEnabled(), getConfirmationToken(), getFileSize(), getFileName(), getFilePath(), getFileExtension(), getRoles());
+        return Objects.hash(id, firstName, lastName, userName, password, email, mobile, gender, regiDate, lastModifiedDate, birthDate, enabled, confirmationToken, fileSize, fileName, filePath, fileExtension, roles, designation, organigation);
     }
 }

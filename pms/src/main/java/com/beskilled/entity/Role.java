@@ -8,6 +8,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     @NotEmpty(message = "Enter Role Name")
     @Size(min = 2,max = 20,message = "Rolename must be between 2 and 20 Characters")

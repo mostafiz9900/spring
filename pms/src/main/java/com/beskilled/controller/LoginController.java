@@ -44,7 +44,7 @@ public class LoginController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     private static String USER_NAME = "mostafiz.java8";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = ""; // GMail password
+    private static String PASSWORD = "01633321732"; // GMail password
 
     @RequestMapping(value = {"/login"},method = RequestMethod.GET)
     public String loginView(){
@@ -59,13 +59,14 @@ public class LoginController {
     public String accessDenied(){
         return "access/accd";
     }
+
     @PostMapping(value = "/sign-up")
     public String add(@Valid User user, BindingResult result, Model model, HttpServletRequest request){
         String username = user.getEmail().split("\\@")[0];
         user.setUserName(username);
         user.setEnabled(false);
         Set<Role> roles=new HashSet<>();
-        roles.add(new Role(3L));
+        roles.add(new Role(7L));
         user.setRegiDate(new Date());
         user.setRoles(roles);
         user.setConfirmationToken(UUID.randomUUID().toString());

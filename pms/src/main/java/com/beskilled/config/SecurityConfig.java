@@ -49,11 +49,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-<<<<<<< HEAD
+
                 .antMatchers("/role-save","/user-save","/404/**","/sign-up", "/login" ,"/confirm/**","/css/**","/fonts/**","/img/**","/js/**").permitAll()
-=======
-                .antMatchers("/role-save","/user-save","/404/**","/register", "/login" ,"/dashboard","/confirm/**","/css/**","/fonts/**","/img/**","/js/**").permitAll()
->>>>>>> 97302f96fdbfb94be225f4d311fca9aa5382936f
+
+
                 .antMatchers("/company/**").hasAnyRole("CADMIN","PM", "TEMLEAD","DEVELOPER")
                 .antMatchers("/role/**","/user/**").hasRole("SUPERADMIN")
 
