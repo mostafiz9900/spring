@@ -17,7 +17,7 @@ public class Organigation {
     private String phone;
     private String email;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "room_id")
     private Room room;
 
@@ -28,7 +28,6 @@ public class Organigation {
     @ManyToOne
     @JoinColumn(name = "bhaban_id")
     private Bhaban bhaban;
-
     public Organigation() {
     }
 

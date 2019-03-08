@@ -17,7 +17,7 @@ public class Meeting {
     private String body;
     private String end;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "officer_id")
     private User officer;
 

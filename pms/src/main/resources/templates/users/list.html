@@ -40,17 +40,17 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">First Name</th>
-                                        <th data-field="name" data-editable="true">Last Name</th>
-                                        <th data-field="name" data-editable="true">User Name</th>
-                                        <th data-field="name" data-editable="true">Password</th>
-                                        <th data-field="name" data-editable="true">Email</th>
-                                        <th data-field="name" data-editable="true">Mobail</th>
-                                        <th data-field="name" data-editable="true">Gender</th>
-                                        <th data-field="name" data-editable="true">RegDate</th>
-                                        <th data-field="name" data-editable="true">LMdate</th>
-                                        <th data-field="name" data-editable="true">bDate</th>
-                                        <th data-field="name" data-editable="true">RoleName</th>
+                                        <th data-field="firstName">FirstName</th>
+                                        <th data-field="LastName">LastName</th>
+                                        <th data-field="User Name">User Name</th>
+                                        <th data-field="Password">Password</th>
+                                        <th data-field="email">Email</th>
+                                        <th data-field="mobail">Mobail</th>
+                                        <th data-field="gender">Gender</th>
+                                        <th data-field="regDate">RegDate</th>
+                                        <th data-field="lmdate">LMdate</th>
+                                        <th data-field="bDate">bDate</th>
+                                        <th data-field="roleName">RoleName</th>
                                         <th data-field="edit">Edit</th>
                                         <th data-field="delete">Delete</th>
                                         <th data-field="action">Action</th>
@@ -60,7 +60,7 @@
                                     <tr th:each="user:${list}">
                                         <td></td>
                                         <td th:text="${user.id}"></td>
-                                        <td th:text="${user.fileName}"></td>
+                                        <td th:text="${user.firstName}"></td>
                                         <td th:text="${user.lastName}"></td>
                                         <td th:text="${user.userName}"></td>
                                         <td th:text="${user.password}"></td>

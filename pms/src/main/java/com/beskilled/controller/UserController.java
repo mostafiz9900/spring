@@ -33,18 +33,20 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping(value = "add")
-    public String viewAdd(Model model){
-        model.addAttribute("user",new User());
+    public String viewAdd(User user, Model model){
+        model.addAttribute("rolelist", this.roleRepo.findAll());
         return "users/add";
     }
     @PostMapping(value = "add")
     public String add(@Valid User user, BindingResult result, Model model){
         if(result.hasErrors()){
+            model.addAttribute("rolelist", this.roleRepo.findAll());
             return "users/add";
         }
         if(repo.existsByEmail(user.getEmail())){
             model.addAttribute("rejectMsg","Already Have This Entry");
         }else{
+            user.setRegiDate(new Date());
             String username = user.getEmail().split("\\@")[0];
             user.setUserName(username);
             user.setEnabled(true);
@@ -52,6 +54,8 @@ public class UserController {
             user.setConfirmationToken(UUID.randomUUID().toString());
             this.repo.save(user);
             model.addAttribute("successMsg","Successfully Saved!");
+            model.addAttribute("user", new User());
+            model.addAttribute("rolelist", this.roleRepo.findAll());
         }
 
         return "users/add";
@@ -61,6 +65,7 @@ public class UserController {
     @GetMapping(value = "edit/{id}")
     public String viewEdit(Model model, @PathVariable("id") Long id){
         model.addAttribute("user",repo.getOne(id));
+        model.addAttribute("rolelist", this.roleRepo.findAll());
         return "users/edit";
     }
     @PostMapping(value = "edit/{id}")
@@ -90,7 +95,7 @@ public class UserController {
 
     @GetMapping(value = "list")
     public String list(Model model){
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("list", this.repo.findAll());
         return "users/list";
     }
    /* @GetMapping(value = "/user-save")

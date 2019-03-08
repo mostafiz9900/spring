@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Bhaban {
@@ -43,5 +44,21 @@ public class Bhaban {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bhaban bhaban = (Bhaban) o;
+        return Objects.equals(id, bhaban.id) &&
+                Objects.equals(bhabanName, bhaban.bhabanName) &&
+                Objects.equals(address, bhaban.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, bhabanName, address);
     }
 }

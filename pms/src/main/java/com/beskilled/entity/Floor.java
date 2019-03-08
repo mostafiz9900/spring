@@ -1,6 +1,7 @@
 package com.beskilled.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Floor {
@@ -10,7 +11,7 @@ public class Floor {
     private String floorName;
 
 
-@ManyToOne
+@ManyToOne(fetch = FetchType.LAZY)
 @JoinColumn(name = "bhaban_id")
     private Bhaban bhaban;
 

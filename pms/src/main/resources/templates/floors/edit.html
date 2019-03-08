@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Role Add</title>
+    <title>Floor Edit</title>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -24,27 +24,28 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <span th:class="succes" th:text="${successMsg}"></span>
-                                        <span th:class="err" th:text="${rejectMsg}"></span>
-                                        <form th:object="${role}" th:action="@{/role/add}" th:method="POST">
+
+                                        <form th:object="${floor}" th:action="@{/floor/edit/}+${id}" th:method="POST">
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Role Name</label>
+                                                        <label class="login2 pull-right pull-right-pro">Floor No</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{roleName}" class="form-control" />
-                                                        <span th:class="err" th:if="${#fields.hasErrors('roleName')}" th:errors="*{roleName}">Rolename Error</span>
+                                                        <input type="text" th:field="*{floorName}" class="form-control" />
+                                                        <span th:class="err" th:if="${#fields.hasErrors('floorName')}" th:errors="*{floorName}">FloorName Error</span>
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <div class="login-btn-inner">
                                                     <div class="row">
                                                         <div class="col-lg-3"></div>
                                                         <div class="col-lg-9">
                                                             <div class="login-horizental cancel-wp pull-left">
                                                                 <button class="btn btn-white" type="submit">Cancel</button>
-                                                                <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Role</button>
+                                                                <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Floor</button>
                                                             </div>
                                                         </div>
                                                     </div>
