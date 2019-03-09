@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Floor Edit</title>
+    <title>Floor Add</title>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -29,29 +29,47 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Select Bhaban</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{bhaban}" class="form-control custom-select-value" name="account">
+                                                                <option th:each="bhaban :${bhabanList}" th:value="${bhaban.id}">
+                                                                    <span th:text="${bhaban.bhabanName}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Floor No</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                         <input type="text" th:field="*{floorName}" class="form-control" />
-                                                        <span th:class="err" th:if="${#fields.hasErrors('floorName')}" th:errors="*{floorName}">FloorName Error</span>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('floorName')}" th:errors="*{floorName}">Floorname Error</span>
                                                     </div>
                                                 </div>
                                             </div>
 
 
                                             <div class="login-btn-inner">
-                                                    <div class="row">
-                                                        <div class="col-lg-3"></div>
-                                                        <div class="col-lg-9">
-                                                            <div class="login-horizental cancel-wp pull-left">
-                                                                <button class="btn btn-white" type="submit">Cancel</button>
-                                                                <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Floor</button>
-                                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3"></div>
+                                                    <div class="col-lg-9">
+                                                        <div class="login-horizental cancel-wp pull-left">
+                                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                                            <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Floor</button>
                                                         </div>
                                                     </div>
+                                                </div>
                                             </div>
 
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +77,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </body>

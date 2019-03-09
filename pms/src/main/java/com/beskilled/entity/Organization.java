@@ -1,46 +1,46 @@
 package com.beskilled.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
-public class Organigation {
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String orgName;
     private String ministryNameOrHeadOffice;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date registrationDate;
 
     private String orgChiefName;
     private String phone;
+
+    @Email
+    @NotEmpty(message = "Enter An Email")
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany
-    @JoinColumn(name = "room_id")
-    private Room room;
 
-    @ManyToOne
-    @JoinColumn(name = "floor_id")
-    private Floor floor;
 
-    @ManyToOne
-    @JoinColumn(name = "bhaban_id")
-    private Bhaban bhaban;
-    public Organigation() {
+    public Organization() {
     }
 
-    public Organigation(String orgName, String ministryNameOrHeadOffice, Date registrationDate, String orgChiefName, String phone, String email, Room room, Floor floor, Bhaban bhaban) {
+
+    public Organization(String orgName, String ministryNameOrHeadOffice, Date registrationDate, String orgChiefName, String phone, @Email @NotEmpty(message = "Enter An Email") String email) {
         this.orgName = orgName;
         this.ministryNameOrHeadOffice = ministryNameOrHeadOffice;
         this.registrationDate = registrationDate;
         this.orgChiefName = orgChiefName;
         this.phone = phone;
         this.email = email;
-        this.room = room;
-        this.floor = floor;
-        this.bhaban = bhaban;
     }
 
     public Long getId() {
@@ -99,27 +99,22 @@ public class Organigation {
         this.email = email;
     }
 
-    public Room getRoom() {
-        return room;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Organization that = (Organization) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(orgName, that.orgName) &&
+                Objects.equals(ministryNameOrHeadOffice, that.ministryNameOrHeadOffice) &&
+                Objects.equals(registrationDate, that.registrationDate) &&
+                Objects.equals(orgChiefName, that.orgChiefName) &&
+                Objects.equals(phone, that.phone) &&
+                Objects.equals(email, that.email);
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public Floor getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Floor floor) {
-        this.floor = floor;
-    }
-
-    public Bhaban getBhaban() {
-        return bhaban;
-    }
-
-    public void setBhaban(Bhaban bhaban) {
-        this.bhaban = bhaban;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, orgName, ministryNameOrHeadOffice, registrationDate, orgChiefName, phone, email);
     }
 }

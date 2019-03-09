@@ -85,7 +85,7 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "org_id")
-    private Organigation organigation;
+    private Organization organization;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dep_id")
@@ -124,8 +124,8 @@ public class User {
         this.fileExtension = user.fileExtension;
         this.roles = user.roles;
         this.designation = user.designation;
-        this.organigation = user.organigation;
-       /* this.department = user.department;*/
+        this.organization = user.organization;
+        this.department = user.department;
     }
 
     public Long getId() {
@@ -280,12 +280,12 @@ public class User {
         this.designation = designation;
     }
 
-    public Organigation getOrganigation() {
-        return organigation;
+    public Organization getOrganization() {
+        return organization;
     }
 
-    public void setOrganigation(Organigation organigation) {
-        this.organigation = organigation;
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
     public Department getDepartment() {
@@ -320,11 +320,12 @@ public class User {
                 Objects.equals(fileExtension, user.fileExtension) &&
                 Objects.equals(roles, user.roles) &&
                 Objects.equals(designation, user.designation) &&
-                Objects.equals(organigation, user.organigation);
+                Objects.equals(organization, user.organization) &&
+                Objects.equals(department, user.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, userName, password, email, mobile, gender, regiDate, lastModifiedDate, birthDate, enabled, confirmationToken, fileSize, fileName, filePath, fileExtension, roles, designation, organigation);
+        return Objects.hash(id, firstName, lastName, userName, password, email, mobile, gender, regiDate, lastModifiedDate, birthDate, enabled, confirmationToken, fileSize, fileName, filePath, fileExtension, roles, designation, organization, department);
     }
 }

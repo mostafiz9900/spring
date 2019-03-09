@@ -2,7 +2,7 @@ package com.beskilled.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.Objects;
 
 @Entity
 @Table(name = "meeting")
@@ -21,10 +21,14 @@ public class Meeting {
     @JoinTable(name = "officer_id")
     private User officer;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "org_id")
+    private Organization organization;
+
     public Meeting() {
     }
 
-    public Meeting(Date startDate, String to, String form, String subject, String body, String end, User officer) {
+    public Meeting(Date startDate, String to, String form, String subject, String body, String end, User officer, Organization organization) {
         this.startDate = startDate;
         this.to = to;
         this.form = form;
@@ -32,6 +36,7 @@ public class Meeting {
         this.body = body;
         this.end = end;
         this.officer = officer;
+        this.organization = organization;
     }
 
     public Long getId() {
@@ -96,5 +101,34 @@ public class Meeting {
 
     public void setOfficer(User officer) {
         this.officer = officer;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Meeting meeting = (Meeting) o;
+        return Objects.equals(id, meeting.id) &&
+                Objects.equals(startDate, meeting.startDate) &&
+                Objects.equals(to, meeting.to) &&
+                Objects.equals(form, meeting.form) &&
+                Objects.equals(subject, meeting.subject) &&
+                Objects.equals(body, meeting.body) &&
+                Objects.equals(end, meeting.end) &&
+                Objects.equals(officer, meeting.officer) &&
+                Objects.equals(organization, meeting.organization);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, startDate, to, form, subject, body, end, officer, organization);
     }
 }

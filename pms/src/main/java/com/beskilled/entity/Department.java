@@ -1,9 +1,6 @@
 package com.beskilled.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -16,14 +13,17 @@ public class Department {
 
     private String rank;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "org_id")
+    private Organization organization;
     public Department() {
     }
 
-    public Department(String departmentName, String shortName, String rank) {
+    public Department(String departmentName, String shortName, String rank, Organization organization) {
         this.departmentName = departmentName;
         this.shortName = shortName;
         this.rank = rank;
+        this.organization = organization;
     }
 
     public Long getId() {
@@ -58,6 +58,14 @@ public class Department {
         this.rank = rank;
     }
 
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,11 +74,12 @@ public class Department {
         return Objects.equals(id, that.id) &&
                 Objects.equals(departmentName, that.departmentName) &&
                 Objects.equals(shortName, that.shortName) &&
-                Objects.equals(rank, that.rank);
+                Objects.equals(rank, that.rank) &&
+                Objects.equals(organization, that.organization);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, departmentName, shortName, rank);
+        return Objects.hash(id, departmentName, shortName, rank, organization);
     }
 }

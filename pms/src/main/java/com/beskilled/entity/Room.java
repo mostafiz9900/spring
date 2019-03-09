@@ -13,6 +13,9 @@ public class Room {
     @JoinColumn(name = "floor_id")
     private Floor floor;
 
+
+
+
     public Room() {
     }
 

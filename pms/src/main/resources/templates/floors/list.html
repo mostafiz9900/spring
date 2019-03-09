@@ -37,7 +37,7 @@
                                             <th data-field="state" data-checkbox="true"></th>
 
                                             <th data-field="id">ID</th>
-                                            <th data-field="bhaban" data-editable="true">Floor No</th>
+                                            <th data-field="floor" data-editable="true">Floor No</th>
                                             <th data-field="bhaban" >Bhaba</th>
 
 
@@ -47,21 +47,21 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="floor:${list}">
+                                        <tr th:each="flo:${list}">
                                             <td></td>
-                                            <td th:text="${floor.id}"></td>
-                                            <td th:text="${floor.floorName}"></td>
+                                            <td th:text="${flo.id}"></td>
+                                            <td th:text="${flo.floorName}"></td>
                                             <td>
-                                            <span th:each="bha:${floor.bhaban}">
+                                            <span th:each="bha:${flo.bhaban}">
                                                 <span th:text="${bha.bhabanName}"></span>
                                             </span>
                                             </td>
 
                                             <td>
-                                                <a th:href="@{'/floor/edit/'+${floor.id}}">Edit</a>
+                                                <a th:href="@{'/floor/edit/'+${flo.id}}">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/floor/del/'+${floor.id}}">Del</a>
+                                                <a th:href="@{'/floor/del/'+${flo.id}}">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>

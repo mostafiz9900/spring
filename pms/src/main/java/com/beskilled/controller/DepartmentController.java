@@ -1,9 +1,8 @@
 package com.beskilled.controller;
 
-import com.beskilled.entity.Bhaban;
 import com.beskilled.entity.Department;
-import com.beskilled.repo.BhabanRepository;
 import com.beskilled.repo.DepartmentRepository;
+import com.beskilled.repo.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +20,20 @@ public class DepartmentController {
     @Autowired
     private DepartmentRepository repo;
 
+    @Autowired
+    private OrganizationRepository orgRepo;
+
 
 
     @GetMapping(value = "add")
     public String deptAdd(Model model){
-        model.addAttribute("dept",new Department());
+        model.addAttribute("orgList", this.orgRepo.findAll());
         return "departments/add";
     }
 
     @PostMapping(value = "add")
     public String deptAdd(@Valid Department department, BindingResult result, Model model){
         if(result.hasErrors()){
-            model.addAttribute("list",this.repo.findAll());
             return "departments/add";
 
         }else{
@@ -41,26 +42,27 @@ public class DepartmentController {
             model.addAttribute("dept", new Department());
             model.addAttribute("successMsg","Successfully Saved!");
         }
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.orgRepo.findAll());
         return "departments/add";
     }
 
     @GetMapping(value = "edit/{id}")
     public String viewEdit(Model model, @PathVariable("id") Long id){
         model.addAttribute("dept",repo.getOne(id));
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.orgRepo.findAll());
         return "departments/edit";
     }
     @PostMapping(value = "edit/{id}")
     public String edit(@Valid Department department, BindingResult result, Model model,@PathVariable("id") Long id){
         if(result.hasErrors()){
+            model.addAttribute("orgList", this.orgRepo.findAll());
             return "departments/edit";
         }
         else{
             department.setId(id);
             this.repo.save(department);
         }
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.orgRepo.findAll());
         return "redirect:/dept/list";
     }
 

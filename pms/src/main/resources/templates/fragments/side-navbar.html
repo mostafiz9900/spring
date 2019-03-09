@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a class="has-arrow" th:href="@{/user/user}" aria-expanded="false"><i
+                    <a class="has-arrow" href="#" aria-expanded="false"><i
                             class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">User</span></a>
                     <ul class="submenu-angle" aria-expanded="false">
                         <li><a title="User List" th:href="@{/user/list}"><i class="fa fa-female sub-icon-mg"
@@ -41,12 +41,22 @@
 
                     </ul>
                 </li>
+<!--start organigation -->
                 <li>
-                    <a class="has-arrow" th:href="@{/user/user}" aria-expanded="false"><i
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i> <span class="mini-click-non">Organaigation</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="floor list" th:href="@{/org/list}"><i class="fa fa-external-link-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                        <li><a title="Alerts" th:href="@{/org/add}"><i class="fa fa-crop sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Add</span></a></li>
+
+                    </ul>
+                </li>
+                <!-- end organigation -->
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i
                             class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">Bhaban</span></a>
                     <ul class="submenu-angle" aria-expanded="false">
                         <li><a title="User List" th:href="@{/bhaban/list}"><i class="fa big-icon fa-desktop icon-wrap">
-                                                                              aria-hidden="true"></i> <span
+                                                                              <aria-hidden="true"></i> <span
                                 class="mini-sub-pro">Bhaban List</span></a></li>
                         <li><a title="User Detail" th:href="@{/bhaban/add}"><i class="fa fa-heart-o sub-icon-mg"
                                                                                aria-hidden="true"></i> <span

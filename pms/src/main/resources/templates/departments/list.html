@@ -18,7 +18,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Bhaban  <span class="table-project-n">List</span> Table</h1>
+                                    <h1>Department  <span class="table-project-n">List</span> Table</h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -38,9 +38,11 @@
                                             <th data-field="id">ID</th>
 
 
-                                            <th data-field="bhaban" data-editable="true">Department Name</th>
+                                            <th data-field="department">Department Name</th>
                                             <th data-field="shortname" >Short Name</th>
                                             <th data-field="rank" >Rank</th>
+                                            <th data-field="organaization" >Organaization</th>
+
 
 
                                             <th data-field="edit">Edit</th>
@@ -55,6 +57,8 @@
                                             <td th:text="${dept.departmentName}"></td>
                                             <td th:text="${dept.shortName}"></td>
                                             <td th:text="${dept.rank}"></td>
+                                            <td th:text="${dept.organization.orgName}"></td>
+
 
                                             <td>
                                                 <a th:href="@{'/dept/edit/'+${dept.id}}">Edit</a>

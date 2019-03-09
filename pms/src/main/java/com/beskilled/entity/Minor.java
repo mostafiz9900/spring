@@ -1,6 +1,7 @@
 package com.beskilled.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "minor")
@@ -17,6 +18,7 @@ public class Minor {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")
     private Meeting meeting;
+
 
     public Minor() {
     }
@@ -66,5 +68,22 @@ public class Minor {
 
     public void setMeeting(Meeting meeting) {
         this.meeting = meeting;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Minor minor = (Minor) o;
+        return Objects.equals(id, minor.id) &&
+                Objects.equals(meetingTitle, minor.meetingTitle) &&
+                Objects.equals(agendaAction, minor.agendaAction) &&
+                Objects.equals(remark, minor.remark) &&
+                Objects.equals(meeting, minor.meeting);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, meetingTitle, agendaAction, remark, meeting);
     }
 }
