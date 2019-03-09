@@ -38,8 +38,10 @@
                                             <th data-field="id">ID</th>
 
 
-                                            <th data-field="bhaban" data-editable="true">Designation Name</th>
+                                            <th data-field="designation" data-editable="true">Designation Name</th>
                                             <th data-field="shortname" >ShortDesignation Name</th>
+                                            <th data-field="organization" >Organization Name</th>
+
 
 
                                             <th data-field="edit">Edit</th>
@@ -53,6 +55,11 @@
                                             <td th:text="${degt.id}"></td>
                                             <td th:text="${degt.designationName}"></td>
                                             <td th:text="${degt.shortDesignation}"></td>
+                                            <td>
+                                            <span th:each="deg:${degt.organization}">
+                                                <span th:text="${deg.orgName}"></span>
+                                            </span>
+                                            </td>
 
                                             <td>
                                                 <a th:href="@{'/degt/edit/'+${degt.id}}">Edit</a>

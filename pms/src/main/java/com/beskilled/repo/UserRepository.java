@@ -1,5 +1,6 @@
 package com.beskilled.repo;
 
+import com.beskilled.entity.Organization;
 import com.beskilled.entity.Role;
 import com.beskilled.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByRoles(Set<Role> roles);
     boolean existsByEmail(String email);
     User findByConfirmationToken(String token);
+    User findByOrganization(Organization organization);
 }

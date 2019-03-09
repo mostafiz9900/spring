@@ -25,10 +25,26 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
                                         <span th:class="succes" th:text="${successMsg}"></span>
-<!--
-                                        <span th:class="err" th:text="${rejectMsg}"></span>
--->
+
                                         <form th:object="${degt}" th:action="@{/degt/add}" th:method="POST">
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Select Organization Name</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{organization}" class="form-control custom-select-value" name="account">
+                                                                <option th:each="org :${orgList}" th:value="${org.id}">
+                                                                    <span th:text="${org.orgName}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

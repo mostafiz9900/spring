@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>bhaban :::list</title>
+    <title>dept :::list</title>
 
 </head>
 <body>
@@ -35,16 +35,12 @@
                                         <thead>
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
+
                                             <th data-field="id">ID</th>
-
-
                                             <th data-field="department">Department Name</th>
                                             <th data-field="shortname" >Short Name</th>
                                             <th data-field="rank" >Rank</th>
-                                            <th data-field="organaization" >Organaization</th>
-
-
-
+                                            <th data-field="organization" >Organization Name</th>
                                             <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
@@ -57,8 +53,12 @@
                                             <td th:text="${dept.departmentName}"></td>
                                             <td th:text="${dept.shortName}"></td>
                                             <td th:text="${dept.rank}"></td>
-                                            <td th:text="${dept.organization.orgName}"></td>
-
+                                           <!-- <td th:text="${dept.organization.orgName}"></td>-->
+                                            <td>
+                                            <span th:each="dep:${dept.organization}">
+                                                <span th:text="${dep.orgName}"></span>
+                                            </span>
+                                            </td>
 
                                             <td>
                                                 <a th:href="@{'/dept/edit/'+${dept.id}}">Edit</a>

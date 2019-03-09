@@ -4,6 +4,7 @@ import com.beskilled.entity.Department;
 import com.beskilled.entity.Designation;
 import com.beskilled.repo.DepartmentRepository;
 import com.beskilled.repo.DesignationRepository;
+import com.beskilled.repo.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +21,15 @@ import javax.validation.Valid;
 public class DesignationController {
     @Autowired
     private DesignationRepository repo;
+    @Autowired
+    private OrganizationRepository rogRepo;
 
 
 
     @GetMapping(value = "add")
     public String degtAdd(Model model){
         model.addAttribute("degt",new Designation());
+        model.addAttribute("orgList", this.rogRepo.findAll());
         return "designations/add";
     }
 
@@ -41,19 +45,20 @@ public class DesignationController {
             model.addAttribute("degt", new Designation());
             model.addAttribute("successMsg","Successfully Saved!");
         }
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.rogRepo.findAll());
         return "designations/add";
     }
 
     @GetMapping(value = "edit/{id}")
     public String viewEdit(Model model, @PathVariable("id") Long id){
         model.addAttribute("degt",repo.getOne(id));
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.rogRepo.findAll());
         return "designations/edit";
     }
     @PostMapping(value = "edit/{id}")
     public String edit(@Valid Designation designation, BindingResult result, Model model,@PathVariable("id") Long id){
         if(result.hasErrors()){
+            model.addAttribute("orgList", this.rogRepo.findAll());
             return "designations/edit";
         }
         else{
@@ -62,7 +67,7 @@ public class DesignationController {
 
             this.repo.save(designation);
         }
-        model.addAttribute("list",this.repo.findAll());
+        model.addAttribute("orgList", this.rogRepo.findAll());
         return "redirect:/degt/list";
     }
 

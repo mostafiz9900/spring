@@ -27,6 +27,7 @@ public class DepartmentController {
 
     @GetMapping(value = "add")
     public String deptAdd(Model model){
+        model.addAttribute("dept" , new Department());
         model.addAttribute("orgList", this.orgRepo.findAll());
         return "departments/add";
     }
