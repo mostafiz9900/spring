@@ -1,26 +1,30 @@
 package com.beskilled.controller;
 
 
-import com.beskilled.entity.Role;
+
 import com.beskilled.entity.User;
+import com.beskilled.imagoeptimizer.ImageOptimizer;
 import com.beskilled.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import javax.validation.Valid;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+
 
 @Controller
 @RequestMapping(value = "/user/")
 public class UserController {
+    private static String UPLOADED_FOLDER = "src/main/resources/static/images/";
 
     @Autowired
     private UserRepository repo;
@@ -39,6 +43,9 @@ public class UserController {
 
     @Autowired
     private DesignationRepository degtRepo;
+
+    @Autowired
+    private ImageOptimizer imageOptimizer;
 
 
     @GetMapping(value = "add")
@@ -91,7 +98,7 @@ public class UserController {
         return "users/edit";
     }
     @PostMapping(value = "edit/{id}")
-    public String edit(@Valid User user, BindingResult result, Model model,@PathVariable("id") Long id){
+    public String edit(@Valid User user,@PathVariable("id") Long id, BindingResult result, Model model,@RequestParam("file") MultipartFile file){
         if(result.hasErrors()){
             model.addAttribute("orgList", this.orgRepo.findAll());
             model.addAttribute("deptList", this.deptRepo.findAll());
@@ -104,7 +111,24 @@ public class UserController {
             return "users/edit";
         }else{
             user.setId(id);
-            this.repo.save(user);
+            try {
+                byte[] bytes = file.getBytes();
+                Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+                Files.write(path, bytes);
+                user.setFileName("new-" + file.getOriginalFilename());
+                user.setFileSize(file.getSize());
+                user.setFilePath("images/" + "new-" + file.getOriginalFilename());
+                user.setFileExtension(file.getContentType());
+
+
+                this.repo.save(user);
+
+                imageOptimizer.optimizeImage(UPLOADED_FOLDER, file, 0.3f, 100, 100);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+           /* user.setId(id);
+            this.repo.save(user);*/
         }
         model.addAttribute("orgList", this.orgRepo.findAll());
         model.addAttribute("deptList", this.deptRepo.findAll());

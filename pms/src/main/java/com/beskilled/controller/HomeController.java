@@ -27,6 +27,10 @@ public class HomeController {
     public String displaydashboard(){
         return "dashboard";
     }
+    @GetMapping(value = "/pro")
+    public String proEx(){
+        return "proEx";
+    }
     /*@GetMapping(value = "/admin")
     public String adminView(){
         return "admin/addmin";

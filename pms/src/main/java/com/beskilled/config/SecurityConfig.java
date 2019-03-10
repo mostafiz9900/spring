@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
                 .antMatchers("/company/**").hasAnyRole("CADMIN","PM", "TEMLEAD","DEVELOPER")
-                .antMatchers("/role/**","/super/**","/bhaban/**","/dept /**","/degt /**","/floor /**","/org /**","/room /**","/meet /**").hasRole("SUPERADMIN")
+                .antMatchers("/role/**","/super/**","/bhaban/**","/dept/**","/degt/**","/floor/**","/org/**","/room/**","/meet/**","/minor/**").hasRole("SUPERADMIN")
 
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER","SUPERADMIN")

@@ -57,7 +57,7 @@ public class LoginController {
 
     @GetMapping(value = "/access-denied")
     public String accessDenied(){
-        return "access/accd";
+        return "access-denied";
     }
 
     @PostMapping(value = "/sign-up")
