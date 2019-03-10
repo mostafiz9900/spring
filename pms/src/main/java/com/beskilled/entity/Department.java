@@ -14,7 +14,7 @@ public class Department {
     private String rank;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "org_id")
+    @JoinColumn(name = "org_id")
     private Organization organization;
     public Department() {
     }

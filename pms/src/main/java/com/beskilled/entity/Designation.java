@@ -12,7 +12,7 @@ private String designationName;
 private String shortDesignation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "org_id")
+    @JoinColumn(name = "org_id")
     private Organization organization;
 
     public Designation() {

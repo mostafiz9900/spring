@@ -52,6 +52,8 @@
                                         <th data-field="bDate">bDate</th>
                                         <th data-field="roleName">RoleName</th>
                                         <th data-field="orgName">Org Name</th>
+                                        <th data-field="deptName">deptName</th>
+                                        <th data-field="desgName">desgName</th>
 
 
                                         <th data-field="edit">Edit</th>
@@ -81,6 +83,16 @@
                                         <td>
                                             <span th:each="orge:${user.organization}">
                                                 <span th:text="${orge.orgName}"></span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span th:each="dep:${user.department}">
+                                                <span th:text="${dep.departmentName}"></span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span th:each="deg:${user.designation}">
+                                                <span th:text="${deg.designationName}"></span>
                                             </span>
                                         </td>
 

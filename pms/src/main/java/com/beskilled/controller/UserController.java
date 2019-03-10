@@ -3,9 +3,7 @@ package com.beskilled.controller;
 
 import com.beskilled.entity.Role;
 import com.beskilled.entity.User;
-import com.beskilled.repo.OrganizationRepository;
-import com.beskilled.repo.RoleRepository;
-import com.beskilled.repo.UserRepository;
+import com.beskilled.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -36,10 +34,19 @@ public class UserController {
     @Autowired
     private OrganizationRepository orgRepo;
 
+    @Autowired
+    private DepartmentRepository deptRepo;
+
+    @Autowired
+    private DesignationRepository degtRepo;
+
+
     @GetMapping(value = "add")
     public String viewAdd(User user, Model model){
         model.addAttribute("rolelist", this.roleRepo.findAll());
         model.addAttribute("orgList", this.orgRepo.findAll());
+        model.addAttribute("deptList", this.deptRepo.findAll());
+        model.addAttribute("degtList", this.degtRepo.findAll());
         return "users/add";
     }
     @PostMapping(value = "add")
@@ -47,6 +54,8 @@ public class UserController {
         if(result.hasErrors()){
             model.addAttribute("rolelist", this.roleRepo.findAll());
             model.addAttribute("orgList", this.orgRepo.findAll());
+            model.addAttribute("deptList", this.deptRepo.findAll());
+            model.addAttribute("degtList", this.degtRepo.findAll());
             return "users/add";
         }
         if(repo.existsByEmail(user.getEmail())){
@@ -63,6 +72,9 @@ public class UserController {
             model.addAttribute("user", new User());
             model.addAttribute("rolelist", this.roleRepo.findAll());
             model.addAttribute("orgList", this.orgRepo.findAll());
+            model.addAttribute("deptList", this.deptRepo.findAll());
+            model.addAttribute("degtList", this.degtRepo.findAll());
+
         }
 
         return "users/add";
@@ -74,12 +86,16 @@ public class UserController {
         model.addAttribute("user",repo.getOne(id));
         model.addAttribute("rolelist", this.roleRepo.findAll());
         model.addAttribute("orgList", this.orgRepo.findAll());
+        model.addAttribute("deptList", this.deptRepo.findAll());
+        model.addAttribute("degtList", this.degtRepo.findAll());
         return "users/edit";
     }
     @PostMapping(value = "edit/{id}")
     public String edit(@Valid User user, BindingResult result, Model model,@PathVariable("id") Long id){
         if(result.hasErrors()){
             model.addAttribute("orgList", this.orgRepo.findAll());
+            model.addAttribute("deptList", this.deptRepo.findAll());
+            model.addAttribute("degtList", this.degtRepo.findAll());
             return "users/edit";
         }
         Optional<User> u = this.repo.findByEmail(user.getEmail());
@@ -91,6 +107,8 @@ public class UserController {
             this.repo.save(user);
         }
         model.addAttribute("orgList", this.orgRepo.findAll());
+        model.addAttribute("deptList", this.deptRepo.findAll());
+        model.addAttribute("degtList", this.degtRepo.findAll());
         return "redirect:/user/list";
     }
 

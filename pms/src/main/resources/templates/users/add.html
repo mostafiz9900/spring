@@ -46,11 +46,11 @@
                                             <!--role list -->
                                             <div class="form-group-inner">
                                                 <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Role
                                                             Name</label>
                                                     </div>
-                                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <div class="form-select-list">
                                                             <select th:field="*{roles}"
                                                                     class="form-control custom-select-value"
@@ -62,27 +62,70 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <!-- Start Organization List -->
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Select Organizatin Name</label>
+                                                    <!-- Start Organization List -->
+
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">
+                                                            Organizatin</label>
                                                     </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select th:field="*{organization}" class="form-control custom-select-value" name="account">
-                                                                <option th:each="orga :${orgList}" th:value="${orga.id}">
+                                                            <select th:field="*{organization}"
+                                                                    class="form-control custom-select-value"
+                                                                    name="account">
+                                                                <option th:each="orga :${orgList}"
+                                                                        th:value="${orga.id}">
                                                                     <span th:text="${orga.orgName}"></span>
                                                                 </option>
 
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <!-- end Organization List -->
+                                                    <!-- Start Department List -->
+
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">
+                                                            Department</label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{department}"
+                                                                    class="form-control custom-select-value"
+                                                                    name="account">
+                                                                <option th:each="dep :${deptList}"
+                                                                        th:value="${dep.id}">
+                                                                    <span th:text="${dep.departmentName}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end Department List -->
+                                                    <!-- Start Designation List -->
+
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">
+                                                            Designation</label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{designation}"
+                                                                    class="form-control custom-select-value"
+                                                                    name="account">
+                                                                <option th:each="deg :${degtList}"
+                                                                        th:value="${deg.id}">
+                                                                    <span th:text="${deg.designationName}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end Designation List -->
+
                                                 </div>
                                             </div>
-                                            <!--End Organization List-->
+
                                             <!--start first name lasts name -->
                                             <div class="form-group-inner">
                                                 <div class="row">
