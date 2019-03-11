@@ -29,13 +29,47 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Select Floor Name</label>
+                                                        <label class="login2 pull-right pull-right-pro">Subject</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                         <div class="form-select-list">
                                                             <select th:field="*{meeting}" class="form-control custom-select-value" name="account">
                                                                 <option th:each="met :${meetingList}" th:value="${met.id}">
                                                                     <span th:text="${met.subject}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                    <label class="login2 pull-right pull-right-pro">Subject</label>
+                                                </div>
+                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                    <div class="form-select-list">
+                                                        <select th:field="*{meeting}" class="form-control custom-select-value" name="account">
+                                                            <option th:each="met :${meetingList}" th:value="${met.id}">
+                                                                <span th:text="${met.subject}"></span>
+                                                            </option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Subject</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{meeting}" class="form-control custom-select-value" name="account">
+                                                                <option th:each="met :${meetingList}" th:value="${met.id}">
+                                                                    <span th:text="${met.users}"></span>
                                                                 </option>
 
                                                             </select>

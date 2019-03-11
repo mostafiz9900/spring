@@ -66,7 +66,7 @@ public class LoginController {
         user.setUserName(username);
         user.setEnabled(false);
         Set<Role> roles=new HashSet<>();
-        roles.add(new Role(3L));
+        roles.add(new Role(1L));
         user.setRegiDate(new Date());
         user.setRoles(roles);
         user.setConfirmationToken(UUID.randomUUID().toString());
@@ -171,7 +171,7 @@ public class LoginController {
         MimeMessage message = new MimeMessage(session);
 
         try {
-            message.setFrom(new InternetAddress("mostafiz.java8@gmail.com", "MEETIO"));
+            message.setFrom(new InternetAddress("mostafiz.java8@gmail.com", "MEETING-CALL"));
             InternetAddress[] toAddress = new InternetAddress[to.length];
 
             // To get the array of addresses
