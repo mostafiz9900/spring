@@ -20,12 +20,13 @@ public class ProfileController {
     @GetMapping(value = "/profile")
     public String profileView(Model model){
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("username", auth.getName());
+        /*model.addAttribute("username", auth.getName());*/
        User user=this.userRepo.findByUserName(auth.getName());
-        model.addAttribute("name", user.getFirstName());
+       /* model.addAttribute("name", user.getFirstName());*/
         model.addAttribute("user", user);
 
-        model.addAttribute("list", this.roleRepo.findAll());
+
+        /*model.addAttribute("list", this.roleRepo.findAll());*/
         return "profile";
     }
 }

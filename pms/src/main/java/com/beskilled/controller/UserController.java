@@ -3,7 +3,6 @@ package com.beskilled.controller;
 
 
 import com.beskilled.entity.User;
-import com.beskilled.imagoeptimizer.ImageOptimizer;
 import com.beskilled.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -106,11 +105,12 @@ public class UserController {
             return "users/edit";
         }
         Optional<User> u = this.repo.findByEmail(user.getEmail());
-        if(u.get().getId() != id){
-            model.addAttribute("rejectMsg","Already Have This Entry");
-            return "users/edit";
-        }else{
-            user.setId(id);
+            if(u.get().getId() != id){
+                model.addAttribute("rejectMsg","Already Have This Entry");
+                return "users/edit";
+            }else{
+            /*user.setId(id);*/
+
             try {
                 byte[] bytes = file.getBytes();
                 Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
@@ -127,7 +127,7 @@ public class UserController {
             }catch (Exception e){
                 e.printStackTrace();
             }
-           /* user.setId(id);
+            /*user.setId(id);
             this.repo.save(user);*/
         }
         model.addAttribute("orgList", this.orgRepo.findAll());

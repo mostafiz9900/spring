@@ -1,4 +1,4 @@
-package com.beskilled.imagoeptimizer;
+package com.beskilled.controller;
 
 
 import org.springframework.stereotype.Component;
