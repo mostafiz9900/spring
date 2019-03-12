@@ -63,140 +63,136 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <div class="color-line"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="back-link back-backend">
-                    <a href="index.html" class="btn btn-primary">Back to Dashboard</a>
-                </div>
+<div class="color-line"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="back-link back-backend">
+                <a href="index.html" class="btn btn-primary">Back to Dashboard</a>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-            <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-                <span th:class="succes" th:text="${successMsg}"></span>
-                <span th:class="err" th:text="${rejectMsg}"></span>
-                <div class="text-center custom-login">
-                    <h3>Registration</h3>
-                </div>
-                <div class="hpanel">
-                    <div class="panel-body">
-                        <form th:object="${user}" th:action="@{/sign-up}"  th:method="POST" id="loginForm">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>First Name</label>
-                                    <input th:field="*{firstName}" required="true" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label>Last Name</label>
-                                    <input th:field="*{lastName}" required="true" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label>Email</label>
-                                    <input type="email" th:field="*{email}" required="true" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label>BirthDay</label>
-                                    <input type="date" th:text="${#dates.format(user.birthDate, 'yyyy-MM-dd')}" th:field="*{birthDate}" required="true" class="form-control">
-                                </div>
-                                <div class="forgot-top-grids form-group col-lg-12">
-                                    <div class="forgot-grid">
-                                        <ul>
-                                            <li>
-                                                <input type="radio" id="m" name="gender" value="m" th:field="*{gender}">
-                                                <label for="m"><span></span>Male</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="f" name="gender" value="f" th:field="*{gender}">
-                                                <label for="f"><span></span>Female</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="o" name="gender" value="o" th:field="*{gender}">
-                                                <label for="o"><span></span>Other</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="clearfix"> </div>
-                                </div>
-
-
-
-
-                                <div class="checkbox col-lg-12">
-                                    <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter
-                                </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+        <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
+            <span th:class="succes" th:text="${successMsg}"></span>
+            <span th:class="err" th:text="${rejectMsg}"></span>
+            <div class="text-center custom-login">
+                <h3>Registration</h3>
+            </div>
+            <div class="hpanel">
+                <div class="panel-body">
+                    <form th:object="${user}" th:action="@{/sign-up}" th:method="POST" id="loginForm">
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label>First Name :</label>
+                                <input th:field="*{firstName}" required="true" class="form-control">
                             </div>
-                            <div class="text-center">
-                                <button class="btn btn-success btn-block">Sign-up</button>
-                                <button class="btn btn-default btn-block" >Cancel</button>
-                                <a class="btn btn-info btn-block" th:href="@{/Login}">Login</a>
+                            <div class="form-group col-lg-12">
+                                <label>Last Name :</label>
+                                <input th:field="*{lastName}" required="true" class="form-control">
                             </div>
-                        </form>
-                    </div>
+                            <div class="form-group col-lg-6">
+                                <label>Email :</label>
+                                <input type="email" th:field="*{email}" required="true" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>BirthDay :</label>
+                                <input type="date" th:text="${#dates.format(user.birthDate, 'yyyy-MM-dd')}"
+                                       th:field="*{birthDate}" required="true" class="form-control">
+                            </div>
+                            <div class="forgot-top-grids form-group col-lg-12">
+                                <div class="forgot-grid">
+                                    <label>Gender :</label> <br>
+                                    <input type="radio" id="m" name="gender" value="m" th:field="*{gender}">
+                                    <label for="m"><span></span>Male</label>
+
+                                    <input type="radio" id="f" name="gender" value="f" th:field="*{gender}">
+                                    <label for="f"><span></span>Female</label>
+
+                                    <input type="radio" id="o" name="gender" value="o" th:field="*{gender}">
+                                    <label for="o"><span></span>Other</label>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+
+                            <div class="checkbox col-lg-12">
+                                <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success btn-block">Sign-up</button>
+                            <button class="btn btn-default btn-block">Cancel</button>
+                            <a class="btn btn-info btn-block" th:href="@{/Login}">Login</a>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>Copyright &copy; 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
-            </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p>Copyright &copy; 2018 <a href="#">Colorlib</a> All rights reserved.</p>
         </div>
     </div>
+</div>
 
-    <!-- jquery
-		============================================ -->
-    <script th:src="@{/js/vendor/jquery-1.11.3.min.js}"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <!-- wow JS
-		============================================ -->
-    <script th:src="@{/js/wow.min.js}"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script th:src="@{/js/jquery-price-slider.js}"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script th:src="@{/js/jquery.meanmenu.js}"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script th:src="@{/js/owl.carousel.min.js}"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script th:src="@{/js/jquery.sticky.js}"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script th:src="@{/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
-    <script th:src="@{/js/scrollbar/mCustomScrollbar-active.js}"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script th:src="@{/js/metisMenu/metisMenu.min.js}"></script>
-    <script th:src="@{/js/metisMenu/metisMenu-active.js}"></script>
-    <!-- tab JS
-		============================================ -->
-    <script th:src="@{/js/tab.js}"></script>
-    <!-- icheck JS
-		============================================ -->
-    <script th:src="@{/js/icheck/icheck.min.js}"></script>
-    <script th:src="@{/js/icheck/icheck-active.js}"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script th:src="@{/js/plugins.js}"></script>
-    <!-- main JS
-		============================================ -->
-    <script th:src="@{/js/main.js}"></script>
+<!-- jquery
+    ============================================ -->
+<script th:src="@{/js/vendor/jquery-1.11.3.min.js}"></script>
+<!-- bootstrap JS
+    ============================================ -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- wow JS
+    ============================================ -->
+<script th:src="@{/js/wow.min.js}"></script>
+<!-- price-slider JS
+    ============================================ -->
+<script th:src="@{/js/jquery-price-slider.js}"></script>
+<!-- meanmenu JS
+    ============================================ -->
+<script th:src="@{/js/jquery.meanmenu.js}"></script>
+<!-- owl.carousel JS
+    ============================================ -->
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<!-- sticky JS
+    ============================================ -->
+<script th:src="@{/js/jquery.sticky.js}"></script>
+<!-- scrollUp JS
+    ============================================ -->
+<script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+<!-- mCustomScrollbar JS
+    ============================================ -->
+<script th:src="@{/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script th:src="@{/js/scrollbar/mCustomScrollbar-active.js}"></script>
+<!-- metisMenu JS
+    ============================================ -->
+<script th:src="@{/js/metisMenu/metisMenu.min.js}"></script>
+<script th:src="@{/js/metisMenu/metisMenu-active.js}"></script>
+<!-- tab JS
+    ============================================ -->
+<script th:src="@{/js/tab.js}"></script>
+<!-- icheck JS
+    ============================================ -->
+<script th:src="@{/js/icheck/icheck.min.js}"></script>
+<script th:src="@{/js/icheck/icheck-active.js}"></script>
+<!-- plugins JS
+    ============================================ -->
+<script th:src="@{/js/plugins.js}"></script>
+<!-- main JS
+    ============================================ -->
+<script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>

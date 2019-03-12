@@ -117,7 +117,7 @@
                                                         <label class="login2 pull-right pull-right-pro">Body</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="text" th:field="*{body}" class="form-control" />
+                                                        <input type="text" th:field="*{body}" class="form-control" required/>
                                                         <span th:class="err" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Body Error</span>
                                                     </div>
                                                 </div>
@@ -128,7 +128,7 @@
                                                         <label class="login2 pull-right pull-right-pro">End</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="text" th:field="*{end}" class="form-control" />
+                                                        <input type="text" th:field="*{end}" class="form-control" required />
                                                         <span th:class="err" th:if="${#fields.hasErrors('end')}" th:errors="*{end}">End Error</span>
                                                     </div>
                                                 </div>
@@ -140,6 +140,9 @@
                                                         <div class="col-lg-10">
                                                             <div class="login-horizental cancel-wp pull-left">
                                                                 <button class="btn btn-white" type="submit">Cancel</button>
+<!--
+                                                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+-->
                                                                 <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Bhaban</button>
                                                             </div>
                                                         </div>

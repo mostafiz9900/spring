@@ -20,4 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByOrganization(Organization organization);
     User findByDepartment(Department department);
     User findByDesignation(Designation designation);
+
+    User findAllByUserName(String userName);
 }

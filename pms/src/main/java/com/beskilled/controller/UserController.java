@@ -5,6 +5,8 @@ package com.beskilled.controller;
 import com.beskilled.entity.User;
 import com.beskilled.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +55,9 @@ public class UserController {
         model.addAttribute("orgList", this.orgRepo.findAll());
         model.addAttribute("deptList", this.deptRepo.findAll());
         model.addAttribute("degtList", this.degtRepo.findAll());
+/*
+        model.addAttribute("userLog", this.repo.findByUserName());
+*/
         return "users/add";
     }
     @PostMapping(value = "add")
@@ -146,7 +151,10 @@ public class UserController {
 
     @GetMapping(value = "list")
     public String list(Model model){
-        model.addAttribute("list", this.repo.findAll());
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("list", this.repo.findAllByUserName(auth.getName()));
+        User user=this.repo.findByUserName(auth.getName());
+        model.addAttribute("users", user);
         return "users/list";
     }
    /* @GetMapping(value = "/user-save")
