@@ -5,8 +5,7 @@ package com.beskilled.controller;
 import com.beskilled.entity.User;
 import com.beskilled.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -109,11 +108,11 @@ public class UserController {
             model.addAttribute("degtList", this.degtRepo.findAll());
             return "users/edit";
         }
-        Optional<User> u = this.repo.findByEmail(user.getEmail());
+      /*  Optional<User> u = this.repo.findByEmail(user.getEmail());
             if(u.get().getId() != id){
                 model.addAttribute("rejectMsg","Already Have This Entry");
                 return "users/edit";
-            }else{
+            }else{*/
             /*user.setId(id);*/
 
             try {
@@ -134,7 +133,7 @@ public class UserController {
             }
             /*user.setId(id);
             this.repo.save(user);*/
-        }
+        /*}*/
         model.addAttribute("orgList", this.orgRepo.findAll());
         model.addAttribute("deptList", this.deptRepo.findAll());
         model.addAttribute("degtList", this.degtRepo.findAll());
@@ -151,10 +150,10 @@ public class UserController {
 
     @GetMapping(value = "list")
     public String list(Model model){
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("list", this.repo.findAllByUserName(auth.getName()));
-        User user=this.repo.findByUserName(auth.getName());
-        model.addAttribute("users", user);
+      /*  Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("list", this.repo.findAllByUserName(auth.getName()));*/
+        model.addAttribute("list", this.repo.findAll());
+
         return "users/list";
     }
    /* @GetMapping(value = "/user-save")
