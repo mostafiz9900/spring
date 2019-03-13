@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Bhaban Add</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="basic-form-area mg-tb-15">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline12-list">
+                    <div class="sparkline12-hd">
+                        <div class="main-sparkline12-hd">
+                            <h1>All Form Element</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline12-graph">
+                        <div class="basic-login-form-ad">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="all-form-element-inner">
+                                        <span th:class="succes" th:text="${successMsg}"></span>
+<!--
+                                        <span th:class="err" th:text="${rejectMsg}"></span>
+-->
+                                        <form th:object="${bhaban}" th:action="@{/bhaban/add}" th:method="POST">
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Select Organization Name</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{organization}" class="form-control custom-select-value" name="account">
+                                                                <option th:each="org :${orgList}" th:value="${org.id}">
+                                                                    <span th:text="${org.orgName}"></span>
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Bhaban Name</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" th:field="*{bhabanName}" class="form-control" />
+                                                        <span th:class="err" th:if="${#fields.hasErrors('bhabanName')}" th:errors="*{bhabanName}">Bhabanname Error</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Address Name</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" th:field="*{address}" class="form-control" />
+                                                        <span th:class="err" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="login-btn-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3"></div>
+                                                        <div class="col-lg-9">
+                                                            <div class="login-horizental cancel-wp pull-left">
+                                                                <button class="btn btn-white" type="submit">Cancel</button>
+                                                                <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Bhaban</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

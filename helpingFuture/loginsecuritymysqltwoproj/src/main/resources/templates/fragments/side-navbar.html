@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:fragment="sidenavbar" id="sidebar" class="">
+    <div class="sidebar-header">
+        <a href="index.html"><img class="main-logo" src="/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt="" /></a>
+        <strong><img src="/img/logo/logo2.png" th:src="@{/img/logo/logo2.png}" alt="" /></strong>
+    </div>
+    <div class="left-custom-menu-adp-wrap comment-scrollbar">
+        <nav class="sidebar-nav left-sidebar-menu-pro">
+            <ul class="metismenu" id="menu1">
+                <li>
+                    <a class="has-arrow" href="index.html">
+                        <i class="fa big-icon fa-home icon-wrap"></i>
+                        <span class="mini-click-non">Role</span>
+                    </a>
+                    <ul class="submenu-angle" aria-expanded="true">
+                        <li><a title="Role List" th:href="@{/role/view-role}"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Role List</span></a></li>
+                        <li><a title="Role Add" th:href="@{/role/save-role}"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Role Add</span></a></li>
+                        <li><a title="Role Edit" th:href="@{/role/save-role}"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Role Edit</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" th:href="@{/us}" aria-expanded="false"><i class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">User</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="User List" th:href="@{/user/userview}"><i class="fa fa-female sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">User List</span></a></li>
+                        <li><a title="User Detail" th:href="@{/user/save-user}"><i class="fa fa-heart-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">User Add</span></a></li>
+
+                        <li><a title="User Edit" th:href="@{/user/edit-user/{id}}"><i class="fa fa-bolt sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">User Edit</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="Inbox" href="mailbox.html"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Inbox</span></a></li>
+                        <li><a title="View Mail" href="mailbox-view.html"><i class="fa fa-television sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">View Mail</span></a></li>
+                        <li><a title="Compose Mail" href="mailbox-compose.html"><i class="fa fa-paper-plane sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Compose Mail</span></a></li>
+                    </ul>
+                </li>
+
+
+
+
+                <li id="removable">
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="Login" href="login.html"><i class="fa fa-hand-rock-o sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Login</span></a></li>
+                        <li><a title="Register" href="register.html"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Register</span></a></li>
+                        <li><a title="Lock" href="lock.html"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Lock</span></a></li>
+                        <li><a title="Password Recovery" href="password-recovery.html"><i class="fa fa-wheelchair sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Password Recovery</span></a></li>
+                    </ul>
+                </li>
+                <li><a title="Landing Page" href="#" aria-expanded="false"><i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i> <span class="mini-click-non">Landing Page</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</nav>
+</body>
+</html>

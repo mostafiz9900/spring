@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!-- Required meta tags -->
+    <style>
+        .red {
+            color: red;
+        }
+
+        .gre {
+            color: green;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="container">
+    <div align="center">
+        <div class="red" th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div class="gre" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <table>
+                <tr>
+                    <td>UserName:</td>
+                    <td><input type="text" name="username" placeholder="Username" required=""/></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" placeholder="Password" required=""/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Sign In"/></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>

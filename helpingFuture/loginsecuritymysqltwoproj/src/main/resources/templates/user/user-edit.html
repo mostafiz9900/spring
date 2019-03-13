@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+  <head>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<div layout:fragment="custom-content">
+
+    <div class="container">
+
+        <form th:object="${user}" th:action="@{/user/edit-user/} + ${id}" method="POST">
+
+            <div class="form-group">
+                <label>Role Name:</label>
+                <select th:field="*{roles}" multiple>
+                    <option th:each="r:${rolelist}" th:value="${r.id}">
+                        <span th:text="${r.roleName}"></span>
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input th:field="*{name}" type="text" class="form-control" placeholder="Enter Name">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input th:field="*{email}" type="email" class="form-control" placeholder="Enter email">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+
+            <div class="form-group">
+                <label>User Name:</label>
+                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter username">
+                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input th:field="*{password}" type="password" class="form-control" placeholder="Enter Password">
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+
+  </body>
+</html>
