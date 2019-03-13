@@ -25,17 +25,17 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
                                         <span th:class="succes" th:text="${successMsg}"></span>
-                                        <form th:object="${minor}" th:action="@{/minor/add}" th:method="POST">
+                                        <form th:object="${dto}" th:action="@{/minor/add/}+${id}" th:method="POST">
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Subject</label>
+                                                        <label class="login2 pull-right pull-right-pro">Officer Name</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select th:field="*{meeting}" class="form-control custom-select-value" name="account">
-                                                                <option th:each="met :${meetingList}" th:value="${met.id}">
-                                                                    <span th:text="${met.subject}"></span>
+                                                            <select th:field="*{presentOfficers}" class="form-control custom-select-value" name="account">
+                                                                <option th:each="oficer :${dto.getPresentOfficers()}" th:value="${oficer.id}">
+                                                                    <span th:text="${oficer.getFirstName()}+' '+${oficer.getLastName()}"></span>
                                                                 </option>
 
                                                             </select>
@@ -43,58 +43,69 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">User Name</label>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <div class="form-select-list">
-                                                            <select th:field="*{meeting}" class="form-control custom-select-value" name="account">
-                                                                <option th:each="met :${meetingList}" th:value="${met.id}">
-                                                                    <span th:text="${met.users}"></span>
-                                                                </option>
-
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">meetingTitle</label>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" th:field="*{}" class="form-control" />
+                                            <span th:class="err" th:if="${#fields.hasErrors('meetingTitle')}" th:errors="*{meetingTitle}">roomNo Error</span>
+                                            </div>
+                                            </div>
                                             </div>
 
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">meetingTitle</label>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{meetingTitle}" class="form-control" />
-                                                        <span th:class="err" th:if="${#fields.hasErrors('meetingTitle')}" th:errors="*{meetingTitle}">roomNo Error</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">agendaAction</label>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{agendaAction}" class="form-control" />
-                                                        <span th:class="err" th:if="${#fields.hasErrors('agendaAction')}" th:errors="*{agendaAction}">roomNo Error</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Remark</label>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{remark}" class="form-control" />
-                                                        <span th:class="err" th:if="${#fields.hasErrors('remark')}" th:errors="*{remark}">roomNo Error</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!--<div class="form-group-inner">-->
+                                                <!--<div class="row">-->
+                                                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+                                                        <!--<label class="login2 pull-right pull-right-pro">User Name</label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">-->
+                                                        <!--<div class="form-select-list">-->
+                                                            <!--<select th:field="*{meeting}" class="form-control custom-select-value" name="account">-->
+                                                                <!--<option th:each="met :${meetingList}" th:value="${met.id}">-->
+                                                                    <!--<span th:text="${met.users}"></span>-->
+                                                                <!--</option>-->
+
+                                                            <!--</select>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="form-group-inner">-->
+                                                <!--<div class="row">-->
+                                                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+                                                        <!--<label class="login2 pull-right pull-right-pro">meetingTitle</label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">-->
+                                                        <!--<input type="text" th:field="*{meetingTitle}" class="form-control" />-->
+                                                        <!--<span th:class="err" th:if="${#fields.hasErrors('meetingTitle')}" th:errors="*{meetingTitle}">roomNo Error</span>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group-inner">-->
+                                                <!--<div class="row">-->
+                                                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+                                                        <!--<label class="login2 pull-right pull-right-pro">agendaAction</label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">-->
+                                                        <!--<input type="text" th:field="*{agendaAction}" class="form-control" />-->
+                                                        <!--<span th:class="err" th:if="${#fields.hasErrors('agendaAction')}" th:errors="*{agendaAction}">roomNo Error</span>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group-inner">-->
+                                                <!--<div class="row">-->
+                                                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+                                                        <!--<label class="login2 pull-right pull-right-pro">Remark</label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">-->
+                                                        <!--<input type="text" th:field="*{remark}" class="form-control" />-->
+                                                        <!--<span th:class="err" th:if="${#fields.hasErrors('remark')}" th:errors="*{remark}">roomNo Error</span>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
 
                                             <div class="login-btn-inner">
                                                     <div class="row">

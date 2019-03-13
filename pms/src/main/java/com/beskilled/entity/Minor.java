@@ -2,6 +2,7 @@ package com.beskilled.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "minor")
@@ -13,7 +14,10 @@ public class Minor {
     private String agendaAction;
     private String remark;
 
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "minor_officer", joinColumns =@JoinColumn(name = "minor_id"),
+            inverseJoinColumns = @JoinColumn(name = "officer_id"))
+    private Set<User> users;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")

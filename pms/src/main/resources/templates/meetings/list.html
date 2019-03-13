@@ -50,6 +50,7 @@
 
                                             <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
+                                            <th data-field="minor">Write Minors</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
@@ -79,6 +80,9 @@
                                             </td>
                                             <td>
                                                 <a class="button danger" th:href="@{'/meet/del/'+${meeting.id}}">Del</a>
+                                            </td>
+                                            <td>
+                                                <a class="button danger" th:href="@{'/minor/add/'+${meeting.id}}">Minors</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>
