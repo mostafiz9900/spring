@@ -1,8 +1,7 @@
-<%@page import="javax.servlet.descriptor.TaglibDescriptor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@taglib prefix="form"  uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,20 +15,27 @@
 
 <div class="container">
   <h2>Vertical (basic) form</h2>
-  <form:form action="/add" method="post" modelAddAttribute="student">
-  
-  <div class="form-group">
-      <label for="name">Name:</label>
-      <form:input path="name"  class="form-control" id="name" placeholder="Enter Name" name="name"/>
+  <form:form  action="add" method="post" modelAttribute="student">
+   <div>
+     
+      <form:input type="hidden" path="id" />
     </div>
-   
-   <div class="form-group">
-      <label for="email">Email:</label>
-      <form:input path="email"  class="form-control" id="email" placeholder="Enter email" name="email"/>
+    
+    <div class="form-group">
+      <label for="names">Name:</label>
+      <form:input path="name"  class="form-control" id="names" placeholder="Enter Name" />
+    </div>
+    <div class="form-group">
+      <label for="emails">Email:</label>
+      <form:input type="email" path="emain" class="form-control" id="emails" placeholder="Enter email" name="email"/>
+    </div>
+    <div class="form-group">
+      <label for="pass">Password:</label>
+      <form:input path="pass" type="password" class="form-control" id="pass" placeholder="Enter password" name="pass"/>
     </div>
     
     
-    <button type="submit" class="btn btn-default">Submit</button>
+    <form:button type="submit" class="btn btn-default">Submit</form:button>
   </form:form>
 </div>
 

@@ -31,21 +31,16 @@
     </thead>
     <tbody>
     <c:forEach var="listStudent" items="${list}">
-    <c:url var="updateLink" value="/edit/{id}">
-    <c:param name="id" value="$listStudent.id"></c:param>
-    </c:url>
-    <c:url var="deleteLink" value="/del/{id}">
-    <c:param name="id" value="$listStudent.id"></c:param>
-    </c:url>
+    
     <tr>
     <td>${listStudent.firstName}</td>
 		<td>${listStudent.lastName}</td>
 		<td>${listStudent.email}</td>
 		<td>
-		<a href="${updateLink}">Update</a>
+		<a href="/crud2/edit/${listStudent.id}">Update</a>
 		</td>
 		<td>
-		<a href="${deleteLink}">Delete</a>
+		<a href="/crud2/del/${listStudent.id}">Delete</a>
 		</td>
     </tr>
     

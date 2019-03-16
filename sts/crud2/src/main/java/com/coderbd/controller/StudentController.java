@@ -22,7 +22,7 @@ public class StudentController {
 	@GetMapping(value="/")
 	public String studList(Model model) {
 		model.addAttribute("list", this.repo.findAll());
-		return "/index";
+		return "index";
 		
 	}
 	
@@ -56,7 +56,7 @@ public class StudentController {
 	@PostMapping(value="/edit/{id}")
 	public String edit(@Valid Student student, @PathVariable("id") Long id, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return"edit-page";
+			return "edit-page";
 			
 		}
 		this.repo.save(student);	

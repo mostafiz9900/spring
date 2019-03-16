@@ -1,5 +1,6 @@
 package com.coderbd.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,20 +10,27 @@ import javax.persistence.Id;
 public class Student {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+private Long id;
+	
+	@Column(name="name")
 	private String name;
 	
-	private String email;
-
+	@Column(name="email")
+	private String emain;
+	
+	@Column(name="pass")
+	private String pass;
+	
 	public Student() {
 		super();
 	}
 
-	public Student(Long id, String name, String email) {
+	public Student(Long id, String name, String emain, String pass) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.email = email;
+		this.emain = emain;
+		this.pass = pass;
 	}
 
 	public Long getId() {
@@ -41,14 +49,27 @@ public class Student {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmain() {
+		return emain;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmain(String emain) {
+		this.emain = emain;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", emain=" + emain + ", pass=" + pass + "]";
 	}
 	
 	
-
+	
 }

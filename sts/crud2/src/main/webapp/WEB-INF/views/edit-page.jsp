@@ -15,7 +15,7 @@
 <div class="container">
 <a href="http://localhost:8080/crud2">Add student</a>
   
-  <form:form  action="/edit/{id}" method="post" modelAttribute="student">
+  <form:form  action="/crud2/edit/${id}" method="post" modelAttribute="student">
   <div>
      
       <form:input type="hidden" path="id" />
