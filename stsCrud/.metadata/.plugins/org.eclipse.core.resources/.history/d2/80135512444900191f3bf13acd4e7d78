@@ -1,0 +1,18 @@
+package com.beskilled.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.beskilled.repository.StudentRepository;
+
+@Controller
+public class StudentController {
+	@Autowired
+	private StudentRepository repo;
+	
+	@GetMapping(value="/")
+public String indx() {
+return "index";	
+}
+}

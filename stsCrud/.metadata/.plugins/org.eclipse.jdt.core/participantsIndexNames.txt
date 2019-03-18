@@ -1,0 +1,5 @@
+INDEX VERSION 1.130
+D:\bitbucket\stsCrud\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\964091066.index
+\crud6\src\main\java
+D:\bitbucket\stsCrud\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2827488804.index
+\crudsts\src\main\java

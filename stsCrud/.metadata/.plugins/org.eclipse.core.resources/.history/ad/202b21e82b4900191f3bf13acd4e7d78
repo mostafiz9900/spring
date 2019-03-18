@@ -1,0 +1,5 @@
+package com.coderbd.repository;
+
+public interface StudentRepository {
+
+}

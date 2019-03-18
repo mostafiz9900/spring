@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sun Mar 17 10:27:23 BDT 2019
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Mahabub\\Documents\\newevi\\crudsts\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.1.0.RELEASE.jar=D\:\\IDB Information\\Software\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\crudsts\\WEB-INF\\lib\\spring-web-5.1.0.RELEASE.jar
+org.eclipse.jst.jee.server\:crudsts=D\:\\IDB Information\\Software\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\crudsts

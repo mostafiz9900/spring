@@ -1,0 +1,8 @@
+package com.coderbd.exception;
+
+public class Snippet {
+	public static void main(String[] args) {
+		ResourceNotFoundException.java
+	}
+}
+

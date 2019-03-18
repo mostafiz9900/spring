@@ -1,0 +1,1150 @@
+!SESSION 2019-03-18 08:47:27.391 -----------------------------------------------
+eclipse.buildId=3.9.4.201804120921-RELEASE-e47
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.sts.ide
+
+!ENTRY org.eclipse.ui 2 0 2019-03-18 08:49:37.469
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-03-18 08:49:37.469
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.lsp4e', id='org.eclipse.lsp4e.togglehighlight'
+
+!ENTRY org.eclipse.jface 2 0 2019-03-18 08:49:46.707
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-03-18 08:49:46.707
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@210dd260,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68b3ae18,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2019-03-18 08:49:51.614
+!MESSAGE org.eclipse.jdt.junit.ResultView: Deprecated relationship "fast" should be converted to "stack".
+
+!ENTRY org.eclipse.ui 2 2 2019-03-18 08:49:51.614
+!MESSAGE org.springframework.ide.eclipse.aop.ui.navigator.aopReferenceModelNavigator: Deprecated relationship "fast" should be converted to "stack".
+
+!ENTRY org.eclipse.ui 2 2 2019-03-18 08:49:51.614
+!MESSAGE org.eclipse.contribution.xref.ui.views.XReferenceView: Deprecated relationship "fast" should be converted to "stack".
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 08:49:53.801
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 08:49:53.801
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 12 2019-03-18 08:50:08.690
+!MESSAGE Unable to parse pattern: ‘*’. ; version: 2.0.7.v20170906-1327
+!STACK 0
+org.eclipse.epp.logging.aeri.core.util.Logs$LogTraceException
+	at org.eclipse.epp.logging.aeri.core.util.Logs$LogTraceException.newTrace(Logs.java:387)
+	at org.eclipse.epp.logging.aeri.core.util.Logs.log(Logs.java:134)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConfiguration.getIgnoredPluginMessagesPatterns(ServerConfiguration.java:333)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:168)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-03-18 08:50:40.508
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\User'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springsource.ide.eclipse.commons.browser 4 0 2019-03-18 08:51:00.848
+!MESSAGE Could not call browser function extension: addHtml
+!STACK 0
+org.eclipse.core.commands.ExecutionException: Problems executing script: 'window.addHtml("feeds", "<div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/15/a-bootiful-podcast-spring-security-engineer-and-oauth-slayer-joe-grandja')\">A Bootiful Podcast: Spring Security engineer and OAuth slayer Joe Grandja</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! Welcome to another installment of a Bootiful Podcast! This week Josh Long (@starbuxman) talks to Joe Grandja (@joegrandja) who, not coincidentally, just celebrated his third anniversary ...\t\t<span class=\"author\">Josh Long <i>Mar 15, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/14/spring-tips-be-lazy-and-fast-with-spring-boot-2-2-m1')\">Spring Tips: Be Lazy AND Fast with Spring Boot 2.2.M1!</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! Welcome to a super quick, intra-season interregnum installment of Spring Tips in which we look at a few features that let you be both lazy AND fast in Spring Boot 2.2! speaker: Josh Long ...\t\t<span class=\"author\">Josh Long <i>Mar 14, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/14/lazy-initialization-in-spring-boot-2-2')\">Lazy Initialization in Spring Boot 2.2</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>The recently announced first milestone of Spring Boot 2.2 introduces support for lazy initialization. This post describes the new functionality and explains how and when to enable it.What Does it Mean ...\t\t<span class=\"author\">Andy Wilkinson <i>Mar 14, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/13/this-week-in-spring-march-12th-2019')\">This Week in Spring - March 12th, 2019</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! What a week! I’m in Seattle, Washington where I’ve been spending time with Pivotal partner Microsoft talking about all things Spring, Cloud Foundry and Azure, and then tonight I spoke at ...\t\t<span class=\"author\">Josh Long <i>Mar 13, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/11/memory-footprint-of-the-jvm')\">Memory footprint of the JVM</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>The JVM can be a complex beast. Thankfully, much of that complexity is under the hood, and we as application developers and deployers often don’t have to worry about it too much. With the rise of container ...\t\t<span class=\"author\">Andy Wilkinson <i>Mar 11, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/08/spring-boot-2-2-m1')\">Spring Boot 2.2 M1</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>On behalf of the team and everyone that contributed, I am pleased to announce that the first milestone of Spring Boot 2.2 has been released and is available from our milestone repository. This release ...\t\t<span class=\"author\">Andy Wilkinson <i>Mar 8, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/08/a-bootiful-podcast-matt-raible-and-james-ward-at-devnexus-2019')\">A Bootiful Podcast: Matt Raible and James Ward at Devnexus 2019</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! In this extra-long installment I talk with longtime friends and fellow developer advocates, Okta’s Matt Raible and Google’s James Ward. We talked about Java, Kotlin, Spring, cloud computing ...\t\t<span class=\"author\">Josh Long <i>Mar 8, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/07/spring-cloud-greenwich-sr1-is-now-available')\">Spring Cloud Greenwich.SR1 is now available</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>On behalf of the community, I am pleased to announce that the Service Release 1 (SR1) of the Spring Cloud Greenwich Release Train is available today. The release can be found in Maven Central. You can ...\t\t<span class=\"author\">Ryan Baxter <i>Mar 7, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/07/spring-data-moore-m2-released')\">Spring Data Moore M2 released</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>On behalf of the Spring Data team, I’m pleased to announce the availability of the second milestone of the Moore release train. Notable changes include: Support for Kotlin Coroutines in Spring Data MongoDB ...\t\t<span class=\"author\">Christoph Strobl <i>Mar 7, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/07/has-there-ever-been-a-better-time-to-become-a-java-developer')\">Has there ever been a better time to become a Java developer?</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Surely there’s never been a better time to become a Java developer? There are productivity tools available these days that would have been mind-blowing just five years ago. Take Spring Boot for example ...\t\t<span class=\"author\">Ben Wilcock <i>Mar 7, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/06/spring-cloud-data-flow-and-skipper-2-0-ga-released')\">Spring Cloud Data Flow and Skipper 2.0 GA Released</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>The Spring Cloud Data Flow team is pleased to announce the release of 2.0 of Data Flow. Follow the Getting Started guides for running on Local, Cloud Foundry, and Kubernetes. Hand in hand is the 2.0 release ...\t\t<span class=\"author\">Mark Pollack <i>Mar 7, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/06/flight-of-the-flux-1-assembly-vs-subscription')\">Flight of the Flux 1 - Assembly vs Subscription</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>This blog post is the first in a series of posts that aim at providing a deeper look into Reactor’s more advanced concepts and inner workings. It is derived from my Flight of the Flux talk, which content ...\t\t<span class=\"author\">Simon Baslé <i>Mar 6, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/05/this-week-in-spring-march-5th-2019')\">This Week in Spring  - March 5th, 2019</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! Welcome to another installment of This Week in Spring! I flew 14 hours to Tel Aviv, Israel. I then spent 28h on the ground visiting customers, visiting my friends at Codota, and then presenting ...\t\t<span class=\"author\">Josh Long <i>Mar 6, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/05/spring-hateoas-1-0-m1-released')\">Spring HATEOAS 1.0 M1 released</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Dear Spring community, we’re proud to announce the first milestone of Spring HATEOAS 1.0. Spring HATEOAS has been in development for almost seven years now. What started as tiny extension to Spring MVC ...\t\t<span class=\"author\">Greg Turnquist <i>Mar 5, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/05/spring-initializr-new-ui')\">Spring Initializr: new UI</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>On behalf of the team and everyone who has contributed, I’m happy to announce that Spring Initializr has been updated and is now available on start.spring.io.A short history of Spring Initializr The project ...\t\t<span class=\"author\">Damien Vitrac <i>Mar 5, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/04/java-cfenv-1-0-ga-released')\">java-cfenv 1.0 GA Released</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>The java-cfenv library is a new library for accessing Cloud Foundry Services. For Spring Boot users, it extracts service credentials from the VCAP_SERVICES environment variable and sets well known Spring ...\t\t<span class=\"author\">Mark Pollack <i>Mar 5, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/03/01/reactor-project-lead-st-phane-maldini')\">Reactor project lead Stéphane Maldini</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! This week I’m excited to sit down and talk with mr. Reactive himself, Reactor project lead Stéphane Maldini. In this interview we talk about the history of the reactive programming for ...\t\t<span class=\"author\">Josh Long <i>Mar 1, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/02/27/java-cfenv-1-0-rc1-released')\">java-cfenv 1.0 RC1 Released</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>The java-cfenv library is new library for accessing Cloud Foundry Services. For Spring Boot users, it extracts service credentials from the VCAP_SERVICES environment variable and sets well known Spring ...\t\t<span class=\"author\">Mark Pollack <i>Feb 28, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/02/27/spring-vault-2-1-2-release-available')\">Spring Vault 2.1.2.RELEASE available</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>On behalf of the community, I’d like to announce the availability of the Spring Vault service release 2.1.2 available from Maven Central. This release ships with bug fixes and dependency version updates ...\t\t<span class=\"author\">Mark Paluch <i>Feb 27, 2019</i></span></p>\t\t</div>\t</div></div><div class=\"blog--container blog-preview\">\t<div class=\"blog--title\"><i class=\"fa fa-star new-star\"></i>\t<a href=\"\" onclick=\"return ide.call('openWebPage', 'https://spring.io/blog/2019/02/26/this-week-in-spring-february-26-2019')\">This Week in Spring - February 26, 2019</a>\t</div>\t<div class=\"blog--post\">\t\t<div>\t\t\t<p>Hi Spring fans! What a week! This week I’m in San Francisco, CA; Columbus, OH (for the epic SpringOne Tour stop there), and then it’s off to Tel Aviv, Israel for customer visits and an appearance at the ...\t\t<span class=\"author\">Josh Long <i>Feb 27, 2019</i></span></p>\t\t</div>\t</div></div>")'
+	at org.springsource.ide.eclipse.commons.browser.swt.StsBrowserManager.lambda$0(StsBrowserManager.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:00:07.390
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:00:07.392
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:00:26.443
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:00:26.465
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.recommenders.subwords.rcp 4 1 2019-03-18 09:01:13.460
+!MESSAGE Exception during code completion
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.checkCancel(CompletionEngine.java:1896)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.acceptType(CompletionEngine.java:1391)
+	at org.eclipse.jdt.internal.core.SearchableEnvironmentRequestor.acceptType(SearchableEnvironmentRequestor.java:119)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypesInBinaryPackage(NameLookup.java:1408)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1341)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1256)
+	at org.eclipse.jdt.internal.core.NameLookup.findAllTypes(NameLookup.java:407)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1317)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1256)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.findTypes(SearchableEnvironment.java:816)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.findTypes(SearchableEnvironment.java:612)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.findTypesAndPackages(CompletionEngine.java:11196)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.completionOnMarkerAnnotationName(CompletionEngine.java:2952)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:1964)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:2251)
+	at org.eclipse.jdt.internal.core.Openable.codeComplete_aroundBody0(Openable.java:131)
+	at org.eclipse.jdt.internal.core.Openable$AjcClosure1.run(Openable.java:1)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$5$48374bd9proceed(ITDAwarenessAspect.aj:280)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$5$48374bd9(ITDAwarenessAspect.aj:294)
+	at org.eclipse.jdt.internal.core.Openable.codeComplete(Openable.java:107)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:358)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:346)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.computeProposals(SubwordsSessionProcessor.java:341)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.getNewProposals(SubwordsSessionProcessor.java:228)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.initializeContext(SubwordsSessionProcessor.java:168)
+	at org.eclipse.recommenders.completion.rcp.processable.IntelligentCompletionProposalComputer.fireInitializeContext(IntelligentCompletionProposalComputer.java:293)
+	at org.eclipse.recommenders.completion.rcp.processable.IntelligentCompletionProposalComputer.computeCompletionProposals(IntelligentCompletionProposalComputer.java:170)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.computeCompletionProposals(CompletionProposalComputerDescriptor.java:333)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.computeCompletionProposals(CompletionProposalCategory.java:337)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.collectProposals(ContentAssistProcessor.java:331)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.computeCompletionProposals(ContentAssistProcessor.java:288)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$3.run(ContentAssistant.java:2007)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2004)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:560)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.access$7(CompletionProposalPopup.java:555)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup$2.run(CompletionProposalPopup.java:489)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:482)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1823)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:184)
+	at org.eclipse.ui.texteditor.ContentAssistAction$1.run(ContentAssistAction.java:84)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:118)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:92)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:239)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:287)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:527)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:577)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:385)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.access$0(KeyBindingDispatcher.java:331)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:88)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1271)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1078)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4962)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4843)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2560)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3815)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:18:47.749
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:18:47.750
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:18:57.333
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-18 09:18:57.334
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.wst.server.core 4 0 2019-03-18 09:55:47.219
+!MESSAGE Server Pivotal tc Server Developer Edition v4.0 was unable to start within 120 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:35:46.974
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:35:47.004
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:37:12.349
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:37:12.353
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:37:26.875
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:37:26.876
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:38:08.864
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:38:08.866
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.recommenders.subwords.rcp 4 1 2019-03-18 11:38:23.056
+!MESSAGE Exception during code completion
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.checkCancel(CompletionEngine.java:1896)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.acceptType(CompletionEngine.java:1391)
+	at org.eclipse.jdt.internal.core.SearchableEnvironmentRequestor.acceptType(SearchableEnvironmentRequestor.java:119)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypesInBinaryPackage(NameLookup.java:1408)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1341)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1256)
+	at org.eclipse.jdt.internal.core.NameLookup.findAllTypes(NameLookup.java:407)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1317)
+	at org.eclipse.jdt.internal.core.NameLookup.seekTypes(NameLookup.java:1256)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.findTypes(SearchableEnvironment.java:816)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.findTypes(SearchableEnvironment.java:612)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.findTypesAndPackages(CompletionEngine.java:11196)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.completionOnMarkerAnnotationName(CompletionEngine.java:2952)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:1964)
+	at org.eclipse.jdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:2251)
+	at org.eclipse.jdt.internal.core.Openable.codeComplete_aroundBody0(Openable.java:131)
+	at org.eclipse.jdt.internal.core.Openable$AjcClosure1.run(Openable.java:1)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$5$48374bd9proceed(ITDAwarenessAspect.aj:280)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$5$48374bd9(ITDAwarenessAspect.aj:294)
+	at org.eclipse.jdt.internal.core.Openable.codeComplete(Openable.java:107)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:358)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:346)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.computeProposals(SubwordsSessionProcessor.java:341)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.getNewProposals(SubwordsSessionProcessor.java:228)
+	at org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor.initializeContext(SubwordsSessionProcessor.java:168)
+	at org.eclipse.recommenders.completion.rcp.processable.IntelligentCompletionProposalComputer.fireInitializeContext(IntelligentCompletionProposalComputer.java:293)
+	at org.eclipse.recommenders.completion.rcp.processable.IntelligentCompletionProposalComputer.computeCompletionProposals(IntelligentCompletionProposalComputer.java:170)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.computeCompletionProposals(CompletionProposalComputerDescriptor.java:333)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.computeCompletionProposals(CompletionProposalCategory.java:337)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.collectProposals(ContentAssistProcessor.java:331)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.computeCompletionProposals(ContentAssistProcessor.java:288)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$3.run(ContentAssistant.java:2007)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2004)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:560)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.access$7(CompletionProposalPopup.java:555)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup$2.run(CompletionProposalPopup.java:489)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:482)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1823)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:184)
+	at org.eclipse.ui.texteditor.ContentAssistAction$1.run(ContentAssistAction.java:84)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:118)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:92)
+	at sun.reflect.GeneratedMethodAccessor116.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:239)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:287)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:527)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:577)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:385)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.access$0(KeyBindingDispatcher.java:331)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:88)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1271)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1078)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4962)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4843)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2560)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3815)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.eclipse.jdt.ui 2 0 2019-03-18 11:38:23.060
+!MESSAGE The 'org.eclipse.recommenders.completion.rcp.javaCompletionProposalComputer.intelligent' proposal computer from the 'org.eclipse.recommenders.completion.rcp' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:44:58.295
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:44:58.297
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:46:14.959
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:46:14.961
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:47:39.007
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:47:39.009
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:53:20.915
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:53:20.916
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 11:53:28.040
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 11:53:28.042
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 12:00:27.380
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 12:00:27.382
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 12:00:27.947
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 12:00:27.950
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 12:07:13.353
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 12:07:13.376
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 2 2019-03-18 12:16:53.017
+!MESSAGE Problems occurred when invoking code from plug-in: "org.springframework.ide.eclipse.beans.core".
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-03-18 12:16:53.020
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+java.lang.NoSuchMethodError: org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition(Ljava/lang/Class;Ljava/util/function/Supplier;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.get(BeanTypeRegistry.java:363)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:297)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:125)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:443)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:432)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:127)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:116)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$3.run(BeansJavaConfig.java:332)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.executePostProcessor(BeansJavaConfig.java:321)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.access$5(BeansJavaConfig.java:319)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:233)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)

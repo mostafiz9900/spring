@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Mon Mar 18 11:11:03 ALMT 2019
+org.eclipse.jst.jee.server\:/binary\:D\:\\bitbucket\\stsCrud\\crud6\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.1.0.RELEASE.jar=C\:\\Users\\User\\Desktop\\sts\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\crud6\\WEB-INF\\lib\\spring-web-5.1.0.RELEASE.jar
+org.eclipse.jst.jee.server\:crud6=C\:\\Users\\User\\Desktop\\sts\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\crud6
