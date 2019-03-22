@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        #nn {
+            background-color: green;
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+<del class="nn">
+    <h2>Data Display Studet Form</h2>
+    <span style="color: green; font-weight: 900" th:text="${successMsg}"></span>
+    <form th:object="${stu}" th:action="@{/}" th:method="POST">
+        <label>Name :</label>
+        <input type="text" th:field="*{name}"/><br></br>
+        <label>Gender :</label>
+        Mail: <input type="radio" value="mail" th:field="*{gender}"/>
+        Femail: <input type="radio" value="mail" th:field="*{gender}"/>
+        <br></br>
+        <label>Round :</label>
+        <select th:field="*{round}">
+            <option value="">Thymus vulgaris</option>
+            <option value="2">Thymus x citriodorus</option>
+            <option value="3">Thymus herba-barona</option>
+            <option value="4">Thymus pseudolaginosus</option>
+            <option value="5">Thymus serpyllum</option>
+        </select>
+        <br></br>
+        <label>Subject :</label>
+        Java: <input type="checkbox" value="java" th:field="*{subject}"/>
+        PHP: <input type="checkbox" value="php" th:field="*{subject}"/>
+        DDT:<input type="checkbox" value="ddd" th:field="*{subject}"/>
+        <br></br>
+
+        <button type="submit">Save</button>
+    </form>
+</del>
+
+</body>
+</html>
